@@ -7,6 +7,9 @@ A collection of blocks that display dynamic content for the Harvestworks website
 - Upload file as new plugin in "Plugins" screen in WP dashboard.
 - Activate new plugin.
 
+## Wordpress Plugin Dependencies
+- [Advanced Custom Fields (ACF)](https://www.advancedcustomfields.com/)
+
 ## Blocks
 
 ### Featured Events Carousel
