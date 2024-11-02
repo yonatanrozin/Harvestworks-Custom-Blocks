@@ -1,0 +1,45 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-harvestworks-events-carousel {
+
+	width: 100%;
+	aspect-ratio: 3;
+	overflow: auto;
+	display: flex;
+	scrollbar-width: none;
+
+	scroll-snap-type: both mandatory;
+	scroll-behavior: smooth;
+
+	a {
+		scroll-snap-align: start;
+		min-width: 100%;
+		min-height: 100%;
+		float: left;
+		background-size: cover;
+		position: relative;
+
+		.featured_project_text {
+			padding: 5px 10px;
+			background-color: rgba(0, 0, 0, .6);
+			color: white;
+			position: absolute;
+			bottom: 0;
+			margin: 0;
+			> * {margin: 0; color: white; font-family: var(--wp--preset--font-family--body);}
+			> #project_title {
+				font-size: 1.6em;
+			}
+			> #project_excerpt {
+				font-size: .7em;
+			}
+		}
+	}
+
+	a:hover #project_title {text-decoration: underline;}
+}
