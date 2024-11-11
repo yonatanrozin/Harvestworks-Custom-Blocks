@@ -9,6 +9,9 @@ A collection of blocks that display dynamic content for the Harvestworks website
 
 ## Wordpress Plugin Dependencies
 - [Advanced Custom Fields (ACF)](https://www.advancedcustomfields.com/)
+    - Download manually from ACF website, NOT Wordpress plugins page!
+- [GenerateBlocks](https://wordpress.org/plugins/generateblocks/)
+    - Install from Wordpress plugins page
 
 ## Blocks
 

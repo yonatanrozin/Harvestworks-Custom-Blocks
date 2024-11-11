@@ -32,7 +32,8 @@ import './editor.scss';
 export default function Edit() {
 	return (
 		<div { ...useBlockProps() }>
-			<InnerBlocks allowedBlocks={["core/query"]} template={[["core/query", {}]]} />
+			Make sure to configure internal query loop parameters!
+			<InnerBlocks allowedBlocks={["generateblocks/query-loop"]} template={[["generateblocks/query-loop"]]} />
 		</div>
 	);
 }
