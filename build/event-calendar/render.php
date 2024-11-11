@@ -116,11 +116,6 @@
 
 			const firstOfMonth = new Date(year, month, 1).getDay();
 
-			// document.querySelectorAll("#calendar_offset").forEach(off => 
-			// 	document.querySelector("#calendar_Body").removeChild(off));
-			// for (let i = 0; i < firstOfMonth; i++) 
-			// 	document.querySelector("#calendar_body").prepend(offsets[i]);
-
 			document.querySelector(".calendar_day").style.gridColumnStart = firstOfMonth + 1;
 			document.querySelector("#calendar_date h3").innerHTML = 
 				dateView.toLocaleString("default", {month: "short"}) + " " +
