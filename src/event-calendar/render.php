@@ -45,6 +45,8 @@
 		}
 		.calendar_day.queried {
 			background-color: <?= $attributes["queried_day_color"]?>;
+			box-shadow: 0px 0px 25px <?= $attributes["queried_day_color"] ?>;
+			z-index: 1;
 			color: white;
 		}
 	</style>

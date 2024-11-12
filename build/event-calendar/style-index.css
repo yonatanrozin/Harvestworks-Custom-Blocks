@@ -8,6 +8,9 @@
  * Replace them with your own styles or remove the file completely.
  */
 .wp-block-harvestworks-event-calendar #calendar {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(6, auto);
