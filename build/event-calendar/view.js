@@ -25,7 +25,7 @@
  */
 
 /* eslint-disable no-console */
-console.log('Hello World! (from create-block-event-calendar block)');
+
 /* eslint-enable no-console */
 /******/ })()
 ;

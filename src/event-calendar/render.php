@@ -48,6 +48,7 @@
 			box-shadow: 0px 0px 25px <?= $attributes["queried_day_color"] ?>;
 			z-index: 1;
 			color: white;
+			transition: background-color .3s ease, box-shadow .3s ease; */
 		}
 	</style>
 	<script>
@@ -75,7 +76,8 @@
 		}
 		
 		function calendarSetup() {
-			const queried = new Date(url.searchParams.get("date"));
+			const dateSearch = url.searchParams.get("date");
+			const queried = new Date(new Date(dateSearch === "today" ? Date.now() : dateSearch).toDateString());
 
 			const month = dateView.getMonth();
 			const year = dateView.getFullYear();
