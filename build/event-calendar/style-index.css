@@ -37,6 +37,7 @@
 }
 .wp-block-harvestworks-event-calendar #calendar #calendar_date > * {
   margin: 0;
+  font-family: inherit;
 }
 .wp-block-harvestworks-event-calendar #calendar button {
   cursor: pointer;
@@ -49,6 +50,7 @@
   text-align: center;
   outline: none;
   flex: 1;
+  padding: 10px;
 }
 .wp-block-harvestworks-event-calendar #calendar .calendar_day {
   display: flex;
