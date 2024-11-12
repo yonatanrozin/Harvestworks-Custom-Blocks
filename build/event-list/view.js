@@ -27,8 +27,8 @@
 /* eslint-disable no-console */
 
 const allEventDetails = Object.fromEntries(event_JSON.map(e => [e.id, e]));
-const loopBlock = document.querySelector(".wp-block-post-template");
-const allPosts = Array.from(document.querySelectorAll(".wp-block-post"));
+const loopBlock = document.querySelector(".gb-grid-wrapper");
+const allPosts = Array.from(loopBlock.children);
 
 //look for element class "post-###", get the number, lookup in event details
 function eventDetailsFromElement(e) {
@@ -44,7 +44,7 @@ function dateFromACFField(date) {
 function filterList() {
   //get valid searched date from URL, default to current date, ignore time
   const dateParam = new URL(window.location.href).searchParams.get("date");
-  let searchStart = new Date(dateParam === null ? Date.now() : dateParam);
+  let searchStart = new Date(dateParam === null || dateParam === "today" ? Date.now() : dateParam);
   if (searchStart == "Invalid Date") searchStart = new Date();
   searchStart.setHours(0, 0, 0);
   loopBlock.innerHTML = "";
@@ -52,7 +52,6 @@ function filterList() {
   searchEnd.setDate(searchStart.getDate() + 1);
   for (const post of allPosts) {
     const {
-      title,
       date
     } = eventDetailsFromElement(post);
     let [startDate, endDate] = date.map(d => dateFromACFField(d)?.valueOf());
