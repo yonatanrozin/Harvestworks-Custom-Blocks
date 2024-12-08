@@ -1,0 +1,136 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-create-block-logo-people {
+	max-width: 1080px;
+	width: 90vw;
+	margin-left: auto;
+	margin-right: auto;
+
+	.people {
+		position: relative;
+
+		display: flex;
+		flex-direction: row;
+		flex-wrap: none;
+		justify-content: space-between;
+		align-items: baseline;
+
+		overflow: hidden;
+
+		width: auto;
+		margin-left: 6rem;
+		margin-right: 6rem;
+		gap: 2rem;
+
+		img {
+			flex-shrink: 1;
+			height: 100%;
+			max-height: 6rem;
+			min-width: 0;
+
+			filter: drop-shadow(0px 1000px 0 #a7ad8bFF);
+			transform: translateY(-1000px);
+
+		}
+
+		img.active {
+			filter: drop-shadow(0px 1000px 0 #a7ad8b00);
+			transform: none;
+			background-color: transparent;
+		}
+
+		@media (max-width: 1024px) {
+			max-width: 100%;
+			gap: 2rem;
+			margin-left: 2rem;
+			margin-right: 2rem;
+		}
+
+		@media (max-width: 767px) {
+			display: none;
+		}
+
+	}
+
+	.mobilePeople {
+		display: none;
+
+
+		position: relative;
+
+		flex-direction: row;
+		flex-wrap: none;
+		justify-content: space-between;
+		align-items: baseline;
+
+		overflow: hidden;
+
+		width: auto;
+		// margin-left: 6rem;
+		// margin-right: 6rem;
+		gap: 4rem;
+
+
+		img {
+			flex-shrink: 1;
+			height: 100%;
+			max-height: 6rem;
+			min-width: 0;
+
+			filter: drop-shadow(0px 1000px 0 #a7ad8bFF);
+			transform: translateY(-1000px);
+
+		}
+
+
+		@media (max-width: 767px) {
+			display: flex;
+			justify-content: center;
+
+			img.active {
+				max-height: 6rem;
+				transform: none;
+				display: block;
+				filter: drop-shadow(0px 1000px 0 #a7ad8b00);
+			}
+		}
+	}
+
+
+
+	.spacer {
+
+		height: 1.2rem;
+		background-color: #a7ad8b;
+
+	}
+
+	a {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 1;
+	}
+
+}
+
+.people:hover {
+	img {
+		filter: drop-shadow(0px 1000px 0 #a7ad8b00);
+		transform: none;
+	}
+}
+
+.mobilePeople:hover {
+	img {
+		filter: drop-shadow(0px 1000px 0 #a7ad8b00);
+		transform: none;
+	}
+}

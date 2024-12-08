@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Plugin Name:       Harvestworks Custom Blocks
  * Description:       A series of blocks created for the Harvestworks website.
@@ -13,7 +14,7 @@
  * @package Harvestworks
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (! defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
 
@@ -24,10 +25,11 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
-function harvestworks_harvestworks_block_init() {
-	register_block_type( __DIR__ . '/build/event-calendar' );
-	register_block_type( __DIR__ . '/build/event-list' );
-	register_block_type( __DIR__ . '/build/events-carousel' );
-
+function harvestworks_harvestworks_block_init()
+{
+	register_block_type(__DIR__ . '/build/event-calendar');
+	register_block_type(__DIR__ . '/build/event-list');
+	register_block_type(__DIR__ . '/build/events-carousel');
+	register_block_type(__DIR__ . '/build/logo-people');
 }
-add_action( 'init', 'harvestworks_harvestworks_block_init' );
+add_action('init', 'harvestworks_harvestworks_block_init');
