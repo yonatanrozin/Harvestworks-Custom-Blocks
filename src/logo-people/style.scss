@@ -5,11 +5,32 @@
  * Replace them with your own styles or remove the file completely.
  */
 
+// Define variables
+$max-width: 1080px;
+$width-vw: 90vw;
+$margin-auto: auto;
+$margin-large: 6rem;
+$gap: 2rem;
+$max-height: 6rem;
+$drop-shadow-color: #a7ad8bFF;
+$drop-shadow-inactive: rgba(167, 173, 139, 0.05);
+$drop-shadow-active: rgba(167, 173, 139, 0.25);
+$drop-shadow-hover: rgba(167, 173, 139, 0.05);
+$media-max-width-1024: 1024px;
+$media-max-width-767: 767px;
+$media-margin: 2rem;
+$background-color: #a7ad8b;
+$transition-duration: 0.5s;
+$transition-timing: ease-in-out;
+$opacity-low: 0.25;
+$opacity-high: 1;
+$filter-saturate: saturate(2);
+
 .wp-block-create-block-logo-people {
-	max-width: 1080px;
-	width: 90vw;
-	margin-left: auto;
-	margin-right: auto;
+	max-width: $max-width;
+	width: $width-vw;
+	margin-left: $margin-auto;
+	margin-right: $margin-auto;
 
 	.people {
 		position: relative;
@@ -23,43 +44,90 @@
 		overflow: hidden;
 
 		width: auto;
-		margin-left: 6rem;
-		margin-right: 6rem;
-		gap: 2rem;
+		margin-left: $margin-large;
+		margin-right: $margin-large;
+		gap: $gap;
 
 		img {
 			flex-shrink: 1;
 			height: 100%;
-			max-height: 6rem;
+			max-height: $max-height;
 			min-width: 0;
+			background-color: transparent;
 
-			filter: drop-shadow(0px 1000px 0 #a7ad8bFF);
+			filter: drop-shadow(0px 1000px 0 $drop-shadow-color);
 			transform: translateY(-1000px);
+		}
 
+		img.inactive {
+			filter: drop-shadow(0px 1000px 0 $drop-shadow-color) drop-shadow(15px 15px 0 $drop-shadow-inactive);
 		}
 
 		img.active {
-			filter: drop-shadow(0px 1000px 0 #a7ad8b00);
+			filter: drop-shadow(15px 15px 0 $drop-shadow-active);
 			transform: none;
 			background-color: transparent;
 		}
 
-		@media (max-width: 1024px) {
+		@media (max-width: $media-max-width-1024) {
 			max-width: 100%;
-			gap: 2rem;
-			margin-left: 2rem;
-			margin-right: 2rem;
+			gap: $gap;
+			margin-left: $media-margin;
+			margin-right: $media-margin;
 		}
 
-		@media (max-width: 767px) {
+		@media (max-width: $media-max-width-767) {
 			display: none;
 		}
+	}
 
+	.peopleOverlay {
+		position: absolute;
+
+		z-index: 1;
+
+		display: flex;
+		flex-direction: row;
+		flex-wrap: none;
+		justify-content: space-between;
+		align-items: baseline;
+
+		background-color: transparent;
+		mix-blend-mode: luminosity;
+		opacity: $opacity-low;
+		transition: opacity $transition-duration $transition-timing;
+		filter: $filter-saturate;
+
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+
+		gap: $gap;
+
+		img {
+			filter: none;
+			transform: none;
+		}
+
+		img.active {
+			opacity: 0;
+		}
+
+		@media (max-width: $media-max-width-1024) {
+			max-width: 100%;
+			gap: $gap;
+			margin-left: $media-margin;
+			margin-right: $media-margin;
+		}
+
+		@media (max-width: $media-max-width-767) {
+			display: none;
+		}
 	}
 
 	.mobilePeople {
 		display: none;
-
 
 		position: relative;
 
@@ -71,43 +139,34 @@
 		overflow: hidden;
 
 		width: auto;
-		// margin-left: 6rem;
-		// margin-right: 6rem;
 		gap: 4rem;
-
 
 		img {
 			flex-shrink: 1;
 			height: 100%;
-			max-height: 6rem;
+			max-height: $max-height;
 			min-width: 0;
 
-			filter: drop-shadow(0px 1000px 0 rgba(167, 173, 139, 0.8));
+			filter: none;
 			transform: translateY(-1000px);
-
 		}
 
-
-		@media (max-width: 767px) {
+		@media (max-width: $media-max-width-767) {
 			display: flex;
 			justify-content: center;
 
 			img.active {
-				max-height: 6rem;
+				max-height: $max-height;
 				transform: none;
 				display: block;
-				filter: drop-shadow(0px 1000px 0 #a7ad8b00);
+				filter: drop-shadow(0px 1000px 0 transparent);
 			}
 		}
 	}
 
-
-
 	.spacer {
-
 		height: 1.2rem;
-		background-color: #a7ad8b;
-
+		background-color: $background-color;
 	}
 
 	a {
@@ -116,21 +175,25 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
-		z-index: 1;
+		z-index: 2;
 	}
-
 }
 
 .people:hover {
 	img {
-		filter: drop-shadow(0px 1000px 0 #a7ad8b00);
-		transform: none;
+		filter: drop-shadow(15px 15px 0 $drop-shadow-hover) !important;
+	}
+
+	.peopleOverlay {
+		filter: none;
+		mix-blend-mode: normal;
+		opacity: $opacity-high;
 	}
 }
 
 .mobilePeople:hover {
 	img {
-		filter: drop-shadow(0px 1000px 0 #a7ad8b00);
+		filter: drop-shadow(0px 1000px 0 transparent);
 		transform: none;
 	}
 }
