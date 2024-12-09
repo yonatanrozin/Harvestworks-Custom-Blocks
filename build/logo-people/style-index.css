@@ -56,7 +56,7 @@
     display: none;
   }
 }
-.wp-block-create-block-logo-people .peopleOverlay {
+.wp-block-create-block-logo-people .people .peopleOverlay {
   position: absolute;
   z-index: 1;
   display: flex;
@@ -75,23 +75,21 @@
   right: 0;
   gap: 2rem;
 }
-.wp-block-create-block-logo-people .peopleOverlay img {
+.wp-block-create-block-logo-people .people .peopleOverlay img {
   filter: none;
   transform: none;
 }
-.wp-block-create-block-logo-people .peopleOverlay img.active {
+.wp-block-create-block-logo-people .people .peopleOverlay img.active {
   opacity: 0;
 }
 @media (max-width: 1024px) {
-  .wp-block-create-block-logo-people .peopleOverlay {
+  .wp-block-create-block-logo-people .people .peopleOverlay {
     max-width: 100%;
     gap: 2rem;
-    margin-left: 2rem;
-    margin-right: 2rem;
   }
 }
 @media (max-width: 767px) {
-  .wp-block-create-block-logo-people .peopleOverlay {
+  .wp-block-create-block-logo-people .people .peopleOverlay {
     display: none;
   }
 }
@@ -114,6 +112,9 @@
   filter: none;
   transform: translateY(-1000px);
 }
+.wp-block-create-block-logo-people .mobilePeople img.inactive {
+  filter: drop-shadow(0px 1000px 0 #a7ad8b) drop-shadow(15px 15px 0 rgba(167, 173, 139, 0.05));
+}
 @media (max-width: 767px) {
   .wp-block-create-block-logo-people .mobilePeople {
     display: flex;
@@ -125,6 +126,52 @@
     display: block;
     filter: drop-shadow(0px 1000px 0 transparent);
   }
+}
+.wp-block-create-block-logo-people .mobilePeople .peopleOverlay {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: none;
+  justify-content: space-between;
+  align-items: baseline;
+  background-color: transparent;
+  mix-blend-mode: luminosity;
+  opacity: 0.25;
+  transition: opacity 0.5s ease-in-out;
+  filter: saturate(2);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  gap: 4rem;
+}
+.wp-block-create-block-logo-people .mobilePeople .peopleOverlay img {
+  filter: none;
+  transform: none;
+}
+.wp-block-create-block-logo-people .mobilePeople .peopleOverlay img.active {
+  opacity: 0;
+}
+@media (max-width: 767px) {
+  .wp-block-create-block-logo-people .mobilePeople .peopleOverlay {
+    display: flex;
+    justify-content: center;
+  }
+  .wp-block-create-block-logo-people .mobilePeople .peopleOverlay img.active {
+    max-height: 6rem;
+    transform: none;
+    display: block;
+    filter: drop-shadow(0px 1000px 0 transparent);
+  }
+}
+.wp-block-create-block-logo-people .mobilePeople:hover .peopleOverlay {
+  filter: none;
+  mix-blend-mode: normal;
+  opacity: 1;
+}
+.wp-block-create-block-logo-people .mobilePeople:hover img {
+  filter: drop-shadow(15px 15px 0 rgba(167, 173, 139, 0.05)) !important;
 }
 .wp-block-create-block-logo-people .spacer {
   height: 1.2rem;
@@ -146,11 +193,6 @@
   filter: none;
   mix-blend-mode: normal;
   opacity: 1;
-}
-
-.mobilePeople:hover img {
-  filter: drop-shadow(0px 1000px 0 transparent);
-  transform: none;
 }
 
 /*# sourceMappingURL=style-index.css.map*/

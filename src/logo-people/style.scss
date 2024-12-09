@@ -79,52 +79,52 @@ $filter-saturate: saturate(2);
 		@media (max-width: $media-max-width-767) {
 			display: none;
 		}
-	}
 
-	.peopleOverlay {
-		position: absolute;
+		.peopleOverlay {
+			position: absolute;
 
-		z-index: 1;
+			z-index: 1;
 
-		display: flex;
-		flex-direction: row;
-		flex-wrap: none;
-		justify-content: space-between;
-		align-items: baseline;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: none;
+			justify-content: space-between;
+			align-items: baseline;
 
-		background-color: transparent;
-		mix-blend-mode: luminosity;
-		opacity: $opacity-low;
-		transition: opacity $transition-duration $transition-timing;
-		filter: $filter-saturate;
+			background-color: transparent;
+			mix-blend-mode: luminosity;
+			opacity: $opacity-low;
+			transition: opacity $transition-duration $transition-timing;
+			filter: $filter-saturate;
 
-		top: 0;
-		left: 0;
-		bottom: 0;
-		right: 0;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
 
-		gap: $gap;
-
-		img {
-			filter: none;
-			transform: none;
-		}
-
-		img.active {
-			opacity: 0;
-		}
-
-		@media (max-width: $media-max-width-1024) {
-			max-width: 100%;
 			gap: $gap;
-			margin-left: $media-margin;
-			margin-right: $media-margin;
-		}
 
-		@media (max-width: $media-max-width-767) {
-			display: none;
+			img {
+				filter: none;
+				transform: none;
+			}
+
+			img.active {
+				opacity: 0;
+			}
+
+			@media (max-width: $media-max-width-1024) {
+				max-width: 100%;
+				gap: $gap;
+			}
+
+			@media (max-width: $media-max-width-767) {
+				display: none;
+			}
 		}
 	}
+
+
 
 	.mobilePeople {
 		display: none;
@@ -151,6 +151,10 @@ $filter-saturate: saturate(2);
 			transform: translateY(-1000px);
 		}
 
+		img.inactive {
+			filter: drop-shadow(0px 1000px 0 $drop-shadow-color) drop-shadow(15px 15px 0 $drop-shadow-inactive);
+		}
+
 		@media (max-width: $media-max-width-767) {
 			display: flex;
 			justify-content: center;
@@ -160,6 +164,64 @@ $filter-saturate: saturate(2);
 				transform: none;
 				display: block;
 				filter: drop-shadow(0px 1000px 0 transparent);
+			}
+		}
+
+		.peopleOverlay {
+			position: absolute;
+
+			z-index: 1;
+
+			display: flex;
+			flex-direction: row;
+			flex-wrap: none;
+			justify-content: space-between;
+			align-items: baseline;
+
+			background-color: transparent;
+			mix-blend-mode: luminosity;
+			opacity: $opacity-low;
+			transition: opacity $transition-duration $transition-timing;
+			filter: $filter-saturate;
+
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+
+			gap: 4rem;
+
+			img {
+				filter: none;
+				transform: none;
+			}
+
+			img.active {
+				opacity: 0;
+			}
+
+			@media (max-width: $media-max-width-767) {
+				display: flex;
+				justify-content: center;
+
+				img.active {
+					max-height: $max-height;
+					transform: none;
+					display: block;
+					filter: drop-shadow(0px 1000px 0 transparent);
+				}
+			}
+		}
+
+		&:hover {
+			.peopleOverlay {
+				filter: none;
+				mix-blend-mode: normal;
+				opacity: $opacity-high;
+			}
+
+			img {
+				filter: drop-shadow(15px 15px 0 $drop-shadow-hover) !important;
 			}
 		}
 	}
@@ -188,12 +250,5 @@ $filter-saturate: saturate(2);
 		filter: none;
 		mix-blend-mode: normal;
 		opacity: $opacity-high;
-	}
-}
-
-.mobilePeople:hover {
-	img {
-		filter: drop-shadow(0px 1000px 0 transparent);
-		transform: none;
 	}
 }

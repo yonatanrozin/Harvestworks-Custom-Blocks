@@ -81,6 +81,7 @@ $mobile_images = [
 				<img src="https://via.placeholder.com/150" alt="placeholder" />
 			<?php endif; ?>
 		</div>
+
 	</div>
 	<div class="mobilePeople">
 		<a href="/"></a>
@@ -98,6 +99,22 @@ $mobile_images = [
 		<?php else : ?>
 			<img src="https://via.placeholder.com/150" alt="placeholder" />
 		<?php endif; ?>
+		<div class="peopleOverlay">
+			<?php if (!empty($mobile_images)) : ?>
+				<?php foreach ($mobile_images as $index => $image) : ?>
+					<img
+						src="<?php echo esc_url($url . $image . '.png'); ?>"
+						alt=""
+						class="<?php if ($active_image === $image) {
+									echo 'active';
+								} else {
+									echo 'inactive';
+								} ?>" />
+				<?php endforeach; ?>
+			<?php else : ?>
+				<img src="https://via.placeholder.com/150" alt="placeholder" />
+			<?php endif; ?>
+		</div>
 	</div>
 	<div class="spacer"></div>
 </div>
