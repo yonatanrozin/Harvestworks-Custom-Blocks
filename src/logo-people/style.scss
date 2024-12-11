@@ -5,122 +5,147 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-// Define variables
-$max-width: 1080px;
-$width-vw: 90vw;
-$margin-auto: auto;
-$margin-large: 6rem;
-$gap: 2rem;
+
+$tablet-breakpoint: 1024px;
+$mobile-breakpoint: 767px;
+
+$desktop-max-width: 1080px;
+$responsive-width: 90vw;
 $max-height: 6rem;
-$drop-shadow-color: #a7ad8bFF;
-$drop-shadow-inactive: rgba(167, 173, 139, 0.05);
-$drop-shadow-active: rgba(167, 173, 139, 0.25);
+
+$desktop-padding: 6rem;
+$tablet-padding: 2rem;
+
+$gap: 2rem;
+$mobile-gap: 4rem;
+
+$monochrome-person-color: #a7ad8bFF;
+$separator-color: #a7ad8b;
+
+$person-opacity-low: 0.25;
+$person-opacity-high: 1;
+
+$drop-shadow-weak: rgba(167, 173, 139, 0.05);
+$drop-shadow-strong: rgba(167, 173, 139, 0.10);
 $drop-shadow-hover: rgba(167, 173, 139, 0.05);
-$media-max-width-1024: 1024px;
-$media-max-width-767: 767px;
-$media-margin: 2rem;
-$background-color: #a7ad8b;
-$transition-duration: 0.5s;
-$transition-timing: ease-in-out;
-$opacity-low: 0.25;
-$opacity-high: 1;
+
+$hover-transition-duration: 0.5s;
+$hover-transition-timing: ease-in-out;
+
 $filter-saturate: saturate(2);
 
+
 .wp-block-create-block-logo-people {
-	max-width: $max-width;
-	width: $width-vw;
-	margin-left: $margin-auto;
-	margin-right: $margin-auto;
+	max-width: $desktop-max-width;
+	width: $responsive-width;
+	margin-left: auto;
+	margin-right: auto;
 
 	.people {
 		position: relative;
+
+		width: auto;
+
+		margin-left: $desktop-padding;
+		margin-right: $desktop-padding;
 
 		display: flex;
 		flex-direction: row;
 		flex-wrap: none;
 		justify-content: space-between;
 		align-items: baseline;
+		gap: $gap;
 
 		overflow: hidden;
 
-		width: auto;
-		margin-left: $margin-large;
-		margin-right: $margin-large;
-		gap: $gap;
-
 		img {
-			flex-shrink: 1;
 			height: 100%;
 			max-height: $max-height;
 			min-width: 0;
-			background-color: transparent;
 
-			filter: drop-shadow(0px 1000px 0 $drop-shadow-color);
+			background-color: transparent;
+		}
+
+		img.no_shadow.monochrome {
 			transform: translateY(-1000px);
+			filter: drop-shadow(0px 1000px 0 $monochrome-person-color) drop-shadow(15px 15px 0 $drop-shadow-weak);
 		}
 
-		img.inactive {
-			filter: drop-shadow(0px 1000px 0 $drop-shadow-color) drop-shadow(15px 15px 0 $drop-shadow-inactive);
-		}
-
-		img.active {
-			filter: drop-shadow(15px 15px 0 $drop-shadow-active);
+		img.no_shadow.color {
 			transform: none;
-			background-color: transparent;
+			filter: drop-shadow(15px 15px 0 $drop-shadow-weak);
 		}
 
-		@media (max-width: $media-max-width-1024) {
+		img.shadow.monochrome {
+			transform: translateY(-1000px);
+			filter: drop-shadow(0px 1000px 0 $monochrome-person-color) drop-shadow(15px 15px 0 $drop-shadow-strong);
+		}
+
+		img.shadow.color {
+			transform: none;
+			filter: drop-shadow(15px 15px 0 $drop-shadow-strong);
+		}
+
+
+		@media (max-width: $tablet-breakpoint) {
 			max-width: 100%;
-			gap: $gap;
-			margin-left: $media-margin;
-			margin-right: $media-margin;
+
+			margin-left: $tablet-padding;
+			margin-right: $tablet-padding;
 		}
 
-		@media (max-width: $media-max-width-767) {
+		@media (max-width: $mobile-breakpoint) {
 			display: none;
 		}
 
-		.peopleOverlay {
-			position: absolute;
-
-			z-index: 1;
-
-			display: flex;
-			flex-direction: row;
-			flex-wrap: none;
-			justify-content: space-between;
-			align-items: baseline;
-
-			background-color: transparent;
-			mix-blend-mode: luminosity;
-			opacity: $opacity-low;
-			transition: opacity $transition-duration $transition-timing;
-			filter: $filter-saturate;
-
-			top: 0;
-			left: 0;
-			bottom: 0;
-			right: 0;
-
-			gap: $gap;
+		&:hover {
+			.peopleOverlay {
+				filter: none;
+				mix-blend-mode: normal;
+				opacity: $person-opacity-high;
+			}
 
 			img {
-				filter: none;
-				transform: none;
+				filter: drop-shadow(15px 15px 0 $drop-shadow-hover) !important;
 			}
+		}
 
-			img.active {
-				opacity: 0;
-			}
+	}
 
-			@media (max-width: $media-max-width-1024) {
-				max-width: 100%;
-				gap: $gap;
-			}
+	.peopleOverlay {
+		position: absolute;
 
-			@media (max-width: $media-max-width-767) {
-				display: none;
-			}
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+
+		margin-left: 0;
+		margin-right: 0;
+
+		z-index: 1;
+
+		background-color: transparent;
+		mix-blend-mode: luminosity;
+		opacity: $person-opacity-low;
+		transition: opacity $hover-transition-duration $hover-transition-timing;
+		filter: $filter-saturate;
+
+		img {
+			filter: none !important;
+			transform: none !important;
+		}
+
+		img.color {
+			opacity: 0;
+		}
+
+		@media (max-width: $tablet-breakpoint) {
+			max-width: 100%;
+		}
+
+		@media (max-width: $mobile-breakpoint) {
+			display: none;
 		}
 	}
 
@@ -128,127 +153,35 @@ $filter-saturate: saturate(2);
 
 	.mobilePeople {
 		display: none;
+		gap: $mobile-gap;
 
-		position: relative;
-
-		flex-direction: row;
-		flex-wrap: none;
-		justify-content: space-between;
-		align-items: baseline;
-
-		overflow: hidden;
-
-		width: auto;
-		gap: 4rem;
-
-		img {
-			flex-shrink: 1;
-			height: 100%;
-			max-height: $max-height;
-			min-width: 0;
-
-			filter: none;
-			transform: translateY(-1000px);
-		}
-
-		img.inactive {
-			filter: drop-shadow(0px 1000px 0 $drop-shadow-color) drop-shadow(15px 15px 0 $drop-shadow-inactive);
-		}
-
-		@media (max-width: $media-max-width-767) {
+		@media (max-width: $mobile-breakpoint) {
 			display: flex;
 			justify-content: center;
-
-			img.active {
-				max-height: $max-height;
-				transform: none;
-				display: block;
-				filter: drop-shadow(0px 1000px 0 transparent);
-			}
 		}
 
 		.peopleOverlay {
-			position: absolute;
+			gap: $mobile-gap;
 
-			z-index: 1;
-
-			display: flex;
-			flex-direction: row;
-			flex-wrap: none;
-			justify-content: space-between;
-			align-items: baseline;
-
-			background-color: transparent;
-			mix-blend-mode: luminosity;
-			opacity: $opacity-low;
-			transition: opacity $transition-duration $transition-timing;
-			filter: $filter-saturate;
-
-			top: 0;
-			left: 0;
-			bottom: 0;
-			right: 0;
-
-			gap: 4rem;
-
-			img {
-				filter: none;
-				transform: none;
-			}
-
-			img.active {
-				opacity: 0;
-			}
-
-			@media (max-width: $media-max-width-767) {
+			@media (max-width: $mobile-breakpoint) {
 				display: flex;
-				justify-content: center;
-
-				img.active {
-					max-height: $max-height;
-					transform: none;
-					display: block;
-					filter: drop-shadow(0px 1000px 0 transparent);
-				}
-			}
-		}
-
-		&:hover {
-			.peopleOverlay {
-				filter: none;
-				mix-blend-mode: normal;
-				opacity: $opacity-high;
-			}
-
-			img {
-				filter: drop-shadow(15px 15px 0 $drop-shadow-hover) !important;
 			}
 		}
 	}
 
 	.spacer {
 		height: 1.2rem;
-		background-color: $background-color;
+		background-color: $separator-color;
 	}
 
 	a {
 		position: absolute;
+
 		top: 0;
 		left: 0;
 		right: 0;
 		bottom: 0;
+
 		z-index: 2;
-	}
-}
-
-.people:hover {
-	img {
-		filter: drop-shadow(15px 15px 0 $drop-shadow-hover) !important;
-	}
-
-	.peopleOverlay {
-		filter: none;
-		mix-blend-mode: normal;
-		opacity: $opacity-high;
 	}
 }

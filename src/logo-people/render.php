@@ -44,6 +44,9 @@ $mobile_images = [
 	$images[($index_of_active_image + 1) % count($images)],
 ];
 
+$active_classname = 'monochrome shadow';
+$inactive_classname = 'color no_shadow';
+
 ?>
 
 
@@ -57,24 +60,24 @@ $mobile_images = [
 					src="<?php echo esc_url($url . $image . '.png'); ?>"
 					alt=""
 					class="<?php if ($active_image === $image) {
-								echo 'active';
+								echo $active_classname;
 							} else {
-								echo 'inactive';
+								echo $inactive_classname;
 							} ?>" />
 			<?php endforeach; ?>
 		<?php else : ?>
 			<img src="https://via.placeholder.com/150" alt="placeholder" />
 		<?php endif; ?>
-		<div class="peopleOverlay">
+		<div class="people peopleOverlay">
 			<?php if (!empty($images)) : ?>
 				<?php foreach ($images as $index => $image) : ?>
 					<img
 						src="<?php echo esc_url($url . $image . '.png'); ?>"
 						alt=""
 						class="<?php if ($active_image === $image) {
-									echo 'active';
+									echo $active_classname;
 								} else {
-									echo 'inactive';
+									echo $inactive_classname;
 								} ?>" />
 				<?php endforeach; ?>
 			<?php else : ?>
@@ -83,7 +86,7 @@ $mobile_images = [
 		</div>
 
 	</div>
-	<div class="mobilePeople">
+	<div class="people mobilePeople">
 		<a href="/"></a>
 		<?php if (!empty($mobile_images)) : ?>
 			<?php foreach ($mobile_images as $index => $image) : ?>
@@ -91,24 +94,24 @@ $mobile_images = [
 					src="<?php echo esc_url($url . $image . '.png'); ?>"
 					alt=""
 					class="<?php if ($active_image === $image) {
-								echo 'active';
+								echo $active_classname;
 							} else {
-								echo 'inactive';
+								echo $inactive_classname;
 							} ?>" />
 			<?php endforeach; ?>
 		<?php else : ?>
 			<img src="https://via.placeholder.com/150" alt="placeholder" />
 		<?php endif; ?>
-		<div class="peopleOverlay">
+		<div class="people peopleOverlay">
 			<?php if (!empty($mobile_images)) : ?>
 				<?php foreach ($mobile_images as $index => $image) : ?>
 					<img
 						src="<?php echo esc_url($url . $image . '.png'); ?>"
 						alt=""
 						class="<?php if ($active_image === $image) {
-									echo 'active';
+									echo $active_classname;
 								} else {
-									echo 'inactive';
+									echo $inactive_classname;
 								} ?>" />
 				<?php endforeach; ?>
 			<?php else : ?>
