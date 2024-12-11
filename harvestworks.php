@@ -32,5 +32,6 @@ function harvestworks_harvestworks_block_init()
 	register_block_type(__DIR__ . '/build/events-carousel');
 	register_block_type(__DIR__ . '/build/logo-people');
 	register_block_type(__DIR__ . '/build/artist-events-list');
+	register_block_type(__DIR__ . '/build/event-artists-list');
 }
 add_action('init', 'harvestworks_harvestworks_block_init');
