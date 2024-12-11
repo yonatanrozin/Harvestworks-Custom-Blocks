@@ -1,0 +1,31 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-harvestworks-event-artists-list {
+
+    display: flex;
+    flex-direction: column;
+
+    .artist_card {
+        padding: 25px;
+        display: flex;
+        gap: 25px;
+        align-items: center;
+
+        img {height: 150px;}
+
+        .artist_details {
+            display: flex;
+            flex-direction: column;
+
+            h2, h3 {margin: 0px}
+            h3 {color: var(--wp--preset--color--contrast-2)}
+            
+            p {margin: 0px; font-size: medium}
+        }
+    }
+}
