@@ -22,6 +22,7 @@
 
 /* eslint-disable no-console */
 import { Howl, Howler } from 'howler';
+var jsmediatags = window.jsmediatags;
 
 const timeKey = 'radio-timestamp';
 const urlKey = 'radio-file';
@@ -42,8 +43,28 @@ console.log('Audio files:', audioFiles);
 const storedTime = window.localStorage.getItem(timeKey);
 const storedUrl = window.localStorage.getItem(urlKey);
 
+// Get elements for the radio
+const containerEl = document.querySelector('.spacer');
+const buttonEl = document.querySelector('.radioButton');
+const titleEl = document.querySelector('.title.radioPart');
+const albumEl = document.querySelector('.album.radioPart');
+const timeEl = document.querySelector('.time.radioPart');
+
+var intervalId = null;
+
+var tryAutoplay = false;
 startAudio();
 
+buttonEl.addEventListener('click', () => {
+    if (!containerEl.classList.contains('active')) {
+        tryAutoplay = true;
+        startAudio();
+    }
+    else {
+        Howler.stop();
+    }
+    containerEl.classList.toggle('active');
+});
 
 
 
@@ -91,10 +112,12 @@ function startAudio() {
 
         sound.seek(storedTime);
 
-        if (!window.localStorage.getItem(pauseKey))
+        if (!(window.localStorage.getItem(pauseKey) == 'true')) {
             sound.play();
+            containerEl.classList.add('active');
+        }
 
-        sound.once("end", () => {
+        sound.on("end", () => {
             audioFiles.splice(audioFiles.indexOf(storedUrl), 1);
 
             window.localStorage.setItem(timeKey, 0);
@@ -113,7 +136,7 @@ function startAudio() {
             volume: 0.5
         });
 
-        sound.once("end", () => {
+        sound.on("end", () => {
             audioFiles.splice(audioFiles.indexOf(sound._src), 1);
 
             window.localStorage.setItem(timeKey, 0);
@@ -121,39 +144,85 @@ function startAudio() {
             window.localStorage.setItem(listenedKey, listened + '\n' + storedUrl);
         });
 
-        // No autoplay unless testing
-        sound.play();
+        if (tryAutoplay)
+            sound.play();
     }
 
-    sound.once('play', () => {
+    sound.on('play', () => {
         window.localStorage.setItem(timeKey, sound.seek());
         window.localStorage.setItem(urlKey, sound._src);
-        window.localStorage.setItem(pauseKey, false);
+        window.localStorage.setItem(pauseKey, 'false');
         console.log('Playing track ' + sound._src);
+
+        updateMetadata(sound._src);
+        updateDuration(sound);
+        startProgressInterval(sound);
+
     });
 
-    sound.once('seek', () => {
+    sound.on('seek', () => {
         window.localStorage.setItem(timeKey, sound.seek());
         window.localStorage.setItem(urlKey, sound._src);
         console.log('Seeking track ' + sound._src + ' to ' + sound.seek());
     });
 
-    sound.once('pause', () => {
+    sound.on('pause', () => {
         window.localStorage.setItem(timeKey, sound.seek());
         window.localStorage.setItem(urlKey, sound._src);
-        window.localStorage.setItem(pauseKey, true);
+        window.localStorage.setItem(pauseKey, 'true');
         console.log('Pausing track ' + sound._src);
     });
 
-    sound.once('stop', () => {
+    sound.on('stop', () => {
         window.localStorage.setItem(timeKey, 0);
         window.localStorage.setItem(urlKey, '');
         console.log('Stopping track ' + sound._src);
+        stopProgressInterval();
     });
 
-    sound.once('unlock', () => {
+    sound.on('unlock', () => {
     });
+
+
 }
 
 
+function updateMetadata(currentURL) {
+    jsmediatags.read(currentURL, {
+        onSuccess: function (tag) {
+            console.log(tag);
+            titleEl.textContent = tag.tags.title;
+            if (tag.tags.artist)
+                titleEl.textContent += '  -  ' + tag.tags.artist;
+            albumEl.textContent = tag.tags.album;
+            if (tag.tags.year)
+                albumEl.textContent += '  (' + tag.tags.year + ')';
+        },
+        onError: function (error) {
+            console.log(':(', error.type, error.info);
+        }
+    });
+}
 
+function updateDuration(sound) {
+    const seconds = sound._duration;
+    timeEl.textContent = timeEl.textContent.split('/')[0] + '/ ' + Math.floor(seconds / 60) + ':' + Math.floor(seconds % 60);
+}
+
+function updateProgress(sound) {
+    const seconds = sound.seek();
+    timeEl.textContent = Math.floor(seconds / 60) + ':' + Math.floor(seconds % 60) + ' /' + timeEl.textContent.split('/')[1];
+}
+
+function startProgressInterval(sound) {
+    stopProgressInterval();
+    intervalId = setInterval(() => {
+        window.localStorage.setItem(timeKey, sound.seek());
+        window.localStorage.setItem(urlKey, sound._src);
+        updateProgress(sound);
+    }, 1000);
+}
+
+function stopProgressInterval() {
+    clearInterval(intervalId);
+}

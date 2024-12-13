@@ -21,6 +21,7 @@ $mobile-gap: 4rem;
 
 $monochrome-person-color: #a7ad8bFF;
 $separator-color: #a7ad8b;
+$text-color: #ffffff;
 
 $person-opacity-low: 0.25;
 $person-opacity-high: 1;
@@ -170,8 +171,37 @@ $filter-saturate: saturate(2);
 	}
 
 	.spacer {
-		height: 1.2rem;
+		height: 24px;
 		background-color: $separator-color;
+
+		padding-left: 6px;
+		padding-right: 6px;
+
+		display: flex;
+		justify-content: right;
+		align-items: center;
+
+		svg {
+			height: 14px;
+			width: 16px;
+			transform: scale(1.6);
+
+			path {
+				fill: $text-color;
+			}
+		}
+
+		.radioPart {
+			display: none;
+		}
+
+		&.active {
+			justify-content: space-between;
+
+			.radioPart {
+				display: block;
+			}
+		}
 	}
 
 	a {
