@@ -47,11 +47,12 @@ $mobile_images = [
 $active_classname = 'monochrome shadow';
 $inactive_classname = 'color no_shadow';
 
+$radioUrls = $attributes['audioFiles'];
+
 ?>
 
 
 <div <?php echo get_block_wrapper_attributes(); ?>>
-
 	<div class="people">
 		<a href="/"></a>
 		<?php if (!empty($images)) : ?>
@@ -120,4 +121,5 @@ $inactive_classname = 'color no_shadow';
 		</div>
 	</div>
 	<div class="spacer"></div>
+	<p style="display:none;" class="audioFiles"><?php echo $radioUrls ?></p>
 </div>

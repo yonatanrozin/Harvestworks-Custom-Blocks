@@ -17,6 +17,11 @@
 			"margin": true
 		}
 	},
+	"attributes": {
+		"audioFiles": {
+			"type": "string"
+		}
+	},
 	"textdomain": "logo-people",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",

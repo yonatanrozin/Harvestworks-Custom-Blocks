@@ -16,5 +16,8 @@
 	},
 	"devDependencies": {
 		"@wordpress/scripts": "^30.3.0"
+	},
+	"dependencies": {
+		"howler": "^2.2.4"
 	}
 }
