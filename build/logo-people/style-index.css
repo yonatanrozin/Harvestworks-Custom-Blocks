@@ -126,6 +126,23 @@
   display: flex;
   justify-content: right;
   align-items: center;
+  font-family: "Pixelify Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.wp-block-create-block-logo-people .spacer .section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 26px;
+}
+.wp-block-create-block-logo-people .spacer .radioButton {
+  position: relative;
 }
 .wp-block-create-block-logo-people .spacer svg {
   height: 14px;
@@ -135,14 +152,71 @@
 .wp-block-create-block-logo-people .spacer svg path {
   fill: #ffffff;
 }
+.wp-block-create-block-logo-people .spacer svg.play.radioPart {
+  display: none;
+  margin-left: 6px;
+  margin-right: 6px;
+  transform: translate(0, 1px) scaleX(2.2) scaleY(1.5);
+}
+.wp-block-create-block-logo-people .spacer svg.pause.radioPart {
+  margin-left: 6px;
+  margin-right: 6px;
+  transform: translate(0, 1px) scaleX(1.6) scaleY(1.5);
+}
+.wp-block-create-block-logo-people .spacer svg.skip.radioPart {
+  transform: translate(0, 1px) scaleX(1.6) scaleY(1.5);
+}
+.wp-block-create-block-logo-people .spacer svg.prev.radioPart {
+  transform: translate(0, 1px) scaleX(1.6) scaleY(1.5);
+}
+.wp-block-create-block-logo-people .spacer svg.radio {
+  transform: translate(0, 1px) scaleX(1.6) scaleY(1.5);
+  margin-left: 4px;
+}
+.wp-block-create-block-logo-people .spacer svg.headphones {
+  transform: translate(0, 1px) scale(1.6);
+  z-index: 2;
+}
 .wp-block-create-block-logo-people .spacer .radioPart {
   display: none;
+}
+.wp-block-create-block-logo-people .spacer .time {
+  justify-self: right;
+  margin-right: 8px;
+}
+.wp-block-create-block-logo-people .spacer .title {
+  margin-left: -16px;
+}
+.wp-block-create-block-logo-people .spacer .album {
+  margin-left: -16px;
+  opacity: 0.6;
 }
 .wp-block-create-block-logo-people .spacer.active {
   justify-content: space-between;
 }
 .wp-block-create-block-logo-people .spacer.active .radioPart {
-  display: block;
+  display: inline;
+}
+.wp-block-create-block-logo-people .spacer.active .section {
+  display: flex;
+}
+.wp-block-create-block-logo-people .spacer.active .radioButton path {
+  fill: #a7ad8b;
+}
+.wp-block-create-block-logo-people .spacer.active .radioButton .headphonesBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: scale(1.4, 0.62);
+  background-color: #ffffff;
+}
+.wp-block-create-block-logo-people .spacer.pause .pause {
+  display: none;
+}
+.wp-block-create-block-logo-people .spacer.pause .play {
+  display: inline !important;
 }
 .wp-block-create-block-logo-people a {
   position: absolute;

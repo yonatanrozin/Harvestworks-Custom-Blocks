@@ -36,7 +36,8 @@ Howler.html5PoolSize = 100;
 const urls = document.querySelector('.audioFiles').textContent;
 
 // Remove empty lines and extract the audio urls from auto link tagging
-const audioFiles = urls.split('\n').filter((url) => url.trim() !== '').map((url) => url.replaceAll("[audio src=\"", "").replaceAll("\" /]", "").trim());
+const originalAudioFiles = urls.split('\n').filter((url) => url.trim() !== '').map((url) => url.replaceAll("[audio src=\"", "").replaceAll("\" /]", "").trim());
+var audioFiles = originalAudioFiles.flat();
 console.log('Audio files:', audioFiles);
 
 // Get the potentially stored time and url
@@ -50,20 +51,52 @@ const titleEl = document.querySelector('.title.radioPart');
 const albumEl = document.querySelector('.album.radioPart');
 const timeEl = document.querySelector('.time.radioPart');
 
-var intervalId = null;
+const pauseEl = document.querySelector('.pause.radioPart');
+const playEl = document.querySelector('.play.radioPart');
+const skipEl = document.querySelector('.skip.radioPart');
+const prevEl = document.querySelector('.prev.radioPart');
 
+var intervalId = null;
+var sound;
 var tryAutoplay = false;
-startAudio();
+loadAudio();
 
 buttonEl.addEventListener('click', () => {
     if (!containerEl.classList.contains('active')) {
         tryAutoplay = true;
-        startAudio();
+        if (!sound)
+            loadAudio();
+        else if (!(window.localStorage.getItem(pauseKey) == 'true'))
+            sound.play();
     }
     else {
-        Howler.stop();
+        sound.pause();
     }
     containerEl.classList.toggle('active');
+});
+
+pauseEl.addEventListener('click', () => {
+    sound.pause();
+    containerEl.classList.add('pause');
+});
+
+playEl.addEventListener('click', () => {
+    sound.play();
+    containerEl.classList.remove('pause');
+});
+
+skipEl.addEventListener('click', () => {
+    sound.seek(sound._duration);
+});
+
+prevEl.addEventListener('click', () => {
+    if (sound.seek() > 5000)
+        sound.seek(0);
+    else {
+        const listened = window.localStorage.getItem(listenedKey) || '';
+        window.localStorage.setItem(listenedKey, listened.split('\n').slice(0, -1).join('\n'));
+        sound.play(listened.split('\n').slice(-1)[0]);
+    }
 });
 
 
@@ -79,18 +112,8 @@ function shufflePlaylist() {
     }
 }
 
-function startAudio() {
-    if (audioFiles.length === 0) {
-        console.log('No audio files to play on radio.');
-        return;
-    }
-
-    const listened = window.localStorage.getItem(listenedKey) || '';
-    if (listened.split('\n').length === audioFiles.length) {
-        console.log('All audio files have been listened to. Restarting.');
-        window.localStorage.setItem(listenedKey, '');
-        return setupAudio;
-    }
+function loadAudio() {
+    var listened = window.localStorage.getItem(listenedKey) || '';
 
     // Filter listened to tracks from audioFiles
     listened.split('\n').forEach((url) => {
@@ -100,7 +123,12 @@ function startAudio() {
         }
     });
 
-    var sound;
+    if (audioFiles.length === 0) {
+        console.log('All audio files have been listened to. Restarting.');
+        audioFiles = originalAudioFiles.flat();
+        window.localStorage.setItem(listenedKey, '');
+        return loadAudio();
+    }
 
     // Play the last pages track if it exists
     if (storedUrl && audioFiles.includes(storedUrl) && storedTime) {
@@ -117,14 +145,14 @@ function startAudio() {
             containerEl.classList.add('active');
         }
 
-        sound.on("end", () => {
+        sound.once("end", () => {
             audioFiles.splice(audioFiles.indexOf(storedUrl), 1);
 
             window.localStorage.setItem(timeKey, 0);
             window.localStorage.setItem(urlKey, '');
             window.localStorage.setItem(listenedKey, listened + '\n' + storedUrl);
 
-            startAudio();
+            loadAudio();
         });
     }
     // Play a random track if no existing session
@@ -136,16 +164,21 @@ function startAudio() {
             volume: 0.5
         });
 
-        sound.on("end", () => {
+        if (tryAutoplay)
+            sound.play();
+
+        sound.once("end", () => {
             audioFiles.splice(audioFiles.indexOf(sound._src), 1);
+
+            listened = window.localStorage.getItem(listenedKey) || '';
 
             window.localStorage.setItem(timeKey, 0);
             window.localStorage.setItem(urlKey, '');
             window.localStorage.setItem(listenedKey, listened + '\n' + storedUrl);
-        });
 
-        if (tryAutoplay)
-            sound.play();
+            tryAutoplay = true;
+            loadAudio();
+        });
     }
 
     sound.on('play', () => {
@@ -164,6 +197,18 @@ function startAudio() {
         window.localStorage.setItem(timeKey, sound.seek());
         window.localStorage.setItem(urlKey, sound._src);
         console.log('Seeking track ' + sound._src + ' to ' + sound.seek());
+
+        if (sound.seek() > sound._duration - 1) {
+            audioFiles.splice(audioFiles.indexOf(sound._src), 1);
+
+            listened = window.localStorage.getItem(listenedKey) || '';
+
+            window.localStorage.setItem(timeKey, 0);
+            window.localStorage.setItem(urlKey, '');
+            window.localStorage.setItem(listenedKey, listened + '\n' + sound._src);
+
+            loadAudio();
+        }
     });
 
     sound.on('pause', () => {
@@ -182,8 +227,6 @@ function startAudio() {
 
     sound.on('unlock', () => {
     });
-
-
 }
 
 
@@ -193,10 +236,10 @@ function updateMetadata(currentURL) {
             console.log(tag);
             titleEl.textContent = tag.tags.title;
             if (tag.tags.artist)
-                titleEl.textContent += '  -  ' + tag.tags.artist;
+                titleEl.textContent += ' — ' + tag.tags.artist;
             albumEl.textContent = tag.tags.album;
             if (tag.tags.year)
-                albumEl.textContent += '  (' + tag.tags.year + ')';
+                albumEl.textContent += '&nbsp;(' + tag.tags.year + ')';
         },
         onError: function (error) {
             console.log(':(', error.type, error.info);
@@ -206,16 +249,34 @@ function updateMetadata(currentURL) {
 
 function updateDuration(sound) {
     const seconds = sound._duration;
-    timeEl.textContent = timeEl.textContent.split('/')[0] + '/ ' + Math.floor(seconds / 60) + ':' + Math.floor(seconds % 60);
+    if (!sound) {
+        timeEl.textContent = timeEl.textContent.split('/')[0] + '/ -:--';
+        return;
+    }
+    var dispSec = Math.floor(seconds % 60);
+    if (dispSec < 10)
+        dispSec = '0' + dispSec;
+
+    timeEl.textContent = timeEl.textContent.split('/')[0] + '/ ' + Math.floor(seconds / 60) + ':' + dispSec;
 }
 
 function updateProgress(sound) {
     const seconds = sound.seek();
-    timeEl.textContent = Math.floor(seconds / 60) + ':' + Math.floor(seconds % 60) + ' /' + timeEl.textContent.split('/')[1];
+    if (!sound) {
+        timeEl.textContent = '-:--' + ' /' + timeEl.textContent.split('/')[1];
+        return;
+    }
+
+    var dispSec = Math.floor(seconds % 60);
+    if (dispSec < 10)
+        dispSec = '0' + dispSec;
+
+    timeEl.textContent = Math.floor(seconds / 60) + ':' + dispSec + ' /' + timeEl.textContent.split('/')[1];
 }
 
 function startProgressInterval(sound) {
     stopProgressInterval();
+    updateProgress(sound);
     intervalId = setInterval(() => {
         window.localStorage.setItem(timeKey, sound.seek());
         window.localStorage.setItem(urlKey, sound._src);

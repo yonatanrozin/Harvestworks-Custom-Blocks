@@ -181,6 +181,27 @@ $filter-saturate: saturate(2);
 		justify-content: right;
 		align-items: center;
 
+		font-family: "Pixelify Sans", serif;
+		font-optical-sizing: auto;
+		font-weight: 100;
+		font-style: normal;
+		color: $text-color;
+
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+
+		.section {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			gap: 26px;
+		}
+
+		.radioButton {
+			position: relative;
+		}
+
 		svg {
 			height: 14px;
 			width: 16px;
@@ -189,17 +210,99 @@ $filter-saturate: saturate(2);
 			path {
 				fill: $text-color;
 			}
+
+			&.play.radioPart {
+				display: none;
+				margin-left: 6px;
+				margin-right: 6px;
+				transform: translate(0, 1px) scaleX(2.2) scaleY(1.5);
+			}
+
+			&.pause.radioPart {
+				margin-left: 6px;
+				margin-right: 6px;
+				transform: translate(0, 1px) scaleX(1.6) scaleY(1.5);
+			}
+
+			&.skip.radioPart {
+				transform: translate(0, 1px) scaleX(1.6) scaleY(1.5);
+			}
+
+			&.prev.radioPart {
+				transform: translate(0, 1px) scaleX(1.6) scaleY(1.5);
+			}
+
+			&.radio {
+				transform: translate(0, 1px) scaleX(1.6) scaleY(1.5);
+				margin-left: 4px;
+			}
+
+			&.headphones {
+				transform: translate(0, 1px) scale(1.6);
+				z-index: 2;
+			}
+
 		}
 
 		.radioPart {
 			display: none;
 		}
 
+		.time {
+			justify-self: right;
+			margin-right: 8px;
+		}
+
+		.title {
+			margin-left: -16px;
+		}
+
+		.album {
+			margin-left: -16px;
+			opacity: 0.6;
+		}
+
 		&.active {
 			justify-content: space-between;
 
 			.radioPart {
-				display: block;
+				display: inline;
+			}
+
+			.section {
+				display: flex;
+			}
+
+
+
+			.radioButton {
+				path {
+					fill: $separator-color;
+				}
+
+				.headphonesBg {
+					position: absolute;
+					top: 0;
+					left: 0;
+					right: 0;
+					bottom: 0;
+
+					transform: scale(1.4, 0.62);
+
+					background-color: $text-color;
+				}
+			}
+
+
+		}
+
+		&.pause {
+			.pause {
+				display: none;
+			}
+
+			.play {
+				display: inline !important;
 			}
 		}
 	}
