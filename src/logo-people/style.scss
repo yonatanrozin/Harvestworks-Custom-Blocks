@@ -200,6 +200,7 @@ $filter-saturate: saturate(2);
 
 		.radioButton {
 			position: relative;
+			cursor: pointer;
 		}
 
 		svg {
@@ -212,6 +213,7 @@ $filter-saturate: saturate(2);
 			}
 
 			&.play.radioPart {
+				cursor: pointer;
 				display: none;
 				margin-left: 6px;
 				margin-right: 6px;
@@ -219,16 +221,19 @@ $filter-saturate: saturate(2);
 			}
 
 			&.pause.radioPart {
+				cursor: pointer;
 				margin-left: 6px;
 				margin-right: 6px;
 				transform: translate(0, 1px) scaleX(1.6) scaleY(1.5);
 			}
 
 			&.skip.radioPart {
+				cursor: pointer;
 				transform: translate(0, 1px) scaleX(1.6) scaleY(1.5);
 			}
 
 			&.prev.radioPart {
+				cursor: pointer;
 				transform: translate(0, 1px) scaleX(1.6) scaleY(1.5);
 			}
 

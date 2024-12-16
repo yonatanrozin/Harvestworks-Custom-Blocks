@@ -143,6 +143,7 @@
 }
 .wp-block-create-block-logo-people .spacer .radioButton {
   position: relative;
+  cursor: pointer;
 }
 .wp-block-create-block-logo-people .spacer svg {
   height: 14px;
@@ -153,20 +154,24 @@
   fill: #ffffff;
 }
 .wp-block-create-block-logo-people .spacer svg.play.radioPart {
+  cursor: pointer;
   display: none;
   margin-right: 6px;
   margin-left: 6px;
   transform: translate(0, 1px) scaleX(2.2) scaleY(1.5);
 }
 .wp-block-create-block-logo-people .spacer svg.pause.radioPart {
+  cursor: pointer;
   margin-right: 6px;
   margin-left: 6px;
   transform: translate(0, 1px) scaleX(1.6) scaleY(1.5);
 }
 .wp-block-create-block-logo-people .spacer svg.skip.radioPart {
+  cursor: pointer;
   transform: translate(0, 1px) scaleX(1.6) scaleY(1.5);
 }
 .wp-block-create-block-logo-people .spacer svg.prev.radioPart {
+  cursor: pointer;
   transform: translate(0, 1px) scaleX(1.6) scaleY(1.5);
 }
 .wp-block-create-block-logo-people .spacer svg.radio {
