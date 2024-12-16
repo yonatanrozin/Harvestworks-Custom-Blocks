@@ -51,7 +51,7 @@ class Radio {
       urlEl: document.querySelector('.audioFiles'),
       containerEl: document.querySelector('.spacer'),
       titleEl: document.querySelector('.title.radioPart'),
-      albumEl: document.querySelector('.album.radioPart'),
+      titleWrapperEl: document.querySelector('.titleWrapper'),
       timeEl: document.querySelector('.time.radioPart'),
       // Control hooks
       buttonEl: document.querySelector('.radioButton'),
@@ -107,6 +107,10 @@ class Radio {
     this.elements.prevEl.addEventListener('click', () => {
       this.prevSong();
     });
+    this.window.addEventListener('resize', () => {
+      // this.log('Resizing title: ' + this.elements.titleWrapperEl.clientWidth < this.elements.titleEl.clientWidth);
+      if (this.elements.titleWrapperEl.clientWidth < this.elements.titleEl.clientWidth) this.elements.titleEl.classList.add('scrolling');else this.elements.titleEl.classList.remove('scrolling');
+    });
   }
 
   // Utilities
@@ -116,28 +120,23 @@ class Radio {
   }
   displayErrorMessage(message) {
     this.log(message);
-    const previousTitle = this.elements.titleEl.textContent,
-      previousSubtitle = this.elements.albumEl.textContent;
-    if (previousTitle.trim() != '' || previousSubtitle.trim() != '') {
-      this.elements.albumEl.textContent = '';
+    const previousContent = this.elements.titleEl.innerHTML;
+    if (previousContent.trim() != '' || previousSubtitle.trim() != '') {
       setTimeout(() => {
-        this.elements.titleEl.textContent = previousTitle;
-        this.elements.albumEl.textContent = previousSubtitle;
+        this.elements.titleEl.innerHTML = previousContent;
       }, this.ERROR_MESSAGE_TIMEOUT);
     }
     this.elements.titleEl.textContent = message;
   }
   displayUserMessage(message, timeout) {
     if (timeout != 0) {
-      const previousTitle = this.elements.titleEl.textContent,
-        previousSubtitle = this.elements.albumEl.textContent;
-      if (previousTitle.trim() != '' || previousSubtitle.trim() != '') {
+      const previousContent = this.elements.titleEl.innerHTML;
+      if (previousContent.trim() != '') {
         setTimeout(() => {
-          this.elements.titleEl.textContent = previousTitle;
-          this.elements.albumEl.textContent = previousSubtitle;
+          this.elements.titleEl.innerHTML = previousContent;
         }, timeout);
       }
-    } else this.elements.albumEl.textContent = '';
+    }
     this.elements.titleEl.textContent = message;
   }
 
@@ -316,10 +315,14 @@ class Radio {
     this.mediaTags.read(src, {
       onSuccess: function (tag) {
         if (self.debug) console.log('[RADIO] Found metadata: ', tag);
+        var album = tag.tags.album;
+        if (tag.tags.year) album += '&nbsp;(' + tag.tags.year + ')';
         self.elements.titleEl.textContent = tag.tags.title;
         if (tag.tags.artist) self.elements.titleEl.textContent += ' — ' + tag.tags.artist;
-        self.elements.albumEl.textContent = tag.tags.album;
-        if (tag.tags.year) self.elements.albumEl.textContent += '&nbsp;(' + tag.tags.year + ')';
+        const albumEl = self.document.createElement('span');
+        albumEl.innerHTML = album;
+        albumEl.classList.add('radioPart', 'album');
+        self.elements.titleEl.appendChild(albumEl);
       },
       onError: function (error) {
         this.displayErrorMessage('No information found for this track.');

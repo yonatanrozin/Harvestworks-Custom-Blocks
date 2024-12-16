@@ -121,14 +121,16 @@
 .wp-block-create-block-logo-people .spacer {
   height: 24px;
   background-color: #a7ad8b;
-  padding-left: 6px;
+  padding-left: 2px;
   padding-right: 6px;
   display: flex;
   justify-content: right;
   align-items: center;
-  font-family: "Pixelify Sans", serif;
+  gap: 12px;
+  font-family: "tiny5", sans-serif;
+  font-size: 18px;
   font-optical-sizing: auto;
-  font-weight: 100;
+  font-weight: 400;
   font-style: normal;
   color: #ffffff;
   white-space: nowrap;
@@ -141,16 +143,14 @@
   align-items: center;
   gap: 26px;
 }
-.wp-block-create-block-logo-people .spacer .radioButton {
-  position: relative;
-  cursor: pointer;
-}
 .wp-block-create-block-logo-people .spacer svg {
   height: 14px;
   width: 16px;
   transform: scale(1.6);
 }
-.wp-block-create-block-logo-people .spacer svg path {
+.wp-block-create-block-logo-people .spacer svg path,
+.wp-block-create-block-logo-people .spacer svg polygon,
+.wp-block-create-block-logo-people .spacer svg rect {
   fill: #ffffff;
 }
 .wp-block-create-block-logo-people .spacer svg.play.radioPart {
@@ -158,43 +158,41 @@
   display: none;
   margin-left: 6px;
   margin-right: 6px;
-  transform: translate(0, 1px) scaleX(2.2) scaleY(1.5);
+  transform: scaleX(2.2) scaleY(1.5);
 }
 .wp-block-create-block-logo-people .spacer svg.pause.radioPart {
   cursor: pointer;
   margin-left: 6px;
   margin-right: 6px;
-  transform: translate(0, 1px) scaleX(1.6) scaleY(1.5);
+  transform: scaleX(1.6) scaleY(1.5);
 }
 .wp-block-create-block-logo-people .spacer svg.skip.radioPart {
   cursor: pointer;
-  transform: translate(0, 1px) scaleX(1.6) scaleY(1.5);
+  transform: scaleX(1.6) scaleY(1.5);
 }
 .wp-block-create-block-logo-people .spacer svg.prev.radioPart {
   cursor: pointer;
-  transform: translate(0, 1px) scaleX(1.6) scaleY(1.5);
+  transform: scaleX(1.6) scaleY(1.5);
 }
-.wp-block-create-block-logo-people .spacer svg.radio {
-  transform: translate(0, 1px) scaleX(1.6) scaleY(1.5);
+.wp-block-create-block-logo-people .spacer svg.icon {
+  transform: scaleX(1.6) scaleY(1.6);
   margin-left: 4px;
 }
 .wp-block-create-block-logo-people .spacer svg.headphones {
-  transform: translate(0, 1px) scale(1.6);
+  transform: scale(1.6);
   z-index: 2;
 }
 .wp-block-create-block-logo-people .spacer .radioPart {
   display: none;
 }
-.wp-block-create-block-logo-people .spacer .time {
-  justify-self: right;
-  margin-right: 8px;
-}
-.wp-block-create-block-logo-people .spacer .title {
-  margin-left: -16px;
-}
-.wp-block-create-block-logo-people .spacer .album {
-  margin-left: -16px;
-  opacity: 0.6;
+.wp-block-create-block-logo-people .spacer .radioButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  width: 16px;
+  height: 30px;
 }
 .wp-block-create-block-logo-people .spacer.active {
   justify-content: space-between;
@@ -204,6 +202,8 @@
 }
 .wp-block-create-block-logo-people .spacer.active .section {
   display: flex;
+  align-items: center;
+  min-width: 0;
 }
 .wp-block-create-block-logo-people .spacer.active .radioButton path {
   fill: #a7ad8b;
@@ -216,6 +216,56 @@
   bottom: 0;
   transform: scale(1.4, 0.62);
   background-color: #ffffff;
+}
+.wp-block-create-block-logo-people .spacer .infoSection {
+  flex-shrink: 1;
+  overflow: hidden;
+  justify-content: left;
+}
+.wp-block-create-block-logo-people .spacer .infoSection .icon {
+  flex-shrink: 0;
+}
+.wp-block-create-block-logo-people .spacer .infoSection .titleWrapper {
+  margin-left: -16px;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  min-width: 0;
+}
+.wp-block-create-block-logo-people .spacer .infoSection .title {
+  display: inline-block;
+  position: relative;
+  padding-inline-end: 6px;
+}
+.wp-block-create-block-logo-people .spacer .infoSection .album {
+  margin-left: 8px;
+  opacity: 0.6;
+}
+.wp-block-create-block-logo-people .spacer .infoSection .scrolling {
+  animation: move 12s infinite alternate ease-in-out;
+}
+@keyframes move {
+  0%, 20% {
+    transform: translateX(0%);
+    left: 0%;
+  }
+  80%, 100% {
+    transform: translateX(-100%);
+    left: 100%;
+  }
+}
+.wp-block-create-block-logo-people .spacer .controlSection {
+  flex-shrink: 0;
+  justify-content: center;
+}
+.wp-block-create-block-logo-people .spacer .controlSection .time {
+  font-family: "tiny5", sans-serif;
+  font-size: 18px;
+  justify-self: right;
+  margin-right: 8px;
+}
+.wp-block-create-block-logo-people .spacer .controlSection .controls {
+  gap: 6px;
 }
 .wp-block-create-block-logo-people .spacer.pause .pause {
   display: none;

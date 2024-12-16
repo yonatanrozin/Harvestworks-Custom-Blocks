@@ -56,7 +56,7 @@ $radioUrls = $attributes['audioFiles'];
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js" integrity="sha512-YsR46MmyChktsyMMou+Bs74oCa/CDdwft7rJ5wlnmDzMj1mzqncsfJamEEf99Nk7IB0JpTMo5hS8rxB49FUktQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Jersey+10&family=Micro+5&family=Pixelify+Sans:wght@400..700&family=Tiny5&display=swap" rel="stylesheet">
 	<div class="people">
 		<a href="/"></a>
 		<?php if (!empty($images)) : ?>
@@ -125,19 +125,22 @@ $radioUrls = $attributes['audioFiles'];
 		</div>
 	</div>
 	<div class="spacer">
-		<div class="radioPart section">
-			<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+		<div class="radioPart section infoSection">
+			<svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
 				<path d="M19 2h2v2h-2V2Zm2 14V4h2v12h-2Zm0 0v2h-2v-2h2ZM1 4h2v12H1V4Zm2 12h2v2H3v-2ZM3 4h2V2H3v2Zm2 2h2v8H5V6Zm2 8h2v2H7v-2Zm0-8h2V4H7v2Zm10 0h2v8h-2V6Zm0 0h-2V4h2v2Zm0 8v2h-2v-2h2Zm-6-7h4v6h-2v9h-2v-9H9V7h2Zm0 4h2V9h-2v2Z" />
 			</svg>
-			<p class="radioPart title"></p>
-			<p class="radioPart album">
-			</p>
+			<div class="titleWrapper">
+				<p class="radioPart title">
+					<span class="radioPart album">
+					</span>
+				</p>
+			</div>
 		</div>
 
-		<div class="section">
+		<div class="section controlSection">
 			<p class="radioPart time">
 			</p>
-			<div class="radioPart controls">
+			<div class="radioPart section controls">
 				<svg class="prev radioPart" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 					<path d="M6 4h2v16H6V4zm12 0h-2v2h-2v3h-2v2h-2v2h2v3h2v2h2v2h2V4z" fill="currentColor" />
 				</svg>
