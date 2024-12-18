@@ -21,6 +21,11 @@
   gap: 10px;
   background-color: lightgray;
 }
+.wp-block-harvestworks-artist-events-list .event_card img {
+  aspect-ratio: 1;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 .wp-block-harvestworks-artist-events-list .event_card .event_details {
   display: flex;
   flex-direction: column;

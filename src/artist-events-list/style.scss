@@ -21,6 +21,11 @@
         gap: 10px;
         background-color: lightgray;
 
+        img {
+            aspect-ratio: 1;
+            object-fit: cover;
+        }
+
         .event_details {
             display: flex;
             flex-direction: column;
