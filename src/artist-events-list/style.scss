@@ -7,23 +7,33 @@
 
 .wp-block-harvestworks-artist-events-list {
 
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px 15px;
+    flex-wrap: wrap;
 
     .event_card {
-        padding: 25px;
-        display: flex;
-        gap: 25px;
-        align-items: center;
+        padding: 15px;
+        max-width: min(250px, 20vw);
 
-        img {height: 150px;}
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        background-color: lightgray;
 
         .event_details {
             display: flex;
             flex-direction: column;
+            gap: 5px;
 
-            h2, h3 {margin: 0px}
-            h3 {color: var(--wp--preset--color--contrast-2)}
+            .event_title {
+                margin: 0px;
+                overflow-wrap: break-word;
+            }
+            .event_tagline {
+                color: var(--wp--preset--color--contrast-2);
+                margin: 0px;
+            }
             
             p {margin: 0px; font-size: medium}
         }

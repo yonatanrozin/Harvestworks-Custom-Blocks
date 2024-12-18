@@ -16,14 +16,14 @@
     ?>
 
     <?php foreach ($posts as $post): ?>
-        <div class="event_card">
+        <div class="event_card" >
             <?php if (has_post_thumbnail($post)): ?>
                 <img src=<?= get_the_post_thumbnail_url($post) ?> />
             <?php endif; ?>
             <div class="event_details" >
-                <a href="<?= get_permalink($post) ?>"><h2><?= $post->post_title ?></h2></a>
-                <h3><?= get_field("tagline", $post->ID) ?></h3>
-                <p ><?= $post->post_excerpt ?></p>
+                <a href="<?= get_permalink($post) ?>"><h4 class="event_title"><?= $post->post_title ?></h4></a>
+                <h5 class="event_tagline"><?= get_field("tagline", $post->ID) ?></h5>
+                <!-- <p ><?= $post->post_excerpt ?></p> -->
             </div>
         </div>
     <?php endforeach; ?>

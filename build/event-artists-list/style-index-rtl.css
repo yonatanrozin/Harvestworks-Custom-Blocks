@@ -12,7 +12,7 @@
   flex-direction: column;
 }
 .wp-block-harvestworks-event-artists-list .artist_card {
-  padding: 25px;
+  padding: 25px 0px;
   display: flex;
   gap: 25px;
   align-items: center;

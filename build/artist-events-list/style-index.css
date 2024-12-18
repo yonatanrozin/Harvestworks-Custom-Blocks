@@ -8,27 +8,31 @@
  * Replace them with your own styles or remove the file completely.
  */
 .wp-block-harvestworks-artist-events-list {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px 15px;
+  flex-wrap: wrap;
 }
 .wp-block-harvestworks-artist-events-list .event_card {
-  padding: 25px;
+  padding: 15px;
+  max-width: min(250px, 20vw);
   display: flex;
-  gap: 25px;
-  align-items: center;
-}
-.wp-block-harvestworks-artist-events-list .event_card img {
-  height: 150px;
+  flex-direction: column;
+  gap: 10px;
+  background-color: lightgray;
 }
 .wp-block-harvestworks-artist-events-list .event_card .event_details {
   display: flex;
   flex-direction: column;
+  gap: 5px;
 }
-.wp-block-harvestworks-artist-events-list .event_card .event_details h2, .wp-block-harvestworks-artist-events-list .event_card .event_details h3 {
+.wp-block-harvestworks-artist-events-list .event_card .event_details .event_title {
   margin: 0px;
+  overflow-wrap: break-word;
 }
-.wp-block-harvestworks-artist-events-list .event_card .event_details h3 {
+.wp-block-harvestworks-artist-events-list .event_card .event_details .event_tagline {
   color: var(--wp--preset--color--contrast-2);
+  margin: 0px;
 }
 .wp-block-harvestworks-artist-events-list .event_card .event_details p {
   margin: 0px;
