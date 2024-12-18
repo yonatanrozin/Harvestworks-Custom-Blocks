@@ -157,7 +157,7 @@ class Radio {
   // Controls
 
   hasRecoveredSong() {
-    return this.recoveredSong.trim() != '' && this.recoveredTimestamp.trim() != '';
+    return this.recoveredSong && this.recoveredTimestamp && this.recoveredSong.trim() != '' && this.recoveredTimestamp.trim() != '';
   }
   resumeRecoveredSong() {
     if (!this.hasRecoveredSong()) return;
@@ -384,11 +384,11 @@ class Radio {
   // State recovery values
 
   get songHistory() {
-    var _this$window$localSto;
-    return ((_this$window$localSto = this.window.localStorage.getItem(this.SONG_HISTORY_KEY)) !== null && _this$window$localSto !== void 0 ? _this$window$localSto : '').split('\n').map(song => song.trim()).filter(song => song !== '');
+    var _this$window$sessionS;
+    return ((_this$window$sessionS = this.window.sessionStorage.getItem(this.SONG_HISTORY_KEY)) !== null && _this$window$sessionS !== void 0 ? _this$window$sessionS : '').split('\n').map(song => song.trim()).filter(song => song !== '');
   }
   set songHistory(str) {
-    this.window.localStorage.setItem(this.SONG_HISTORY_KEY, str.trim());
+    this.window.sessionStorage.setItem(this.SONG_HISTORY_KEY, str.trim());
   }
   addToSongHistory(song) {
     if (!song) return this.log('Tried to add empty song to history.');
@@ -409,22 +409,22 @@ class Radio {
     this.log('Removed ' + song + ' from history: ' + this.songHistory);
   }
   get recoveredSong() {
-    return this.window.localStorage.getItem(this.RECOVERY_SONG_URL_KEY);
+    return this.window.sessionStorage.getItem(this.RECOVERY_SONG_URL_KEY);
   }
   set recoveredSong(str = '') {
-    this.window.localStorage.setItem(this.RECOVERY_SONG_URL_KEY, str);
+    this.window.sessionStorage.setItem(this.RECOVERY_SONG_URL_KEY, str);
   }
   get recoveredTimestamp() {
-    return this.window.localStorage.getItem(this.RECOVERY_TIMESTAMP_KEY);
+    return this.window.sessionStorage.getItem(this.RECOVERY_TIMESTAMP_KEY);
   }
   set recoveredTimestamp(str = '0') {
-    this.window.localStorage.setItem(this.RECOVERY_TIMESTAMP_KEY, str);
+    this.window.sessionStorage.setItem(this.RECOVERY_TIMESTAMP_KEY, str);
   }
   get recoveredPauseState() {
-    return this.window.localStorage.getItem(this.RECOVERY_PAUSE_STATE_KEY) === 'true';
+    return this.window.sessionStorage.getItem(this.RECOVERY_PAUSE_STATE_KEY) === 'true';
   }
   set recoveredPauseState(bool) {
-    this.window.localStorage.setItem(this.RECOVERY_PAUSE_STATE_KEY, bool);
+    this.window.sessionStorage.setItem(this.RECOVERY_PAUSE_STATE_KEY, bool);
   }
 }
 

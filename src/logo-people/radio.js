@@ -169,7 +169,7 @@ export class Radio {
     // Controls
 
     hasRecoveredSong() {
-        return this.recoveredSong.trim() != '' && this.recoveredTimestamp.trim() != '';
+        return this.recoveredSong && this.recoveredTimestamp && this.recoveredSong.trim() != '' && this.recoveredTimestamp.trim() != '';
     }
 
     resumeRecoveredSong() {
@@ -477,11 +477,11 @@ export class Radio {
     // State recovery values
 
     get songHistory() {
-        return (this.window.localStorage.getItem(this.SONG_HISTORY_KEY) ?? '').split('\n').map((song) => song.trim()).filter((song) => song !== '');
+        return (this.window.sessionStorage.getItem(this.SONG_HISTORY_KEY) ?? '').split('\n').map((song) => song.trim()).filter((song) => song !== '');
     }
 
     set songHistory(str) {
-        this.window.localStorage.setItem(this.SONG_HISTORY_KEY, str.trim());
+        this.window.sessionStorage.setItem(this.SONG_HISTORY_KEY, str.trim());
     }
 
     addToSongHistory(song) {
@@ -506,27 +506,27 @@ export class Radio {
     }
 
     get recoveredSong() {
-        return this.window.localStorage.getItem(this.RECOVERY_SONG_URL_KEY);
+        return this.window.sessionStorage.getItem(this.RECOVERY_SONG_URL_KEY);
     }
 
     set recoveredSong(str = '') {
-        this.window.localStorage.setItem(this.RECOVERY_SONG_URL_KEY, str);
+        this.window.sessionStorage.setItem(this.RECOVERY_SONG_URL_KEY, str);
     }
 
     get recoveredTimestamp() {
-        return this.window.localStorage.getItem(this.RECOVERY_TIMESTAMP_KEY);
+        return this.window.sessionStorage.getItem(this.RECOVERY_TIMESTAMP_KEY);
     }
 
     set recoveredTimestamp(str = '0') {
-        this.window.localStorage.setItem(this.RECOVERY_TIMESTAMP_KEY, str);
+        this.window.sessionStorage.setItem(this.RECOVERY_TIMESTAMP_KEY, str);
     }
 
     get recoveredPauseState() {
-        return this.window.localStorage.getItem(this.RECOVERY_PAUSE_STATE_KEY) === 'true';
+        return this.window.sessionStorage.getItem(this.RECOVERY_PAUSE_STATE_KEY) === 'true';
     }
 
     set recoveredPauseState(bool) {
-        this.window.localStorage.setItem(this.RECOVERY_PAUSE_STATE_KEY, bool);
+        this.window.sessionStorage.setItem(this.RECOVERY_PAUSE_STATE_KEY, bool);
     }
 
 }
