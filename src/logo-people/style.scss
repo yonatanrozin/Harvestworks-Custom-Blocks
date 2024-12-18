@@ -183,14 +183,15 @@ $filter-saturate: saturate(2);
 		gap: 12px;
 
 
-		// font-family: "Pixelify Sans", sans-serif;
-		// font-size: 18px;
-
-		font-family: "tiny5", sans-serif;
+		font-family: "Pixelify Sans", sans-serif;
 		font-size: 18px;
+		font-weight: 500;
+
+		// font-family: "tiny5", sans-serif;
+		// font-size: 18px;
+		// font-weight: 400;
 
 		font-optical-sizing: auto;
-		font-weight: 400;
 		font-style: normal;
 		color: $text-color;
 
@@ -331,7 +332,7 @@ $filter-saturate: saturate(2);
 			}
 
 			.album {
-				margin-left: 8px;
+				margin-left: 16px;
 				opacity: 0.6;
 			}
 
@@ -361,6 +362,7 @@ $filter-saturate: saturate(2);
 
 			.time {
 				font-family: "tiny5", sans-serif;
+				font-weight: 400;
 				font-size: 18px;
 				justify-self: right;
 				margin-right: 8px;

@@ -108,8 +108,7 @@ class Radio {
       this.prevSong();
     });
     this.window.addEventListener('resize', () => {
-      // this.log('Resizing title: ' + this.elements.titleWrapperEl.clientWidth < this.elements.titleEl.clientWidth);
-      if (this.elements.titleWrapperEl.clientWidth < this.elements.titleEl.clientWidth) this.elements.titleEl.classList.add('scrolling');else this.elements.titleEl.classList.remove('scrolling');
+      this.updateTitleScroll();
     });
   }
 
@@ -316,9 +315,9 @@ class Radio {
       onSuccess: function (tag) {
         if (self.debug) console.log('[RADIO] Found metadata: ', tag);
         var album = tag.tags.album;
-        if (tag.tags.year) album += '&nbsp;(' + tag.tags.year + ')';
-        self.elements.titleEl.textContent = tag.tags.title;
-        if (tag.tags.artist) self.elements.titleEl.textContent += ' — ' + tag.tags.artist;
+        if (tag.tags.year) album += '&nbsp;&nbsp;&nbsp;(' + tag.tags.year + ')';
+        self.elements.titleEl.innerHTML = tag.tags.title;
+        if (tag.tags.artist) self.elements.titleEl.innerHTML += '&nbsp;&nbsp;—&nbsp;&nbsp;' + tag.tags.artist;
         const albumEl = self.document.createElement('span');
         albumEl.innerHTML = album;
         albumEl.classList.add('radioPart', 'album');
@@ -329,6 +328,10 @@ class Radio {
         this.log(':(', error.type, error.info);
       }
     });
+  }
+  updateTitleScroll() {
+    // this.log('Resizing title: ' + this.elements.titleWrapperEl.clientWidth < this.elements.titleEl.clientWidth);
+    if (this.elements.titleWrapperEl.clientWidth < this.elements.titleEl.clientWidth) this.elements.titleEl.classList.add('scrolling');else this.elements.titleEl.classList.remove('scrolling');
   }
   updateDurationDisplay() {
     if (!this.sound) {
