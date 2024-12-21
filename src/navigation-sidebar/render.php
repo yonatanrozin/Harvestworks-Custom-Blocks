@@ -8,10 +8,10 @@
 global $post;
 $currentID = $post->ID;
 $ancestors = get_post_ancestors($post);
-$first_ancestor = !empty($ancestors) ? end($ancestors) : $post;
+$first_ancestor = !empty($ancestors) ? end($ancestors) : $post->ID;
 $first_ancestor_title = get_the_title($first_ancestor);
 
-function createList($pageID, $title, $currentID)
+function createList(int $pageID, string $title, int $currentID)
 {
 	$children = get_pages(array(
 		'parent' => $pageID,
@@ -49,7 +49,7 @@ function createList($pageID, $title, $currentID)
 	<div className='sidebar'>
 		<ul>
 			<?php
-			createList($first_ancestor->ID, $first_ancestor_title, $currentID);
+			createList($first_ancestor, $first_ancestor_title, $currentID);
 			?>
 		</ul>
 	</div>
