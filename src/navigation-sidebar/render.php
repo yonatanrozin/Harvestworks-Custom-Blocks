@@ -49,7 +49,7 @@ function createList($pageID, $title, $currentID)
 	<div className='sidebar'>
 		<ul>
 			<?php
-			createList($first_ancestor, $first_ancestor_title, $currentID);
+			createList($first_ancestor->ID, $first_ancestor_title, $currentID);
 			?>
 		</ul>
 	</div>
