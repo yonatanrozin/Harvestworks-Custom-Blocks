@@ -2,10 +2,10 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/logo-people/edit.js":
-/*!*********************************!*\
-  !*** ./src/logo-people/edit.js ***!
-  \*********************************/
+/***/ "./src/navigation-sidebar/edit.js":
+/*!****************************************!*\
+  !*** ./src/navigation-sidebar/edit.js ***!
+  \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -18,9 +18,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editor.scss */ "./src/logo-people/editor.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editor.scss */ "./src/navigation-sidebar/editor.scss");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__);
 /**
  * Retrieves the translation of text.
  *
@@ -46,6 +48,7 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 
+
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
@@ -59,60 +62,87 @@ function Edit({
   attributes,
   setAttributes
 }) {
-  const {
-    audioFiles
-  } = attributes;
-  const url = window.location.origin + '/wp-content/uploads/2024/12/';
-  const images = ['community', 'visitor', 'learning', 'performance', 'programs', 'studio'];
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
-        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Radio Settings', 'logo-people'),
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextareaControl, {
-          __nextHasNoMarginBottom: true,
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("List of audio files", 'logo-people'),
-          help: "Enter the urls of audio files to include in the radio, separated by new lines. (Loudness Normalize to -3dBFS and ensure ends are trimmed to <1sec) You can copy the URL from the media library screen. (ex. http://localhost:8888/wp-content/uploads/2024/12/The-Auctioneer.mp3)",
-          value: audioFiles || '',
-          onChange: value => setAttributes({
-            audioFiles: value
-          })
+  var _window$location$href;
+  const {} = attributes;
+  const [pages, setPages] = (0,react__WEBPACK_IMPORTED_MODULE_4__.useState)([]);
+  const pageID = (_window$location$href = window.location.href.split('postId=')[1].split('&')[0]) !== null && _window$location$href !== void 0 ? _window$location$href : undefined;
+  (0,react__WEBPACK_IMPORTED_MODULE_4__.useEffect)(() => {
+    if (!pageID) {
+      return;
+    }
+    const fetchFirstAncestor = async id => {
+      const data = await fetch('/index.php/wp-json/harvestworks/v1/ancestor?id=' + pageID).then(response => response.json()).catch(error => console.error('Error fetching pages:', error));
+      console.log('Fetched ancestor:', data);
+      return data;
+    };
+    const fetchChildren = async (id, title, link) => {
+      var _ref;
+      if (id === 0 || !id || !title || !link || link === '') {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+          children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+            children: "Navigation"
+          }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("ul", {
+            children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+              children: "Placeholder"
+            })]
+          })]
+        });
+      }
+      const pageList = [];
+      console.log('Fetching children for page ID:', id);
+      pageList.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
+          href: link !== null && link !== void 0 ? link : '',
+          children: title !== null && title !== void 0 ? title : ''
+        })
+      }, id !== null && id !== void 0 ? id : ''));
+      const data = await fetch('/index.php/wp-json/harvestworks/v1/pages?id=' + id).then(response => response.json()).catch(error => console.error('Error fetching pages:', error));
+      console.log('Fetched pages:', data);
+      const subPageList = await Promise.all(data.map(async element => {
+        return fetchChildren(element.id, element.title, element.link);
+      }));
+      pageList.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("ul", {
+        children: subPageList
+      }, (_ref = id + 'sub') !== null && _ref !== void 0 ? _ref : ''));
+      console.log('Rendering pages:', pageList);
+      return pageList;
+    };
+    fetchFirstAncestor(pageID).then(ancestor => {
+      console.log('Starting recursion: ', ancestor);
+      fetchChildren(ancestor.id, ancestor.title, ancestor.link).then(pageList => setPages(pageList));
+    });
+  }, [setPages]);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Settings', 'navigation-sidebar')
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+      ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)(),
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        className: "sidebar",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("ul", {
+          children: pages
         })
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-      ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)(),
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        className: "people",
-        children: images.length > 0 ? images.map((image, index) => {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
-            src: url + image + '.png',
-            alt: '',
-            className: index === 0 ? 'active' : ''
-          }, index);
-        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
-          src: "https://via.placeholder.com/150",
-          alt: "placeholder"
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        className: "spacer"
-      })]
     })]
   });
 }
 
 /***/ }),
 
-/***/ "./src/logo-people/index.js":
-/*!**********************************!*\
-  !*** ./src/logo-people/index.js ***!
-  \**********************************/
+/***/ "./src/navigation-sidebar/index.js":
+/*!*****************************************!*\
+  !*** ./src/navigation-sidebar/index.js ***!
+  \*****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./src/logo-people/style.scss");
-/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit */ "./src/logo-people/edit.js");
-/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./block.json */ "./src/logo-people/block.json");
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./src/navigation-sidebar/style.scss");
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit */ "./src/navigation-sidebar/edit.js");
+/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./block.json */ "./src/navigation-sidebar/block.json");
 /**
  * Registers a new block provided a unique name and an object defining its behavior.
  *
@@ -149,10 +179,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/logo-people/editor.scss":
-/*!*************************************!*\
-  !*** ./src/logo-people/editor.scss ***!
-  \*************************************/
+/***/ "./src/navigation-sidebar/editor.scss":
+/*!********************************************!*\
+  !*** ./src/navigation-sidebar/editor.scss ***!
+  \********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -161,15 +191,25 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/logo-people/style.scss":
-/*!************************************!*\
-  !*** ./src/logo-people/style.scss ***!
-  \************************************/
+/***/ "./src/navigation-sidebar/style.scss":
+/*!*******************************************!*\
+  !*** ./src/navigation-sidebar/style.scss ***!
+  \*******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
+
+/***/ }),
+
+/***/ "react":
+/*!************************!*\
+  !*** external "React" ***!
+  \************************/
+/***/ ((module) => {
+
+module.exports = window["React"];
 
 /***/ }),
 
@@ -223,13 +263,13 @@ module.exports = window["wp"]["i18n"];
 
 /***/ }),
 
-/***/ "./src/logo-people/block.json":
-/*!************************************!*\
-  !*** ./src/logo-people/block.json ***!
-  \************************************/
+/***/ "./src/navigation-sidebar/block.json":
+/*!*******************************************!*\
+  !*** ./src/navigation-sidebar/block.json ***!
+  \*******************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/logo-people","version":"0.1.0","title":"Logo People","category":"widgets","icon":"groups","description":"The dynamic pixel people of the Harvestworks logo.","example":{},"supports":{"html":false,"spacing":{"margin":true}},"attributes":{"audioFiles":{"type":"string"}},"textdomain":"logo-people","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/navigation-sidebar","version":"0.1.0","title":"Navigation Sidebar","category":"widgets","icon":"groups","description":"An auto-updating sidebar of sibling pages.","example":{},"supports":{"html":false,"spacing":{"margin":true}},"attributes":{"audioFiles":{"type":"string"}},"textdomain":"navigation-sidebar","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ })
 
@@ -345,8 +385,8 @@ module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/tru
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
-/******/ 			"logo-people/index": 0,
-/******/ 			"logo-people/style-index": 0
+/******/ 			"navigation-sidebar/index": 0,
+/******/ 			"navigation-sidebar/style-index": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -398,7 +438,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/tru
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["logo-people/style-index"], () => (__webpack_require__("./src/logo-people/index.js")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["navigation-sidebar/style-index"], () => (__webpack_require__("./src/navigation-sidebar/index.js")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

@@ -19,8 +19,10 @@ class Radio {
   // Settings
   VOLUME = 0.5;
   ERROR_MESSAGE_TIMEOUT = 5000;
+  USER_MESSAGE_TIMEOUT = 1000;
   PROGRESS_UPDATE_INTERVAL = 1000;
   RESTART_VS_PREV_TIMEOUT = 2500;
+  PRE_MESSAGE_WAIT = 1000;
 
   // Classname constants
   IS_RADIO_ACTIVE_CLASSNAME = 'active';
@@ -30,6 +32,7 @@ class Radio {
   RECOVERY_TIMESTAMP_KEY = 'radio-timestamp';
   RECOVERY_SONG_URL_KEY = 'radio-file';
   RECOVERY_PAUSE_STATE_KEY = 'radio-pause';
+  RECOVERY_ACTIVE_STATE_KEY = 'radio-active';
   SONG_HISTORY_KEY = 'radio-listened';
   trackList = [];
   unplayedSongs = [];
@@ -60,7 +63,8 @@ class Radio {
       skipEl: document.querySelector('.skip.radioPart'),
       prevEl: document.querySelector('.prev.radioPart')
     };
-    this.displayUserMessage('Loading...', 0);
+    if (this.isRadioOpen) this.isRadioOpen = true;
+    this.displayUserMessage('Loading...');
 
     // Check for missing elements
     for (const [key, value] of Object.entries(this.elements)) {
@@ -68,12 +72,11 @@ class Radio {
         this.displayErrorMessage(`Couldn't find radio element: ${key}`);
       }
     }
-
-    // Howler.autoUnlock = true;
-    // Howler.html5PoolSize = 100;
     if (!howler__WEBPACK_IMPORTED_MODULE_0__.Howler || !howler__WEBPACK_IMPORTED_MODULE_0__.Howl) {
       this.displayErrorMessage('Couldn\'t activate player library.');
     }
+    // Howler.autoUnlock = true;
+    howler__WEBPACK_IMPORTED_MODULE_0__.Howler.html5PoolSize = 1000;
     this.mediaTags = window.jsmediatags;
     if (!this.mediaTags) {
       this.displayErrorMessage('Couldn\'t activate metadata library.');
@@ -82,7 +85,7 @@ class Radio {
 
     // Load recovered song if unpaused
     if (this.hasRecoveredSong()) {
-      if (!this.recoveredPauseState) this.resumeRecoveredSong();
+      if (this.isRadioOpen || !this.recoveredPauseState) this.resumeRecoveredSong();
     }
 
     // Add interaction event listeners
@@ -119,23 +122,17 @@ class Radio {
   }
   displayErrorMessage(message) {
     this.log(message);
-    const previousContent = this.elements.titleEl.innerHTML;
-    if (previousContent.trim() != '' || previousSubtitle.trim() != '') {
+    setTimeout(() => {
       setTimeout(() => {
-        this.elements.titleEl.innerHTML = previousContent;
+        this.updateMetadataDisplay(this.recoveredSong);
       }, this.ERROR_MESSAGE_TIMEOUT);
-    }
-    this.elements.titleEl.textContent = message;
+      this.elements.titleEl.textContent = message;
+    }, this.PRE_MESSAGE_WAIT);
   }
-  displayUserMessage(message, timeout) {
-    if (timeout != 0) {
-      const previousContent = this.elements.titleEl.innerHTML;
-      if (previousContent.trim() != '') {
-        setTimeout(() => {
-          this.elements.titleEl.innerHTML = previousContent;
-        }, timeout);
-      }
-    }
+  displayUserMessage(message) {
+    setTimeout(() => {
+      this.updateMetadataDisplay(this.recoveredSong);
+    }, this.USER_MESSAGE_TIMEOUT);
     this.elements.titleEl.textContent = message;
   }
 
@@ -165,6 +162,7 @@ class Radio {
     this.isRadioOpen = true;
     if (!this.trackList.includes(this.recoveredSong)) return this.log('Recovered song not found in track list.');
     this.playSong(this.recoveredSong, this.recoveredTimestamp, true);
+    if (this.recoveredPauseState) this.pauseSong();
   }
   playSong(url, time = 0, autoplay = false) {
     if (this.sound) this.sound.stop();
@@ -218,7 +216,7 @@ class Radio {
       this.startProgressUpdateInterval();
     });
     this.sound.on('playerror', () => {
-      this.displayErrorMessage('Playback error. Please try again.');
+      this.displayErrorMessage('Playback error. Please enable autoplay.');
       this.log('Playback error ' + this.sound._src + ' at ' + this.sound.seek());
       this.isDisplayingPaused = true;
     });
@@ -369,9 +367,10 @@ class Radio {
   // Radio state
 
   get isRadioOpen() {
-    return this.elements.containerEl.classList.contains(this.IS_RADIO_ACTIVE_CLASSNAME);
+    return this.window.sessionStorage.getItem(this.RECOVERY_ACTIVE_STATE_KEY) === 'true';
   }
   set isRadioOpen(bool) {
+    this.window.sessionStorage.setItem(this.RECOVERY_ACTIVE_STATE_KEY, bool);
     if (bool) this.elements.containerEl.classList.add(this.IS_RADIO_ACTIVE_CLASSNAME);else this.elements.containerEl.classList.remove(this.IS_RADIO_ACTIVE_CLASSNAME);
   }
   get isDisplayingPaused() {

@@ -1,0 +1,28 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "create-block/navigation-sidebar",
+	"version": "0.1.0",
+	"title": "Navigation Sidebar",
+	"category": "widgets",
+	"icon": "groups",
+	"description": "An auto-updating sidebar of sibling pages.",
+	"example": {},
+	"supports": {
+		"html": false,
+		"spacing": {
+			"margin": true
+		}
+	},
+	"attributes": {
+		"audioFiles": {
+			"type": "string"
+		}
+	},
+	"textdomain": "navigation-sidebar",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}

@@ -31,7 +31,11 @@ function harvestworks_harvestworks_block_init()
 	register_block_type(__DIR__ . '/build/event-list');
 	register_block_type(__DIR__ . '/build/events-carousel');
 	register_block_type(__DIR__ . '/build/logo-people');
+	register_block_type(__DIR__ . '/build/navigation-sidebar');
 	register_block_type(__DIR__ . '/build/artist-events-list');
 	register_block_type(__DIR__ . '/build/event-artists-list');
 }
 add_action('init', 'harvestworks_harvestworks_block_init');
+
+// Include the functions.php file
+require_once plugin_dir_path(__FILE__) . 'src/navigation-sidebar/functions.php';

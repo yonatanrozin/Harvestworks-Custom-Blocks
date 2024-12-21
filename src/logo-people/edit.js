@@ -56,7 +56,7 @@ export default function Edit({ attributes, setAttributes }) {
 							"List of audio files",
 							'logo-people'
 						)}
-						help="Enter the urls of audio files to include in the radio, separated by new lines. You can copy the URL from the media library screen. (ex. http://localhost:8888/wp-content/uploads/2024/12/The-Auctioneer.mp3)"
+						help="Enter the urls of audio files to include in the radio, separated by new lines. (Loudness Normalize to -3dBFS and ensure ends are trimmed to <1sec) You can copy the URL from the media library screen. (ex. http://localhost:8888/wp-content/uploads/2024/12/The-Auctioneer.mp3)"
 						value={audioFiles || ''}
 						onChange={(value) => setAttributes({ audioFiles: value })}
 					/>
