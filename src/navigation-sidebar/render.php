@@ -8,7 +8,14 @@
 global $post;
 $currentID = $post->ID;
 $ancestors = get_post_ancestors($post);
-$first_ancestor = !empty($ancestors) ? end($ancestors) : $post->ID;
+
+$first_ancestor;
+if (!empty($ancestors)) {
+	$first_ancestor = end($ancestors);
+} else {
+	$first_ancestor = $post->ID;
+}
+
 $first_ancestor_title = get_the_title($first_ancestor);
 
 function createList(int $pageID, string $title, int $currentID)
