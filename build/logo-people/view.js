@@ -85,7 +85,7 @@ class Radio {
 
     // Load recovered song if unpaused
     if (this.hasRecoveredSong()) {
-      if (this.isRadioOpen || !this.recoveredPauseState) this.resumeRecoveredSong();
+      if (this.isRadioOpen) this.resumeRecoveredSong();
     }
 
     // Add interaction event listeners
@@ -161,7 +161,7 @@ class Radio {
     this.log('Found existing song ' + this.recoveredSong + (this.recoveredPauseState ? ' paused' : ' playing') + ' at ' + this.recoveredTimestamp);
     this.isRadioOpen = true;
     if (!this.trackList.includes(this.recoveredSong)) return this.log('Recovered song not found in track list.');
-    this.playSong(this.recoveredSong, this.recoveredTimestamp, true);
+    this.playSong(this.recoveredSong, this.recoveredTimestamp, !this.recoveredPauseState);
     if (this.recoveredPauseState) this.pauseSong();
   }
   playSong(url, time = 0, autoplay = false) {

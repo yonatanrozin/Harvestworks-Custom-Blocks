@@ -81,7 +81,7 @@ export class Radio {
 
         // Load recovered song if unpaused
         if (this.hasRecoveredSong()) {
-            if (this.isRadioOpen || !this.recoveredPauseState)
+            if (this.isRadioOpen)
                 this.resumeRecoveredSong();
         }
 
@@ -179,7 +179,7 @@ export class Radio {
         if (!this.trackList.includes(this.recoveredSong))
             return this.log('Recovered song not found in track list.');
 
-        this.playSong(this.recoveredSong, this.recoveredTimestamp, true);
+        this.playSong(this.recoveredSong, this.recoveredTimestamp, !this.recoveredPauseState);
 
         if (this.recoveredPauseState)
             this.pauseSong();
