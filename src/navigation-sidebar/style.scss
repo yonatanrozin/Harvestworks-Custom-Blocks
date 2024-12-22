@@ -7,75 +7,73 @@
 
 $highlight-color: #a7ad8b;
 
-a {
-    text-decoration: none !important;
 
-    &:hover {
-        text-decoration: underline !important;
-    }
-}
 
 
 .sidebar ul:first-child>li:first-child a {
     margin-top: 0;
     color: white;
-    background-color: $highlight-color;
+    background-color: #a7ad8b;
     padding: 1px 6px 3px 6px;
     font-weight: 700;
 }
 
-.sidebar {
-    ul {
-        list-style-type: none;
+.sidebar a {
+    text-decoration: none !important;
+}
 
-        li {
-            display: block;
-            width: fit-content;
-        }
+.sidebar a:hover {
+    text-decoration: underline !important;
+}
 
-        .currentPage {
-            position: relative;
-        }
+.sidebar ul {
+    list-style-type: none;
+}
 
-        .currentPage::after {
-            content: '';
-            display: inline-block;
+.sidebar ul li {
+    display: block;
+    width: fit-content;
+}
 
-            position: absolute;
-            top: 0.6rem;
-            left: -1.2rem;
+.sidebar ul .currentPage {
+    position: relative;
+}
 
-            width: 0.6rem;
-            height: 0.6rem;
-            background-color: $highlight-color;
-            border-radius: 50%;
-            margin-right: 0.5rem;
-        }
-    }
+.sidebar ul .currentPage::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 0.6rem;
+    left: -1.2rem;
+    width: 0.6rem;
+    height: 0.6rem;
+    background-color: #a7ad8b;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+}
 
-    ul>li {
-        margin-bottom: 1.5rem;
-        margin-left: -3.2rem;
-        font-size: 18px;
-        font-weight: 700;
-    }
+.sidebar ul>li {
+    margin-bottom: 1.5rem;
+    margin-left: -3.2rem;
+    font-size: 18px;
+    font-weight: 700;
+}
 
-    ul>ul>li {
-        margin-bottom: 1rem;
-        margin-left: -4.2rem;
-        font-size: 18px;
-        font-weight: 500;
-    }
+.sidebar ul>ul>li {
+    margin-bottom: 1rem;
+    margin-left: -4.2rem;
+    font-size: 18px;
+    font-weight: 500;
+}
 
-    ul>ul>ul {
-        margin-top: 1rem;
-        margin-bottom: 1.25rem;
-    }
+.sidebar ul>ul>ul {
+    margin-top: 1rem;
+    margin-bottom: 1.25rem;
+}
 
-    ul>ul>ul>li {
-        margin-bottom: 1rem;
-        margin-left: -4.8rem;
-        font-size: 16px;
-        font-weight: 500;
-    }
+.sidebar ul>ul>ul>li {
+    margin-bottom: 1rem;
+    margin-left: -4.8rem;
+    font-size: 16px;
+    font-weight: 500;
 }
