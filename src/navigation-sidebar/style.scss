@@ -10,7 +10,7 @@ $highlight-color: #a7ad8b;
 
 
 
-.sidebar ul:first-child>li:first-child a {
+.sidebar>ul>li a {
     margin-top: 0;
     color: white;
     background-color: #a7ad8b;
@@ -52,26 +52,26 @@ $highlight-color: #a7ad8b;
     margin-right: 0.5rem;
 }
 
-.sidebar ul>li {
+.sidebar>ul>li {
     margin-bottom: 1.5rem;
     margin-left: -3.2rem;
     font-size: 18px;
     font-weight: 700;
 }
 
-.sidebar ul>ul>li {
+.sidebar>ul>ul>li {
     margin-bottom: 1rem;
     margin-left: -4.2rem;
     font-size: 18px;
     font-weight: 500;
 }
 
-.sidebar ul>ul>ul {
+.sidebar>ul>ul>ul {
     margin-top: 1rem;
     margin-bottom: 1.25rem;
 }
 
-.sidebar ul>ul>ul>li {
+.sidebar>ul>ul>ul>li {
     margin-bottom: 1rem;
     margin-left: -4.8rem;
     font-size: 16px;
