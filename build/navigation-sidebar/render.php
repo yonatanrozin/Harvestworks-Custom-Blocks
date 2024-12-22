@@ -108,6 +108,77 @@ function createList(int $pageID, string $title, int $currentID, array $extraLink
 
 
 <div <?php echo get_block_wrapper_attributes(); ?>>
+	<style>
+		.wp-block-create-block-navigation-sidebar {
+			.sidebar>ul>li a {
+				margin-top: 0;
+				color: white;
+				background-color: #a7ad8b;
+				padding: 1px 6px 3px 6px;
+				font-weight: 700;
+			}
+
+			.sidebar a {
+				text-decoration: none !important;
+			}
+
+			.sidebar a:hover {
+				text-decoration: underline !important;
+			}
+
+			.sidebar ul {
+				list-style-type: none;
+			}
+
+			.sidebar ul li {
+				display: block;
+				width: fit-content;
+			}
+
+			.sidebar ul .currentPage {
+				position: relative;
+			}
+
+			.sidebar ul .currentPage::after {
+				content: '';
+				display: inline-block;
+				position: absolute;
+				top: 0.6rem;
+				left: -1.2rem;
+				width: 0.6rem;
+				height: 0.6rem;
+				background-color: #a7ad8b;
+				border-radius: 50%;
+				margin-right: 0.5rem;
+			}
+
+			.sidebar>ul>li {
+				margin-bottom: 1.5rem;
+				margin-left: -3.2rem;
+				font-size: 18px;
+				font-weight: 700;
+			}
+
+			.sidebar>ul>ul>li {
+				margin-bottom: 1rem;
+				margin-left: -4.2rem;
+				font-size: 18px;
+				font-weight: 500;
+			}
+
+			.sidebar>ul>ul>ul {
+				margin-top: 1rem;
+				margin-bottom: 1.25rem;
+			}
+
+			.sidebar>ul>ul>ul>li {
+				margin-bottom: 1rem;
+				margin-left: -4.8rem;
+				font-size: 16px;
+				font-weight: 500;
+			}
+		}
+	</style>
 	<div className='sidebar'>
 		<ul>
 			<?php
