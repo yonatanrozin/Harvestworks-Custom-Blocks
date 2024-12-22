@@ -5,17 +5,17 @@
   "version": "0.1.0",
   "title": "Navigation Sidebar",
   "category": "widgets",
-  "icon": "groups",
+  "icon": "list",
   "description": "An auto-updating sidebar of sibling pages.",
   "example": {},
   "supports": {
     "html": false,
-    "spacing": {
-      "margin": true
+    "color": {
+      "heading": true
     }
   },
   "attributes": {
-    "audioFiles": {
+    "supplementaryLinks": {
       "type": "string"
     }
   },

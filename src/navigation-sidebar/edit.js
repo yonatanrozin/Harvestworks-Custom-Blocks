@@ -36,7 +36,7 @@ import { useEffect, useState } from 'react';
  * @return {Element} Element to render.
  */
 export default function Edit({ attributes, setAttributes }) {
-	const { } = attributes;
+	const { supplementaryLinks } = attributes;
 
 	const [pages, setPages] = useState([]);
 
@@ -57,8 +57,25 @@ export default function Edit({ attributes, setAttributes }) {
 
 		const fetchChildren = async (id, title, link) => {
 			if (id === 0 || !id || !title || !link || link === '') {
-				return <> <li>Navigation</li> <ul> <li>Placeholder</li></ul>
-				</>;
+				return <>
+					<li><a>Navigation</a></li>
+					<ul>
+						<li>Example</li>
+						<li>Navigation</li>
+						<ul>
+							<li>Hierarchy</li>
+						</ul>
+						<li>Links</li>
+						<li>Shown Because</li>
+						<ul>
+							<li>There Is No</li>
+							<li>Current</li>
+							<li>Parent Page</li>
+						</ul>
+						<li>For The One</li>
+						<li>You&apos;re Editing</li>
+					</ul>
+				</>
 			}
 
 			const pageList = [];
@@ -103,7 +120,16 @@ export default function Edit({ attributes, setAttributes }) {
 		<>
 			<InspectorControls>
 				<PanelBody title={__('Settings', 'navigation-sidebar')}>
-
+					<TextareaControl
+						__nextHasNoMarginBottom
+						label={__(
+							"Supplementary Links",
+							'navigation-sidebar'
+						)}
+						help="Enter extra links to include in the sidebar, in the following rule format. ex. Parent Page Title <-> Link Name <-> http://harvestworks.org/special-link"
+						value={supplementaryLinks || ''}
+						onChange={(value) => setAttributes({ supplementaryLinks: value })}
+					/>
 				</PanelBody>
 			</InspectorControls>
 			<div {...useBlockProps()}>
