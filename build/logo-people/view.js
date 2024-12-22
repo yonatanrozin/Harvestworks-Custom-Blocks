@@ -162,7 +162,10 @@ class Radio {
     this.isRadioOpen = true;
     if (!this.trackList.includes(this.recoveredSong)) return this.log('Recovered song not found in track list.');
     this.playSong(this.recoveredSong, this.recoveredTimestamp, !this.recoveredPauseState);
-    if (this.recoveredPauseState) this.pauseSong();
+    if (this.recoveredPauseState) {
+      this.isDisplayingPaused = true;
+      this.pauseSong();
+    }
   }
   playSong(url, time = 0, autoplay = false) {
     if (this.sound) this.sound.stop();

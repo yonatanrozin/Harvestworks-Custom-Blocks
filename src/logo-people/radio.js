@@ -181,8 +181,10 @@ export class Radio {
 
         this.playSong(this.recoveredSong, this.recoveredTimestamp, !this.recoveredPauseState);
 
-        if (this.recoveredPauseState)
+        if (this.recoveredPauseState) {
+            this.isDisplayingPaused = true;
             this.pauseSong();
+        }
     }
 
     playSong(url, time = 0, autoplay = false) {
