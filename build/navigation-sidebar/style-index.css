@@ -74,6 +74,9 @@
   .wp-block-create-block-navigation-sidebar .sidebar {
     display: none;
   }
+  div:has(> .wp-block-create-block-navigation-sidebar) {
+    flex-direction: column;
+  }
 }
 
 /*# sourceMappingURL=style-index.css.map*/

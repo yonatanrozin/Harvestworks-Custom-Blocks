@@ -115,4 +115,8 @@ $sub-sub-list-font-weight: 500;
     .wp-block-create-block-navigation-sidebar .sidebar {
         display: none;
     }
+
+    div:has(> .wp-block-create-block-navigation-sidebar) {
+        flex-direction: column;
+    }
 }
