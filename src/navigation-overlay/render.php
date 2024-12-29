@@ -5,7 +5,7 @@
  */
 
 
-$menu_items = wp_get_nav_menu_items('Main Site Navigation');
+$menu_items = wp_get_nav_menu_items(4);
 
 // Fetch children for each menu item, if possible
 foreach ($menu_items as $menu_item) {
