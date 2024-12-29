@@ -6,11 +6,11 @@
  */
 
 
-.wp-block-create-block-navigation-sidebar {
+.wp-block-create-block-navigation-sidebar .sidebar {
+    margin-top: 1.6rem;
+}
 
-    .sidebar {
-        margin-top: 1.6rem;
-    }
+.wp-block-create-block-navigation-sidebar {
 
     .sidebar>ul>li a {
         margin-top: 0;
