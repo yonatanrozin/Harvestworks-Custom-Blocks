@@ -12,6 +12,9 @@
 		"html": false,
 		"color": {
 			"heading": true
+		},
+		"spacing": {
+			"padding": true
 		}
 	},
 	"attributes": {

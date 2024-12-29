@@ -1,0 +1,188 @@
+/* Page layout */
+
+:root {
+    --hw-max-width: 1600px;
+    --hw-padding: min(3.6rem, 5vw);
+    --hw-mobile-padding: 1.2rem;
+    --hw-sticky-pad: 6rem;
+    --hw-media-bg: #dddddddd;
+}
+
+.wp-site-blocks {
+    padding-right: var(--hw-padding);
+    padding-left: var(--hw-padding);
+}
+
+.wp-block-template-part {
+    margin-bottom: 2.4rem;
+}
+
+.has-global-padding {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.wp-site-blocks>* {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: var(--hw-max-width);
+}
+
+
+/* Sticky elements */
+
+.is-position-sticky {
+    top: var(--hw-sticky-pad) !important;
+}
+
+header.sticky {
+    position: fixed !important;
+    top: 0px !important;
+}
+
+
+
+
+#social-nav a {
+    transition: color .1s;
+}
+
+#social-nav a:not(:hover) {
+    color: black;
+}
+
+.sidebar-nav-container {
+    z-index: 0 !important;
+    position: sticky;
+}
+
+.wp-block-mfb-meta-field-block .prefix {
+    margin: 0 !important;
+}
+
+.wp-block-navigation__submenu-container {
+    left: 20px !important;
+}
+
+.wp-block-mfb-meta-field-block p {
+    margin: 0;
+}
+
+.wp-block-search {
+    width: max(300px, min(100%, 50vw)) !important;
+}
+
+.artist_links a {
+    text-decoration: none
+}
+
+/* Highlight focused blocks */
+:where(.wp-site-blocks *:focus) {
+    outline-width: 2px;
+    outline-style: solid
+}
+
+
+
+
+/* Block modifications */
+
+/* Remove extra header outline for tables  */
+.wp-block-table thead {
+    border-bottom: none;
+}
+
+/* Add border and adjust spacing for images, videos, and embeds */
+.wp-block-image,
+.wp-block-video,
+.wp-block-embed {
+    background-color: var(--hw-media-bg);
+
+    width: fit-content;
+
+    /* Overrides unnecessary 'float' modifications to layout */
+    display: flex !important;
+    flex-direction: column;
+}
+
+.wp-block-image {
+    padding: 12px;
+}
+
+.wp-block-video {
+    padding: 16px;
+}
+
+.wp-block-embed {
+    width: auto;
+    padding: 16px;
+}
+
+.wp-block-image figcaption,
+.wp-block-video figcaption,
+.wp-block-embed figcaption {
+    width: 0px;
+    /* Overrides default min width, to force text to fill space */
+    min-width: 100% !important;
+
+    /* Overrides unnecessary 'float' modifications to layout */
+    display: block !important;
+
+    margin-bottom: 0px;
+    color: black;
+}
+
+.wp-block-image:has(figcaption),
+.wp-block-video:has(figcaption),
+.wp-block-embed:has(figcaption) {
+    padding-bottom: 8px;
+}
+
+
+/* Connect border for Galleries */
+.wp-block-gallery {
+    background-color: var(--hw-media-bg);
+    padding: 16px;
+    gap: 16px !important;
+    /* Overrides default, larger gap */
+}
+
+.wp-block-gallery .wp-block-image {
+    padding: 0;
+}
+
+/* Add background to files */
+.wp-block-file {
+    display: inline-block;
+    background-color: var(--hw-media-bg);
+    padding: 12px;
+}
+
+/* Add background to media-text block */
+.wp-block-media-text {
+    background-color: var(--hw-media-bg);
+    padding: 12px;
+}
+
+.wp-block-media-text>.wp-block-media-text__content {
+    padding: 0 10%;
+}
+
+
+/* Remove rounding from buttons */
+.wp-block-button,
+.wp-element-button {
+    border-radius: 0px !important;
+}
+
+/* Make breadcrumb trail more inline */
+.breadcrumbs {
+    margin-bottom: -18px;
+    margin-top: 0px;
+}
+
+/* Utility classes */
+.remove-background {
+    background-color: transparent !important;
+    padding: 0;
+}
