@@ -4,7 +4,7 @@
     --hw-max-width: 1600px;
     --hw-padding: min(3.6rem, 5vw);
     --hw-mobile-padding: 1.2rem;
-    --hw-sticky-pad: 6rem;
+    --hw-sticky-pad: 4rem;
     --hw-media-bg: #dddddddd;
 }
 
@@ -49,11 +49,6 @@ header.sticky {
 
 #social-nav a:not(:hover) {
     color: black;
-}
-
-.sidebar-nav-container {
-    z-index: 0 !important;
-    position: sticky;
 }
 
 .wp-block-mfb-meta-field-block .prefix {

@@ -11,6 +11,11 @@
   margin-top: 1.6rem;
 }
 
+.wp-block-create-block-navigation-sidebar {
+  position: sticky;
+  z-index: 0;
+  top: var(--hw-sticky-pad) !important;
+}
 .wp-block-create-block-navigation-sidebar .sidebar > ul > li a {
   margin-top: 0;
   color: white;
