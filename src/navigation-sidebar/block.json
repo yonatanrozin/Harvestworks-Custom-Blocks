@@ -9,10 +9,7 @@
 	"description": "An auto-updating sidebar of sibling pages.",
 	"example": {},
 	"supports": {
-		"color": true,
-		"spacing": {
-			"padding": true
-		}
+		"color": true
 	},
 	"attributes": {
 		"supplementaryLinks": {
