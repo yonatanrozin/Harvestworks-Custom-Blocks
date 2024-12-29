@@ -116,7 +116,7 @@ $sub-sub-list-font-weight: 500;
         display: none;
     }
 
-    div:has(> .wp-block-column > .wp-block-create-block-navigation-sidebar) {
+    .wp-block-columns:has(> .wp-block-column > .wp-block-create-block-navigation-sidebar) {
         flex-direction: column;
     }
 }
