@@ -3,7 +3,7 @@
 	"apiVersion": 3,
 	"name": "create-block/navigation-overlay",
 	"version": "0.1.1",
-	"title": "Navigation Sidebar",
+	"title": "Navigation Overlay",
 	"category": "widgets",
 	"icon": "list",
 	"description": "A button-activated overlay with the primary site navigation.",
