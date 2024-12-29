@@ -5,81 +5,24 @@
  * The following styles get applied both on the front of your site
  * and in the editor.
  */
-.wp-block-create-block-navigation-sidebar .sidebar {
-  margin-top: 1.6rem;
-}
-
-.wp-block-create-block-navigation-sidebar {
-  position: sticky;
-  z-index: 0;
-  top: var(--hw-sticky-pad) !important;
-}
-.wp-block-create-block-navigation-sidebar .sidebar > ul > li a {
-  margin-top: 0;
+.nav-overlay-button {
+  width: 96px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 12px;
+  cursor: pointer;
+  background-color: #a7ad8b;
   color: white;
-  background-color: #a7ad8b;
-  padding: 1px 6px 3px 6px;
-  font-weight: 700;
 }
-.wp-block-create-block-navigation-sidebar .sidebar a {
-  text-decoration: none !important;
-}
-.wp-block-create-block-navigation-sidebar .sidebar a:hover {
-  text-decoration: underline !important;
-}
-.wp-block-create-block-navigation-sidebar .sidebar ul {
-  list-style-type: none;
-  padding-inline-start: 0;
-}
-.wp-block-create-block-navigation-sidebar .sidebar ul li {
-  display: block;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-.wp-block-create-block-navigation-sidebar .sidebar ul .currentPage {
-  position: relative;
-}
-.wp-block-create-block-navigation-sidebar .sidebar ul .currentPage::after {
-  content: "";
-  display: inline-block;
-  position: absolute;
-  top: 0.6rem;
-  left: -1.2rem;
-  width: 0.6rem;
-  height: 0.6rem;
-  background-color: #a7ad8b;
+.nav-overlay-button .nav-overlay-button-circle {
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
-  margin-right: 0.5rem;
-}
-.wp-block-create-block-navigation-sidebar .sidebar > ul > li {
-  margin-bottom: 1.5rem;
-  font-size: 18px;
-  font-weight: 700;
-}
-.wp-block-create-block-navigation-sidebar .sidebar > ul > ul > li {
-  margin-bottom: 1rem;
-  margin-left: 1.6rem;
-  font-size: 18px;
-  font-weight: 500;
-}
-.wp-block-create-block-navigation-sidebar .sidebar > ul > ul > ul {
-  margin-top: 1rem;
-  margin-bottom: 1.25rem;
-}
-.wp-block-create-block-navigation-sidebar .sidebar > ul > ul > ul > li {
-  margin-bottom: 1rem;
-  margin-left: 3.2rem;
-  font-size: 16px;
-  font-weight: 500;
-}
-
-@media screen and (max-width: 1024px) {
-  .wp-block-create-block-navigation-sidebar .sidebar {
-    display: none;
-  }
-  .wp-block-columns:has(> .wp-block-column > .wp-block-create-block-navigation-sidebar) {
-    flex-direction: column;
-  }
+  background-color: white;
+  opacity: 0.8;
 }
 
 /*# sourceMappingURL=style-index.css.map*/
