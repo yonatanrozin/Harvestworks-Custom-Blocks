@@ -36,9 +36,9 @@ export default function Edit({ attributes, setAttributes }) {
 		<>
 			<div {...useBlockProps()}>
 				<div className='nav-overlay-button'>
-					<div className='nav-overlay-button-circle' />
-					<div className='nav-overlay-button-circle' />
-					<div className='nav-overlay-button-circle' />
+					<div className='nav-overlay-button-circle' ></div>
+					<div className='nav-overlay-button-circle' ></div>
+					<div className='nav-overlay-button-circle' ></div>
 				</div>
 			</div >
 		</>
