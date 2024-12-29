@@ -5,18 +5,48 @@
  * 
  */
 
+$tablet-breakpoint: 1024px;
+$mobile-breakpoint: 767px;
+
+$sidebar-margin-top: 1.6rem;
+
+$link-color: white;
+$link-bg-color: #a7ad8b;
+$link-padding: 1px 6px 3px 6px;
+$link-font-weight: 700;
+
+$current-page-indicator-color: #a7ad8b;
+$current-page-indicator-size: 0.6rem;
+
+
+$main-list-margin-bottom: 1.5rem;
+$main-list-font-size: 18px;
+$main-list-font-weight: 700;
+
+$sub-list-margin-bottom: 1rem;
+$sub-list-margin-left: 1.6rem;
+$sub-list-font-size: 18px;
+$sub-list-font-weight: 500;
+
+$sub-sub-list-margin-top: 1rem;
+$sub-sub-list-margin-bottom: 1.25rem;
+$sub-sub-list-margin-left: 3.2rem;
+$sub-sub-list-font-size: 16px;
+$sub-sub-list-font-weight: 500;
+
+
 .wp-block-create-block-navigation-sidebar .sidebar {
-    margin-top: 1.6rem;
+    margin-top: $sidebar-margin-top;
 }
 
 .wp-block-create-block-navigation-sidebar {
 
     .sidebar>ul>li a {
         margin-top: 0;
-        color: white;
-        background-color: #a7ad8b;
-        padding: 1px 6px 3px 6px;
-        font-weight: 700;
+        color: $link-color;
+        background-color: $link-bg-color;
+        padding: $link-padding;
+        font-weight: $link-font-weight;
     }
 
     .sidebar a {
@@ -47,35 +77,42 @@
         position: absolute;
         top: 0.6rem;
         left: -1.2rem;
-        width: 0.6rem;
-        height: 0.6rem;
-        background-color: #a7ad8b;
+        width: $current-page-indicator-size;
+        height: $current-page-indicator-size;
+        background-color: $current-page-indicator-color;
         border-radius: 50%;
         margin-right: 0.5rem;
     }
 
     .sidebar>ul>li {
-        margin-bottom: 1.5rem;
-        font-size: 18px;
-        font-weight: 700;
+        margin-bottom: $main-list-margin-bottom;
+        font-size: $main-list-font-size;
+        font-weight: $main-list-font-weight;
     }
 
     .sidebar>ul>ul>li {
-        margin-bottom: 1rem;
-        margin-left: 1.6rem;
-        font-size: 18px;
-        font-weight: 500;
+        margin-bottom: $sub-list-margin-bottom;
+        margin-left: $sub-list-margin-left;
+        font-size: $sub-list-font-size;
+        font-weight: $sub-list-font-weight;
     }
 
     .sidebar>ul>ul>ul {
-        margin-top: 1rem;
-        margin-bottom: 1.25rem;
+        margin-top: $sub-sub-list-margin-top;
+        margin-bottom: $sub-sub-list-margin-bottom;
     }
 
     .sidebar>ul>ul>ul>li {
-        margin-bottom: 1rem;
-        margin-left: 3.2rem;
-        font-size: 16px;
-        font-weight: 500;
+        margin-bottom: $sub-list-margin-bottom;
+        margin-left: $sub-sub-list-margin-left;
+        font-size: $sub-sub-list-font-size;
+        font-weight: $sub-sub-list-font-weight;
+    }
+}
+
+
+@media screen and (max-width: $tablet-breakpoint) {
+    .wp-block-create-block-navigation-sidebar .sidebar {
+        display: none;
     }
 }

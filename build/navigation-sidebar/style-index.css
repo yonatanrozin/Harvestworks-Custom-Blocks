@@ -70,4 +70,10 @@
   font-weight: 500;
 }
 
+@media screen and (max-width: 1024px) {
+  .wp-block-create-block-navigation-sidebar .sidebar {
+    display: none;
+  }
+}
+
 /*# sourceMappingURL=style-index.css.map*/
