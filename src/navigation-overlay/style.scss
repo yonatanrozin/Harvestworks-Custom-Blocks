@@ -16,17 +16,15 @@ $highlight-color: #a7ad8b;
     justify-content: center;
     align-items: center;
     flex-wrap: nowrap;
-    gap: 12px;
+    gap: 13px;
 
     cursor: pointer;
     background-color: $highlight-color;
     color: white;
 
     .nav-overlay-button-circle {
-        width: 14px;
-        height: 14px;
-        border-radius: 50%;
+        width: 12px;
+        height: 12px;
         background-color: white;
-        opacity: 0.8;
     }
 }
