@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "create-block/navigation-overlay",
+  "version": "0.1.1",
+  "title": "Navigation Sidebar",
+  "category": "widgets",
+  "icon": "list",
+  "description": "A button-activated overlay with the primary site navigation.",
+  "example": {},
+  "supports": {
+    "color": true
+  },
+  "attributes": {
+    "navLinks": {
+      "type": "string"
+    }
+  },
+  "textdomain": "navigation-overlay",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
+}
