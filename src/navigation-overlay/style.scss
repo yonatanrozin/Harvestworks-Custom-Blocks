@@ -1,6 +1,5 @@
 /**
- * The following styles get applied both on the front of your site
- * and in the editor.
+ * Styles for nav-overlay-button
  */
 
 $tablet-breakpoint: 1024px;
@@ -8,23 +7,29 @@ $mobile-breakpoint: 767px;
 
 $highlight-color: #a7ad8b;
 
-.nav-overlay-button {
+.wp-block-create-block-navigation-overlay {
     width: 96px;
     height: 32px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: nowrap;
-    gap: 13px;
+    .nav-overlay-button {
+        width: 96px;
+        height: 32px;
 
-    cursor: pointer;
-    background-color: $highlight-color;
-    color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+        gap: 13px;
 
-    .nav-overlay-button-circle {
-        width: 12px;
-        height: 12px;
-        background-color: white;
+        cursor: pointer;
+        background-color: $highlight-color;
+        color: white;
+
+        .nav-overlay-button-circle {
+            width: 12px;
+            height: 12px;
+            background-color: white;
+        }
     }
+
 }

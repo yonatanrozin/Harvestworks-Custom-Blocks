@@ -23,6 +23,7 @@
 const navButton = document.querySelector('.navigation-overlay-button');
 const navOverlay = document.querySelector('.wp-block-navigation__responsive-container.hidden-by-default');
 
-
-
-'has-modal-open is-menu-open';
+navButton.addEventListener('click', () => {
+    navOverlay.classList.toggle('is-menu-open');
+    navOverlay.classList.toggle('has-modal-open');
+});
