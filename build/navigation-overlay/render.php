@@ -8,9 +8,9 @@
 
 
 <div <?php echo get_block_wrapper_attributes(); ?>>
-	<div className='nav-overlay-button'>
-		<div className='nav-overlay-button-circle'></div>
-		<div className='nav-overlay-button-circle'></div>
-		<div className='nav-overlay-button-circle'></div>
+	<div class='nav-overlay-button'>
+		<div class='nav-overlay-button-circle'></div>
+		<div class='nav-overlay-button-circle'></div>
+		<div class='nav-overlay-button-circle'></div>
 	</div>
 </div>
