@@ -7,6 +7,10 @@ $mobile-breakpoint: 767px;
 
 $highlight-color: #a7ad8b;
 
+button.wp-block-navigation__responsive-container-open {
+    display: none;
+}
+
 .wp-block-create-block-navigation-overlay {
     width: 96px;
     height: 32px;

@@ -4,6 +4,10 @@
 /**
  * Styles for nav-overlay-button
  */
+button.wp-block-navigation__responsive-container-open {
+  display: none;
+}
+
 .wp-block-create-block-navigation-overlay {
   width: 96px;
   height: 32px;
