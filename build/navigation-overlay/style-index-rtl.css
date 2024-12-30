@@ -37,3 +37,31 @@ button.wp-block-navigation__responsive-container-open {
   height: 12px;
   background-color: white;
 }
+
+.wp-block-navigation__responsive-container {
+  background-color: rgba(167, 173, 139, 0.937254902);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}
+.wp-block-navigation__responsive-container .wp-block-search__button-inside {
+  position: absolute;
+  left: 0;
+}
+.wp-block-navigation__responsive-container .wp-block-search__button-inside .wp-block-search__inside-wrapper {
+  width: 30vw !important;
+  max-width: 512px;
+  min-width: 256px;
+  margin-right: auto;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.3333333333);
+}
+.wp-block-navigation__responsive-container .wp-block-search__button-inside .wp-block-search__inside-wrapper .wp-block-search__input {
+  background: transparent;
+}
+.wp-block-navigation__responsive-container .wp-block-search__button-inside .wp-block-search__inside-wrapper .wp-block-search__button {
+  background-color: none;
+}
+.wp-block-navigation__responsive-container .wp-block-search__button-inside .wp-block-search__inside-wrapper .wp-block-search__button svg {
+  color: white;
+  transform: scale(1.5) translate(-2px);
+}

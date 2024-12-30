@@ -33,3 +33,7 @@ overlayCloseButton.addEventListener('click', () => {
     navOverlay.classList.toggle('is-menu-open');
     navOverlay.classList.toggle('has-modal-open');
 });
+
+
+const searchInput = document.querySelector('.wp-block-search__input');
+searchInput.attributes.placeholder.value = 'Search...';
