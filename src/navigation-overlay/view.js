@@ -20,3 +20,9 @@
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-metadata/#view-script
  */
 
+const navButton = document.querySelector('.navigation-overlay-button');
+const navOverlay = document.querySelector('.wp-block-navigation__responsive-container.hidden-by-default');
+
+
+
+'has-modal-open is-menu-open';
