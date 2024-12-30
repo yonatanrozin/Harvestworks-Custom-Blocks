@@ -39,4 +39,4 @@ function harvestworks_harvestworks_block_init()
 add_action('init', 'harvestworks_harvestworks_block_init');
 
 // Include the functions.php file
-require_once plugin_dir_path(__FILE__) . '/src/functions.php';
+require_once plugin_dir_path(__FILE__) . '/src/navigation-overlay/functions.php';
