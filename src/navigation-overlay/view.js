@@ -22,8 +22,14 @@
 
 const navButton = document.querySelector('.nav-overlay-button');
 const navOverlay = document.querySelector('.wp-block-navigation__responsive-container.hidden-by-default');
+const overlayCloseButton = document.querySelector('.wp-block-navigation__responsive-container-close');
 
 navButton.addEventListener('click', () => {
+    navOverlay.classList.toggle('is-menu-open');
+    navOverlay.classList.toggle('has-modal-open');
+});
+
+overlayCloseButton.addEventListener('click', () => {
     navOverlay.classList.toggle('is-menu-open');
     navOverlay.classList.toggle('has-modal-open');
 });
