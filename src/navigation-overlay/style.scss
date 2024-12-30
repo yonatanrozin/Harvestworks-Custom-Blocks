@@ -13,8 +13,19 @@ button.wp-block-navigation__responsive-container-open {
 }
 
 .wp-block-create-block-navigation-overlay {
+    margin-left: -4rem;
     width: 96px;
     height: 32px;
+
+    margin-left: -32px;
+    filter: drop-shadow(black 0px 0px 100px);
+
+    transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+
+    &:hover {
+        transform: translate(0px, -2px);
+        filter: drop-shadow(black 0px 0px 90px);
+    }
 
     .nav-overlay-button {
         width: 96px;
