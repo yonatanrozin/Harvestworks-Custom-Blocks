@@ -15,11 +15,10 @@ button.wp-block-navigation__responsive-container-open {
   height: 32px;
   margin-left: -32px;
   filter: drop-shadow(black 0px 0px 100px);
-  transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
 }
 .wp-block-create-block-navigation-overlay:hover {
-  transform: translate(0px, -2px);
-  filter: drop-shadow(black 0px 0px 90px);
+  transform: scale(1.03);
 }
 .wp-block-create-block-navigation-overlay .nav-overlay-button {
   width: 96px;
