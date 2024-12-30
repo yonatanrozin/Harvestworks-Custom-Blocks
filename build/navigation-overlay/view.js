@@ -24,7 +24,7 @@
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-metadata/#view-script
  */
 
-const navButton = document.querySelector('.navigation-overlay-button');
+const navButton = document.querySelector('.nav-overlay-button');
 const navOverlay = document.querySelector('.wp-block-navigation__responsive-container.hidden-by-default');
 navButton.addEventListener('click', () => {
   navOverlay.classList.toggle('is-menu-open');
