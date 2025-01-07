@@ -37,7 +37,7 @@ const url = new URL(window.location.href);
 
 // month/year being viewed on the calendar:
 // get from url search params or default to current date
-let dateView = new Date(url.searchParams.get("date") || Date.now());
+let dateView = dateFromACFField(url.searchParams.get("date")) || new Date();
 if (dateView == "Invalid Date") dateView = new Date();
 function dateFromACFField(date) {
   if (!date) return null;
@@ -49,6 +49,7 @@ function dateFromACFField(date) {
 function calendarSetup() {
   const dateSearch = url.searchParams.get("date"); //queried date from URL searchparams
 
+  console.log(dateView);
   const month = dateView.getMonth();
   const year = dateView.getFullYear();
   const daysInMonth = new Date(year, month + 1, 0).getDate();
