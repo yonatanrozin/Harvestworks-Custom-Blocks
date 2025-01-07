@@ -11,7 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
+import { useBlockProps } from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -32,8 +32,8 @@ import './editor.scss';
 export default function Edit() {
 	return (
 		<div { ...useBlockProps() }>
-			Make sure to configure internal query loop parameters!
-			<InnerBlocks allowedBlocks={["generateblocks/query-loop"]} template={[["generateblocks/query-loop"]]} />
+			<h1>EVENT LIST</h1>
+			
 		</div>
 	);
 }

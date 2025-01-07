@@ -22,52 +22,44 @@
 
 /* eslint-disable no-console */
 
-const allEventDetails = Object.fromEntries(event_JSON.map(e => [e.id, e]));
-const loopBlock = document.querySelector(".gb-grid-wrapper");
-const allPosts = Array.from(loopBlock.children);
+const block_div = document.querySelector(".wp-block-harvestworks-event-list");
 
-//look for element class "post-###", get the number, lookup in event details
-function eventDetailsFromElement(e) {
-    return allEventDetails[Number(Array.from(e.classList).find(c => /post-\d+/.test(c)).split("-")[1])];
+function eventCard(event) {
+
+    const {post_title, acf, featured_image, post_excerpt} = event;
+    const {date, time, location, event_type, artists} = acf;
+
+    return `
+        <div class="event_card">
+            ${featured_image ? `<img class="event_img" src=${featured_image}></img>` : ""}
+            <div class="event_info">
+                <div class="event_details" >
+                    <span class="event_date">${date.split(",")[0]}</span>
+                    <span>•</span>
+                    <span class="event_type">${event_type?.name}</span>
+                    <span>•</span>
+                    <span class="event_location">${location}</span>
+                </div>
+                <h2 class="event_name">
+                    <span class="event_title">${post_title}</span>
+                    <span class="event_artist">by ${artists}</span>
+                </h2>
+                <p class="event_description">${post_excerpt}</p>
+            </div>
+        </div>
+    `;
 }
-
-function dateFromACFField(date) {
-    if (!date) return null;
-    const year = date.substring(0, 4);
-    const month = date.substring(4, 6) - 1; //JS months counting from 0
-    const day = date.substring(6, 8);
-    return new Date(year, month, day); 
-}
-
-function filterList() {
-    //get valid searched date from URL, default to current date, ignore time
-    const dateParam = new URL(window.location.href).searchParams.get("date");
-    let searchStart = new Date(dateParam === null || dateParam === "today" ? Date.now() : dateParam);
-    if (searchStart == "Invalid Date") searchStart = new Date();
-    searchStart.setHours(0, 0, 0);
-
-    loopBlock.innerHTML = "";
-
-    const searchEnd = new Date(searchStart);
-    searchEnd.setDate(searchStart.getDate() + 1);
-
-    for (const post of allPosts) {
-        const {date} = eventDetailsFromElement(post);
-        let [startDate, endDate] = date.map(d => dateFromACFField(d)?.valueOf());
-        if (!endDate) endDate = startDate;
-
-        //if a date searched, get events occurring on that day ONLY, else get all upcoming events
-        const match = dateParam?
-            endDate >= searchStart.valueOf() && startDate < searchEnd.valueOf() :
-            endDate >= searchStart.valueOf();
             
-        if (match) loopBlock.prepend(post);
-    }
+async function getEvents() {
+
+    let dateparam = new URL(window.location.href).searchParams.get("date");
+    const queryURL = `/wp-json/wp/v2/events${dateparam ? `?date=${dateparam}` : ""}`;
+    
+    const events = await (await fetch(queryURL)).json();
+    block_div.innerHTML = events.map(e => eventCard(e)).join("");
 }
 
-filterList();
-
-window.addEventListener("popstate", filterList);
-
+document.addEventListener("DOMContentLoaded", getEvents);
+window.addEventListener("popstate", getEvents);
 
 /* eslint-enable no-console */
