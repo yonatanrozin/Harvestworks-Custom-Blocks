@@ -24,26 +24,42 @@
 
 const block_div = document.querySelector(".wp-block-harvestworks-event-list");
 
+function dateFromACFField(date) {
+    if (!date) return null;
+    const year = date.substring(0, 4);
+    const month = date.substring(4, 6) - 1; //JS months counting from 0
+    const day = date.substring(6, 8);
+    return new Date(year, month, day).toLocaleString('default', {"month": "short", "day": "2-digit"}); 
+
+}
+
 function eventCard(event) {
 
-    const {post_title, acf, featured_image, post_excerpt} = event;
-    const {date, time, location, event_type, artists} = acf;
+    const {post_title, acf, featured_image, post_excerpt, guid, status} = event;
+    const {date, end_date, location, event_type, artists} = acf;
 
     return `
         <div class="event_card">
-            ${featured_image ? `<img class="event_img" src=${featured_image}></img>` : ""}
+            <div class="event_img" style="background-image: url(${featured_image})" >
+                ${status ? `<span class="event_status">${status}</span>` : ""}
+            </div>
             <div class="event_info">
                 <div class="event_details" >
-                    <span class="event_date">${date.split(",")[0]}</span>
+                    <span class="event_dates">
+                        <span>${dateFromACFField(date)}</span>
+                        ${end_date ? `<span>&nbsp;—&nbsp;</span><span>${dateFromACFField(end_date)}</span>` : ""}
+                    </span>
                     <span>•</span>
                     <span class="event_type">${event_type?.name}</span>
                     <span>•</span>
                     <span class="event_location">${location}</span>
                 </div>
-                <h2 class="event_name">
-                    <span class="event_title">${post_title}</span>
-                    <span class="event_artist">by ${artists}</span>
-                </h2>
+                <a href="${guid}">
+                    <h2 class="event_name">
+                        <span class="event_title">${post_title}</span>
+                        ${artists ? `<span class="event_artists">by ${artists}</span>` : ""}
+                    </h2>
+                </a>
                 <p class="event_description">${post_excerpt}</p>
             </div>
         </div>
