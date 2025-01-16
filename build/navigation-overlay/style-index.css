@@ -4,7 +4,8 @@
 /**
  * Styles for nav-overlay-button
  */
-button.wp-block-navigation__responsive-container-open {
+button.wp-block-navigation__responsive-container-open,
+button.wp-block-navigation__responsive-container-close {
   display: none;
   margin: 0px;
 }
@@ -13,12 +14,13 @@ button.wp-block-navigation__responsive-container-open {
   margin-left: -4rem;
   width: 96px;
   height: 32px;
-  margin-left: -32px;
-  filter: drop-shadow(black 0px 0px 100px);
+  margin-left: -16px;
   transition: transform 0.2s ease-in-out;
 }
-.wp-block-create-block-navigation-overlay:hover {
-  transform: scale(1.03);
+@media (max-width: 767px) {
+  .wp-block-create-block-navigation-overlay {
+    margin-left: 0px;
+  }
 }
 .wp-block-create-block-navigation-overlay .nav-overlay-button {
   width: 96px;
@@ -28,14 +30,25 @@ button.wp-block-navigation__responsive-container-open {
   align-items: center;
   flex-wrap: nowrap;
   gap: 13px;
+  position: fixed;
   cursor: pointer;
   background-color: #a7ad8b;
   color: white;
+  z-index: 100000000;
 }
 .wp-block-create-block-navigation-overlay .nav-overlay-button .nav-overlay-button-circle {
   width: 12px;
   height: 12px;
   background-color: white;
+}
+
+.nav-overlay-button.is-menu-open {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+.nav-overlay-button.is-menu-open .nav-overlay-button-circle {
+  background-color: black;
 }
 
 .wp-block-navigation__responsive-container {
@@ -54,12 +67,12 @@ button.wp-block-navigation__responsive-container-open {
 .wp-block-navigation__responsive-container .wp-block-search__button-outside {
   position: absolute;
   right: 0;
-  top: 11rem;
+  top: 13.5rem;
 }
 @media (max-width: 767px) {
   .wp-block-navigation__responsive-container .wp-block-search__button-inside,
   .wp-block-navigation__responsive-container .wp-block-search__button-outside {
-    top: 9.5rem;
+    top: 11.5rem;
   }
 }
 .wp-block-navigation__responsive-container .wp-block-search__button-inside .wp-block-search__inside-wrapper,
@@ -115,11 +128,12 @@ button.wp-block-navigation__responsive-container-open {
   font-weight: 600;
   text-align: center;
   width: 100%;
-  margin-bottom: 1rem;
+  margin-bottom: 2.8rem;
 }
 @media (max-width: 767px) {
   .wp-block-navigation__responsive-container .wp-block-navigation__responsive-container-content:before {
     font-size: 2.5rem;
+    margin-top: 2rem;
     margin-bottom: 8rem;
   }
 }

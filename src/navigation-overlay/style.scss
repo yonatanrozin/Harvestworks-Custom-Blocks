@@ -9,7 +9,8 @@ $highlight-color: #a7ad8b;
 // $overlay-color: #a7ad8bef;
 $overlay-color: #000000e5;
 
-button.wp-block-navigation__responsive-container-open {
+button.wp-block-navigation__responsive-container-open,
+button.wp-block-navigation__responsive-container-close {
     display: none;
     margin: 0px;
 }
@@ -19,14 +20,17 @@ button.wp-block-navigation__responsive-container-open {
     width: 96px;
     height: 32px;
 
-    margin-left: -32px;
-    filter: drop-shadow(black 0px 0px 100px);
+    margin-left: -16px;
+
+    @media (max-width: $mobile-breakpoint) {
+        margin-left: 0px;
+    }
 
     transition: transform 0.2s ease-in-out;
 
-    &:hover {
-        transform: scale(1.03);
-    }
+    // &:hover {
+    //     transform: scale(1.03);
+    // }
 
     .nav-overlay-button {
         width: 96px;
@@ -38,9 +42,13 @@ button.wp-block-navigation__responsive-container-open {
         flex-wrap: nowrap;
         gap: 13px;
 
+        position: fixed;
+
         cursor: pointer;
         background-color: $highlight-color;
         color: white;
+
+        z-index: 100000000;
 
         .nav-overlay-button-circle {
             width: 12px;
@@ -50,6 +58,22 @@ button.wp-block-navigation__responsive-container-open {
     }
 
 }
+
+
+.nav-overlay-button.is-menu-open {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+
+    .nav-overlay-button-circle {
+        background-color: black;
+    }
+
+    // &:hover {
+    //     transform: scale(1.03);
+    // }
+}
+
 
 
 
@@ -71,10 +95,10 @@ button.wp-block-navigation__responsive-container-open {
     .wp-block-search__button-outside {
         position: absolute;
         right: 0;
-        top: 11rem;
+        top: 13.5rem;
 
         @media (max-width: $mobile-breakpoint) {
-            top: 9.5rem;
+            top: 11.5rem;
         }
 
         .wp-block-search__inside-wrapper {
@@ -134,10 +158,12 @@ button.wp-block-navigation__responsive-container-open {
             font-weight: 600;
             text-align: center;
             width: 100%;
-            margin-bottom: 1rem;
+
+            margin-bottom: 2.8rem;
 
             @media (max-width: $mobile-breakpoint) {
                 font-size: 2.5rem;
+                margin-top: 2rem;
                 margin-bottom: 8rem;
             }
         }
