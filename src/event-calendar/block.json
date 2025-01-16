@@ -13,10 +13,12 @@
 	},
 	"attributes": {
 		"has_event_color": {
-			"type": "string"
+			"type": "string",
+			"default": "#a7ad8b"
 		},
 		"queried_day_color": {
-			"type": "string"
+			"type": "string",
+			"default": "#c9cfad"
 		}
 	},
 	"textdomain": "event-calendar",

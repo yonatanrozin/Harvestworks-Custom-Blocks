@@ -40,3 +40,4 @@ add_action('init', 'harvestworks_harvestworks_block_init');
 
 // Include the functions.php file
 require_once plugin_dir_path(__FILE__) . '/src/navigation-sidebar/functions.php';
+require_once plugin_dir_path(__FILE__) . '/src/event-list/functions.php';
