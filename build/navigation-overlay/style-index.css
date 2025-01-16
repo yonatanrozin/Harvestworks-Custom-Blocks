@@ -39,31 +39,93 @@ button.wp-block-navigation__responsive-container-open {
 }
 
 .wp-block-navigation__responsive-container {
-  background-color: rgba(167, 173, 139, 0.937254902);
+  background-color: rgba(0, 0, 0, 0.8980392157) !important;
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
+  color: white !important;
+  font-family: "Avenir Next", sans-serif;
+  font-size: 2.8rem;
+  letter-spacing: 3%;
 }
-.wp-block-navigation__responsive-container .wp-block-search__button-inside {
+.wp-block-navigation__responsive-container .wp-block-navigation__responsive-close {
+  max-width: 96rem !important;
+}
+.wp-block-navigation__responsive-container .wp-block-search__button-inside,
+.wp-block-navigation__responsive-container .wp-block-search__button-outside {
   position: absolute;
   right: 0;
+  top: 11rem;
 }
-.wp-block-navigation__responsive-container .wp-block-search__button-inside .wp-block-search__inside-wrapper {
-  width: 30vw !important;
-  max-width: 512px;
-  min-width: 256px;
+@media (max-width: 767px) {
+  .wp-block-navigation__responsive-container .wp-block-search__button-inside,
+  .wp-block-navigation__responsive-container .wp-block-search__button-outside {
+    top: 9.5rem;
+  }
+}
+.wp-block-navigation__responsive-container .wp-block-search__button-inside .wp-block-search__inside-wrapper,
+.wp-block-navigation__responsive-container .wp-block-search__button-outside .wp-block-search__inside-wrapper {
+  width: 100% !important;
+  max-width: 48rem;
+  height: 4.8rem;
   margin-left: auto;
   border: none;
-  background-color: rgba(255, 255, 255, 0.3333333333);
+  background-color: rgba(255, 255, 255, 0.0666666667);
 }
-.wp-block-navigation__responsive-container .wp-block-search__button-inside .wp-block-search__inside-wrapper .wp-block-search__input {
-  background: transparent;
+.wp-block-navigation__responsive-container .wp-block-search__button-inside .wp-block-search__inside-wrapper .wp-block-search__input,
+.wp-block-navigation__responsive-container .wp-block-search__button-outside .wp-block-search__inside-wrapper .wp-block-search__input {
+  background: transparent !important;
+  font-size: 2.4rem !important;
+  padding-left: 1.2rem;
+  color: white !important;
 }
-.wp-block-navigation__responsive-container .wp-block-search__button-inside .wp-block-search__inside-wrapper .wp-block-search__button {
-  background-color: none;
-}
-.wp-block-navigation__responsive-container .wp-block-search__button-inside .wp-block-search__inside-wrapper .wp-block-search__button svg {
+.wp-block-navigation__responsive-container .wp-block-search__button-inside .wp-block-search__inside-wrapper .wp-block-search__input .placeholder,
+.wp-block-navigation__responsive-container .wp-block-search__button-outside .wp-block-search__inside-wrapper .wp-block-search__input .placeholder {
   color: white;
-  transform: scale(1.5) translate(2px);
+  opacity: 0.6;
+}
+.wp-block-navigation__responsive-container .wp-block-search__button-inside .wp-block-search__inside-wrapper .wp-block-search__button,
+.wp-block-navigation__responsive-container .wp-block-search__button-outside .wp-block-search__inside-wrapper .wp-block-search__button {
+  background-color: transparent !important;
+}
+.wp-block-navigation__responsive-container .wp-block-search__button-inside .wp-block-search__inside-wrapper .wp-block-search__button svg,
+.wp-block-navigation__responsive-container .wp-block-search__button-outside .wp-block-search__inside-wrapper .wp-block-search__button svg {
+  color: white;
+  transform: scale(2.4) translate(-0.24rem);
+}
+@media (max-width: 767px) {
+  .wp-block-navigation__responsive-container .wp-block-search {
+    width: 100% !important;
+  }
+}
+.wp-block-navigation__responsive-container .wp-block-navigation__responsive-container-content {
+  gap: 1rem !important;
+  margin-left: 2.8rem;
+}
+@media (max-width: 767px) {
+  .wp-block-navigation__responsive-container .wp-block-navigation__responsive-container-content {
+    margin-left: 0rem;
+  }
+}
+.wp-block-navigation__responsive-container .wp-block-navigation__responsive-container-content:before {
+  content: "HARVESTWORKS";
+  letter-spacing: 33%;
+  font-family: "Avenir Next Condensed";
+  font-size: 3.5rem;
+  font-style: normal;
+  font-weight: 600;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+@media (max-width: 767px) {
+  .wp-block-navigation__responsive-container .wp-block-navigation__responsive-container-content:before {
+    font-size: 2.5rem;
+    margin-bottom: 8rem;
+  }
+}
+.wp-block-navigation__responsive-container .wp-block-navigation__submenu-container {
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 
 /*# sourceMappingURL=style-index.css.map*/
