@@ -192,9 +192,9 @@ button.wp-block-navigation__responsive-container-close {
                 max-height: 0rem !important;
                 overflow: hidden !important;
                 padding: 0rem !important;
-                padding-left: 2rem !important;
 
                 transition: 0.4s ease;
+                transition: padding-left 0s ease;
             }
 
             &.is-open {

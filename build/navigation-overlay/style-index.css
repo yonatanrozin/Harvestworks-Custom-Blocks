@@ -153,8 +153,8 @@ button.wp-block-navigation__responsive-container-close {
   max-height: 0rem !important;
   overflow: hidden !important;
   padding: 0rem !important;
-  padding-left: 2rem !important;
   transition: 0.4s ease;
+  transition: padding-left 0s ease;
 }
 .wp-block-navigation__responsive-container .wp-block-navigation__responsive-container-content .wp-block-navigation-item.is-open .wp-block-navigation-submenu {
   max-height: 100rem !important;
