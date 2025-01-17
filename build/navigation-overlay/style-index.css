@@ -146,6 +146,10 @@ button.wp-block-navigation__responsive-container-close {
     margin-bottom: 8rem;
   }
 }
+.wp-block-navigation__responsive-container .wp-block-navigation__responsive-container-content .wp-block-navigation-item {
+  font-size: 2.8rem !important;
+  letter-spacing: 3% !important;
+}
 .wp-block-navigation__responsive-container .wp-block-navigation__responsive-container-content .wp-block-navigation-item .submenu-wrapper .wp-block-navigation-item__content {
   display: inline;
 }
@@ -202,9 +206,6 @@ button.wp-block-navigation__responsive-container-close {
 .wp-block-social-links .wp-block-social-link img {
   width: 3.2rem;
   height: 3.2rem;
-}
-.wp-block-social-links .wp-block-social-link:hover {
-  transform: none !important;
 }
 
 /*# sourceMappingURL=style-index.css.map*/

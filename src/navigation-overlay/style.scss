@@ -179,6 +179,9 @@ button.wp-block-navigation__responsive-container-close {
         }
 
         .wp-block-navigation-item {
+            font-size: 2.8rem !important;
+            letter-spacing: 3% !important;
+
             .submenu-wrapper {
                 .wp-block-navigation-item__content {
                     display: inline;
@@ -259,10 +262,6 @@ button.wp-block-navigation__responsive-container-close {
         img {
             width: 3.2rem;
             height: 3.2rem;
-        }
-
-        &:hover {
-            transform: none !important;
         }
     }
 
