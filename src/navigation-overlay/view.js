@@ -61,3 +61,32 @@ subMenus.forEach((subMenu) => {
         submenuToggle.textContent = subMenu.classList.contains('is-open') ? '—' : '+';
     });
 });
+
+const icons = {
+    'instagram': '/wp-content/uploads/2025/01/instagram.png',
+    'facebook': '/wp-content/uploads/2025/01/facebook.png',
+    'twitter': '/wp-content/uploads/2025/01/twitter.png',
+    'news': '/wp-content/uploads/2025/01/news.png',
+    'youtube': '/wp-content/uploads/2025/01/youtube.png',
+    'flickr': '/wp-content/uploads/2025/01/flickr.png',
+    'newsletter': '/wp-content/uploads/2025/01/mail.png',
+    'tellus': '/wp-content/uploads/2025/01/tellus.png'
+};
+
+// Switch icons to preferred images
+const iconEls = document.querySelectorAll('.wp-social-link');
+iconEls.forEach((iconEl) => {
+    const anchor = iconEl.querySelector('.wp-block-social-link-anchor');
+    const href = anchor.href;
+
+    anchor.innerHTML = `<img src="" alt="" />`;
+
+    const keys = Object.keys(icons);
+
+    keys.forEach((key) => {
+        if (href.includes(key)) {
+            anchor.querySelector('img').src = icons[key];
+            anchor.querySelector('img').alt = key;
+        }
+    });
+});

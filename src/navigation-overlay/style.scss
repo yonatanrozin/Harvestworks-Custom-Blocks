@@ -89,6 +89,10 @@ button.wp-block-navigation__responsive-container-close {
     font-size: 2.8rem;
     letter-spacing: 3%;
 
+    .wp-block-navigation__container {
+        width: 100%;
+    }
+
     .wp-block-navigation__responsive-close {
         max-width: 96rem !important;
     }
@@ -110,6 +114,10 @@ button.wp-block-navigation__responsive-container-close {
             height: 4.8rem;
 
             margin-left: auto;
+
+            @media (max-width: $mobile-breakpoint) {
+                width: 100% !important;
+            }
 
             border: none;
             background-color: #ffffff11;
@@ -223,4 +231,39 @@ button.wp-block-navigation__responsive-container-close {
         padding-bottom: 12px;
 
     }
+}
+
+.wp-block-navigation-item:has(.wp-block-social-links) {
+    width: 100%;
+}
+
+.wp-block-social-links {
+    gap: 0.8rem !important;
+
+    @media (max-width: $mobile-breakpoint) {
+        gap: 2rem !important;
+    }
+
+    &.right {
+        margin-left: auto !important;
+        position: relative;
+        top: -4.2rem;
+    }
+
+    &.left {
+        margin-top: 4.8rem;
+    }
+
+    .wp-block-social-link {
+
+        img {
+            width: 3.2rem;
+            height: 3.2rem;
+        }
+
+        &:hover {
+            transform: none !important;
+        }
+    }
+
 }

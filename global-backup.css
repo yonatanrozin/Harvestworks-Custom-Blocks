@@ -43,13 +43,13 @@ header.sticky {
 
 
 
-#social-nav a {
+/* #social-nav a {
     transition: color .1s;
 }
 
 #social-nav a:not(:hover) {
     color: black;
-}
+} */
 
 .wp-block-mfb-meta-field-block .prefix {
     margin: 0 !important;
