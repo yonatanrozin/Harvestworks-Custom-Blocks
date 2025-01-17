@@ -20,6 +20,7 @@
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-metadata/#view-script
  */
 
+// Add toggle functionality to the navigation overlay button
 const navButton = document.querySelector('.nav-overlay-button');
 const navOverlay = document.querySelector('.wp-block-navigation__responsive-container.hidden-by-default');
 const overlayCloseButton = document.querySelector('.wp-block-navigation__responsive-container-close');
@@ -37,5 +38,26 @@ overlayCloseButton.addEventListener('click', () => {
 });
 
 
+// Add placeholder text to the search input
 const searchInput = document.querySelector('.wp-block-search__input');
 searchInput.attributes.placeholder.value = 'Search...';
+
+// Add toggle functionality to submenu ULs
+const subMenus = document.querySelectorAll('.wp-block-navigation__responsive-container .wp-block-navigation-item.has-child');
+
+subMenus.forEach((subMenu) => {
+    const subMenuLink = subMenu.querySelector('.wp-block-navigation-item__content');
+    const wrapper = document.createElement('div');
+    wrapper.classList.add('submenu-wrapper');
+    subMenuLink.parentNode.insertBefore(wrapper, subMenuLink);
+    wrapper.appendChild(subMenuLink);
+
+    subMenuLink.insertAdjacentHTML('afterend', '<span class="submenu-toggle">+</span>');
+
+    const submenuToggle = subMenu.querySelector('.submenu-toggle');
+    submenuToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        subMenu.classList.toggle('is-open');
+        submenuToggle.textContent = subMenu.classList.contains('is-open') ? '—' : '+';
+    });
+});
