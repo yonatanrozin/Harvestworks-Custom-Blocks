@@ -72,15 +72,26 @@ function generate_status($start_date, $end_date, $event_type, $show_days)
 		echo "<p class='status'>{$status}</p>";
 
 		// Date and time
-		echo "<p class='date'>{$start_date}";
+		$isPast = $start_date < $today && ($end_date !== '' && $end_date < $today || $end_date === '');
+
+		$start_date_formatted = date('M j', date_create_from_format('Ymd', $start_date));
+		if ($isPast && $end_date === '') {
+			$end_date_formatted = date('M j, Y', date_create_from_format('Ymd', $start_date));
+		}
+		echo "<p class='date'>{$start_date_formatted}";
+
 		if ($start_time !== '') {
-			echo "{$start_time}";
+			echo " · {$start_time}";
 		}
 		if ($end_date !== '') {
-			echo " - {$end_date}";
+			$end_date_formatted = date('M j', date_create_from_format('Ymd', $end_date));
+			if ($isPast) {
+				$end_date_formatted = date('M j, Y', date_create_from_format('Ymd', $end_date));
+			}
+			echo " - {$end_date_formatted}";
 		}
 		if ($end_time !== '') {
-			echo "{$end_time}";
+			echo " · {$end_time}";
 		}
 		echo "</p>";
 
