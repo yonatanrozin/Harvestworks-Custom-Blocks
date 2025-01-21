@@ -63,7 +63,7 @@ function generate_status($start_date, $end_date, $event_type, $show_days)
 
 		$event_type = $fields['event_type'][0]->$name ?? '';
 		$start_date = $fields['date'] ?? '';
-		$start_time = $fields['start_time'] ?? '';
+		$start_time = $fields['time'] ?? '';
 		$end_date = $fields['end_date'] ?? '';
 		$end_time = $fields['end_time'] ?? '';
 		$status = generate_status($start_date, $end_date, $event_type, true);
