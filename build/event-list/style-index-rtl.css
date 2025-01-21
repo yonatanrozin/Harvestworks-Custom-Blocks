@@ -63,6 +63,9 @@
 .wp-block-harvestworks-event-list .event_card .event_info .event_name h2 {
   margin: 0px;
 }
+.wp-block-harvestworks-event-list .event_card .event_info .event_name h2 .event_artists {
+  color: var(--wp--preset--color--contrast-2);
+}
 .wp-block-harvestworks-event-list .event_card .event_info .event_description {
   display: -webkit-box;
   margin: 0;
