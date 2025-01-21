@@ -71,6 +71,7 @@ button.wp-block-navigation__responsive-container-close {
   position: absolute;
   left: 0;
   top: 13.5rem;
+  z-index: 401;
 }
 @media (max-width: 767px) {
   .wp-block-navigation__responsive-container .wp-block-search__button-inside,
@@ -84,7 +85,6 @@ button.wp-block-navigation__responsive-container-close {
   max-width: 48rem;
   height: 4.8rem;
   margin-right: auto;
-  z-index: 401;
   border: none;
   background-color: rgba(255, 255, 255, 0.0666666667);
 }

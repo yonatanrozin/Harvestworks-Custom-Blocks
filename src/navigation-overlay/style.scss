@@ -102,6 +102,7 @@ button.wp-block-navigation__responsive-container-close {
         position: absolute;
         right: 0;
         top: 13.5rem;
+        z-index: 401;
 
         @media (max-width: $mobile-breakpoint) {
             top: 11.5rem;
@@ -114,7 +115,6 @@ button.wp-block-navigation__responsive-container-close {
             height: 4.8rem;
 
             margin-left: auto;
-            z-index: 401;
 
             @media (max-width: $mobile-breakpoint) {
                 width: 100% !important;
