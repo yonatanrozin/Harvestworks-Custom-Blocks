@@ -9,47 +9,6 @@ function register_event_endpoints()
     ));
 }
 
-function generate_status($start_date, $end_date, $event_type, $show_days)
-{
-    $today = date("Ymd");
-
-    $isOngoing = $start_date <= $today && $end_date !== '' && $end_date >= $today;
-    $isUpcoming = $start_date >= $today;
-    $isPast = $start_date < $today && ($end_date !== '' && $end_date < $today || $end_date === '');
-
-    $daysLeft = $start_date - $today;
-    $daysLeftMessage = $daysLeft === 1 ? '1 day' : $daysLeft . ' days';
-    $isToday = $daysLeft === 0 && $end_date === '';
-
-    if ($event_type === '') {
-        if ($isToday) {
-            return 'Happening today';
-        } else if ($isOngoing) {
-            return 'Happening now';
-        } else if ($isUpcoming && $show_days) {
-            return 'In ' . $daysLeftMessage;
-        }
-    } else if ($event_type === 'Installation' || $event_type === 'Exhibition') {
-        if ($isToday) {
-            return 'On exhibit today';
-        } else if ($isOngoing) {
-            return 'On exhibit now';
-        } else if ($isUpcoming && $show_days) {
-            return 'Opening in ' . $daysLeftMessage;
-        }
-    } else if ($event_type === 'Performance') {
-        if ($isToday) {
-            return 'Performing today';
-        } else if ($isOngoing) {
-            return 'Performing now';
-        } else if ($isUpcoming && $show_days) {
-            return 'In ' . $daysLeftMessage;
-        }
-    }
-
-    return '';
-}
-
 function get_events(WP_REST_Request $request)
 {
     $request_date = $request->get_param('date') ?? date("Ymd");
