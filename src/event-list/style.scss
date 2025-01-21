@@ -27,8 +27,8 @@
             position: relative;
 
             .event_status {
+                color: white;
                 padding: 2px 5px;
-                border-radius: 3px;
                 font-weight: bold;
                 background-color: #A6AC8A;
                 margin: 0px;
@@ -51,14 +51,22 @@
                 width: 100%;
                 display: flex;
                 flex-direction: row;
-                justify-content: space-between;
+                gap: 1em;
 
-                .event_dates span {
+                span {
                     text-wrap: nowrap;
                 }
             }
 
-            .event_name {margin: 0}
+            .event_name {
+                margin: 0;
+                text-decoration: none !important;
+                h2 {
+                    margin: 0px;
+                        .event_artists {color: var(--wp--preset--color--contrast-2);
+                    }
+                }
+            }
             .event_description {
                 display: -webkit-box;
                 margin: 0;

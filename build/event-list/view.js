@@ -42,9 +42,9 @@ function eventCard(event) {
     post_title,
     acf,
     featured_image,
-    post_excerpt,
     guid,
-    status
+    status,
+    excerpt
   } = event;
   const {
     date,
@@ -69,13 +69,13 @@ function eventCard(event) {
                     <span>•</span>
                     <span class="event_location">${location}</span>
                 </div>
-                <a href="${guid}">
-                    <h2 class="event_name">
+                <a class="event_name" href="${guid}">
+                    <h2>
                         <span class="event_title">${post_title}</span>
                         ${artists ? `<span class="event_artists">by ${artists}</span>` : ""}
                     </h2>
                 </a>
-                <p class="event_description">${post_excerpt}</p>
+                <p class="event_description">${excerpt}</p>
             </div>
         </div>
     `;

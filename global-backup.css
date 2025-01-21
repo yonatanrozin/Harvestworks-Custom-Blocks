@@ -188,3 +188,9 @@ header.sticky {
     padding: 0;
     margin-block-end: 0;
 }
+
+@media (max-width: 900px) {
+    .event_page_columns {
+      flex-direction: column !important;
+    }
+}

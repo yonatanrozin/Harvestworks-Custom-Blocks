@@ -141,7 +141,6 @@ function get_events(WP_REST_Request $request)
         $post->acf = get_fields($post->ID);
         $post->featured_image = wp_get_attachment_url(get_post_thumbnail_id($post->ID), 'thumbnail');
         $post->test = [$post->acf['date'], $today];
-
         //event starts after today: upcoming event
         if ($post->acf['date'] > $today) $post->status = "Upcoming";
         //event has no end date:
@@ -151,6 +150,8 @@ function get_events(WP_REST_Request $request)
         } else { //event has end date:
             if ($post->acf['date'] <= $today && $post->acf['end_date'] >= $today) $post->status = "Happening now";
         }
+
+        $post->excerpt = get_the_excerpt($post);
 
         return $post;
     }
