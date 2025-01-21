@@ -108,6 +108,8 @@
                 if ($post->acf['date'] <= $today && $post->acf['end_date'] >= $today) $post->status = "Happening now";
             }
 
+            $post->excerpt = get_the_excerpt($post);
+
             return $post;
         }
 

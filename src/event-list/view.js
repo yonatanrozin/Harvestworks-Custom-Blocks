@@ -30,13 +30,14 @@ function dateFromACFField(date) {
     const month = date.substring(4, 6) - 1; //JS months counting from 0
     const day = date.substring(6, 8);
     return new Date(year, month, day).toLocaleString('default', {"month": "short", "day": "2-digit"}); 
-
 }
 
 function eventCard(event) {
 
     const {post_title, acf, featured_image, post_excerpt, guid, status} = event;
     const {date, end_date, location, event_type, artists} = acf;
+
+    console.log(event);
 
     return `
         <div class="event_card">
