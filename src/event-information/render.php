@@ -56,7 +56,9 @@ function generate_status($start_date, $end_date, $event_type, $show_days)
 
 <div <?php echo get_block_wrapper_attributes(); ?>>
 	<div class='event-information'>
-		<?php echo var_dump($fields) ?>
+		<div style="display: none;">
+			<?php echo var_dump($fields) ?>
+		</div>
 		<?php
 
 		$event_type = $fields['event_type'][0]->$name ?? '';
