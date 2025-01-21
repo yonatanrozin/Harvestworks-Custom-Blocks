@@ -72,11 +72,14 @@ function generate_status($start_date, $end_date, $event_type, $show_days)
 		echo "<p class='status'>{$status}</p>";
 
 		// Date and time
+		$today = date("Ymd");
 		$isPast = $start_date < $today && ($end_date !== '' && $end_date < $today || $end_date === '');
 
-		$start_date_formatted = date('M j', date_create_from_format('Ymd', $start_date));
+
+
+		$start_date_formatted = date_create_from_format('Ymd', $start_date)->format('M j');
 		if ($isPast && $end_date === '') {
-			$end_date_formatted = date('M j, Y', date_create_from_format('Ymd', $start_date));
+			$end_date_formatted = date_create_from_format('Ymd', $start_date)->format('M j, Y');
 		}
 		echo "<p class='date'>{$start_date_formatted}";
 
@@ -84,9 +87,9 @@ function generate_status($start_date, $end_date, $event_type, $show_days)
 			echo " · {$start_time}";
 		}
 		if ($end_date !== '') {
-			$end_date_formatted = date('M j', date_create_from_format('Ymd', $end_date));
+			$end_date_formatted = date_create_from_format('Ymd', $end_date)->format('M j');
 			if ($isPast) {
-				$end_date_formatted = date('M j, Y', date_create_from_format('Ymd', $end_date));
+				$end_date_formatted = date_create_from_format('Ymd', $end_date)->format('M j, Y');
 			}
 			echo " - {$end_date_formatted}";
 		}
