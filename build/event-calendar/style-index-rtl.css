@@ -51,6 +51,7 @@
   outline: none;
   flex: 1;
   padding: 10px;
+  text-wrap: nowrap;
 }
 .wp-block-harvestworks-event-calendar #calendar .calendar_day {
   display: flex;
