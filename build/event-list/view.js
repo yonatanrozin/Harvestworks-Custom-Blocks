@@ -66,7 +66,7 @@ function eventCard(event) {
                         ${end_date ? `<span>&nbsp;—&nbsp;</span><span>${dateFromACFField(end_date)}</span>` : ""}
                     </span>
                     <span>•</span>
-                    <span class="event_type">${event_type?.name}</span>
+                    <span class="event_type">${event_type[0].name}</span>
                     <span>•</span>
                     <span class="event_location">${location}</span>
                 </div>
