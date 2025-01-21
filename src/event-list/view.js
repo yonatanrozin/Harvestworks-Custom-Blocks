@@ -38,6 +38,8 @@ function eventCard(event) {
     const {post_title, acf, featured_image, post_excerpt, guid, status} = event;
     const {date, end_date, location, event_type, artists} = acf;
 
+    console.log(event);
+
     return `
         <div class="event_card">
             <div class="event_img" style="background-image: url(${featured_image})" >
