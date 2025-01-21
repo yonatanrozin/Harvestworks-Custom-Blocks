@@ -28,8 +28,8 @@
   position: relative;
 }
 .wp-block-harvestworks-event-list .event_card .event_img .event_status {
+  color: white;
   padding: 2px 5px;
-  border-radius: 3px;
   font-weight: bold;
   background-color: #A6AC8A;
   margin: 0px;
