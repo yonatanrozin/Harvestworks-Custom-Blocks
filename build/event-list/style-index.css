@@ -58,6 +58,10 @@
 }
 .wp-block-harvestworks-event-list .event_card .event_info .event_name {
   margin: 0;
+  text-decoration: none !important;
+}
+.wp-block-harvestworks-event-list .event_card .event_info .event_name h2 {
+  margin: 0px;
 }
 .wp-block-harvestworks-event-list .event_card .event_info .event_description {
   display: -webkit-box;

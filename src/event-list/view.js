@@ -53,8 +53,8 @@ function eventCard(event) {
                     <span>•</span>
                     <span class="event_location">${location}</span>
                 </div>
-                <a href="${guid}">
-                    <h2 class="event_name">
+                <a class="event_name" href="${guid}">
+                    <h2>
                         <span class="event_title">${post_title}</span>
                         ${artists ? `<span class="event_artists">by ${artists}</span>` : ""}
                     </h2>
