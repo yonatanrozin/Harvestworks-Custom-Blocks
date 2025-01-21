@@ -30,7 +30,7 @@ function harvestworks_harvestworks_block_init()
 	register_block_type(__DIR__ . '/build/event-calendar');
 	register_block_type(__DIR__ . '/build/event-list');
 	register_block_type(__DIR__ . '/build/events-carousel');
-	register_block_type(__DIR__ . '/build/events-information');
+	register_block_type(__DIR__ . '/build/event-information');
 	register_block_type(__DIR__ . '/build/logo-people');
 	register_block_type(__DIR__ . '/build/navigation-sidebar');
 	register_block_type(__DIR__ . '/build/navigation-overlay');
