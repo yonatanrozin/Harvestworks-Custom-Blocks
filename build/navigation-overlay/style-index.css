@@ -34,7 +34,7 @@ button.wp-block-navigation__responsive-container-close {
   cursor: pointer;
   background-color: #a7ad8b;
   color: white;
-  z-index: 100000000;
+  z-index: 500;
 }
 .wp-block-create-block-navigation-overlay .nav-overlay-button .nav-overlay-button-circle {
   width: 12px;
@@ -57,7 +57,7 @@ button.wp-block-navigation__responsive-container-close {
           backdrop-filter: blur(5px);
   color: white !important;
   font-family: "Avenir Next", sans-serif;
-  font-size: 2.8rem;
+  font-size: 2.8rem !important;
   letter-spacing: 3%;
 }
 .wp-block-navigation__responsive-container .wp-block-navigation__container {
@@ -84,6 +84,7 @@ button.wp-block-navigation__responsive-container-close {
   max-width: 48rem;
   height: 4.8rem;
   margin-left: auto;
+  z-index: 401;
   border: none;
   background-color: rgba(255, 255, 255, 0.0666666667);
 }

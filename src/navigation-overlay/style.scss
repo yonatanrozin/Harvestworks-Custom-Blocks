@@ -50,7 +50,7 @@ button.wp-block-navigation__responsive-container-close {
         background-color: $highlight-color;
         color: white;
 
-        z-index: 100000000;
+        z-index: 500;
 
         .nav-overlay-button-circle {
             width: 12px;
@@ -86,7 +86,7 @@ button.wp-block-navigation__responsive-container-close {
     color: white !important;
 
     font-family: 'Avenir Next', sans-serif;
-    font-size: 2.8rem;
+    font-size: 2.8rem !important;
     letter-spacing: 3%;
 
     .wp-block-navigation__container {
@@ -114,6 +114,7 @@ button.wp-block-navigation__responsive-container-close {
             height: 4.8rem;
 
             margin-left: auto;
+            z-index: 401;
 
             @media (max-width: $mobile-breakpoint) {
                 width: 100% !important;
