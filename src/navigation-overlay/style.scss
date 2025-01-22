@@ -89,6 +89,8 @@ button.wp-block-navigation__responsive-container-close {
     font-size: 2.8rem !important;
     letter-spacing: 3%;
 
+    z-index: 400 !important;
+
     .wp-block-navigation__container {
         width: 100%;
     }
