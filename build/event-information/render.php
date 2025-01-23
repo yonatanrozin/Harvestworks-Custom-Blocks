@@ -77,12 +77,6 @@ function generate_status($start_date, $end_date, $event_type, $alway_show)
 			echo "<p class='status'>{$status}</p>";
 		}
 
-		// Headline
-		$headline = $fields['subtitle'] ?? '';
-		if ($headline !== '') {
-			echo "<p class='headline'>{$headline}</p>";
-		}
-
 		// Date and time
 		$today = date("Ymd");
 		$isPast = $start_date < $today && ($end_date !== '' && $end_date < $today || $end_date === '');
