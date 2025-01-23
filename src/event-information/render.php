@@ -35,7 +35,7 @@ function generate_status($start_date, $end_date, $event_type, $alway_show)
 		if ($isToday) {
 			return 'Performing today';
 		} else if ($isOngoing) {
-			return 'Performing now';
+			return 'Performances now';
 		} else if ($isUpcoming && $alway_show) {
 			return 'In ' . $daysLeftMessage;
 		}
@@ -49,8 +49,12 @@ function generate_status($start_date, $end_date, $event_type, $alway_show)
 		}
 	}
 
-	if ($alway_show && $isPast && $event_type !== '') {
-		return 'Past ' . strtolower($event_type);
+	if ($alway_show && $isPast) {
+		if ($event_type !== '') {
+			return 'Past ' . strtolower($event_type);
+		} else {
+			return 'Past event';
+		}
 	}
 
 	return '';

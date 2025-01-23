@@ -5,3 +5,23 @@
  * The following styles get applied both on the front of your site
  * and in the editor.
  */
+.event-information {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-top: 1.6rem;
+  font-weight: 600;
+  font-size: clamp(0.875rem, 0.875rem + (1vw - 0.2rem) * 0.579, 1.15rem);
+  opacity: 0.9;
+  letter-spacing: 4%;
+}
+.event-information .status {
+  background-color: var(--wp--preset--color--accent-4);
+  display: inline-block;
+  margin: 0;
+  padding: 0rem 0.6rem;
+  color: white;
+  font-weight: 700;
+  position: relative;
+  right: -0.15rem;
+}
