@@ -69,12 +69,19 @@ function generate_status($start_date, $end_date, $event_type, $show_days)
 		$status = generate_status($start_date, $end_date, $event_type, true);
 
 		// Status message
-		echo "<p class='status'>{$status}</p>";
+		if ($status !== '') {
+			echo "<p class='status'>{$status}</p>";
+		}
+
+		// Headline
+		$headline = $fields['subtitle'] ?? '';
+		if ($headline !== '') {
+			echo "<p class='headline'>{$headline}</p>";
+		}
 
 		// Date and time
 		$today = date("Ymd");
 		$isPast = $start_date < $today && ($end_date !== '' && $end_date < $today || $end_date === '');
-
 
 
 		$start_date_formatted = date_create_from_format('Ymd', $start_date)->format('M j');
