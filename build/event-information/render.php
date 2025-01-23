@@ -49,7 +49,7 @@ function generate_status($start_date, $end_date, $event_type, $alway_show)
 		}
 	}
 
-	if ($alway_show && $isPast) {
+	if ($alway_show && $isPast && $event_type !== '') {
 		return 'Past ' . strtolower($event_type);
 	}
 
@@ -65,7 +65,7 @@ function generate_status($start_date, $end_date, $event_type, $alway_show)
 		</div>
 		<?php
 
-		$event_type = $fields['event_type'][0]->$name ?? '';
+		$event_type = $fields['event_type'][0]->name ?? '';
 		$start_date = $fields['date'] ?? '';
 		$start_time = $fields['time'] ?? '';
 		$end_date = $fields['end_date'] ?? '';
