@@ -6,9 +6,6 @@
  * and in the editor.
  */
 .event-information {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
   margin-top: 1.6rem;
   font-weight: 600;
   font-size: clamp(0.875rem, 0.875rem + (1vw - 0.2rem) * 0.579, 1.15rem);
