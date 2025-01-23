@@ -81,6 +81,31 @@ function generate_status($start_date, $end_date, $event_type, $alway_show)
 			echo "<p class='status'>{$status}</p>";
 		}
 
+		// Location
+		$location = $fields['location'] ?? '';
+		$other_location_name = $fields['other_location_name'] ?? '';
+		$other_location_address = $fields['address'] ?? '';
+
+		if ($location !== '' && $location !== 'Other') {
+			echo "<p class='location-name'>{$location}</p>";
+			if ($location === 'Governor\'s Island') {
+				echo "<p class='address'>Nolan Park, 10a Governors Is, New York, NY 11231</p>";
+			} else if ($location === 'Harvestworks Studio') {
+				echo "<p class='address'>596 Broadway #602, New York, NY 10012</p>";
+			}
+		} else if ($other_location_name !== '') {
+			echo "<p class='location-name'>{$other_location_name}</p>";
+			if ($other_location_address !== '') {
+				echo "<p class='address'>{$other_location_address}</p>";
+			}
+		}
+
+		$location_notes = $fields['location_notes'] ?? '';
+		if ($location_notes !== '') {
+			echo "<p class='notes location-notes'>{$location_notes}</p>";
+		}
+
+
 		// Date and time
 		$today = date("Ymd");
 		$isPast = $start_date < $today && ($end_date !== '' && $end_date < $today || $end_date === '');
@@ -113,32 +138,6 @@ function generate_status($start_date, $end_date, $event_type, $alway_show)
 		}
 
 
-		// Location
-		$location = $fields['location'] ?? '';
-		$other_location_name = $fields['other_location_name'] ?? '';
-		$other_location_address = $fields['address'] ?? '';
-
-		if ($location !== '' && $location !== 'Other') {
-			echo "<p class='location-name'>{$location}</p>";
-			if ($location === 'Governor\'s Island') {
-				echo "<p class='address'>Nolan Park, 10a Governors Is, New York, NY 11231</p>";
-			} else if ($location === 'Harvestworks Studio') {
-				echo "<p class='address'>596 Broadway #602, New York, NY 10012</p>";
-			}
-		} else if ($other_location_name !== '') {
-			echo "<p class='location-name'>{$other_location_name}</p>";
-			if ($other_location_address !== '') {
-				echo "<p class='address'>{$other_location_address}</p>";
-			}
-		}
-
-		$location_notes = $fields['location_notes'] ?? '';
-		if ($location_notes !== '') {
-			echo "<p class='notes location-notes'>{$location_notes}</p>";
-		}
-
-
-
 		// Notes
 		$notes = $fields['notes'] ?? '';
 
@@ -169,7 +168,8 @@ function generate_status($start_date, $end_date, $event_type, $alway_show)
 				$split_link = explode("|", $link);
 
 				if (count($split_link) !== 2) {
-					echo "<a href='{$link}'>{$link}</a>";
+					$label = str_replace('https://', '', str_replace('http://', '', $link));
+					echo "<a href='{$link}'>{$label}</a>";
 					continue;
 				}
 
