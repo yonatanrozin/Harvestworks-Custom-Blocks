@@ -107,6 +107,12 @@ function generate_status($start_date, $end_date, $event_type, $alway_show)
 		}
 		echo "</p>";
 
+		$time_notes = $fields['time_notes'] ?? '';
+		if ($time_notes !== '') {
+			echo "<p class='notes time-notes'>{$time_notes}</p>";
+		}
+
+
 		// Location
 		$location = $fields['location'] ?? '';
 		$other_location_name = $fields['other_location_name'] ?? '';
@@ -126,20 +132,20 @@ function generate_status($start_date, $end_date, $event_type, $alway_show)
 			}
 		}
 
-		// Notes
-		$time_notes = $fields['time_notes'] ?? '';
 		$location_notes = $fields['location_notes'] ?? '';
+		if ($location_notes !== '') {
+			echo "<p class='notes location-notes'>{$location_notes}</p>";
+		}
+
+
+
+		// Notes
 		$notes = $fields['notes'] ?? '';
 
-		if ($time_notes !== '') {
-			echo "<p class='time-notes'>{$time_notes}</p>";
-		}
-		if ($location_notes !== '') {
-			echo "<p class='location-notes'>{$location_notes}</p>";
-		}
 		if ($notes !== '') {
 			echo "<p class='notes'>{$notes}</p>";
 		}
+
 
 		// Action Link
 		$action_link = $fields['action_link'] ?? '';
@@ -152,6 +158,29 @@ function generate_status($start_date, $end_date, $event_type, $alway_show)
 		if ($action_link_required !== '' && $action_link !== 'false') {
 			echo "<p class='action-link-required'>*Required</p>";
 		}
+
+		// Additional Links
+		$additional_links = $fields['additional_links'] ?? [];
+		$split_links = explode("\n", $additional_links);
+
+		if (!empty($split_links)) {
+			echo "<div class='additional-links'>";
+			foreach ($split_links as $link) {
+				$split_link = explode("|", $link);
+
+				if (count($split_link) !== 2) {
+					echo "<a href='{$link}'>{$link}</a>";
+					continue;
+				}
+
+				$link_url = $split_link[0];
+				$link_label = $split_link[1];
+				echo "<a href='{$link_url}'>{$link_label}</a>";
+			}
+			echo "</div>";
+		}
+
+
 		?>
 	</div>
 </div>
