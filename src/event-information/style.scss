@@ -135,6 +135,8 @@ $sidebar-margin-top: 1.6rem;
     flex-direction: column;
     gap: 3.6rem;
 
+    margin-bottom: 3.6rem;
+
     .quote {
         margin: 1.6rem 2.4rem;
 
@@ -153,8 +155,9 @@ $sidebar-margin-top: 1.6rem;
 
                 &::before {
                     display: inline-block;
-                    content: '‒';
+                    content: "—";
                     text-decoration: none;
+                    margin-right: 0.32rem;
                 }
             }
 
