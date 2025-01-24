@@ -23,6 +23,7 @@
   font-weight: 700;
   position: relative;
   left: -0.15rem;
+  opacity: 0.6;
 }
 .event-information .notes {
   margin-top: -1rem;
@@ -45,6 +46,8 @@
   padding: 0.4rem 0.6rem;
   text-align: center;
   font-weight: 700;
+  margin-top: 2.4rem;
+  margin-bottom: 1rem;
 }
 
 .notes + .notes {
