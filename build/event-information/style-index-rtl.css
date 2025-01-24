@@ -99,34 +99,34 @@
   flex-direction: column;
   gap: 0.6rem;
 }
-.event-information .pressQuotes {
+.event-information .press-quotes {
   display: none;
 }
 
-.pressQuotes {
+.press-quotes {
   display: block;
 }
-.pressQuotes .quote {
+.press-quotes .quote {
   margin-top: 1.6rem;
   margin-bottom: 0.6rem;
   margin-right: 1.6rem;
 }
-.pressQuotes .quote .quote-text {
+.press-quotes .quote .quote-text {
   font-style: italic;
   letter-spacing: 2%;
 }
-.pressQuotes .quote .quote-meta {
+.press-quotes .quote .quote-meta {
   display: flex;
   justify-content: space-between;
   width: auto;
 }
-.pressQuotes .quote .quote-meta .quote-author {
+.press-quotes .quote .quote-meta .quote-author {
   font-weight: 600;
 }
-.pressQuotes .quote .quote-meta .quote-author::before {
+.press-quotes .quote .quote-meta .quote-author::before {
   content: "— ";
 }
-.pressQuotes .quote .quote-meta .quote-date {
+.press-quotes .quote .quote-meta .quote-date {
   text-align: left;
   font-weight: 500;
   opacity: 0.6;
