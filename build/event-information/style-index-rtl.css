@@ -13,10 +13,10 @@
   letter-spacing: 4%;
 }
 .event-information .status {
-  background-color: var(--wp--preset--color--accent-4);
+  background-color: var(--wp--preset--color--contrast-3);
   display: inline-block;
   margin: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 0.6rem;
   padding: 0rem 0.6rem;
   color: white;
   font-weight: 700;
@@ -24,20 +24,30 @@
   right: -0.15rem;
 }
 .event-information .notes {
-  margin-top: -0.8rem;
-  font-size: 0.85rem;
+  margin-top: -1rem;
+  font-size: 1rem;
   line-height: 1.5;
   opacity: 0.6;
-  margin-bottom: 0.2rem;
+  font-weight: 500;
+  margin-bottom: 1.6rem;
 }
 .event-information .address {
   margin-top: -1rem;
   font-size: 0.85rem;
   line-height: 1.5;
 }
+.event-information .action-link {
+  display: block;
+  background-color: var(--wp--preset--color--accent-4);
+  color: white;
+  text-decoration: none;
+  padding: 0.4rem 0.6rem;
+  text-align: center;
+  font-weight: 600;
+}
 
 .notes + .notes {
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .address + .notes {
