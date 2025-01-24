@@ -124,4 +124,12 @@ $sidebar-margin-top: 1.6rem;
         flex-direction: column;
         gap: 0.6rem;
     }
+
+    .pressQuotes {
+        display: none;
+    }
+}
+
+.pressQuotes {
+    display: block;
 }

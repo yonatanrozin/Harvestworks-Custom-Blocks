@@ -181,6 +181,35 @@ function generate_status($start_date, $end_date, $event_type, $alway_show)
 			echo "</div>";
 		}
 
+		$pressQuotes = $fields['press_quotes'] ?? '';
+
+		if ($pressQuotes !== '') {
+			$pressQuotes = explode("&&", $pressQuotes);
+			if (!empty($pressQuotes)) {
+				echo "<div class='press-quotes'>";
+				foreach ($pressQuotes as $quote) {
+					$quote = explode("|", $quote);
+					if (!empty($quote)) {
+						$quoteText = $quote[0];
+						$quoteAuthor = $quote[1] ?? '';
+						$quoteDate = $quote[2] ?? '';
+						$quoteLink = $quote[3] ?? '';
+
+						echo "<div class='quote'>";
+						echo "<p class='quote-text'>{$quoteText}</p>";
+						if ($quoteAuthor !== '') {
+							echo "<a class='quote-author' href={$quoteLink}>{$quoteAuthor}</a>";
+						}
+						if ($quoteDate !== '') {
+							echo "<p class='quote-date'>{$quoteDate}</p>";
+						}
+						echo "</div>";
+					}
+				}
+				echo "</div>";
+			}
+		}
+
 
 		?>
 	</div>

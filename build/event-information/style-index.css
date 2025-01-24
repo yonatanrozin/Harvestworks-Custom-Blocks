@@ -98,5 +98,12 @@
   flex-direction: column;
   gap: 0.6rem;
 }
+.event-information .pressQuotes {
+  display: none;
+}
+
+.pressQuotes {
+  display: block;
+}
 
 /*# sourceMappingURL=style-index.css.map*/

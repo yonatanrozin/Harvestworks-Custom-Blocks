@@ -33,6 +33,13 @@ if (backButton) {
     window.location.href = '/events?' + params;
   });
 }
+const postContent = document.querySelector('.entry-content');
+const pressQuotes = document.querySelector('.press-quotes');
+
+// if they both exist, move press quotes to after the content
+if (postContent && pressQuotes) {
+  postContent.insertAdjacentElement('afterend', pressQuotes);
+}
 /******/ })()
 ;
 //# sourceMappingURL=view.js.map
