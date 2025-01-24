@@ -152,7 +152,9 @@ $sidebar-margin-top: 1.6rem;
                 font-weight: 600;
 
                 &::before {
-                    content: '— ';
+                    display: inline-block;
+                    content: '‒ ';
+                    text-decoration: none;
                 }
             }
 
@@ -160,6 +162,8 @@ $sidebar-margin-top: 1.6rem;
                 text-align: right;
                 font-weight: 500;
                 opacity: 0.6;
+                white-space: nowrap;
+                margin: 0;
             }
         }
 

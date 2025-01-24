@@ -124,10 +124,14 @@
   font-weight: 600;
 }
 .press-quotes .quote .quote-meta .quote-author::before {
-  content: "— ";
+  display: inline-block;
+  content: "‒ ";
+  text-decoration: none;
 }
 .press-quotes .quote .quote-meta .quote-date {
   text-align: left;
   font-weight: 500;
   opacity: 0.6;
+  white-space: nowrap;
+  margin: 0;
 }
