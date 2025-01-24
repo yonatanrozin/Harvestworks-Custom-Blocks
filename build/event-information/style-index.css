@@ -123,7 +123,7 @@
 }
 .press-quotes .quote .quote-meta .quote-author::before {
   display: inline-block;
-  content: "— ";
+  content: "‒";
   text-decoration: none;
 }
 .press-quotes .quote .quote-meta .quote-date {
