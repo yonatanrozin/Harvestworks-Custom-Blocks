@@ -143,7 +143,7 @@ function generate_status($start_date, $end_date, $event_type, $alway_show)
 		$notes = $fields['notes'] ?? '';
 
 		if ($notes !== '') {
-			echo "<p class='notes'>{$notes}</p>";
+			echo "<p class='information'>{$notes}</p>";
 		}
 
 
