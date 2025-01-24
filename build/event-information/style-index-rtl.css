@@ -29,8 +29,11 @@
   line-height: 1.5;
   opacity: 0.6;
 }
-.event-information .notes,
-.event-information .address + .notes,
-.event-information .address {
+
+.notes + .notes {
+  margin-top: 1rem;
+}
+
+.address + .notes {
   margin-top: 1rem;
 }

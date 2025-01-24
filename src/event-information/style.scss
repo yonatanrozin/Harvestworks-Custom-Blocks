@@ -39,10 +39,14 @@ $sidebar-margin-top: 1.6rem;
 
     }
 
-    .notes,
-    .address+.notes,
-    .address {
-        margin-top: 1rem;
-    }
 
+
+}
+
+.notes+.notes {
+    margin-top: 1rem;
+}
+
+.address+.notes {
+    margin-top: 1rem;
 }
