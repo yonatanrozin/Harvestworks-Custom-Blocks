@@ -26,7 +26,8 @@
 .wp-block-harvestworks-event-artists-list .artist_card img {
   -o-object-fit: cover;
      object-fit: cover;
-  aspect-ratio: 1;
+  min-width: 12rem;
+  min-height: 12rem;
 }
 .wp-block-harvestworks-event-artists-list .artist_card .artist_details {
   display: flex;
@@ -34,9 +35,11 @@
 }
 .wp-block-harvestworks-event-artists-list .artist_card .artist_details .artist_name {
   margin: 0;
-  margin-bottom: 2.4rem;
+  margin-bottom: 1.2rem;
+  margin-top: 0.6rem;
+  line-height: 1;
   font-size: 3.6rem;
-  opacity: 0.9;
+  font-weight: 500;
 }
 .wp-block-harvestworks-event-artists-list .artist_card .artist_details .artist_bio {
   margin: 0;
