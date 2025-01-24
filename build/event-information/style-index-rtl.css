@@ -31,7 +31,21 @@
   background-image: url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 height=%2724px%27 viewBox=%270 -960 960 960%27 width=%2724px%27 fill=%27%23000000%27%3E%3Cpath d=%27M587.69-240q-38.54 0-65.42-26.88-26.88-26.89-26.88-65.43 0-38.54 26.88-65.42 26.88-26.88 65.42-26.88 38.54 0 65.43 26.88Q680-370.85 680-332.31q0 38.54-26.88 65.43Q626.23-240 587.69-240ZM212.31-100Q182-100 161-121q-21-21-21-51.31v-535.38Q140-738 161-759q21-21 51.31-21h55.38v-84.61h61.54V-780h303.08v-84.61h60V-780h55.38Q778-780 799-759q21 21 21 51.31v535.38Q820-142 799-121q-21 21-51.31 21H212.31Zm0-60h535.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-375.38H200v375.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85Z%27/%3E%3C/svg%3E");
   width: 1.6rem;
   height: 1.6rem;
-  opacity: 0.7;
+  margin-left: 0.26rem;
+  position: relative;
+  top: 0.26rem;
+  right: -0.12rem;
+}
+.event-information .location::before {
+  content: " ";
+  display: block;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 height=%2724px%27 viewBox=%270 -960 960 960%27 width=%2724px%27 fill=%27%23000000%27%3E%3Cpath d=%27M480.07-485.39q29.85 0 51.04-21.26 21.2-21.26 21.2-51.11 0-29.85-21.26-51.05Q509.79-630 479.93-630q-29.85 0-51.04 21.26-21.2 21.26-21.2 51.12 0 29.85 21.26 51.04 21.26 21.19 51.12 21.19ZM480-99.62Q329-230.46 253.54-343.15q-75.46-112.7-75.46-206.93 0-138.46 89.57-224.19Q357.23-860 480-860t212.35 85.73q89.57 85.73 89.57 224.19 0 94.23-75.46 206.93Q631-230.46 480-99.62Z%27/%3E%3C/svg%3E");
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-left: 0.26rem;
+  position: relative;
+  top: 0.26rem;
+  right: -0.12rem;
 }
 .event-information .notes {
   margin-top: -1rem;
@@ -44,6 +58,17 @@
   margin-top: -1rem;
   line-height: 1.5;
   font-weight: 400;
+}
+.event-information .information::before {
+  content: " ";
+  display: block;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 height=%2724px%27 viewBox=%270 -960 960 960%27 width=%2724px%27 fill=%27%23000000%27%3E%3Cpath d=%27M450-290h60v-230h-60v230Zm30-298.46q13.73 0 23.02-9.29t9.29-23.02q0-13.73-9.29-23.02-9.29-9.28-23.02-9.28t-23.02 9.28q-9.29 9.29-9.29 23.02t9.29 23.02q9.29 9.29 23.02 9.29Zm.07 488.46q-78.84 0-148.21-29.92t-120.68-81.21q-51.31-51.29-81.25-120.63Q100-401.1 100-479.93q0-78.84 29.92-148.21t81.21-120.68q51.29-51.31 120.63-81.25Q401.1-860 479.93-860q78.84 0 148.21 29.92t120.68 81.21q51.31 51.29 81.25 120.63Q860-558.9 860-480.07q0 78.84-29.92 148.21t-81.21 120.68q-51.29 51.31-120.63 81.25Q558.9-100 480.07-100Z%27/%3E%3C/svg%3E");
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-left: 0.26rem;
+  position: relative;
+  top: 0.26rem;
+  right: -0.12rem;
 }
 .event-information .action-link {
   display: block;
