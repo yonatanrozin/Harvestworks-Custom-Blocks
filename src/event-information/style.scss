@@ -134,9 +134,7 @@ $sidebar-margin-top: 1.6rem;
     display: block;
 
     .quote {
-        margin-top: 1.6rem;
-        margin-bottom: 0.6rem;
-        margin-left: 1.6rem;
+        margin: 1.6rem 2.4rem;
 
         .quote-text {
             font-style: italic;
@@ -153,7 +151,7 @@ $sidebar-margin-top: 1.6rem;
 
                 &::before {
                     display: inline-block;
-                    content: '‒ ';
+                    content: '— ';
                     text-decoration: none;
                 }
             }

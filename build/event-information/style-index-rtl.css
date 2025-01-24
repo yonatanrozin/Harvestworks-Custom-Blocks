@@ -107,9 +107,7 @@
   display: block;
 }
 .press-quotes .quote {
-  margin-top: 1.6rem;
-  margin-bottom: 0.6rem;
-  margin-right: 1.6rem;
+  margin: 1.6rem 2.4rem;
 }
 .press-quotes .quote .quote-text {
   font-style: italic;
@@ -125,7 +123,7 @@
 }
 .press-quotes .quote .quote-meta .quote-author::before {
   display: inline-block;
-  content: "‒ ";
+  content: "— ";
   text-decoration: none;
 }
 .press-quotes .quote .quote-meta .quote-date {
