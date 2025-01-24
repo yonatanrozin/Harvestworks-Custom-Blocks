@@ -22,12 +22,16 @@
   position: relative;
   right: -0.15rem;
 }
-.event-information .notes,
-.event-information .address {
+.event-information .notes {
   margin-top: -1rem;
   font-size: 0.85rem;
   line-height: 1.5;
   opacity: 0.6;
+}
+.event-information .address {
+  margin-top: -1rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
 }
 
 .notes + .notes {
