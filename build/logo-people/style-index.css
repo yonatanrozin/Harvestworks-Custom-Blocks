@@ -10,8 +10,11 @@
 .wp-block-create-block-logo-people .people {
   position: relative;
   width: auto;
-  margin-left: 6rem;
-  margin-right: 6rem;
+  padding-left: 6rem;
+  padding-right: 6rem;
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   flex-direction: row;
   flex-wrap: none;
