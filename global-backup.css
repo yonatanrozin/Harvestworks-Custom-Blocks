@@ -191,6 +191,13 @@ header.sticky {
 
 @media (max-width: 900px) {
     .event_page_columns {
-      flex-direction: column !important;
+        flex-direction: column !important;
     }
+}
+
+
+/* Back buttons */
+.event-back-button {
+    cursor: pointer;
+    margin-bottom: 1rem;
 }

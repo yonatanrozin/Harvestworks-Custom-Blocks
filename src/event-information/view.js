@@ -20,3 +20,14 @@
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-metadata/#view-script
  */
 
+const backButton = document.querySelector('.event-back-button');
+
+if (backButton) {
+    backButton.addEventListener('click', () => {
+        const loc = window.location.href.split('?');
+        const params = '';
+        if (loc.length > 1)
+            params = loc[1];
+        window.location.href = '/events?' + params;
+    });
+}
