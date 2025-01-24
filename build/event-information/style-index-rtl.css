@@ -49,6 +49,17 @@
   margin-top: 2.4rem;
   margin-bottom: 1rem;
 }
+.event-information .action-link-required {
+  margin-top: -0.4rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  opacity: 0.6;
+  font-weight: 500;
+  margin-bottom: 1.6rem;
+  display: block;
+  text-align: left;
+  margin-left: 0.4rem;
+}
 
 .notes + .notes {
   margin-top: 1rem;
