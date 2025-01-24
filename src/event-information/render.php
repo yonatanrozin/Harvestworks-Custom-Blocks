@@ -169,13 +169,14 @@ function generate_status($start_date, $end_date, $event_type, $alway_show)
 				$split_link = explode("|", $link);
 
 				if (count($split_link) !== 2) {
-					$label = str_replace('https://', '', str_replace('http://', '', $link));
+					$label = trim(str_replace('https://', '', str_replace('http://', '', $link)));
+					$link = trim($link);
 					echo "<a href='{$link}'>{$label}</a>";
 					continue;
 				}
 
-				$link_url = $split_link[0];
-				$link_label = $split_link[1];
+				$link_url = trim($split_link[0]);
+				$link_label = trim($split_link[1]);
 				echo "<a href='{$link_url}'>{$link_label}</a>";
 			}
 			echo "</div>";
@@ -194,6 +195,11 @@ function generate_status($start_date, $end_date, $event_type, $alway_show)
 						$quoteAuthor = $quote[1] ?? '';
 						$quoteDate = $quote[2] ?? '';
 						$quoteLink = $quote[3] ?? '';
+
+						$quoteText = trim($quoteText);
+						$quoteAuthor = trim($quoteAuthor);
+						$quoteDate = trim($quoteDate);
+						$quoteLink = trim($quoteLink);
 
 						echo "<div class='quote'>";
 						echo "<p class='quote-text'>{$quoteText}</p>";
