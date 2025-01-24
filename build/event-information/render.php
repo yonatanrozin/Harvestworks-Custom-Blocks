@@ -150,12 +150,12 @@ function generate_status($start_date, $end_date, $event_type, $alway_show)
 		// Action Link
 		$action_link = $fields['action_link'] ?? '';
 		$action_link_label = $fields['action_link_label'] ?? '';
-		$action_link_required = $fields['action_required'] ?? '';
+		$action_link_required = $fields['action_required'] ?? false;
 
 		if ($action_link !== '') {
 			echo "<a class='action-link' href='{$action_link}'>{$action_link_label}</a>";
 		}
-		if ($action_link_required !== '' && $action_link !== 'false') {
+		if ($action_link_required) {
 			echo "<p class='action-link-required'>*Required</p>";
 		}
 
