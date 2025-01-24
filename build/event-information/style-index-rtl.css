@@ -16,6 +16,7 @@
   background-color: var(--wp--preset--color--accent-4);
   display: inline-block;
   margin: 0;
+  margin-bottom: 1rem;
   padding: 0rem 0.6rem;
   color: white;
   font-weight: 700;
@@ -35,7 +36,7 @@
 }
 
 .notes + .notes {
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 .address + .notes {
