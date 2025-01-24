@@ -197,7 +197,7 @@ header.sticky {
 
 
 /* Back buttons */
-.event-back-button {
+.back-button {
     cursor: pointer;
     margin-bottom: 1rem;
 }
