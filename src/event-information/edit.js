@@ -46,7 +46,7 @@ export default function Edit({ attributes, setAttributes }) {
 				<div class='event-information'>
 					<p class='status'>Event info will appear below</p>
 					<p class='date'>--</p>
-					<p class='location'>--</p>
+					<p class='location-name'>--</p>
 				</div>
 			</div >
 		</>
