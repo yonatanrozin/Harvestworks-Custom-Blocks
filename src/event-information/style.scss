@@ -131,7 +131,9 @@ $sidebar-margin-top: 1.6rem;
 }
 
 .press-quotes {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    gap: 3.6rem;
 
     .quote {
         margin: 1.6rem 2.4rem;
