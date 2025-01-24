@@ -24,10 +24,11 @@
   right: -0.15rem;
 }
 .event-information .notes {
-  margin-top: -1rem;
+  margin-top: -0.8rem;
   font-size: 0.85rem;
   line-height: 1.5;
   opacity: 0.6;
+  margin-bottom: 0.2rem;
 }
 .event-information .address {
   margin-top: -1rem;
