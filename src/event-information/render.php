@@ -197,12 +197,14 @@ function generate_status($start_date, $end_date, $event_type, $alway_show)
 
 						echo "<div class='quote'>";
 						echo "<p class='quote-text'>{$quoteText}</p>";
+						echo "<div class='quote-meta'>";
 						if ($quoteAuthor !== '') {
 							echo "<a class='quote-author' href={$quoteLink}>{$quoteAuthor}</a>";
 						}
 						if ($quoteDate !== '') {
 							echo "<p class='quote-date'>{$quoteDate}</p>";
 						}
+						echo "</div>";
 						echo "</div>";
 					}
 				}

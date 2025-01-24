@@ -132,4 +132,39 @@ $sidebar-margin-top: 1.6rem;
 
 .pressQuotes {
     display: block;
+
+    .quote {
+        margin-top: 1.6rem;
+        margin-bottom: 0.6rem;
+        margin-left: 1.6rem;
+
+        .quote-text {
+            font-style: italic;
+            letter-spacing: 2%;
+        }
+
+        .quote-meta {
+            display: flex;
+            justify-content: space-between;
+            width: auto;
+
+            .quote-author {
+                font-weight: 600;
+
+                &::before {
+                    content: '— ';
+                }
+            }
+
+            .quote-date {
+                text-align: right;
+                font-weight: 500;
+                opacity: 0.6;
+            }
+        }
+
+
+
+
+    }
 }
