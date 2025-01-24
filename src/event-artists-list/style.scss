@@ -11,21 +11,34 @@
     flex-direction: column;
 
     .artist_card {
-        padding: 25px 0px;
         display: flex;
-        gap: 25px;
-        align-items: center;
+        gap: 1.2rem;
 
-        img {height: 150px;}
+        background-color: var(--wp--preset--color--custom-material-3);
+        padding: 2.4rem;
+        align-items: stretch;
+        width: auto;
+
+        img {
+            object-fit: cover;
+            aspect-ratio: 1;
+        }
 
         .artist_details {
             display: flex;
             flex-direction: column;
 
-            h2, h3 {margin: 0px}
-            h3 {color: var(--wp--preset--color--contrast-2)}
-            
-            p {margin: 0px; font-size: medium}
+            a {
+                text-decoration: none;
+            }
+
+            h3 {
+                color: var(--wp--preset--color--contrast-2);
+            }
+
+            p {
+                margin: 0px;
+            }
         }
     }
 }
