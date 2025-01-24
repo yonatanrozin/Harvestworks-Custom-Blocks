@@ -34,8 +34,11 @@
 }
 .wp-block-harvestworks-event-artists-list .artist_card .artist_details .artist_name {
   margin: 0;
-  margin-bottom: 0.6rem;
+  margin-bottom: 2.4rem;
+  font-size: 3.6rem;
+  opacity: 0.9;
 }
 .wp-block-harvestworks-event-artists-list .artist_card .artist_details .artist_bio {
-  margin: 0px;
+  margin: 0;
+  margin-right: 0.2rem;
 }
