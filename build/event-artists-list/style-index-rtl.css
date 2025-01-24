@@ -18,6 +18,10 @@
   padding: 2.4rem;
   align-items: stretch;
   width: auto;
+  text-decoration: none !important;
+}
+.wp-block-harvestworks-event-artists-list .artist_card:hover {
+  text-decoration: none !important;
 }
 .wp-block-harvestworks-event-artists-list .artist_card img {
   -o-object-fit: cover;
@@ -28,12 +32,10 @@
   display: flex;
   flex-direction: column;
 }
-.wp-block-harvestworks-event-artists-list .artist_card .artist_details a {
-  text-decoration: none;
+.wp-block-harvestworks-event-artists-list .artist_card .artist_details .artist_name {
+  margin: 0;
+  margin-bottom: 0.6rem;
 }
-.wp-block-harvestworks-event-artists-list .artist_card .artist_details h3 {
-  color: var(--wp--preset--color--contrast-2);
-}
-.wp-block-harvestworks-event-artists-list .artist_card .artist_details p {
+.wp-block-harvestworks-event-artists-list .artist_card .artist_details .artist_bio {
   margin: 0px;
 }
