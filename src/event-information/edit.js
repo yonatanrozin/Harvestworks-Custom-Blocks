@@ -44,7 +44,9 @@ export default function Edit({ attributes, setAttributes }) {
 			</InspectorControls>
 			<div {...useBlockProps()}>
 				<div class='event-information'>
-					<p class='status'>Event info will appear here</p>
+					<p class='status'>Event info will appear below</p>
+					<p class='date'>--</p>
+					<p class='location'>--</p>
 				</div>
 			</div >
 		</>
