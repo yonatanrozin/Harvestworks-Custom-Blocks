@@ -37,9 +37,12 @@ $sidebar-margin-top: 1.6rem;
         line-height: 1.5;
         opacity: 0.6;
 
-        &::after(.notes) {
-            margin-top: 1rem;
-        }
+    }
+
+    .notes,
+    .address+.notes,
+    .address {
+        margin-top: 1rem;
     }
 
 }

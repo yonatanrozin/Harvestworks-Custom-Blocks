@@ -29,7 +29,8 @@
   line-height: 1.5;
   opacity: 0.6;
 }
-.event-information .notes::after(.notes),
-.event-information .address::after(.notes) {
+.event-information .notes,
+.event-information .address + .notes,
+.event-information .address {
   margin-top: 1rem;
 }
