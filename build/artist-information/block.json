@@ -3,7 +3,7 @@
   "apiVersion": 3,
   "name": "create-block/artist-information",
   "version": "0.1.1",
-  "title": "artist Information",
+  "title": "Artist Information",
   "category": "widgets",
   "icon": "list",
   "description": "A detailed sidebar, generated based on the artist metadata.",

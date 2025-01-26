@@ -216,7 +216,7 @@ module.exports = window["wp"]["i18n"];
   \*******************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/artist-information","version":"0.1.1","title":"artist Information","category":"widgets","icon":"list","description":"A detailed sidebar, generated based on the artist metadata.","example":{},"textdomain":"artist-information","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/artist-information","version":"0.1.1","title":"Artist Information","category":"widgets","icon":"list","description":"A detailed sidebar, generated based on the artist metadata.","example":{},"textdomain":"artist-information","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ })
 
