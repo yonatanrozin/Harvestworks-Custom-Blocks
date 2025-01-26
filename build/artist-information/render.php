@@ -25,9 +25,9 @@ if (empty($fields)) {
 		echo "<p class='label'>Artist</p>";
 
 		// Links
-		$action_links = $fields['links'] ?? '';
+		$links = $fields['links'] ?? '';
 
-		$split_links = explode("\n", $additional_links);
+		$split_links = explode("\n", $links);
 
 		if (!empty($split_links)) {
 			echo "<div class='links'>";
