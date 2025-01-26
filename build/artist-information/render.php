@@ -26,10 +26,11 @@ if (empty($fields)) {
 
 		// Links
 		$links = $fields['links'] ?? '';
+		$links = trim($links);
 
 		$split_links = explode("\n", $links);
 
-		if (!empty($split_links)) {
+		if (!empty($split_links) && $links !== '') {
 			echo "<div class='links'>";
 			foreach ($split_links as $link) {
 				$split_link = explode("|", $link);
