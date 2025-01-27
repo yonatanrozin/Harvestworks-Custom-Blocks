@@ -71,6 +71,7 @@
                 <p class="event_title"><?= $post->post_title ?></p>
                 <p class='event_date'><?= $date_str ?></p>
                 <p class="event_tagline"><?= $tagline ?></p>
+                <p class="event_excerpt"><?= get_the_excerpt($post) ?></p>
             </div>
         </a>
     <?php endforeach; ?>
