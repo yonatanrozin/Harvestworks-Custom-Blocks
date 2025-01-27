@@ -1,22 +1,17 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "create-block/navigation-sidebar",
-	"version": "0.1.1",
-	"title": "Navigation Sidebar",
+	"name": "harvestworks/associated-events-list",
+	"version": "0.1.0",
+	"title": "Associated Events List",
 	"category": "widgets",
-	"icon": "list",
-	"description": "An auto-updating sidebar of sibling pages.",
+	"icon": "images-alt",
+	"description": "Displays information from event posts associated with the viewed event page.",
 	"example": {},
 	"supports": {
-		"color": true
+		"html": false
 	},
-	"attributes": {
-		"supplementaryLinks": {
-			"type": "string"
-		}
-	},
-	"textdomain": "navigation-sidebar",
+	"textdomain": "associated-events-list",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
