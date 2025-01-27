@@ -54,7 +54,7 @@
 }
 .wp-block-harvestworks-event-artists-list .artist_card .link_stack .links .link {
   display: block;
-  background-color: var(--wp--preset--color--custom-material-3);
+  background-color: var(--wp--preset--color--accent-4);
   color: white;
   text-decoration: none;
   padding: 0.4rem 0.6rem;
