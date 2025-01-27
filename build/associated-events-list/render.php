@@ -6,12 +6,12 @@
 
         $date_str = '';
 
-        $start_date = $fields['date'] ?? '';
-        $start_time = $fields['time'] ?? '';
-        $end_date = $fields['end_date'] ?? '';
-        $end_time = $fields['end_time'] ?? '';
+        if (isset($fields['date'])) {
+            $start_date = $fields['date'] ?? '';
+            $start_time = $fields['time'] ?? '';
+            $end_date = $fields['end_date'] ?? '';
+            $end_time = $fields['end_time'] ?? '';
 
-        if ($start_date  !== '') {
             $today = date("Ymd");
             $isPast = $start_date < $today && ($end_date !== '' && $end_date < $today || $end_date === '');
 
@@ -35,6 +35,8 @@
             if (!$isPast && $end_time !== '') {
                 $date_str .= " · " . $end_time;
             }
+        } else if (isset($fields['program_category'])) {
+            $date_str = $fields['program_category'];
         }
         ?>
         <a class="event_card" href="<?= get_permalink($post) ?>">
@@ -43,6 +45,7 @@
             <?php endif; ?>
             <div class="event_details">
                 <p class="event_name"><?= $post->post_title ?></p>
+                <p class='event_date'><?= $date_str ?></p>"
                 <p class="event_description"><?= get_the_excerpt($post) ?></p>
             </div>
         </a>
