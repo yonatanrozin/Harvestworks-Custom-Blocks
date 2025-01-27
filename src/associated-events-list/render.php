@@ -36,7 +36,15 @@
                 $date_str .= " · " . $end_time;
             }
         } else if (isset($fields['program_category'])) {
-            $date_str = $fields['program_category'];
+            $types = $fields['program_category'];
+
+            $type_names = array();
+            if (!empty($types)) {
+                foreach ($types as $type) {
+                    $type_names[] = $type->name;
+                }
+            }
+            $date_str = join(", ", $type_names);
         }
         ?>
         <a class="event_card" href="<?= get_permalink($post) ?>">
@@ -45,8 +53,8 @@
             <?php endif; ?>
             <div class="event_details">
                 <p class="event_name"><?= $post->post_title ?></p>
-                <p class='event_date'><?= $date_str ?></p>"
-                <p class="event_description"><?= get_the_excerpt($post) ?></p>
+                <p class='event_date'><?= $date_str ?></p>
+                <p class="event_tagline"><?= get_the_excerpt($post) ?></p>
             </div>
         </a>
     <?php endforeach; ?>
