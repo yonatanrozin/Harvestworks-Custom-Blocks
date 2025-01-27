@@ -42,7 +42,7 @@
         .link_stack {
             display: flex;
             flex-direction: column;
-            gap: 2.4rem;
+            gap: 3.2rem;
 
             img {
                 object-fit: cover;
@@ -58,13 +58,20 @@
 
                 .link {
                     display: block;
-                    background-color: var(--wp--preset--color--accent-4);
+                    background-color: var(--wp--preset--color--custom-material-3);
                     color: white;
                     text-decoration: none;
                     padding: 0.4rem 0.6rem;
                     text-align: center;
                     font-weight: 600;
                     font-size: 1.2rem;
+
+                    opacity: 0.6;
+                    transition: opacity 0.3s;
+
+                    &:hover {
+                        opacity: 1;
+                    }
                 }
 
             }
