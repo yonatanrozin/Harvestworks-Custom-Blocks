@@ -71,14 +71,12 @@ $sidebar-margin-top: 0rem;
             }
 
             .event_excerpt {
-                // display: none;
-                font-size: 1.2rem;
+                display: none;
+
                 margin: 0;
-                padding-top: 0.6rem;
-
+                margin-top: 0.6rem;
                 font-size: 1.2rem;
-
-                opacity: 0.45;
+                opacity: 1;
                 font-weight: 400;
             }
         }
