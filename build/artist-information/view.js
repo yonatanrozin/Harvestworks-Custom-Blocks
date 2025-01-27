@@ -23,6 +23,12 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-metadata/#view-script
  */
+
+const subtitle = document.querySelector('.artist-subtitle');
+const programs = document.querySelector('.artist-information .programs');
+if (subtitle && programs) {
+  subtitle.replaceWith(programs);
+}
 /******/ })()
 ;
 //# sourceMappingURL=view.js.map

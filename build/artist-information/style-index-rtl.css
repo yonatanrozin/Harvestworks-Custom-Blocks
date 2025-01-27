@@ -41,3 +41,6 @@
   margin-top: 3.2rem;
   margin-bottom: 1rem;
 }
+.artist-information .programs {
+  display: none;
+}
