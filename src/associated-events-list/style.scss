@@ -81,10 +81,10 @@ $sidebar-margin-top: 0rem;
             }
         }
 
+        &:has(img) .event_excerpt {
+            display: none;
+        }
+
 
     }
-}
-
-.event_card:has(img) .event_excerpt {
-    display: none;
 }
