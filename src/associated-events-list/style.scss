@@ -81,7 +81,7 @@ $sidebar-margin-top: 0rem;
             }
         }
 
-        &:has(img) .event_excerpt {
+        &:has(img) .event_details .event_excerpt {
             display: none;
         }
 
