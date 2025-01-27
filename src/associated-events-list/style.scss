@@ -71,7 +71,7 @@ $sidebar-margin-top: 0rem;
             }
 
             .event_excerpt {
-                display: none;
+                display: inline-block;
 
                 margin: 0;
                 margin-top: 0.6rem;
@@ -85,6 +85,6 @@ $sidebar-margin-top: 0rem;
     }
 }
 
-.event_card:not(:has(img)) .event_excerpt {
-    display: inline-block;
+.event_card:has(img) .event_excerpt {
+    display: none;
 }
