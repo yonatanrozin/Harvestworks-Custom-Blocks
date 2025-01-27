@@ -46,9 +46,13 @@
 }
 
 .programs {
-  font-size: 2rem;
+  font-size: 2.4rem;
   font-weight: 600;
   color: var(--wp--preset--color--contrast-2);
+}
+.programs a {
+  color: var(--wp--preset--color--contrast-2) !important;
+  text-decoration: none !important;
 }
 
 /*# sourceMappingURL=style-index.css.map*/
