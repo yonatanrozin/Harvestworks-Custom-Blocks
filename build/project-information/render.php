@@ -24,7 +24,7 @@ if (empty($fields)) {
 
 		// Status message
 		if ($status !== '') {
-			echo "<a class='status' href='/projects'>Project</a>";
+			echo "<p class='status'>Project</p>";
 		}
 
 
