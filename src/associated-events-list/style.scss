@@ -44,6 +44,8 @@ $sidebar-margin-top: 0rem;
             padding-left: 0.2rem;
             padding-right: 0.2rem;
 
+            overflow: hidden;
+
             .event_title {
                 margin: 0rem;
                 font-size: 1.4rem;
@@ -78,7 +80,18 @@ $sidebar-margin-top: 0rem;
                 font-size: 1.2rem;
                 opacity: 1;
                 font-weight: 400;
+
+                position: relative;
+                height: 0;
             }
+        }
+
+        &:has(img) .event_details .event_date {
+            margin-top: 0rem;
+        }
+
+        &:has(img) .event_details .event_tagline {
+            padding-top: 0.3rem;
         }
 
         &:has(img) .event_details .event_excerpt {

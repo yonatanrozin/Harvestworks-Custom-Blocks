@@ -38,6 +38,7 @@
   height: 100%;
   padding-left: 0.2rem;
   padding-right: 0.2rem;
+  overflow: hidden;
 }
 .wp-block-harvestworks-associated-events-list .event_card .event_details .event_title {
   margin: 0rem;
@@ -67,6 +68,14 @@
   font-size: 1.2rem;
   opacity: 1;
   font-weight: 400;
+  position: relative;
+  height: 0;
+}
+.wp-block-harvestworks-associated-events-list .event_card:has(img) .event_details .event_date {
+  margin-top: 0rem;
+}
+.wp-block-harvestworks-associated-events-list .event_card:has(img) .event_details .event_tagline {
+  padding-top: 0.3rem;
 }
 .wp-block-harvestworks-associated-events-list .event_card:has(img) .event_details .event_excerpt {
   display: none;
