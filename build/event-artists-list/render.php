@@ -5,8 +5,9 @@
             <div class="link_stack">
                 <?php if (has_post_thumbnail($post)): ?>
                     <img src=<?= get_the_post_thumbnail_url($post) ?> />
-                <?php endif;
+                <?php endif; ?>
 
+                <?php
                 // Links
                 $links = get_field('links', $post->ID) ?? '';
                 $links = trim($links);
@@ -32,6 +33,7 @@
                     echo "</div>";
                 }
                 ?>
+
             </div>
             <div class="artist_details">
                 <p class="artist_name"><?= $post->post_title ?></p>
