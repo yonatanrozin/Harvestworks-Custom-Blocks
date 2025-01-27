@@ -42,7 +42,7 @@
         .link_stack {
             display: flex;
             flex-direction: column;
-            gap: 1.8rem;
+            gap: 1.2rem;
 
             img {
                 object-fit: cover;
@@ -54,7 +54,6 @@
                 display: flex;
                 flex-direction: column;
                 gap: 1.8rem;
-                padding-top: 1.8rem;
                 z-index: 2;
 
                 .link {
@@ -64,7 +63,8 @@
                     text-decoration: none;
                     padding: 0.4rem 0.6rem;
                     text-align: center;
-                    font-weight: 700;
+                    font-weight: 600;
+                    font-size: 1rem;
                 }
 
             }
