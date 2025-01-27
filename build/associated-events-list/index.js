@@ -1,4 +1,5 @@
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/associated-events-list/edit.js":
@@ -7,7 +8,6 @@
   \********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Edit)
@@ -71,170 +71,12 @@ function Edit() {
 
 /***/ }),
 
-/***/ "./src/associated-events-list/editor.scss":
-/*!************************************************!*\
-  !*** ./src/associated-events-list/editor.scss ***!
-  \************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./src/associated-events-list/style.scss":
-/*!***********************************************!*\
-  !*** ./src/associated-events-list/style.scss ***!
-  \***********************************************/
-/***/ (() => {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nHookWebpackError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: Undefined variable.\n   ╷\n15 │     @media (max-width: $mobile-breakpoint) {\n   │                        ^^^^^^^^^^^^^^^^^^\n   ╵\n  src/associated-events-list/style.scss 15:24  root stylesheet\n    at tryRunOrWebpackError (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/webpack/lib/HookWebpackError.js:86:9)\n    at __webpack_require_module__ (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/webpack/lib/Compilation.js:5276:12)\n    at __webpack_require__ (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/webpack/lib/Compilation.js:5233:18)\n    at /Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/webpack/lib/Compilation.js:5305:20\n    at symbolIterator (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/neo-async/async.js:3485:9)\n    at done (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/neo-async/async.js:3527:9)\n    at Hook.eval [as callAsync] (eval at create (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:15:1)\n    at Hook.CALL_ASYNC_DELEGATE [as _callAsync] (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/tapable/lib/Hook.js:18:14)\n    at /Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/webpack/lib/Compilation.js:5211:43\n    at symbolIterator (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/neo-async/async.js:3482:9)\n    at timesSync (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/neo-async/async.js:2297:7)\n    at Object.eachLimit (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/neo-async/async.js:3463:5)\n    at /Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/webpack/lib/Compilation.js:5173:16\n    at symbolIterator (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/neo-async/async.js:3485:9)\n    at timesSync (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/neo-async/async.js:2297:7)\n    at Object.eachLimit (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/neo-async/async.js:3463:5)\n    at /Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/webpack/lib/Compilation.js:5141:15\n    at symbolIterator (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/neo-async/async.js:3485:9)\n    at done (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/neo-async/async.js:3527:9)\n    at /Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/webpack/lib/Compilation.js:5087:8\n    at /Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/webpack/lib/Compilation.js:3518:6\n    at /Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/webpack/lib/HookWebpackError.js:67:2\n    at Hook.eval [as callAsync] (eval at create (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:15:1)\n    at Cache.store (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/webpack/lib/Cache.js:111:20)\n    at ItemCacheFacade.store (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/webpack/lib/CacheFacade.js:141:15)\n    at /Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/webpack/lib/Compilation.js:3517:11\n    at /Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/webpack/lib/Cache.js:97:5\n    at Hook.eval [as callAsync] (eval at create (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:16:1)\n    at Cache.get (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/webpack/lib/Cache.js:79:18)\n    at ItemCacheFacade.get (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/webpack/lib/CacheFacade.js:115:15)\n    at Compilation._codeGenerationModule (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/webpack/lib/Compilation.js:3485:9)\n    at codeGen (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/webpack/lib/Compilation.js:5075:11)\n    at symbolIterator (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/neo-async/async.js:3482:9)\n    at timesSync (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/neo-async/async.js:2297:7)\n    at Object.eachLimit (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/neo-async/async.js:3463:5)\n    at /Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/webpack/lib/Compilation.js:5105:14\n    at processQueue (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/webpack/lib/util/processAsyncTree.js:61:4)\n    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)\n-- inner error --\nError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: Undefined variable.\n   ╷\n15 │     @media (max-width: $mobile-breakpoint) {\n   │                        ^^^^^^^^^^^^^^^^^^\n   ╵\n  src/associated-events-list/style.scss 15:24  root stylesheet\n    at Object.<anonymous> (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/src/associated-events-list/style.scss:1:7)\n    at /Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/webpack/lib/javascript/JavascriptModulesPlugin.js:453:10\n    at Hook.eval [as call] (eval at create (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/tapable/lib/HookCodeFactory.js:19:10), <anonymous>:7:1)\n    at Hook.CALL_DELEGATE [as _call] (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/tapable/lib/Hook.js:14:14)\n    at /Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/webpack/lib/Compilation.js:5278:39\n    at tryRunOrWebpackError (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/webpack/lib/HookWebpackError.js:81:7)\n    at __webpack_require_module__ (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/webpack/lib/Compilation.js:5276:12)\n    at __webpack_require__ (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/webpack/lib/Compilation.js:5233:18)\n    at /Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/webpack/lib/Compilation.js:5305:20\n    at symbolIterator (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/neo-async/async.js:3485:9)\n    at done (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/neo-async/async.js:3527:9)\n    at Hook.eval [as callAsync] (eval at create (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:15:1)\n    at Hook.CALL_ASYNC_DELEGATE [as _callAsync] (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/tapable/lib/Hook.js:18:14)\n    at /Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/webpack/lib/Compilation.js:5211:43\n    at symbolIterator (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/neo-async/async.js:3482:9)\n    at timesSync (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/neo-async/async.js:2297:7)\n    at Object.eachLimit (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/neo-async/async.js:3463:5)\n    at /Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/webpack/lib/Compilation.js:5173:16\n    at symbolIterator (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/neo-async/async.js:3485:9)\n    at timesSync (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/neo-async/async.js:2297:7)\n    at Object.eachLimit (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/neo-async/async.js:3463:5)\n    at /Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/webpack/lib/Compilation.js:5141:15\n    at symbolIterator (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/neo-async/async.js:3485:9)\n    at done (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/neo-async/async.js:3527:9)\n    at /Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/webpack/lib/Compilation.js:5087:8\n    at /Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/webpack/lib/Compilation.js:3518:6\n    at /Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/webpack/lib/HookWebpackError.js:67:2\n    at Hook.eval [as callAsync] (eval at create (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:15:1)\n    at Cache.store (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/webpack/lib/Cache.js:111:20)\n    at ItemCacheFacade.store (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/webpack/lib/CacheFacade.js:141:15)\n    at /Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/webpack/lib/Compilation.js:3517:11\n    at /Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/webpack/lib/Cache.js:97:5\n    at Hook.eval [as callAsync] (eval at create (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:16:1)\n    at Cache.get (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/webpack/lib/Cache.js:79:18)\n    at ItemCacheFacade.get (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/webpack/lib/CacheFacade.js:115:15)\n    at Compilation._codeGenerationModule (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/webpack/lib/Compilation.js:3485:9)\n    at codeGen (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/webpack/lib/Compilation.js:5075:11)\n    at symbolIterator (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/neo-async/async.js:3482:9)\n    at timesSync (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/neo-async/async.js:2297:7)\n    at Object.eachLimit (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/neo-async/async.js:3463:5)\n    at /Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/webpack/lib/Compilation.js:5105:14\n    at processQueue (/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/webpack/lib/util/processAsyncTree.js:61:4)\n    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)\n\nGenerated code for /Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!/Applications/MAMP/htdocs/wp-content/plugins/Harvestworks-Custom-Blocks/src/associated-events-list/style.scss\n1 | throw new Error(\"Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\\nSassError: Undefined variable.\\n   ╷\\n15 │     @media (max-width: $mobile-breakpoint) {\\n   │                        ^^^^^^^^^^^^^^^^^^\\n   ╵\\n  src/associated-events-list/style.scss 15:24  root stylesheet\");");
-
-/***/ }),
-
-/***/ "react/jsx-runtime":
-/*!**********************************!*\
-  !*** external "ReactJSXRuntime" ***!
-  \**********************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = window["ReactJSXRuntime"];
-
-/***/ }),
-
-/***/ "@wordpress/block-editor":
-/*!*************************************!*\
-  !*** external ["wp","blockEditor"] ***!
-  \*************************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = window["wp"]["blockEditor"];
-
-/***/ }),
-
-/***/ "@wordpress/blocks":
-/*!********************************!*\
-  !*** external ["wp","blocks"] ***!
-  \********************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = window["wp"]["blocks"];
-
-/***/ }),
-
-/***/ "@wordpress/data":
-/*!******************************!*\
-  !*** external ["wp","data"] ***!
-  \******************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = window["wp"]["data"];
-
-/***/ }),
-
-/***/ "@wordpress/i18n":
-/*!******************************!*\
-  !*** external ["wp","i18n"] ***!
-  \******************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = window["wp"]["i18n"];
-
-/***/ }),
-
-/***/ "./src/associated-events-list/block.json":
-/*!***********************************************!*\
-  !*** ./src/associated-events-list/block.json ***!
-  \***********************************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"harvestworks/associated-events-list","version":"0.1.0","title":"Associated Events List","category":"widgets","icon":"images-alt","description":"Displays information from event posts associated with the viewed event page.","example":{},"supports":{"html":false},"textdomain":"associated-events-list","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
-
-/***/ })
-
-/******/ 	});
-/************************************************************************/
-/******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
-/******/ 	
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/ 		// Check if module is in cache
-/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
-/******/ 		if (cachedModule !== undefined) {
-/******/ 			return cachedModule.exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
-/******/ 			// no module.loaded needed
-/******/ 			exports: {}
-/******/ 		};
-/******/ 	
-/******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/ 	
-/************************************************************************/
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => (module['default']) :
-/******/ 				() => (module);
-/******/ 			__webpack_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/define property getters */
-/******/ 	(() => {
-/******/ 		// define getter functions for harmony exports
-/******/ 		__webpack_require__.d = (exports, definition) => {
-/******/ 			for(var key in definition) {
-/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
-/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 				}
-/******/ 			}
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	(() => {
-/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/************************************************************************/
-var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be in strict mode.
-(() => {
-"use strict";
+/***/ "./src/associated-events-list/index.js":
 /*!*********************************************!*\
   !*** ./src/associated-events-list/index.js ***!
   \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
@@ -283,8 +125,261 @@ __webpack_require__.r(__webpack_exports__);
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.InnerBlocks.Content, {});
   }
 });
-})();
 
+/***/ }),
+
+/***/ "./src/associated-events-list/editor.scss":
+/*!************************************************!*\
+  !*** ./src/associated-events-list/editor.scss ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./src/associated-events-list/style.scss":
+/*!***********************************************!*\
+  !*** ./src/associated-events-list/style.scss ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "react/jsx-runtime":
+/*!**********************************!*\
+  !*** external "ReactJSXRuntime" ***!
+  \**********************************/
+/***/ ((module) => {
+
+module.exports = window["ReactJSXRuntime"];
+
+/***/ }),
+
+/***/ "@wordpress/block-editor":
+/*!*************************************!*\
+  !*** external ["wp","blockEditor"] ***!
+  \*************************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["blockEditor"];
+
+/***/ }),
+
+/***/ "@wordpress/blocks":
+/*!********************************!*\
+  !*** external ["wp","blocks"] ***!
+  \********************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["blocks"];
+
+/***/ }),
+
+/***/ "@wordpress/data":
+/*!******************************!*\
+  !*** external ["wp","data"] ***!
+  \******************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["data"];
+
+/***/ }),
+
+/***/ "@wordpress/i18n":
+/*!******************************!*\
+  !*** external ["wp","i18n"] ***!
+  \******************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["i18n"];
+
+/***/ }),
+
+/***/ "./src/associated-events-list/block.json":
+/*!***********************************************!*\
+  !*** ./src/associated-events-list/block.json ***!
+  \***********************************************/
+/***/ ((module) => {
+
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"harvestworks/associated-events-list","version":"0.1.0","title":"Associated Events List","category":"widgets","icon":"images-alt","description":"Displays information from event posts associated with the viewed event page.","example":{},"supports":{"html":false},"textdomain":"associated-events-list","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	(() => {
+/******/ 		var deferred = [];
+/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
+/******/ 			if(chunkIds) {
+/******/ 				priority = priority || 0;
+/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
+/******/ 				deferred[i] = [chunkIds, fn, priority];
+/******/ 				return;
+/******/ 			}
+/******/ 			var notFulfilled = Infinity;
+/******/ 			for (var i = 0; i < deferred.length; i++) {
+/******/ 				var chunkIds = deferred[i][0];
+/******/ 				var fn = deferred[i][1];
+/******/ 				var priority = deferred[i][2];
+/******/ 				var fulfilled = true;
+/******/ 				for (var j = 0; j < chunkIds.length; j++) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
+/******/ 						chunkIds.splice(j--, 1);
+/******/ 					} else {
+/******/ 						fulfilled = false;
+/******/ 						if(priority < notFulfilled) notFulfilled = priority;
+/******/ 					}
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferred.splice(i--, 1)
+/******/ 					var r = fn();
+/******/ 					if (r !== undefined) result = r;
+/******/ 				}
+/******/ 			}
+/******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"associated-events-list/index": 0,
+/******/ 			"associated-events-list/style-index": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var chunkIds = data[0];
+/******/ 			var moreModules = data[1];
+/******/ 			var runtime = data[2];
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
+/******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
+/******/ 			}
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 			return __webpack_require__.O(result);
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = self["webpackChunkharvestworks"] = self["webpackChunkharvestworks"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["associated-events-list/style-index"], () => (__webpack_require__("./src/associated-events-list/index.js")))
+/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
+/******/ 	
 /******/ })()
 ;
 //# sourceMappingURL=index.js.map
