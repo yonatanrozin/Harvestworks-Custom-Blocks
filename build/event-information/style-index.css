@@ -137,4 +137,8 @@
   margin: 0;
 }
 
+.wp-post-image {
+  max-height: 80vh;
+}
+
 /*# sourceMappingURL=style-index.css.map*/

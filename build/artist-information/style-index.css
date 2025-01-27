@@ -45,4 +45,10 @@
   display: none;
 }
 
+.programs {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--wp--preset--color--contrast-2);
+}
+
 /*# sourceMappingURL=style-index.css.map*/

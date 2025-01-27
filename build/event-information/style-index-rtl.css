@@ -136,3 +136,7 @@
   white-space: nowrap;
   margin: 0;
 }
+
+.wp-post-image {
+  max-height: 80vh;
+}
