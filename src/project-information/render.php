@@ -21,44 +21,43 @@ if (empty($fields)) {
 		</div>
 		<?php
 
+		// Programs
+		$programs = $fields['program_category'] ?? [];
+		if (!empty($programs)) {
+			foreach ($programs as $program) {
 
-		// Status message
-		if ($status !== '') {
-			echo "<p class='status'>Project</p>";
+				if ($program !== $programs[0]) {
+					echo ", ";
+				}
+				$permalink = get_term_link($program);
+				echo "<p class='status' href='{$permalink}'>{$program->name}</a>";
+			}
+		} else {
+			echo "<p class='status'>Featured Project</p>";
 		}
 
 
-		// Action Link
-		$action_link = $fields['action_link'] ?? '';
-		$action_link_label = $fields['action_link_label'] ?? '';
-		$action_link_required = $fields['action_required'] ?? false;
+		// Links
+		$links = $fields['links'] ?? '';
+		$links = trim($links);
 
-		if ($action_link !== '') {
-			echo "<a class='action-link' href='{$action_link}'>{$action_link_label}</a>";
-		}
-		if ($action_link_required) {
-			echo "<p class='action-link-required'>*Required</p>";
-		}
+		$split_links = explode("\n", $links);
 
-		// Additional Links
-		$additional_links = $fields['additional_links'] ?? '';
-		$split_links = explode("\n", $additional_links);
-
-		if (!empty($split_links)) {
-			echo "<div class='additional-links'>";
+		if (!empty($split_links) && $links !== '') {
+			echo "<div class='links'>";
 			foreach ($split_links as $link) {
 				$split_link = explode("|", $link);
 
 				if (count($split_link) !== 2) {
 					$label = trim(str_replace('https://', '', str_replace('http://', '', $link)));
 					$link = trim($link);
-					echo "<a href='{$link}'>{$label}</a>";
+					echo "<a class='link' href='{$link}'>{$label}</a>";
 					continue;
 				}
 
 				$link_url = trim($split_link[1]);
 				$link_label = trim($split_link[0]);
-				echo "<a href='{$link_url}'>{$link_label}</a>";
+				echo "<a class='link' href='{$link_url}'>{$link_label}</a>";
 			}
 			echo "</div>";
 		}
