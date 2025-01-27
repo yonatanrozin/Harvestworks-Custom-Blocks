@@ -28,10 +28,10 @@
                 <?php
                 $date_str = '';
 
-                $start_date = $fields['date'] ?? '';
-                $start_time = $fields['time'] ?? '';
-                $end_date = $fields['end_date'] ?? '';
-                $end_time = $fields['end_time'] ?? '';
+                $start_date = get_field("date", $post->ID) ?? '';
+                $start_time = get_field("time", $post->ID) ?? '';
+                $end_date = get_field("end_date", $post->ID) ?? '';
+                $end_time = get_field("end_time", $post->ID) ?? '';
 
                 if ($start_date  !== '') {
                     $today = date("Ymd");
@@ -66,8 +66,8 @@
 
                 <?php
                 $tagline = get_field("tagline", $post->ID) ?? '';
+                $types = get_field("event_type", $post->ID) ?? [];
 
-                $types = get_the_terms($post, 'event-type');
                 $type_names = array();
                 if (!empty($types)) {
                     foreach ($types as $type) {
@@ -82,8 +82,6 @@
                     echo '<p class="event_tagline">' . $type_string . '</p>';
                 }
                 ?>
-
-                <!-- <p ><?= $post->post_excerpt ?></p> -->
             </div>
         </div>
     <?php endforeach; ?>
