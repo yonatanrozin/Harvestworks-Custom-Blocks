@@ -7,6 +7,7 @@ if (function_exists('get_fields')) {
 }
 
 
+
 if (empty($fields)) {
 	return;
 }
@@ -48,6 +49,21 @@ if (empty($fields)) {
 			}
 			echo "</div>";
 		}
+
+		// Links
+		$programs = $fields['programs'] ?? [];
+		if (!empty($programs)) {
+			echo "<p class='programs'>";
+			foreach ($programs as $program) {
+				if ($program !== end($programs)) {
+					echo ", ";
+				}
+				$permalink = get_term_link($program);
+				echo "<a href='{$permalink}'>{$program->name}</a>";
+			}
+			echo "</p>";
+		}
+
 
 		?>
 	</div>
