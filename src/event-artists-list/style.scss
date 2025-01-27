@@ -28,11 +28,37 @@
             text-decoration: none !important;
         }
 
-        img {
-            object-fit: cover;
-            height: 16rem;
-            aspect-ratio: 1;
+        .link_stack {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+
+            img {
+                object-fit: cover;
+                height: 16rem;
+                aspect-ratio: 1;
+            }
+
+            .links {
+                display: flex;
+                flex-direction: column;
+                gap: 1.8rem;
+                padding-top: 1.8rem;
+
+                .link {
+                    display: block;
+                    background-color: var(--wp--preset--color--accent-4);
+                    color: white;
+                    text-decoration: none;
+                    padding: 0.4rem 0.6rem;
+                    text-align: center;
+                    font-weight: 700;
+                }
+
+            }
+
         }
+
 
         .artist_details {
             display: flex;

@@ -2,7 +2,7 @@
     <?php foreach (get_field('listed_artists') as $post): ?>
         <?php $post = get_post($post); ?>
         <a class="artist_card" href="<?= get_permalink($post) ?>">
-            <div class="artist_details">
+            <div class="link_stack">
                 <?php if (has_post_thumbnail($post)): ?>
                     <img src=<?= get_the_post_thumbnail_url($post) ?> />
                 <?php endif;
