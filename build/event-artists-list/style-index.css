@@ -10,12 +10,13 @@
 .wp-block-harvestworks-event-artists-list {
   display: flex;
   flex-direction: column;
+  gap: 2.4rem;
 }
 .wp-block-harvestworks-event-artists-list .artist_card {
   display: flex;
-  gap: 1.2rem;
+  gap: 1.8rem;
   background-color: var(--wp--preset--color--custom-material-3);
-  padding: 2.4rem;
+  padding: 1.2rem;
   align-items: stretch;
   width: auto;
   text-decoration: none !important;
@@ -26,12 +27,13 @@
 .wp-block-harvestworks-event-artists-list .artist_card img {
   -o-object-fit: cover;
      object-fit: cover;
-  min-width: 12rem;
-  min-height: 12rem;
+  height: 16rem;
+  aspect-ratio: 1;
 }
 .wp-block-harvestworks-event-artists-list .artist_card .artist_details {
   display: flex;
   flex-direction: column;
+  padding: 0.6rem;
 }
 .wp-block-harvestworks-event-artists-list .artist_card .artist_details .artist_name {
   margin: 0;
