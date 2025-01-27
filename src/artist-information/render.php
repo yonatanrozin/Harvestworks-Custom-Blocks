@@ -58,7 +58,7 @@ if (empty($fields)) {
 
 		// Programs
 		$programs = $fields['programs'] ?? [];
-		if (!empty($programs)) {
+		if (!empty($programs) && !(count($programs) === 1 && $programs[0]->name === 'Artist Directory')) {
 			echo "<p class='programs'>";
 			foreach ($programs as $program) {
 				if ($program->name === 'Artist Directory') {
