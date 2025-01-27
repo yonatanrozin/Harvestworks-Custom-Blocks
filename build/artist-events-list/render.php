@@ -42,20 +42,20 @@
                     if ($isPast && $end_date === '') {
                         $end_date_formatted = date_create_from_format('Ymd', $start_date)->format('M j, Y');
                     }
-                    $date_str += $start_date_formatted;
+                    $date_str .= $start_date_formatted;
 
                     if (!$isPast && $start_time !== '') {
-                        $date_str += " · " . $start_time;
+                        $date_str .= " · " . $start_time;
                     }
                     if ($end_date !== '') {
                         $end_date_formatted = date_create_from_format('Ymd', $end_date)->format('M j');
                         if ($isPast) {
                             $end_date_formatted = date_create_from_format('Ymd', $end_date)->format('M j, Y');
                         }
-                        $date_str += " - " . $end_date_formatted;
+                        $date_str .= " - " . $end_date_formatted;
                     }
                     if (!$isPast && $end_time !== '') {
-                        $date_str += " · " . $end_time;
+                        $date_str .= " · " . $end_time;
                     }
                 }
 
