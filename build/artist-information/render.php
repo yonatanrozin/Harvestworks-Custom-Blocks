@@ -50,7 +50,13 @@ if (empty($fields)) {
 			echo "</div>";
 		}
 
-		// Links
+		// Post Date
+		$post_date = get_the_date();
+		if (!empty($post_date)) {
+			echo "<p class='post-date'>Added on {$post_date}</p>";
+		}
+
+		// Programs
 		$programs = $fields['programs'] ?? [];
 		if (!empty($programs)) {
 			echo "<p class='programs'>";
