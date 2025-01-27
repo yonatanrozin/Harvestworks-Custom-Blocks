@@ -5,12 +5,19 @@
  * Replace them with your own styles or remove the file completely.
  */
 
+$tablet-breakpoint: 1024px;
+$mobile-breakpoint: 767px;
+
 .wp-block-harvestworks-artist-events-list {
 
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
     gap: 2.4rem;
     flex-wrap: wrap;
+
+    @media (max-width: $mobile-breakpoint) {
+        grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+    }
 
     .event_card {
         padding: 1.2rem;

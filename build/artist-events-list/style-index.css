@@ -13,6 +13,11 @@
   gap: 2.4rem;
   flex-wrap: wrap;
 }
+@media (max-width: 767px) {
+  .wp-block-harvestworks-artist-events-list {
+    grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  }
+}
 .wp-block-harvestworks-artist-events-list .event_card {
   padding: 1.2rem;
   display: flex;
