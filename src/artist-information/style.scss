@@ -38,7 +38,8 @@ $sidebar-margin-top: 0rem;
     .links {
         display: flex;
         flex-direction: column;
-        gap: 0.6rem;
+        gap: 1.8rem;
+        padding-top: 2.6rem;
 
         .link {
             display: block;
@@ -48,14 +49,15 @@ $sidebar-margin-top: 0rem;
             padding: 0.4rem 0.6rem;
             text-align: center;
             font-weight: 700;
-            margin-top: 3.2rem;
-            margin-bottom: 1rem;
         }
 
     }
 
     .post-date {
-        opacity: 0.6;
+        font-size: 1rem;
+        opacity: .6;
+        padding-left: 0.2rem;
+        padding-top: 0.6rem;
     }
 
     .programs {

@@ -28,7 +28,8 @@
 .artist-information .links {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 1.8rem;
+  padding-top: 2.6rem;
 }
 .artist-information .links .link {
   display: block;
@@ -38,11 +39,12 @@
   padding: 0.4rem 0.6rem;
   text-align: center;
   font-weight: 700;
-  margin-top: 3.2rem;
-  margin-bottom: 1rem;
 }
 .artist-information .post-date {
+  font-size: 1rem;
   opacity: 0.6;
+  padding-right: 0.2rem;
+  padding-top: 0.6rem;
 }
 .artist-information .programs {
   display: none;
