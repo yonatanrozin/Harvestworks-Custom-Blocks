@@ -68,5 +68,8 @@
   opacity: 1;
   font-weight: 400;
 }
+.wp-block-harvestworks-associated-events-list .event_card:not(:has(+ img)) .event_excerpt {
+  display: inline-block;
+}
 
 /*# sourceMappingURL=style-index.css.map*/

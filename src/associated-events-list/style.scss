@@ -80,5 +80,9 @@ $sidebar-margin-top: 0rem;
                 font-weight: 400;
             }
         }
+
+        &:not(:has(+ img)) .event_excerpt {
+            display: inline-block;
+        }
     }
 }
