@@ -30,6 +30,7 @@
   aspect-ratio: 1;
   -o-object-fit: cover;
      object-fit: cover;
+  width: 100%;
 }
 .wp-block-harvestworks-artist-events-list .event_card .event_details {
   display: flex;
