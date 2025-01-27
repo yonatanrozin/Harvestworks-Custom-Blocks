@@ -20,9 +20,10 @@
         align-items: stretch;
         width: auto;
 
-        text-decoration: none !important;
+        transition: background-color 0.3s;
 
         &:hover {
+            background-color: lightgray;
             text-decoration: none !important;
         }
 

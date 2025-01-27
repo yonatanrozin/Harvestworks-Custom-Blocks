@@ -19,9 +19,10 @@
   padding: 2.4rem;
   align-items: stretch;
   width: auto;
-  text-decoration: none !important;
+  transition: background-color 0.3s;
 }
 .wp-block-harvestworks-event-artists-list .artist_card:hover {
+  background-color: lightgray;
   text-decoration: none !important;
 }
 .wp-block-harvestworks-event-artists-list .artist_card img {
