@@ -175,8 +175,8 @@ function generate_status($start_date, $end_date, $event_type, $alway_show)
 					continue;
 				}
 
-				$link_url = trim($split_link[0]);
-				$link_label = trim($split_link[1]);
+				$link_url = trim($split_link[1]);
+				$link_label = trim($split_link[0]);
 				echo "<a href='{$link_url}'>{$link_label}</a>";
 			}
 			echo "</div>";
