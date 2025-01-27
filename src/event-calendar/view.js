@@ -73,8 +73,14 @@ function calendarSetup() {
         function setURLDateQuery() {
             const newParam = cellDate.toISOString().split("T")[0].split("-").join("");
             const oldParam = url.searchParams.get("date");
-            if (newParam == oldParam) url.searchParams.delete("date");
-            else url.searchParams.set("date", newParam);
+            if (newParam == oldParam) {
+                url.searchParams.delete("date");
+                window.sessionStorage.removeItem("hw_calendar_date");
+            }
+            else {
+                window.sessionStorage.setItem("hw_calendar_date", newParam);
+                url.searchParams.set("date", newParam);
+            }
             history.pushState({}, "", url);
             window.dispatchEvent(new PopStateEvent("popstate"));
         }
