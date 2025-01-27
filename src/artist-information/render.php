@@ -55,7 +55,7 @@ if (empty($fields)) {
 		if (!empty($programs)) {
 			echo "<p class='programs'>";
 			foreach ($programs as $program) {
-				if ($program !== end($programs)) {
+				if ($program !== $programs[0]) {
 					echo ", ";
 				}
 				$permalink = get_term_link($program);
