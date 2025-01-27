@@ -22,8 +22,9 @@
   padding: 1.2rem;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 1rem;
   background-color: lightgray;
+  text-decoration: none !important;
 }
 .wp-block-harvestworks-artist-events-list .event_card img {
   aspect-ratio: 1;
@@ -33,17 +34,21 @@
 .wp-block-harvestworks-artist-events-list .event_card .event_details {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  padding-right: 0.2rem;
+  padding-left: 0.2rem;
 }
 .wp-block-harvestworks-artist-events-list .event_card .event_details .event_title {
-  margin: 0px;
+  margin: 0rem;
   overflow-wrap: break-word;
 }
-.wp-block-harvestworks-artist-events-list .event_card .event_details .event_tagline {
-  color: var(--wp--preset--color--contrast-2);
-  margin: 0px;
+.wp-block-harvestworks-artist-events-list .event_card .event_details .event_date {
+  margin-bottom: 0.2rem;
+  color: var(--wp--preset--color--contrast-1);
+  font-weight: 600;
+  font-size: 1.2rem;
 }
-.wp-block-harvestworks-artist-events-list .event_card .event_details p {
+.wp-block-harvestworks-artist-events-list .event_card .event_details .event_tagline {
   margin: 0px;
-  font-size: medium;
+  font-size: 1.2rem;
+  font-weight: 400;
 }

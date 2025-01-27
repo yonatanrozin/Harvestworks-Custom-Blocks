@@ -24,8 +24,10 @@ $mobile-breakpoint: 767px;
 
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 1rem;
         background-color: lightgray;
+
+        text-decoration: none !important;
 
         img {
             aspect-ratio: 1;
@@ -35,21 +37,26 @@ $mobile-breakpoint: 767px;
         .event_details {
             display: flex;
             flex-direction: column;
-            gap: 5px;
+            padding-left: 0.2rem;
+            padding-right: 0.2rem;
 
             .event_title {
-                margin: 0px;
+                margin: 0rem;
+
                 overflow-wrap: break-word;
             }
 
-            .event_tagline {
-                color: var(--wp--preset--color--contrast-2);
-                margin: 0px;
+            .event_date {
+                margin-bottom: 0.2rem;
+                color: var(--wp--preset--color--contrast-1);
+                font-weight: 600;
+                font-size: 1.2rem;
             }
 
-            p {
+            .event_tagline {
                 margin: 0px;
-                font-size: medium
+                font-size: 1.2rem;
+                font-weight: 400;
             }
         }
     }

@@ -26,3 +26,4 @@ const programs = document.querySelector('.artist-information .programs');
 if (subtitle && programs) {
     subtitle.replaceWith(programs);
 }
+
