@@ -16,14 +16,12 @@
     ?>
 
     <?php foreach ($posts as $post): ?>
-        <div class="event_card">
+        <a class="event_card" href="<?= get_permalink($post) ?>">
             <?php if (has_post_thumbnail($post)): ?>
                 <img src=<?= get_the_post_thumbnail_url($post) ?> />
             <?php endif; ?>
             <div class="event_details">
-                <a href="<?= get_permalink($post) ?>">
-                    <h4 class="event_title"><?= $post->post_title ?></h4>
-                </a>
+                <h4 class="event_title"><?= $post->post_title ?></h4>
 
                 <?php
                 $date_str = '';
@@ -83,6 +81,6 @@
                 }
                 ?>
             </div>
-        </div>
+        </a>
     <?php endforeach; ?>
 </div>
