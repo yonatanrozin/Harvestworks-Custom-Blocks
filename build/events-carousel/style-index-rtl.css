@@ -1,1 +1,48 @@
-.wp-block-harvestworks-events-carousel{aspect-ratio:3;display:flex;overflow:auto;scroll-behavior:smooth;scroll-snap-type:both mandatory;scrollbar-width:none;width:100%}.wp-block-harvestworks-events-carousel a{background-size:cover;float:right;min-height:100%;min-width:100%;position:relative;scroll-snap-align:start}.wp-block-harvestworks-events-carousel a .featured_project_text{background-color:rgba(0,0,0,.6);bottom:0;color:#fff;margin:0;padding:5px 10px;position:absolute}.wp-block-harvestworks-events-carousel a .featured_project_text>*{color:#fff;font-family:var(--wp--preset--font-family--body);margin:0}.wp-block-harvestworks-events-carousel a .featured_project_text>#project_title{font-size:1.6em}.wp-block-harvestworks-events-carousel a .featured_project_text>#project_excerpt{font-size:.7em}.wp-block-harvestworks-events-carousel a:hover #project_title{text-decoration:underline}
+/*!*******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/events-carousel/style.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-harvestworks-events-carousel {
+  width: 100%;
+  aspect-ratio: 3;
+  overflow: auto;
+  display: flex;
+  scrollbar-width: none;
+  scroll-snap-type: both mandatory;
+  scroll-behavior: smooth;
+}
+.wp-block-harvestworks-events-carousel a {
+  scroll-snap-align: start;
+  min-width: 100%;
+  min-height: 100%;
+  float: right;
+  background-size: cover;
+  position: relative;
+}
+.wp-block-harvestworks-events-carousel a .featured_project_text {
+  padding: 5px 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+}
+.wp-block-harvestworks-events-carousel a .featured_project_text > * {
+  margin: 0;
+  color: white;
+  font-family: var(--wp--preset--font-family--body);
+}
+.wp-block-harvestworks-events-carousel a .featured_project_text > #project_title {
+  font-size: 1.6em;
+}
+.wp-block-harvestworks-events-carousel a .featured_project_text > #project_excerpt {
+  font-size: 0.7em;
+}
+.wp-block-harvestworks-events-carousel a:hover #project_title {
+  text-decoration: underline;
+}
