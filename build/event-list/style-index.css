@@ -1,1 +1,77 @@
-.wp-block-harvestworks-event-list{display:flex;flex-direction:column;gap:15px}.wp-block-harvestworks-event-list .event_card{background-color:#eee;display:flex;flex-direction:row;font-size:medium;gap:15px;padding:15px}.wp-block-harvestworks-event-list .event_card .event_img{background-position:50%;background-size:cover;position:relative;width:250px}.wp-block-harvestworks-event-list .event_card .event_img .event_status{background-color:#a6ac8a;color:#fff;font-weight:700;left:10px;margin:0;padding:2px 5px;position:absolute;top:10px}.wp-block-harvestworks-event-list .event_card .event_info{display:flex;flex:1;flex-direction:column;justify-content:space-between}.wp-block-harvestworks-event-list .event_card .event_info .event_title{margin:0}.wp-block-harvestworks-event-list .event_card .event_info .event_details{display:flex;flex-direction:row;font-weight:700;gap:1em;width:100%}.wp-block-harvestworks-event-list .event_card .event_info .event_details span{text-wrap:nowrap}.wp-block-harvestworks-event-list .event_card .event_info .event_name{margin:0;text-decoration:none!important}.wp-block-harvestworks-event-list .event_card .event_info .event_name h2{margin:0}.wp-block-harvestworks-event-list .event_card .event_info .event_name h2 .event_artists{color:var(--wp--preset--color--contrast-2)}.wp-block-harvestworks-event-list .event_card .event_info .event_description{display:-webkit-box;margin:0;line-clamp:4;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+/*!**************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/event-list/style.scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-harvestworks-event-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.wp-block-harvestworks-event-list .event_card {
+  background-color: #eeeeee;
+  padding: 15px;
+  font-size: medium;
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+.wp-block-harvestworks-event-list .event_card .event_img {
+  width: 250px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.wp-block-harvestworks-event-list .event_card .event_img .event_status {
+  color: white;
+  padding: 2px 5px;
+  font-weight: bold;
+  background-color: #A6AC8A;
+  margin: 0px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+.wp-block-harvestworks-event-list .event_card .event_info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.wp-block-harvestworks-event-list .event_card .event_info .event_title {
+  margin: 0;
+}
+.wp-block-harvestworks-event-list .event_card .event_info .event_details {
+  font-weight: bold;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+}
+.wp-block-harvestworks-event-list .event_card .event_info .event_details span {
+  text-wrap: nowrap;
+}
+.wp-block-harvestworks-event-list .event_card .event_info .event_name {
+  margin: 0;
+  text-decoration: none !important;
+}
+.wp-block-harvestworks-event-list .event_card .event_info .event_name h2 {
+  margin: 0px;
+}
+.wp-block-harvestworks-event-list .event_card .event_info .event_name h2 .event_artists {
+  color: var(--wp--preset--color--contrast-2);
+}
+.wp-block-harvestworks-event-list .event_card .event_info .event_description {
+  display: -webkit-box;
+  margin: 0;
+  line-clamp: 4;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/*# sourceMappingURL=style-index.css.map*/

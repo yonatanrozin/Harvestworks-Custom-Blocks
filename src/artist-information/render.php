@@ -23,7 +23,7 @@ if (empty($fields)) {
 		<?php
 
 		// Label 
-		echo "<p class='label'>Artist</p>";
+		echo "<a class='label' href='/community/artists/'>Artist Directory</a>";
 
 		// Links
 		$links = $fields['links'] ?? '';
@@ -61,6 +61,10 @@ if (empty($fields)) {
 		if (!empty($programs)) {
 			echo "<p class='programs'>";
 			foreach ($programs as $program) {
+				if ($program->name === 'Artist Directory') {
+					continue;
+				}
+
 				if ($program !== $programs[0]) {
 					echo ", ";
 				}
@@ -68,6 +72,8 @@ if (empty($fields)) {
 				echo "<a href='{$permalink}'>{$program->name}</a>";
 			}
 			echo "</p>";
+		} else {
+			echo "<p class='programs'><a href='/community/artists/'>Featured Artist</a></p>";
 		}
 
 

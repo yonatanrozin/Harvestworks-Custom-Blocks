@@ -1,1 +1,59 @@
-.artist-information{font-size:clamp(.875rem,.875rem + (1vw - .2rem)*.579,1.15rem);font-weight:600;letter-spacing:4%;margin-top:0;opacity:.9}.artist-information .label{background-color:var(--wp--preset--color--contrast-3);background-color:var(--wp--preset--color--accent-4);color:#fff;display:inline-block;font-weight:700;right:-.15rem;margin:0 0 .6rem;opacity:.7;padding:0 .6rem;position:relative}.artist-information .links{display:flex;flex-direction:column;gap:.6rem}.artist-information .links .link{background-color:var(--wp--preset--color--accent-4);color:#fff;display:block;font-weight:700;margin-bottom:1rem;margin-top:3.2rem;padding:.4rem .6rem;text-align:center;text-decoration:none}.artist-information .post-date{opacity:.6}.artist-information .programs{display:none}.programs{color:var(--wp--preset--color--contrast-2);font-size:2.4rem;font-weight:600}.programs a{color:var(--wp--preset--color--contrast-2)!important;text-decoration:none!important}
+/*!**********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/artist-information/style.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ */
+.artist-information {
+  margin-top: 0rem;
+  font-weight: 600;
+  font-size: clamp(0.875rem, 0.875rem + (1vw - 0.2rem) * 0.579, 1.15rem);
+  opacity: 0.9;
+  letter-spacing: 4%;
+}
+.artist-information .label {
+  background-color: var(--wp--preset--color--contrast-3);
+  background-color: var(--wp--preset--color--accent-4);
+  display: inline-block;
+  margin: 0;
+  margin-bottom: 0.6rem;
+  padding: 0rem 0.6rem;
+  color: white;
+  font-weight: 700;
+  position: relative;
+  right: -0.15rem;
+  opacity: 0.7;
+}
+.artist-information .links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.artist-information .links .link {
+  display: block;
+  background-color: var(--wp--preset--color--accent-4);
+  color: white;
+  text-decoration: none;
+  padding: 0.4rem 0.6rem;
+  text-align: center;
+  font-weight: 700;
+  margin-top: 3.2rem;
+  margin-bottom: 1rem;
+}
+.artist-information .post-date {
+  opacity: 0.6;
+}
+.artist-information .programs {
+  display: none;
+}
+
+.programs {
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: var(--wp--preset--color--contrast-2);
+}
+.programs a {
+  color: var(--wp--preset--color--contrast-2) !important;
+  text-decoration: none !important;
+}
