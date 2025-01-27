@@ -160,7 +160,7 @@ function generate_status($start_date, $end_date, $event_type, $alway_show)
 		}
 
 		// Additional Links
-		$additional_links = $fields['additional_links'] ?? [];
+		$additional_links = $fields['additional_links'] ?? '';
 		$split_links = explode("\n", $additional_links);
 
 		if (!empty($split_links)) {
