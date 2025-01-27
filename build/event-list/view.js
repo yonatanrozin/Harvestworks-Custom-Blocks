@@ -1,1 +1,95 @@
-(()=>{const n=document.querySelector(".wp-block-harvestworks-event-list");function s(n){if(!n)return null;const s=n.substring(0,4),e=n.substring(4,6)-1,t=n.substring(6,8);return new Date(s,e,t).toLocaleString("default",{month:"short",day:"2-digit"})}async function e(){let e=new URL(window.location.href).searchParams.get("date");const t="/wp-json/wp/v2/events"+(e?`?date=${e}`:""),a=await(await fetch(t)).json();n.innerHTML=a.map((n=>function(n){const{post_title:e,acf:t,featured_image:a,guid:i,status:p,excerpt:c}=n,{date:o,end_date:d,location:r,event_type:l,artists:v}=t;return`\n        <div class="event_card">\n            ${a?`<div class="event_img" style="background-image: url(${a})" >\n                ${p?`<span class="event_status">${p}</span>`:""}\n            </div>`:""}\n            <div class="event_info">\n                <div class="event_details" >\n                    <span class="event_dates">\n                        <span>${s(o)}</span>\n                        ${d?`<span>&nbsp;—&nbsp;</span><span>${s(d)}</span>`:""}\n                    </span>\n                    <span>•</span>\n                    <span class="event_type">${l[0].name}</span>\n                    <span>•</span>\n                    <span class="event_location">${r}</span>\n                </div>\n                <a class="event_name" href="${i}">\n                    <h2>\n                        <span class="event_title">${e}</span>\n                        ${v?`<span class="event_artists">by ${v}</span>`:""}\n                    </h2>\n                </a>\n                <p class="event_description">${c}</p>\n            </div>\n        </div>\n    `}(n))).join("")}document.addEventListener("DOMContentLoaded",e),window.addEventListener("popstate",e)})();
+/******/ (() => { // webpackBootstrap
+/*!********************************!*\
+  !*** ./src/event-list/view.js ***!
+  \********************************/
+/**
+ * Use this file for JavaScript code that you want to run in the front-end
+ * on posts/pages that contain this block.
+ *
+ * When this file is defined as the value of the `viewScript` property
+ * in `block.json` it will be enqueued on the front end of the site.
+ *
+ * Example:
+ *
+ * ```js
+ * {
+ *   "viewScript": "file:./view.js"
+ * }
+ * ```
+ *
+ * If you're not making any changes to this file because your project doesn't need any
+ * JavaScript running in the front-end, then you should delete this file and remove
+ * the `viewScript` property from `block.json`.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-metadata/#view-script
+ */
+
+/* eslint-disable no-console */
+
+const block_div = document.querySelector(".wp-block-harvestworks-event-list");
+function dateFromACFField(date) {
+  if (!date) return null;
+  const year = date.substring(0, 4);
+  const month = date.substring(4, 6) - 1; //JS months counting from 0
+  const day = date.substring(6, 8);
+  return new Date(year, month, day).toLocaleString('default', {
+    "month": "short",
+    "day": "2-digit"
+  });
+}
+function eventCard(event) {
+  const {
+    post_title,
+    acf,
+    featured_image,
+    guid,
+    status,
+    excerpt
+  } = event;
+  const {
+    date,
+    end_date,
+    location,
+    event_type,
+    artists
+  } = acf;
+  return `
+        <div class="event_card">
+            ${featured_image ? `<div class="event_img" style="background-image: url(${featured_image})" >
+                ${status ? `<span class="event_status">${status}</span>` : ""}
+            </div>` : ""}
+            <div class="event_info">
+                <div class="event_details" >
+                    <span class="event_dates">
+                        <span>${dateFromACFField(date)}</span>
+                        ${end_date ? `<span>&nbsp;—&nbsp;</span><span>${dateFromACFField(end_date)}</span>` : ""}
+                    </span>
+                    <span>•</span>
+                    <span class="event_type">${event_type[0].name}</span>
+                    <span>•</span>
+                    <span class="event_location">${location}</span>
+                </div>
+                <a class="event_name" href="${guid}">
+                    <h2>
+                        <span class="event_title">${post_title}</span>
+                        ${artists ? `<span class="event_artists">by ${artists}</span>` : ""}
+                    </h2>
+                </a>
+                <p class="event_description">${excerpt}</p>
+            </div>
+        </div>
+    `;
+}
+async function getEvents() {
+  let dateparam = new URL(window.location.href).searchParams.get("date");
+  const queryURL = `/wp-json/wp/v2/events${dateparam ? `?date=${dateparam}` : ""}`;
+  const events = await (await fetch(queryURL)).json();
+  block_div.innerHTML = events.map(e => eventCard(e)).join("");
+}
+document.addEventListener("DOMContentLoaded", getEvents);
+window.addEventListener("popstate", getEvents);
+
+/* eslint-enable no-console */
+/******/ })()
+;
+//# sourceMappingURL=view.js.map
