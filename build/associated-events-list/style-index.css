@@ -28,7 +28,7 @@
   text-decoration: none !important;
 }
 .wp-block-harvestworks-associated-events-list .event_card:hover {
-  background-color: var(--wp--preset--color--contrast-3);
+  background-color: lightgray;
 }
 .wp-block-harvestworks-associated-events-list .event_card img {
   aspect-ratio: 1;
