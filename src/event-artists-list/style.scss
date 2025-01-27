@@ -21,6 +21,7 @@
         width: auto;
 
         transition: background-color 0.3s;
+        text-decoration: none !important;
 
         &:hover {
             background-color: lightgray;
