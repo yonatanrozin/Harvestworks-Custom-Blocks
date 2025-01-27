@@ -74,12 +74,6 @@
                 }
                 $type_string = join(", ", $type_names);
 
-                if (preg_match('/^[aeiou]/i', $type_string)) {
-                    $type_string = "An " . strtolower($type_string);
-                } else {
-                    $type_string = "A " . strtolower($type_string);
-                }
-
                 $type_string = preg_replace('/,([^,]*)$/', ' and$1', $type_string);
 
                 if ($tagline != '') {
