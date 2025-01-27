@@ -1,7 +1,8 @@
 <div <?= get_block_wrapper_attributes() ?>>
     <?php foreach (get_field('listed_artists') as $post): ?>
         <?php $post = get_post($post); ?>
-        <a class="artist_card" href="<?= get_permalink($post) ?>">
+        <div class="artist_card" href="<?= get_permalink($post) ?>">
+            <a class="card_anchor" href="<?= get_permalink($post) ?>"></a>
 
             <div class="link_stack">
                 <?php if (has_post_thumbnail($post)): ?>
@@ -41,6 +42,6 @@
                 <p class="artist_name"><?= $post->post_title ?></p>
                 <p class="artist_bio"><?= get_the_excerpt($post) ?></p>
             </div>
-        </a>
+        </div>
     <?php endforeach; ?>
 </div>
