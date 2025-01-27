@@ -5,6 +5,7 @@
         $fields = get_fields($post->ID);
 
         $date_str = '';
+        $tagline = '';
 
         if (isset($fields['date'])) {
             $start_date = $fields['date'] ?? '';
@@ -46,6 +47,21 @@
             }
             $date_str = join(", ", $type_names);
         }
+
+        if (isset($fields['tagline'])) {
+            $tagline = $fields['tagline'];
+        } else if (isset($fields['event_type'])) {
+            $types = $fields['event_type'];
+
+            $type_names = array();
+            if (!empty($types)) {
+                foreach ($types as $type) {
+                    $type_names[] = $type->name;
+                }
+            }
+            $tagline = join(", ", $type_names);
+        }
+
         ?>
         <a class="event_card" href="<?= get_permalink($post) ?>">
             <?php if (has_post_thumbnail($post)): ?>
@@ -54,7 +70,7 @@
             <div class="event_details">
                 <p class="event_name"><?= $post->post_title ?></p>
                 <p class='event_date'><?= $date_str ?></p>
-                <p class="event_tagline"><?= get_the_excerpt($post) ?></p>
+                <p class="event_tagline"><?= $tagline ?></p>
             </div>
         </a>
     <?php endforeach; ?>
