@@ -34,95 +34,22 @@ $sidebar-margin-top: 1.6rem;
         opacity: 0.7;
     }
 
-    .date {
-        &::before {
-            content: ' ';
-            display: inline-block;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%23000000'%3E%3Cpath d='M580-240q-42 0-71-29t-29-71q0-42 29-71t71-29q42 0 71 29t29 71q0 42-29 71t-71 29ZM202.87-71.87q-37.78 0-64.39-26.61t-26.61-64.39v-554.26q0-37.78 26.61-64.39t64.39-26.61H240v-80h85.5v80h309v-80H720v80h37.13q37.78 0 64.39 26.61t26.61 64.39v554.26q0 37.78-26.61 64.39t-64.39 26.61H202.87Zm0-91h554.26V-560H202.87v397.13Z'/%3E%3C/svg%3E");
-            width: 1.6rem;
-            height: 1.6rem;
-            margin-right: 0.26rem;
-            position: relative;
-            top: 0.26rem;
-            left: -0.12rem;
-        }
-    }
-
-    .location-name {
-        &::before {
-            content: ' ';
-            display: inline-block;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%23000000'%3E%3Cpath d='M480-477.61q34.2 0 58.29-24.1 24.1-24.09 24.1-58.29t-24.1-58.29q-24.09-24.1-58.29-24.1t-58.29 24.1q-24.1 24.09-24.1 58.29t24.1 58.29q24.09 24.1 58.29 24.1Zm0 405.74Q315.17-211.26 233.52-329.36q-81.65-118.1-81.65-223.6 0-153.28 98.95-244.22 98.95-90.95 229.18-90.95 130.23 0 229.18 90.95 98.95 90.94 98.95 244.22 0 105.5-81.65 223.6T480-71.87Z'/%3E%3C/svg%3E");
-            width: 1.6rem;
-            height: 1.6rem;
-            margin-right: 0.26rem;
-            position: relative;
-            top: 0.26rem;
-            left: -0.12rem;
-        }
-    }
-
-    .notes {
-        margin-top: -1rem;
-        // font-size: 1rem;
-        line-height: 1.5;
-        opacity: 0.6;
-        font-weight: 400;
-        margin-bottom: 1.6rem;
-    }
-
-
-    .address {
-        margin-top: -1rem;
-        // font-size: 0.85rem;
-        line-height: 1.5;
-        font-weight: 400;
-    }
-
-    .information {
-        &::before {
-            content: ' ';
-            display: inline-block;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%23000000'%3E%3Cpath d='M436.41-276.41h87.18V-520h-87.18v243.59ZM480-595.22q19.03 0 31.91-12.87 12.87-12.88 12.87-31.91t-12.87-31.91q-12.88-12.87-31.91-12.87t-31.91 12.87q-12.87 12.88-12.87 31.91t12.87 31.91q12.88 12.87 31.91 12.87Zm0 523.35q-84.91 0-159.34-32.12-74.44-32.12-129.5-87.17-55.05-55.06-87.17-129.5Q71.87-395.09 71.87-480t32.12-159.34q32.12-74.44 87.17-129.5 55.06-55.05 129.5-87.17 74.43-32.12 159.34-32.12t159.34 32.12q74.44 32.12 129.5 87.17 55.05 55.06 87.17 129.5 32.12 74.43 32.12 159.34t-32.12 159.34q-32.12 74.44-87.17 129.5-55.06 55.05-129.5 87.17Q564.91-71.87 480-71.87Z'/%3E%3C/svg%3E");
-            width: 1.6rem;
-            height: 1.6rem;
-            margin-right: 0.26rem;
-            position: relative;
-            top: 0.26rem;
-            left: -0.12rem;
-        }
-    }
-
-    .action-link {
-        display: block;
-        background-color: var(--wp--preset--color--accent-4);
-        color: white;
-        text-decoration: none;
-        padding: 0.4rem 0.6rem;
-        text-align: center;
-        font-weight: 700;
-        margin-top: 3.2rem;
-        margin-bottom: 1rem;
-    }
-
-    .action-link-required {
-        margin-top: -0.4rem;
-        font-size: 1rem;
-        line-height: 1.5;
-        opacity: 0.6;
-        font-weight: 500;
-        margin-bottom: 1.6rem;
-        display: block;
-        text-align: right;
-        margin-right: 0.4rem;
-    }
-
-    .additional-links {
-        // font-size: 1rem;
-        line-height: 1.5;
+    .links {
         display: flex;
         flex-direction: column;
-        gap: 0.6rem;
+        gap: 1.8rem;
+        padding-top: 1.8rem;
+
+        .link {
+            display: block;
+            background-color: var(--wp--preset--color--accent-4);
+            color: white;
+            text-decoration: none;
+            padding: 0.4rem 0.6rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
     }
 
     .press-quotes {
