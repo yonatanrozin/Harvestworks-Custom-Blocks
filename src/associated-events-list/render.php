@@ -68,7 +68,7 @@
                 <img src=<?= get_the_post_thumbnail_url($post) ?> />
             <?php endif; ?>
             <div class="event_details">
-                <p class="event_name"><?= $post->post_title ?></p>
+                <p class="event_title"><?= $post->post_title ?></p>
                 <p class='event_date'><?= $date_str ?></p>
                 <p class="event_tagline"><?= $tagline ?></p>
             </div>
