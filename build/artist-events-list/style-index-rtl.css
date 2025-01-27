@@ -9,8 +9,8 @@
  */
 .wp-block-harvestworks-artist-events-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 15px 15px;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  gap: 2.4rem;
   flex-wrap: wrap;
 }
 .wp-block-harvestworks-artist-events-list .event_card {

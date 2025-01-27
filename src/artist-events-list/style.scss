@@ -8,8 +8,8 @@
 .wp-block-harvestworks-artist-events-list {
 
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px 15px;
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    gap: 2.4rem;
     flex-wrap: wrap;
 
     .event_card {
@@ -35,12 +35,16 @@
                 margin: 0px;
                 overflow-wrap: break-word;
             }
+
             .event_tagline {
                 color: var(--wp--preset--color--contrast-2);
                 margin: 0px;
             }
-            
-            p {margin: 0px; font-size: medium}
+
+            p {
+                margin: 0px;
+                font-size: medium
+            }
         }
     }
 }
