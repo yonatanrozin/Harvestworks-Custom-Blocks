@@ -6,7 +6,7 @@
  */
 
 $large-breakpoint: 1720px;
-$tablet-breakpoint: 1024px;
+$tablet-breakpoint: 1224px;
 $mobile-breakpoint: 767px;
 
 .wp-block-harvestworks-event-list {
@@ -73,7 +73,7 @@ $mobile-breakpoint: 767px;
                 margin-top: 0.12rem;
 
                 @media screen and (max-width: $large-breakpoint) {
-                    gap: 0.6rem;
+                    justify-content: space-between;
                 }
 
                 @media screen and (max-width: $tablet-breakpoint) {
