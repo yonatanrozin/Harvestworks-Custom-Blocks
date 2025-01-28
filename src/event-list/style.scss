@@ -90,7 +90,7 @@ $mobile-breakpoint: 767px;
                         display: none;
                     }
 
-                    .divider:first-of-type {
+                    .divider:nth-of-type(2) {
                         display: none;
                     }
                 }
