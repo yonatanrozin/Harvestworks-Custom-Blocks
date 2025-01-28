@@ -29,13 +29,13 @@ function dateFromACFField(date) {
     const year = date.substring(0, 4);
     const month = date.substring(4, 6) - 1; //JS months counting from 0
     const day = date.substring(6, 8);
-    return new Date(year, month, day).toLocaleString('default', {"month": "short", "day": "2-digit"}); 
+    return new Date(year, month, day).toLocaleString('default', { "month": "short", "day": "2-digit" });
 }
 
 function eventCard(event) {
 
-    const {post_title, acf, featured_image, guid, status, excerpt} = event;
-    const {date, end_date, location, event_type, artists} = acf;
+    const { post_title, acf, featured_image, guid, status, excerpt } = event;
+    const { date, end_date, location, event_type, artists } = acf;
 
     return `
         <div class="event_card">
@@ -46,11 +46,11 @@ function eventCard(event) {
                 <div class="event_details" >
                     <span class="event_dates">
                         <span>${dateFromACFField(date)}</span>
-                        ${end_date ? `<span>&nbsp;—&nbsp;</span><span>${dateFromACFField(end_date)}</span>` : ""}
+                        ${end_date ? `<span>-&nbsp;</span><span>${dateFromACFField(end_date)}</span>` : ""}
                     </span>
-                    <span>•</span>
+                    <span class='divider'>•</span>
                     <span class="event_type">${event_type[0].name}</span>
-                    <span>•</span>
+                    <span class='divider'>•</span>
                     <span class="event_location">${location}</span>
                 </div>
                 <a class="event_name" href="${guid}">
@@ -64,12 +64,12 @@ function eventCard(event) {
         </div>
     `;
 }
-            
+
 async function getEvents() {
 
     let dateparam = new URL(window.location.href).searchParams.get("date");
     const queryURL = `/wp-json/wp/v2/events${dateparam ? `?date=${dateparam}` : ""}`;
-    
+
     const events = await (await fetch(queryURL)).json();
     block_div.innerHTML = events.map(e => eventCard(e)).join("");
 }
