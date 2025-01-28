@@ -13,10 +13,22 @@
   gap: 2.4rem;
 }
 .wp-block-harvestworks-event-list .event_card {
-  background-color: #eeeeee;
+  background-color: var(--wp--preset--color--custom-material-3);
   padding: 1.2rem;
   display: flex;
   flex-direction: row;
+  position: relative;
+}
+.wp-block-harvestworks-event-list .event_card:hover {
+  background-color: lightgray;
+}
+.wp-block-harvestworks-event-list .event_card .event_anchor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
 }
 .wp-block-harvestworks-event-list .event_card .event_img {
   min-width: 33.3333333333%;

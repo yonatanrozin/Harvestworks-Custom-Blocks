@@ -39,6 +39,7 @@ function eventCard(event) {
 
     return `
         <div class="event_card">
+            <a class"event_anchor" href="${guid}"></a>
             <div class="event_img" style="background-image: url(${featured_image})" >
                 ${status ? `<span class="event_status">${status}</span>` : ""}
             </div>
@@ -55,12 +56,12 @@ function eventCard(event) {
                     <span class='divider'>•</span>
                     <span class="event_location">${location}</span>
                 </div>
-                <a class="event_name" href="${guid}">
+                <div class="event_name">
                     <h2>
                         <span class="event_title">${post_title}</span>
                         ${artists ? `<span class="event_artists">by ${artists}</span>` : ""}
                     </h2>
-                </a>
+                </div>
                 <p class="event_description">${excerpt}</p>
             </div>
         </div>
