@@ -25,6 +25,7 @@
 }
 .wp-block-harvestworks-event-list .event_card .event_anchor {
   position: absolute;
+  display: block;
   top: 0;
   right: 0;
   bottom: 0;
