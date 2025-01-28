@@ -20,7 +20,6 @@ $mobile-breakpoint: 767px;
 
         display: flex;
         flex-direction: row;
-        gap: 1.8rem;
 
         .event_img {
             min-width: calc(100% / 3);
@@ -55,6 +54,8 @@ $mobile-breakpoint: 767px;
             flex-direction: column;
             gap: 0;
 
+            padding-left: 1.8rem;
+
             .event_title {
                 margin: 0
             }
@@ -85,7 +86,7 @@ $mobile-breakpoint: 767px;
                         display: none;
                     }
 
-                    .divider {
+                    .divider:first-child {
                         display: none;
                     }
                 }

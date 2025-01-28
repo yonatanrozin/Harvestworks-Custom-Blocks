@@ -17,7 +17,6 @@
   padding: 1.2rem;
   display: flex;
   flex-direction: row;
-  gap: 1.8rem;
 }
 .wp-block-harvestworks-event-list .event_card .event_img {
   min-width: 33.3333333333%;
@@ -47,6 +46,7 @@
   display: flex;
   flex-direction: column;
   gap: 0;
+  padding-left: 1.8rem;
 }
 .wp-block-harvestworks-event-list .event_card .event_info .event_title {
   margin: 0;
@@ -78,7 +78,7 @@
   .wp-block-harvestworks-event-list .event_card .event_info .event_details .event_type {
     display: none;
   }
-  .wp-block-harvestworks-event-list .event_card .event_info .event_details .divider {
+  .wp-block-harvestworks-event-list .event_card .event_info .event_details .divider:first-child {
     display: none;
   }
 }
