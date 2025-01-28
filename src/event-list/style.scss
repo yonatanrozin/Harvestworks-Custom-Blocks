@@ -5,6 +5,9 @@
  * Replace them with your own styles or remove the file completely.
  */
 
+$tablet-breakpoint: 1024px;
+$mobile-breakpoint: 767px;
+
 .wp-block-harvestworks-event-list {
     display: flex;
     flex-direction: column;
@@ -68,6 +71,14 @@
                 margin-left: 0.12rem;
                 margin-top: 0.12rem;
 
+                @media screen and (max-width: $tablet-breakpoint) {
+                    flex-direction: column;
+
+                    .divider {
+                        display: none;
+                    }
+                }
+
                 span {
                     text-wrap: nowrap;
                 }
@@ -95,6 +106,10 @@
 
                 .event_artists {
                     color: var(--wp--preset--color--contrast-2);
+
+                    @media screen and (max-width: $tablet-breakpoint) {
+                        display: none;
+                    }
                 }
             }
         }

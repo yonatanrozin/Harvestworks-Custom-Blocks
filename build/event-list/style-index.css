@@ -64,6 +64,14 @@
   margin-left: 0.12rem;
   margin-top: 0.12rem;
 }
+@media screen and (max-width: 1024px) {
+  .wp-block-harvestworks-event-list .event_card .event_info .event_details {
+    flex-direction: column;
+  }
+  .wp-block-harvestworks-event-list .event_card .event_info .event_details .divider {
+    display: none;
+  }
+}
 .wp-block-harvestworks-event-list .event_card .event_info .event_details span {
   text-wrap: nowrap;
 }
@@ -87,6 +95,11 @@
 }
 .wp-block-harvestworks-event-list .event_card .event_info .event_name .event_artists {
   color: var(--wp--preset--color--contrast-2);
+}
+@media screen and (max-width: 1024px) {
+  .wp-block-harvestworks-event-list .event_card .event_info .event_name .event_artists {
+    display: none;
+  }
 }
 .wp-block-harvestworks-event-list .event_card .event_description {
   display: -webkit-box;
