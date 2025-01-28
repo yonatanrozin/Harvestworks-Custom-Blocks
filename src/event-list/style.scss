@@ -19,7 +19,8 @@
         gap: 1.8rem;
 
         .event_img {
-            width: 250px;
+            width: calc(100% / 3);
+            height: auto;
             background-size: cover;
             background-position: center;
             position: relative;

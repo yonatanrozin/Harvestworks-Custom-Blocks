@@ -20,7 +20,8 @@
   gap: 1.8rem;
 }
 .wp-block-harvestworks-event-list .event_card .event_img {
-  width: 250px;
+  width: 33.3333333333%;
+  height: auto;
   background-size: cover;
   background-position: center;
   position: relative;
