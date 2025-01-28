@@ -5,6 +5,7 @@
  * Replace them with your own styles or remove the file completely.
  */
 
+$large-breakpoint: 2048px;
 $tablet-breakpoint: 1024px;
 $mobile-breakpoint: 767px;
 
@@ -71,8 +72,17 @@ $mobile-breakpoint: 767px;
                 margin-left: 0.12rem;
                 margin-top: 0.12rem;
 
+                @media screen and (max-width: $large-breakpoint) {
+                    gap: 0.6rem;
+
+                    .divider {
+                        display: none;
+                    }
+                }
+
                 @media screen and (max-width: $tablet-breakpoint) {
                     flex-direction: column;
+                    gap: 0.4rem;
 
                     .divider {
                         display: none;
@@ -107,7 +117,7 @@ $mobile-breakpoint: 767px;
                 .event_artists {
                     color: var(--wp--preset--color--contrast-2);
 
-                    @media screen and (max-width: $tablet-breakpoint) {
+                    @media screen and (max-width: $large-breakpoint) {
                         display: none;
                     }
                 }
