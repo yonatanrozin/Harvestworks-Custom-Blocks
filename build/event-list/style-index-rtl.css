@@ -68,9 +68,6 @@
   .wp-block-harvestworks-event-list .event_card .event_info .event_details {
     gap: 0.6rem;
   }
-  .wp-block-harvestworks-event-list .event_card .event_info .event_details .divider {
-    display: none;
-  }
 }
 @media screen and (max-width: 1024px) {
   .wp-block-harvestworks-event-list .event_card .event_info .event_details {

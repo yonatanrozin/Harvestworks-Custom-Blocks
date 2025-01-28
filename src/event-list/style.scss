@@ -74,10 +74,6 @@ $mobile-breakpoint: 767px;
 
                 @media screen and (max-width: $large-breakpoint) {
                     gap: 0.6rem;
-
-                    .divider {
-                        display: none;
-                    }
                 }
 
                 @media screen and (max-width: $tablet-breakpoint) {
