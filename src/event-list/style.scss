@@ -23,6 +23,8 @@ $mobile-breakpoint: 767px;
 
         position: relative;
 
+        transition: background-color 0.3s;
+
         &:hover {
             background-color: lightgray;
         }

@@ -18,6 +18,7 @@
   display: flex;
   flex-direction: row;
   position: relative;
+  transition: background-color 0.3s;
 }
 .wp-block-harvestworks-event-list .event_card:hover {
   background-color: lightgray;
