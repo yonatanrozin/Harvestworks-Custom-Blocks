@@ -64,7 +64,7 @@
   margin-right: 0.12rem;
   margin-top: 0.12rem;
 }
-@media screen and (max-width: 2048px) {
+@media screen and (max-width: 1720px) {
   .wp-block-harvestworks-event-list .event_card .event_info .event_details {
     gap: 0.6rem;
   }
@@ -102,7 +102,7 @@
 .wp-block-harvestworks-event-list .event_card .event_info .event_name .event_artists {
   color: var(--wp--preset--color--contrast-2);
 }
-@media screen and (max-width: 2048px) {
+@media screen and (max-width: 1720px) {
   .wp-block-harvestworks-event-list .event_card .event_info .event_name .event_artists {
     display: none;
   }
