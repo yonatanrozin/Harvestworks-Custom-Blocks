@@ -74,11 +74,16 @@ $mobile-breakpoint: 767px;
 
                 @media screen and (max-width: $large-breakpoint) {
                     justify-content: space-between;
+                    gap: 0.4rem;
                 }
 
                 @media screen and (max-width: $tablet-breakpoint) {
-                    flex-direction: column;
-                    gap: 0.4rem;
+                    justify-content: space-between;
+                    gap: 0.2rem;
+
+                    .event_type {
+                        display: none;
+                    }
 
                     .divider {
                         display: none;

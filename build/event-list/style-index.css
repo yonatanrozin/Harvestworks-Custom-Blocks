@@ -67,12 +67,16 @@
 @media screen and (max-width: 1720px) {
   .wp-block-harvestworks-event-list .event_card .event_info .event_details {
     justify-content: space-between;
+    gap: 0.4rem;
   }
 }
 @media screen and (max-width: 1224px) {
   .wp-block-harvestworks-event-list .event_card .event_info .event_details {
-    flex-direction: column;
-    gap: 0.4rem;
+    justify-content: space-between;
+    gap: 0.2rem;
+  }
+  .wp-block-harvestworks-event-list .event_card .event_info .event_details .event_type {
+    display: none;
   }
   .wp-block-harvestworks-event-list .event_card .event_info .event_details .divider {
     display: none;
