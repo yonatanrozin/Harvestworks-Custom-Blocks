@@ -57,9 +57,9 @@ function eventCard(event) {
   } = acf;
   return `
         <div class="event_card">
-            ${featured_image ? `<div class="event_img" style="background-image: url(${featured_image})" >
+            <div class="event_img" style="background-image: url(${featured_image})" >
                 ${status ? `<span class="event_status">${status}</span>` : ""}
-            </div>` : ""}
+            </div>
             <div class="event_info">
                 <div class="event_details" >
                     <span class="event_dates">

@@ -46,7 +46,7 @@ function generate_list_status($start_date, $end_date, $event_type, $soon_cutoff)
         }
     }
 
-    return '';
+    return 'Happening soon';
 }
 
 function get_events(WP_REST_Request $request)
