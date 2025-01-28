@@ -40,6 +40,9 @@
   font-weight: 700;
   font-size: 1.2rem;
   letter-spacing: 2%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: calc(100% - 1.2rem);
 }
 .wp-block-harvestworks-event-list .event_card .event_info {
   width: 66.6666666667%;
