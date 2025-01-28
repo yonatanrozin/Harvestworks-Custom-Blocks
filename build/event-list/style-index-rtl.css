@@ -71,8 +71,7 @@
 }
 @media screen and (max-width: 1720px) {
   .wp-block-harvestworks-event-list .event_card .event_info .event_details {
-    justify-content: space-between;
-    gap: 0.4rem;
+    gap: 0.8rem;
   }
 }
 @media screen and (max-width: 1224px) {

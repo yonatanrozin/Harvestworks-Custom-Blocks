@@ -82,8 +82,7 @@ $mobile-breakpoint: 767px;
                 margin-top: 0.12rem;
 
                 @media screen and (max-width: $large-breakpoint) {
-                    justify-content: space-between;
-                    gap: 0.4rem;
+                    gap: 0.8rem;
                 }
 
                 @media screen and (max-width: $tablet-breakpoint) {
