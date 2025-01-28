@@ -45,9 +45,9 @@ function eventCard(event) {
             <div class="event_info">
                 <div class="event_details" >
                     <span class="event_dates">
-                        <span>${dateFromACFField(date)}</span>
+                        <span>${dateFromACFField(date)}${time ? `,` : ""}</span>
                         ${time ? `<span>${time}</span>` : ""}
-                        ${end_date ? `<span>-&nbsp;</span><span>${dateFromACFField(end_date)}</span>` : ""}
+                        ${end_date ? `<span>-&nbsp;</span><span>${dateFromACFField(end_date)}${end_time ? `,` : ""}</span>` : ""}
                         ${end_time ? `<span>${end_time}</span>` : ""}
                     </span>
                     <span class='divider'>•</span>
