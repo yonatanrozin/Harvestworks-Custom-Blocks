@@ -27,14 +27,19 @@
   position: relative;
 }
 .wp-block-harvestworks-event-list .event_card .event_img .event_status {
-  color: white;
-  padding: 2px 5px;
-  font-weight: bold;
-  background-color: #A6AC8A;
-  margin: 0px;
+  margin: 0;
   position: absolute;
-  left: 10px;
-  top: 10px;
+  left: 0.6rem;
+  top: 0.6rem;
+  background-color: var(--wp--preset--color--accent-4);
+  display: inline-block;
+  margin: 0;
+  margin-bottom: 0.6rem;
+  padding: 0rem 0.8rem;
+  color: white;
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: 2%;
 }
 .wp-block-harvestworks-event-list .event_card .event_info {
   width: 66.6666666667%;

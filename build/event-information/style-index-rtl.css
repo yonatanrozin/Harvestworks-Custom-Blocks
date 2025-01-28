@@ -14,7 +14,6 @@
   letter-spacing: 4%;
 }
 .event-information .status {
-  background-color: var(--wp--preset--color--contrast-3);
   background-color: var(--wp--preset--color--accent-4);
   display: inline-block;
   margin: 0;

@@ -26,16 +26,22 @@
             position: relative;
 
             .event_status {
-                color: white;
-                padding: 2px 5px;
-                font-weight: bold;
-                background-color: #A6AC8A;
-                margin: 0px;
+                margin: 0;
                 position: absolute;
-                left: 10px;
-                top: 10px;
+                left: 0.6rem;
+                top: 0.6rem;
+                background-color: var(--wp--preset--color--accent-4);
+                display: inline-block;
+                margin: 0;
+                margin-bottom: 0.6rem;
+                padding: 0.0rem 0.8rem;
+                color: white;
+                font-weight: 700;
+                font-size: 1.3rem;
+                letter-spacing: 2%;
             }
         }
+
 
         .event_info {
             width: calc(100% / 3 * 2);
@@ -107,5 +113,4 @@
             padding-right: 1.6rem;
         }
     }
-
 }
