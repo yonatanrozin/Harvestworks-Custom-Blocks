@@ -35,7 +35,7 @@ function dateFromACFField(date) {
 function eventCard(event) {
 
     const { post_title, acf, featured_image, guid, status, excerpt } = event;
-    const { date, end_date, location, event_type, artists } = acf;
+    const { date, time, end_date, end_time, location, event_type, artists } = acf;
 
     return `
         <div class="event_card">

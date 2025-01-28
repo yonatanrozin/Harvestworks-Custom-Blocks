@@ -9,6 +9,46 @@ function register_event_endpoints()
     ));
 }
 
+function generate_list_status($start_date, $end_date, $event_type, $soon_cutoff)
+{
+    $today = date("Ymd");
+
+    $isOngoing = $start_date <= $today && $end_date !== '' && $end_date >= $today;
+    $isUpcoming = $start_date >= $today;
+    $isPast = $start_date < $today && ($end_date !== '' && $end_date < $today || $end_date === '');
+
+    $daysLeft = $start_date - $today;
+    $isToday = $daysLeft === 0 && $end_date === '';
+
+    if ($event_type === 'Installation' || $event_type === 'Exhibition') {
+        if ($isToday) {
+            return 'On exhibit today';
+        } else if ($isOngoing) {
+            return 'On exhibit now';
+        } else if ($isUpcoming && $daysLeft <= $soon_cutoff) {
+            return 'Opening in soon';
+        }
+    } else if ($event_type === 'Performance') {
+        if ($isToday) {
+            return 'Performing today';
+        } else if ($isOngoing) {
+            return 'Performances now';
+        } else if ($isUpcoming && $daysLeft <= $soon_cutoff) {
+            return 'Performing soon';
+        }
+    } else {
+        if ($isToday) {
+            return 'Happening today';
+        } else if ($isOngoing) {
+            return 'Happening now';
+        } else if ($isUpcoming && $daysLeft <= $soon_cutoff) {
+            return 'Happening soon';
+        }
+    }
+
+    return '';
+}
+
 function get_events(WP_REST_Request $request)
 {
     $request_date = $request->get_param('date') ?? date("Ymd");
@@ -101,14 +141,8 @@ function get_events(WP_REST_Request $request)
         $post->featured_image = wp_get_attachment_url(get_post_thumbnail_id($post->ID), 'thumbnail');
         $post->test = [$post->acf['date'], $today];
         //event starts after today: upcoming event
-        if ($post->acf['date'] > $today) $post->status = "Upcoming";
-        //event has no end date:
-        else if ($post->acf['end_date'] === "") {
-            //start date is today: happening now
-            if ($post->acf['date'] === $today) $post->status = "Happening now";
-        } else { //event has end date:
-            if ($post->acf['date'] <= $today && $post->acf['end_date'] >= $today) $post->status = "Happening now";
-        }
+
+        $post->status = generate_list_status($post->acf['date'], $post->acf['end_date'], $post->acf['event_type'], 7);
 
         $post->excerpt = get_the_excerpt($post);
 

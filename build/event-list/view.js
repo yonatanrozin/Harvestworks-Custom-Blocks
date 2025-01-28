@@ -48,7 +48,9 @@ function eventCard(event) {
   } = event;
   const {
     date,
+    time,
     end_date,
+    end_time,
     location,
     event_type,
     artists
