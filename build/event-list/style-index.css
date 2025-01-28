@@ -81,7 +81,7 @@
   .wp-block-harvestworks-event-list .event_card .event_info .event_details .event_type {
     display: none;
   }
-  .wp-block-harvestworks-event-list .event_card .event_info .event_details .divider:first-child {
+  .wp-block-harvestworks-event-list .event_card .event_info .event_details .divider:first-of-type {
     display: none;
   }
 }
