@@ -39,7 +39,7 @@ function eventCard(event) {
 
     return `
         <div class="event_card">
-            <a class"event_anchor" href="${guid}"></a>
+            <a class="event_anchor" href="${guid}"></a>
             <div class="event_img" style="background-image: url(${featured_image})" >
                 ${status ? `<span class="event_status">${status}</span>` : ""}
             </div>
