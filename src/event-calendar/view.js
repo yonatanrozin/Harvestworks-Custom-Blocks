@@ -33,7 +33,7 @@ const url = new URL(window.location.href);
 
 // month/year being viewed on the calendar:
 // get from url search params or default to current date
-let dateView = dateFromACFField(url.searchParams.get("date")) || new Date(); 
+let dateView = dateFromACFField(url.searchParams.get("date")) || new Date();
 if (dateView == "Invalid Date") dateView = new Date();
 
 function dateFromACFField(date) {
@@ -41,7 +41,7 @@ function dateFromACFField(date) {
     const year = date.substring(0, 4);
     const month = date.substring(4, 6) - 1; //JS months counting from 0
     const day = date.substring(6, 8);
-    return new Date(year, month, day); 
+    return new Date(year, month, day);
 }
 
 function calendarSetup() {
@@ -52,10 +52,10 @@ function calendarSetup() {
 
     const month = dateView.getMonth();
     const year = dateView.getFullYear();
-    
+
     const daysInMonth = new Date(year, month + 1, 0).getDate();
     for (const cell of cells) {
-        if (Number(cell.id) > daysInMonth ) {
+        if (Number(cell.id) > daysInMonth) {
             cell.style.display = "none";
             continue;
         }
@@ -89,9 +89,9 @@ function calendarSetup() {
             const eventStart = dateFromACFField(event.start_date).valueOf();
             const eventEnd = event.end_date ? dateFromACFField(event.end_date).valueOf() : eventStart;
             const hasEvent = cellDate.valueOf() >= eventStart && cellDate.valueOf() <= eventEnd;
+            cell.onclick = setURLDateQuery;
             if (hasEvent) {
                 cell.classList.add("has_event");
-                cell.onclick = setURLDateQuery;
                 break;
             } else cell.classList.remove("has_event");
         }
@@ -100,9 +100,9 @@ function calendarSetup() {
     const firstOfMonth = new Date(year, month, 1).getDay();
 
     document.querySelector(".calendar_day").style.gridColumnStart = firstOfMonth + 1;
-    document.querySelector("#calendar_date h3").innerHTML = 
-        dateView.toLocaleString("default", {month: "short"}) + " " +
-        dateView.toLocaleString("default", {year: "numeric"});
+    document.querySelector("#calendar_date h3").innerHTML =
+        dateView.toLocaleString("default", { month: "short" }) + " " +
+        dateView.toLocaleString("default", { year: "numeric" });
 }
 
 function nextMonth() {

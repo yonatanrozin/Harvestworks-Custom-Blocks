@@ -12,7 +12,7 @@
 		display: grid;
 		grid-template-columns: repeat(7, 1fr);
 		grid-template-rows: repeat(6, auto);
-		
+
 		#calendar_body {
 			grid-column-start: 1;
 			grid-column-end: 8;
@@ -22,12 +22,12 @@
 			outline: 1px solid lightgrey;
 			gap: 1px;
 
-			> div {
+			>div {
 				outline: 1px solid lightgrey;
 			}
 		}
 
-		> div {
+		>div {
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -35,7 +35,9 @@
 
 		#calendar_date {
 			justify-content: left;
-			> * {margin: 0;
+
+			>* {
+				margin: 0;
 				font-family: inherit;
 			}
 		}
@@ -57,10 +59,26 @@
 		}
 
 		.calendar_day {
+			cursor: pointer;
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			aspect-ratio: 1;
+		}
+
+		.calendar_day.has_event::after {
+			content: "";
+			position: absolute;
+			background-color: var(--wp--preset--color--primary);
+		}
+
+		.calendar_day.queried {
+			background-color: var(--wp--preset--color--primary);
+			box-shadow: 0px 0px 5px var(--wp--preset--color--primary);
+			z-index: 1;
+			color: white;
+			font-weight: 600;
+			transition: background-color .3s ease, box-shadow 2s ease;
 		}
 	}
 }

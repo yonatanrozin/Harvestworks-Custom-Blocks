@@ -82,9 +82,9 @@ function calendarSetup() {
       const eventStart = dateFromACFField(event.start_date).valueOf();
       const eventEnd = event.end_date ? dateFromACFField(event.end_date).valueOf() : eventStart;
       const hasEvent = cellDate.valueOf() >= eventStart && cellDate.valueOf() <= eventEnd;
+      cell.onclick = setURLDateQuery;
       if (hasEvent) {
         cell.classList.add("has_event");
-        cell.onclick = setURLDateQuery;
         break;
       } else cell.classList.remove("has_event");
     }
