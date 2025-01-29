@@ -10,13 +10,16 @@ $events = get_posts(array("post_type" => "Event"));
 $event_details = array_map(function ($event) {
 	$event_meta = get_post_meta($event->ID);
 
+	$taxonomies = get_taxonomies('', 'names');
+	$tax_names = wp_get_post_terms($event->ID, $taxonomies,  array("fields" => "names"));
+
 	// echo gmdate("D, M d Y", $event_meta["event-date"][0])." ";
 	// echo $event_meta["event-date"][0]." ";
 	return (object) [
 		'title' => $event->post_title,
 		'start_date' => $event_meta["date"][0],
 		'end_date' => $event_meta["end_date"][0],
-		'type' => $event_meta,
+		'type' => $tax_names,
 	];
 }, $events);
 ?>
