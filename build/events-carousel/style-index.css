@@ -8,13 +8,15 @@
  * Replace them with your own styles or remove the file completely.
  */
 .wp-block-harvestworks-events-carousel {
-  width: 100%;
-  aspect-ratio: 3;
+  width: 100;
+  height: 60vh;
+  max-height: 500px;
   overflow: auto;
   display: flex;
   scrollbar-width: none;
   scroll-snap-type: both mandatory;
   scroll-behavior: smooth;
+  color: white;
 }
 .wp-block-harvestworks-events-carousel a {
   scroll-snap-align: start;
@@ -24,27 +26,39 @@
   background-size: cover;
   position: relative;
 }
-.wp-block-harvestworks-events-carousel a .featured_project_text {
+.wp-block-harvestworks-events-carousel a .featured_item_text {
+  width: 100%;
+  box-sizing: border-box;
   padding: 5px 10px;
-  background-color: rgba(0, 0, 0, 0.6);
-  color: white;
   position: absolute;
   bottom: 0;
   margin: 0;
+  display: flex;
+  justify-content: space-between;
 }
-.wp-block-harvestworks-events-carousel a .featured_project_text > * {
-  margin: 0;
-  color: white;
-  font-family: var(--wp--preset--font-family--body);
+.wp-block-harvestworks-events-carousel a .featured_item_text > .featured_item_info {
+  display: flex;
+  flex-direction: column;
 }
-.wp-block-harvestworks-events-carousel a .featured_project_text > #project_title {
+.wp-block-harvestworks-events-carousel a .featured_item_text > .featured_item_info > featured_item_title {
   font-size: 1.6em;
 }
-.wp-block-harvestworks-events-carousel a .featured_project_text > #project_excerpt {
+.wp-block-harvestworks-events-carousel a .featured_item_text > .featured_item_info > .featured_item_excerpt {
   font-size: 0.7em;
 }
-.wp-block-harvestworks-events-carousel a:hover #project_title {
-  text-decoration: underline;
+.wp-block-harvestworks-events-carousel a .featured_item_text > .featured_item_details {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  text-wrap: nowrap;
+}
+.wp-block-harvestworks-events-carousel a .featured_item_text > div {
+  flex: 1;
+}
+.wp-block-harvestworks-events-carousel a .featured_item_text > div > * {
+  color: white;
+  margin: 0;
+  text-shadow: black 0 0 5px;
 }
 
 /*# sourceMappingURL=style-index.css.map*/

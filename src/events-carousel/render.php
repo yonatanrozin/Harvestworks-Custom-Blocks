@@ -31,13 +31,21 @@
 // $query = new WP_Query( $vsel_query_args);
 // $events = $query->posts;
 
-	$posts = get_posts(array($category => $attributes->category_id));
+	$posts = get_posts(array(
+		'posts_per_page' => -1,
+		'post_type' => array('event', 'project')
+	));
 
 ?>
 <div id="featured_projects" <?php echo get_block_wrapper_attributes(); ?>>
 
 	<?php foreach ($posts as $post): ?>
 		<?php 
+
+			$fields = get_fields($post);
+
+			// print_r($fields);
+
 			$post_url = get_post_permalink($post->ID);
 			$featured_img_url = get_the_post_thumbnail_url($post->ID); 
 			$post_meta = get_post_meta($post->ID);
@@ -53,12 +61,31 @@
 		?>
 		<a href="<?php echo $post_url;?>" target="_blank" 
 			style="background-image: url('<?php echo $featured_img_url;?>');" >
-			<div class="featured_project_text">
-				<h3 id="project_title"><b><?php echo $post->post_title; ?></b></h3>
-				<p id="project_artists"><?php echo $artists;?></p>
-				<p id="project_excerpt"><?php echo $post->post_excerpt ?></p>
+			<div class="featured_item_text">
+				<div class="featured_item_info">
+					<h3 class="featured_item_title"><b><?php echo $post->post_title; ?></b></h3>
+					<p class="featured_item_excerpt"><?= get_the_excerpt($post) ?></p>
+				</div>
+				<div class="featured_item_details">
+					<h4 class="featured_item_artists"><?= $artists;?></h4>
+					<?php if ($fields['date']): ?>
+						<p class="featured_item_datetime" >
+							<?= $fields['date'] ?>
+							<?php if ($fields['end_date']): ?>
+								- <?= $fields['end_date'] ?>
+							<?php endif; ?>
+							<!-- <?php if ($fields['time']): ?>
+								<?= $fields['time'] ?>
+							<?php endif; ?>
+							<?php if ($fields['end_time']): ?>
+								- <?= $fields['end_time'] ?>
+							<?php endif; ?> -->
+						</p>
+					<?php endif; ?>
+				</div>
 			</div>
 		</a>
+
 
 	<?php endforeach; ?>
 	<script>
@@ -69,10 +96,12 @@
 		}
 
 		let scrollInterval;
-		function startScrollInterval() {scrollInterval = setInterval(() => {
-			if (isScrolledToRight(carousel)) carousel.scrollLeft = 0;
-			else carousel.scrollBy(1, 0);
-		}, 10000)}
+		function startScrollInterval() {
+			scrollInterval = setInterval(() => {
+				if (isScrolledToRight(carousel)) carousel.scrollLeft = 0;
+				else carousel.scrollBy(1, 0);
+			}, 10000)
+		}
 		function stopScrollInterval() {clearInterval(scrollInterval)}
 
 		carousel.addEventListener("mouseenter", stopScrollInterval);
