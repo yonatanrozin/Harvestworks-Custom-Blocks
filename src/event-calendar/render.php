@@ -16,7 +16,7 @@ $event_details = array_map(function ($event) {
 		'title' => $event->post_title,
 		'start_date' => $event_meta["date"][0],
 		'end_date' => $event_meta["end_date"][0],
-		'type' => $event_meta["event_type"],
+		'type' => get_post_taxonomies($event->ID),
 	];
 }, $events);
 ?>
