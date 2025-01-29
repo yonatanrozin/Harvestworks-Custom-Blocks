@@ -88,6 +88,3 @@
   font-weight: 600;
   transition: background-color 0.3s ease, box-shadow 2s ease;
 }
-.wp-block-harvestworks-event-calendar #calendar .calendar_day.queried::after {
-  background-color: white;
-}

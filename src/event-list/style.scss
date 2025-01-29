@@ -16,7 +16,7 @@ $mobile-breakpoint: 767px;
 
     .event_card {
         background-color: var(--wp--preset--color--custom-material-1);
-        padding: 1.2rem;
+        padding: 0.8rem;
 
         display: flex;
         flex-direction: row;
@@ -81,6 +81,8 @@ $mobile-breakpoint: 767px;
             gap: 0;
 
             padding-left: 1.8rem;
+            padding-top: 0.4rem;
+            padding-bottom: 0.4rem;
 
             .event_title {
                 margin: 0
