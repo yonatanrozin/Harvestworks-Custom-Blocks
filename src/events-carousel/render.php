@@ -37,27 +37,16 @@
 	));
 
 ?>
-<div id="featured_projects" <?php echo get_block_wrapper_attributes(); ?>>
+<div <?php echo get_block_wrapper_attributes(); ?>>
 
 	<?php foreach ($posts as $post): ?>
 		<?php 
-
 			$fields = get_fields($post);
-
-			// print_r($fields);
 
 			$post_url = get_post_permalink($post->ID);
 			$featured_img_url = get_the_post_thumbnail_url($post->ID); 
 			$post_meta = get_post_meta($post->ID);
 			$artists = $post_meta["artists"][0];
-
-			// $post_start_date = gmdate("D, M d Y", $post_meta["event-start-date"][0]);
-			// $post_end_date = gmdate("D, M d Y", $post_meta["event-date"][0]);
-			// $post_start_time = gmdate("H:i:s", $post_meta["event-start-date"][0]);
-			// $post_end_time = gmdate("H:i:s", $post_meta["event-date"][0]);
-			// $show_end_time = $post_meta["event-hide-end-time"][0] == "no";
-			// $is_all_day = $post_meta["event-all-day"][0];
-			// $is_single_day = $post_start_date == $post_end_date;
 		?>
 		<a href="<?php echo $post_url;?>" target="_blank" 
 			style="background-image: url('<?php echo $featured_img_url;?>');" >
@@ -70,9 +59,9 @@
 					<h4 class="featured_item_artists"><?= $artists;?></h4>
 					<?php if ($fields['date']): ?>
 						<p class="featured_item_datetime" >
-							<?= $fields['date'] ?>
+							<?= date_create_from_format('Ymd', $fields['date'])->format('M j') ?>
 							<?php if ($fields['end_date']): ?>
-								- <?= $fields['end_date'] ?>
+								- <?= date_create_from_format('Ymd', $fields['end_date'])->format('M j') ?>
 							<?php endif; ?>
 							<!-- <?php if ($fields['time']): ?>
 								<?= $fields['time'] ?>

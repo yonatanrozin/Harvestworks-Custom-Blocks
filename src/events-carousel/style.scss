@@ -17,7 +17,7 @@
 	scroll-snap-type: both mandatory;
 	scroll-behavior: smooth;
 	
-	color: white;
+	margin: 0px calc(var(--hw-padding) * -1) !important;
 
 	a {
 		scroll-snap-align: start;
@@ -30,9 +30,8 @@
 		.featured_item_text {
 			width: 100%;
 			box-sizing: border-box;
-			padding: 5px 10px;
+			padding: 1rem;
 
-			// background-color: rgba(0, 0, 0, .6);
 			position: absolute;
 			bottom: 0;
 			margin: 0;
@@ -41,8 +40,7 @@
 			justify-content: space-between;
 
 			> .featured_item_info {
-				display: flex;
-				flex-direction: column;
+
 				> featured_item_title {
 					font-size: 1.6em;
 				}
@@ -50,12 +48,9 @@
 				> .featured_item_excerpt {
 					font-size: .7em;
 				}
-
 			}
 
 			> .featured_item_details {
-				display: flex;
-				flex-direction: column;
 				text-align: right;
 				text-wrap: nowrap;
 			}
@@ -63,10 +58,15 @@
 			> div {
 				flex: 1;
 
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-end;
+				gap: .25rem;
+
 				> * {
 					color: white;
 					margin: 0;
-					text-shadow: black 0 0 5px;
+					text-shadow: black 1px 1px 3px;
 				}
 			}
 			
