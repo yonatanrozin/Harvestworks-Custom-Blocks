@@ -95,7 +95,7 @@ function calendarSetup() {
                 break;
             } else cell.classList.remove("has_event");
 
-            console.log(event.event_type);
+            console.log(event);
 
         }
     }
