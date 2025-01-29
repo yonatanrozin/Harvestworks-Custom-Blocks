@@ -92,11 +92,9 @@ function calendarSetup() {
             cell.onclick = setURLDateQuery;
             if (hasEvent) {
                 cell.classList.add("has_event");
-                break;
             } else cell.classList.remove("has_event");
 
             console.log(event);
-
         }
     }
 
