@@ -87,6 +87,7 @@ function calendarSetup() {
         cell.classList.add("has_event");
         break;
       } else cell.classList.remove("has_event");
+      console.log(event.event_type);
     }
   }
   const firstOfMonth = new Date(year, month, 1).getDay();

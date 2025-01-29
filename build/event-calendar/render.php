@@ -38,6 +38,8 @@ $event_details = array_map(function ($event) {
 				<div class="calendar_day" id="<?= $day ?>"><?= $day; ?></div>
 			<?php endfor; ?>
 		</div>
+
+		<div class="links"></div>
 	</div>
 	<script>
 		window.events = JSON.parse('<?= json_encode($event_details) ?>');
