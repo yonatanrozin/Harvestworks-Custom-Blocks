@@ -73,8 +73,8 @@
 .wp-block-harvestworks-event-calendar #calendar .calendar_day.has_event::after {
   content: "";
   position: absolute;
-  right: 40%;
-  bottom: 12%;
+  right: 42.5%;
+  bottom: 12.5%;
   display: block;
   background-color: var(--wp--preset--color--accent-4);
   border-radius: 50%;
