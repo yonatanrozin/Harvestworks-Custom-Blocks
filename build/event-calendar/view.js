@@ -49,7 +49,6 @@ function dateFromACFField(date) {
 function calendarSetup() {
   const dateSearch = url.searchParams.get("date"); //queried date from URL searchparams
 
-  console.log(dateView);
   const month = dateView.getMonth();
   const year = dateView.getFullYear();
   const daysInMonth = new Date(year, month + 1, 0).getDate();
@@ -85,8 +84,8 @@ function calendarSetup() {
       cell.onclick = setURLDateQuery;
       if (hasEvent) {
         cell.classList.add("has_event");
+        break;
       } else cell.classList.remove("has_event");
-      console.log(event);
     }
   }
   const firstOfMonth = new Date(year, month, 1).getDay();
