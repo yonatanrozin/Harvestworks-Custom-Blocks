@@ -42,6 +42,7 @@
   justify-content: space-between;
   font-size: 12px;
   line-height: 1.2;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7), black);
 }
 .wp-block-harvestworks-events-carousel a .featured_item_text > .featured_item_info {
   max-width: 500px;
