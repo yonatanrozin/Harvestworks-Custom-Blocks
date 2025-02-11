@@ -16,6 +16,12 @@ const url = new URL(window.location.href);
 // month & year being viewed on the calendar:
 // get from url search params or default to current date
 let dateView = dateFromACFField(url.searchParams.get("date"));
+if (!dateView) {
+  url.searchParams.delete("date");
+  history.pushState({}, "", url);
+  window.dispatchEvent(new PopStateEvent("popstate"));
+  dateView = new Date();
+}
 const month = dateView.getMonth();
 const year = dateView.getFullYear();
 const firstOfMonth = new Date(year, month, 1).getDay();
@@ -25,12 +31,6 @@ document.querySelector("#calendar_date h3").innerHTML = dateView.toLocaleString(
 }) + " " + dateView.toLocaleString("default", {
   year: "numeric"
 });
-if (!dateView) {
-  url.searchParams.delete("date");
-  history.pushState({}, "", url);
-  window.dispatchEvent(new PopStateEvent("popstate"));
-  dateView = new Date();
-}
 function dateFromACFField(date) {
   const len = date?.length;
   if (len !== 8) return null;

@@ -13,21 +13,21 @@ const url = new URL(window.location.href);
 // get from url search params or default to current date
 let dateView = dateFromACFField(url.searchParams.get("date"));
 
-const month = dateView.getMonth();
-const year = dateView.getFullYear();
-const firstOfMonth = new Date(year, month, 1).getDay();
-
-document.querySelector(".calendar_day").style.gridColumnStart = firstOfMonth + 1;
-document.querySelector("#calendar_date h3").innerHTML =
-    dateView.toLocaleString("default", { month: "short" }) + " " +
-    dateView.toLocaleString("default", { year: "numeric" });
-
 if (!dateView) {
     url.searchParams.delete("date");
     history.pushState({}, "", url);
     window.dispatchEvent(new PopStateEvent("popstate"));
     dateView = new Date();
 }
+
+const month = dateView.getMonth();
+const year = dateView.getFullYear();
+const firstOfMonth = new Date(year, month, 1).getDay();
+
+document.querySelector(".calendar_day").style.gridColumnStart = firstOfMonth + 1;
+document.querySelector("#calendar_date h3").innerHTML =
+dateView.toLocaleString("default", { month: "short" }) + " " +
+dateView.toLocaleString("default", { year: "numeric" });
 
 function dateFromACFField(date) {
     const len = date?.length;
