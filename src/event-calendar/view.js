@@ -99,7 +99,7 @@ function calendarSetup(events = window.hw_events) {
                 } else cell.classList.remove("has_event");
             } 
             catch (e) {
-                console.log(event.title.rendered, event);
+                console.error(e.message, event.title.rendered, event);
                 continue;
             }
         }
