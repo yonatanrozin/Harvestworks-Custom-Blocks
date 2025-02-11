@@ -55,7 +55,7 @@ function get_events(WP_REST_Request $request)
 
     $query_args = array(
         "post_type" => "event",
-        "posts_per_page" => -1,
+        "posts_per_page" => 10,
         'meta_key' => 'date',
         'meta_type' => 'DATE',
         'orderby' => 'meta_value',

@@ -34,38 +34,46 @@ function dateFromACFField(date) {
 
 function eventCard(event) {
 
-    const { post_title, acf, featured_image, guid, status, excerpt } = event;
-    const { date, time, end_date, end_time, location, event_type, artists } = acf;
+    try {
 
-    return `
-        <div class="event_card">
-            <a class="event_anchor" href="${guid}"></a>
-            <div class="event_img" style="background-image: url(${featured_image})" >
-                ${status ? `<span class="event_status">${status}</span>` : ""}
-            </div>
-            <div class="event_info">
-                <div class="event_details" >
-                    <span class="event_dates">
-                        <span>${dateFromACFField(date)}${time ? `,` : ""}</span>
-                        ${time ? `<span>${time}</span>` : ""}
-                        ${end_date ? `<span>-&nbsp;</span><span>${dateFromACFField(end_date)}${end_time ? `,` : ""}</span>` : ""}
-                        ${end_time ? `<span>${end_time}</span>` : ""}
-                    </span>
-                    <span class='divider'>•</span>
-                    <span class="event_type">${event_type[0].name}</span>
-                    <span class='divider'>•</span>
-                    <span class="event_location">${location}</span>
+
+        const { post_title, acf, featured_image, guid, status, excerpt } = event;
+        const { date, time, end_date, end_time, location, event_type, artists } = acf;
+
+        return `
+            <div class="event_card">
+                <a class="event_anchor" href="${guid}"></a>
+                <div class="event_img" style="background-image: url(${featured_image})" >
+                    ${status ? `<span class="event_status">${status}</span>` : ""}
                 </div>
-                <div class="event_name">
-                    <h2>
-                        <span class="event_title">${post_title}</span>
-                        ${artists ? `<span class="event_artists">by ${artists}</span>` : ""}
-                    </h2>
+                <div class="event_info">
+                    <div class="event_details" >
+                        <span class="event_dates">
+                            <span>${dateFromACFField(date)}${time ? `,` : ""}</span>
+                            ${time ? `<span>${time}</span>` : ""}
+                            ${end_date ? `<span>-&nbsp;</span><span>${dateFromACFField(end_date)}${end_time ? `,` : ""}</span>` : ""}
+                            ${end_time ? `<span>${end_time}</span>` : ""}
+                        </span>
+                        <span class='divider'>•</span>
+                        <span class="event_type">${event_type[0].name}</span>
+                        <span class='divider'>•</span>
+                        <span class="event_location">${location}</span>
+                    </div>
+                    <div class="event_name">
+                        <h2>
+                            <span class="event_title">${post_title}</span>
+                            ${artists ? `<span class="event_artists">by ${artists}</span>` : ""}
+                        </h2>
+                    </div>
+                    <p class="event_description">${excerpt}</p>
                 </div>
-                <p class="event_description">${excerpt}</p>
             </div>
-        </div>
-    `;
+        `;
+    }
+    catch (e) {
+        console.error(e.message, event);
+        return "";
+    }
 }
 
 async function getEvents() {
