@@ -7,6 +7,9 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
+.wp-block-harvestworks-event-calendar {
+  margin: 0px auto;
+}
 .wp-block-harvestworks-event-calendar #calendar {
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -41,19 +44,18 @@
   margin: 0;
   font-family: inherit;
   font-weight: 500;
-  font-size: 2.4rem;
 }
 .wp-block-harvestworks-event-calendar #calendar button {
+  aspect-ratio: 1;
   cursor: pointer;
   border: none;
   overflow: auto;
   background: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 0.6rem;
   font-size: 1.2rem;
-  color: var(--wp--preset--color--contrast-2);
-}
-.wp-block-harvestworks-event-calendar #calendar button:hover {
-  color: var(--wp--preset--color--accent-4);
 }
 .wp-block-harvestworks-event-calendar #calendar .calendar_weekday {
   text-align: center;
@@ -67,12 +69,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  aspect-ratio: 1;
   position: relative;
-  padding-bottom: 15%;
-}
-.wp-block-harvestworks-event-calendar #calendar .calendar_day:hover {
-  background-color: var(--wp--preset--color--custom-material-3);
+  aspect-ratio: 0.9;
 }
 .wp-block-harvestworks-event-calendar #calendar .calendar_day.has_event::after {
   content: "";
@@ -80,32 +78,18 @@
   left: 42.5%;
   bottom: 12.5%;
   display: block;
-  background-color: var(--wp--preset--color--accent-4);
+  background-color: var(--hw-event-calendar-has-event-color);
   border-radius: 50%;
   width: 15%;
   aspect-ratio: 1;
 }
 .wp-block-harvestworks-event-calendar #calendar .calendar_day.queried {
-  background-color: var(--wp--preset--color--accent-4);
+  background-color: var(--hw-event-calendar-queried-day-color);
+  box-shadow: 0px 0px 15px var(--hw-event-calendar-queried-day-color);
   z-index: 1;
   color: white;
   font-weight: 600;
-  transition: background-color 0.3s ease, box-shadow 2s ease;
-}
-.wp-block-harvestworks-event-calendar .links {
-  display: flex;
-  flex-direction: column;
-  gap: 1.8rem;
-  padding-top: 1.8rem;
-}
-.wp-block-harvestworks-event-calendar .links .link {
-  display: block;
-  background-color: var(--wp--preset--color--accent-4);
-  color: white;
-  text-decoration: none;
-  padding: 0.4rem 0.6rem;
-  text-align: center;
-  font-weight: 700;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 /*# sourceMappingURL=style-index.css.map*/

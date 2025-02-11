@@ -1,25 +1,3 @@
-/**
- * Use this file for JavaScript code that you want to run in the front-end
- * on posts/pages that contain this block.
- *
- * When this file is defined as the value of the `viewScript` property
- * in `block.json` it will be enqueued on the front end of the site.
- *
- * Example:
- *
- * ```js
- * {
- *   "viewScript": "file:./view.js"
- * }
- * ```
- *
- * If you're not making any changes to this file because your project doesn't need any
- * JavaScript running in the front-end, then you should delete this file and remove
- * the `viewScript` property from `block.json`.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-metadata/#view-script
- */
-
 /* eslint-disable no-console */
 
 const offsets = new Array(6).fill(undefined).map(() => {
@@ -31,22 +9,45 @@ const offsets = new Array(6).fill(undefined).map(() => {
 const cells = document.querySelectorAll(".calendar_day");
 const url = new URL(window.location.href);
 
-// month/year being viewed on the calendar:
+// month & year being viewed on the calendar:
 // get from url search params or default to current date
-let dateView = dateFromACFField(url.searchParams.get("date")) || new Date();
-if (dateView == "Invalid Date") dateView = new Date();
+let dateView = dateFromACFField(url.searchParams.get("date"));
+
+const month = dateView.getMonth();
+const year = dateView.getFullYear();
+const firstOfMonth = new Date(year, month, 1).getDay();
+
+document.querySelector(".calendar_day").style.gridColumnStart = firstOfMonth + 1;
+document.querySelector("#calendar_date h3").innerHTML =
+    dateView.toLocaleString("default", { month: "short" }) + " " +
+    dateView.toLocaleString("default", { year: "numeric" });
+
+if (!dateView) {
+    url.searchParams.delete("date");
+    history.pushState({}, "", url);
+    window.dispatchEvent(new PopStateEvent("popstate"));
+    dateView = new Date();
+}
 
 function dateFromACFField(date) {
-    if (!date) return null;
+    const len = date?.length;
+    if (len !== 8) return null;
     const year = date.substring(0, 4);
     const month = date.substring(4, 6) - 1; //JS months counting from 0
     const day = date.substring(6, 8);
-    return new Date(year, month, day);
+    const jsdate = new Date(year, month, day);
+    if (jsdate == "Invalid Date") return null;
+    return jsdate;
 }
 
-function calendarSetup() {
+let latestEvents;
 
-    const dateSearch = url.searchParams.get("date"); //queried date from URL searchparams
+function calendarSetup(events = latestEvents) {
+
+    latestEvents = events;
+
+    const dateSearch = url.searchParams.get("date") ||
+        new Date().toISOString().split('T')[0].split("-").join("");
 
     const month = dateView.getMonth();
     const year = dateView.getFullYear();
@@ -59,17 +60,17 @@ function calendarSetup() {
         }
         cell.style.display = "flex";
 
-        const cellDate = new Date(year, month, cell.id);
-        const cellDateFormat = cellDate.toISOString().split("T")[0].split("-").join("");
+        //cell represented date = viewed year/month on calendar + cell id as day
+        const cellDate = new Date(year, month, cell.id).toISOString().split("T")[0].split("-").join("");
 
-        const isQueried = dateSearch === cellDateFormat;
+        const isQueried = dateSearch === cellDate;
 
         if (isQueried) {
             cell.classList.add("queried");
         } else cell.classList.remove("queried");
 
         function setURLDateQuery() {
-            const newParam = cellDate.toISOString().split("T")[0].split("-").join("");
+            const newParam = cellDate;
             const oldParam = url.searchParams.get("date");
             if (newParam == oldParam) {
                 url.searchParams.delete("date");
@@ -83,16 +84,18 @@ function calendarSetup() {
             window.dispatchEvent(new PopStateEvent("popstate"));
         }
 
-        for (const event of window.events) {
-            const eventStart = dateFromACFField(event.start_date).valueOf();
-            const eventEnd = event.end_date ? dateFromACFField(event.end_date).valueOf() : eventStart;
-            const hasEvent = cellDate.valueOf() >= eventStart && cellDate.valueOf() <= eventEnd;
+        for (const i in events) {
+            const {date, end_date} = events[i].acf;
+
+            const start = date.value;
+            const end = end_date?.value;
+
+            const hasEvent = cellDate >= start && cellDate <= (end ?? start);
             cell.onclick = setURLDateQuery;
             if (hasEvent) {
                 cell.classList.add("has_event");
                 break;
             } else cell.classList.remove("has_event");
-
         }
     }
 
@@ -116,7 +119,7 @@ function prevMonth() {
 document.getElementById("nextMonthButton").addEventListener("click", nextMonth)
 document.getElementById("prevMonthButton").addEventListener("click", prevMonth)
 
-window.addEventListener("popstate", calendarSetup);
-calendarSetup();
+window.addEventListener("popstate", () => calendarSetup());
+fetch("/wp-json/wp/v2/event").then(res => res.json()).then(calendarSetup);
 
 /* eslint-enable no-console */

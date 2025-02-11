@@ -1,28 +1,8 @@
 <?php
-
-/**
- * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
- */
-
-$month_view = Date("m");
-$events = get_posts(array("post_type" => "Event"));
-
-$event_details = array_map(function ($event) {
-	$event_meta = get_post_meta($event->ID);
-
-	$taxonomies = get_taxonomies('', 'names');
-	$tax_names = wp_get_post_terms($event->ID, $taxonomies,  array("fields" => "names"));
-
-	// echo gmdate("D, M d Y", $event_meta["event-date"][0])." ";
-	// echo $event_meta["event-date"][0]." ";
-	return (object) [
-		'title' => $event->post_title,
-		'start_date' => $event_meta["date"][0],
-		'end_date' => $event_meta["end_date"][0],
-		'type' => $tax_names,
-	];
-}, $events);
+	$month_view = Date("m");
+	$events = get_posts(array("post_type" => "Event"));
 ?>
+
 <div <?php echo get_block_wrapper_attributes(); ?>>
 	<div id="calendar">
 
@@ -43,10 +23,12 @@ $event_details = array_map(function ($event) {
 			<?php endfor; ?>
 		</div>
 
-		<div class="links"></div>
 	</div>
-	<script>
-		window.events = JSON.parse('<?= json_encode($event_details) ?>');
-	</script>
+	<style>
+		#calendar {
+			--hw-event-calendar-has-event-color: <?= htmlspecialchars($attributes['has_event_color'], ENT_QUOTES, 'UTF-8') ?>;
+			--hw-event-calendar-queried-day-color: <?= htmlspecialchars($attributes['queried_day_color'], ENT_QUOTES, 'UTF-8') ?>;
+		}
+	</style>
 
 </div>
