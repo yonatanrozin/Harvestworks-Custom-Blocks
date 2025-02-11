@@ -41,9 +41,8 @@ function dateFromACFField(date) {
   if (jsdate == "Invalid Date") return null;
   return jsdate;
 }
-let latestEvents;
-function calendarSetup(events = latestEvents) {
-  latestEvents = events;
+function calendarSetup(events = window.hw_events) {
+  window.hw_events = events;
   const dateSearch = url.searchParams.get("date") || new Date().toISOString().split('T')[0].split("-").join("");
   const month = dateView.getMonth();
   const year = dateView.getFullYear();
@@ -75,18 +74,24 @@ function calendarSetup(events = latestEvents) {
       window.dispatchEvent(new PopStateEvent("popstate"));
     }
     for (const i in events) {
-      const {
-        date,
-        end_date
-      } = events[i].acf;
-      const start = date.value;
-      const end = end_date?.value;
-      const hasEvent = cellDate >= start && cellDate <= (end !== null && end !== void 0 ? end : start);
-      cell.onclick = setURLDateQuery;
-      if (hasEvent) {
-        cell.classList.add("has_event");
-        break;
-      } else cell.classList.remove("has_event");
+      const event = events[i];
+      try {
+        const {
+          date,
+          end_date
+        } = event.acf;
+        const start = date.value;
+        const end = end_date?.value;
+        const hasEvent = cellDate >= start && cellDate <= (end !== null && end !== void 0 ? end : start);
+        cell.onclick = setURLDateQuery;
+        if (hasEvent) {
+          cell.classList.add("has_event");
+          break;
+        } else cell.classList.remove("has_event");
+      } catch (e) {
+        console.log(event.title.rendered, event);
+        continue;
+      }
     }
   }
   const firstOfMonth = new Date(year, month, 1).getDay();

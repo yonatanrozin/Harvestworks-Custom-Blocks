@@ -40,11 +40,9 @@ function dateFromACFField(date) {
     return jsdate;
 }
 
-let latestEvents;
+function calendarSetup(events = window.hw_events) {
 
-function calendarSetup(events = latestEvents) {
-
-    latestEvents = events;
+    window.hw_events = events;
 
     const dateSearch = url.searchParams.get("date") ||
         new Date().toISOString().split('T')[0].split("-").join("");
@@ -85,17 +83,25 @@ function calendarSetup(events = latestEvents) {
         }
 
         for (const i in events) {
-            const {date, end_date} = events[i].acf;
+            const event = events[i];
 
-            const start = date.value;
-            const end = end_date?.value;
-
-            const hasEvent = cellDate >= start && cellDate <= (end ?? start);
-            cell.onclick = setURLDateQuery;
-            if (hasEvent) {
-                cell.classList.add("has_event");
-                break;
-            } else cell.classList.remove("has_event");
+            try {
+                const {date, end_date} = event.acf;
+                
+                const start = date.value;
+                const end = end_date?.value;
+                
+                const hasEvent = cellDate >= start && cellDate <= (end ?? start);
+                cell.onclick = setURLDateQuery;
+                if (hasEvent) {
+                    cell.classList.add("has_event");
+                    break;
+                } else cell.classList.remove("has_event");
+            } 
+            catch (e) {
+                console.log(event.title.rendered, event);
+                continue;
+            }
         }
     }
 
