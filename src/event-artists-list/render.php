@@ -1,17 +1,17 @@
 <div <?= get_block_wrapper_attributes() ?>>
-    <?php foreach (get_field('listed_artists') as $post): ?>
-        <?php $post = get_post($post); ?>
-        <div class="artist_card" href="<?= get_permalink($post) ?>">
-            <a class="card_anchor" href="<?= get_permalink($post) ?>"></a>
+    <?php foreach (get_field('listed_artists') as $artist_post): ?>
+        <?php $artist_post = get_post($artist_post); ?>
+        <div class="artist_card" href="<?= get_permalink($artist_post) ?>">
+            <a class="card_anchor" href="<?= get_permalink($artist_post) ?>"></a>
 
             <div class="link_stack">
-                <?php if (has_post_thumbnail($post)): ?>
-                    <img src=<?= get_the_post_thumbnail_url($post) ?> />
+                <?php if (has_post_thumbnail($artist_post)): ?>
+                    <img src=<?= get_the_post_thumbnail_url($artist_post) ?> />
                 <?php endif; ?>
 
                 <?php
                 // Links
-                $links = get_field('links', $post->ID) ?? '';
+                $links = get_field('links', $artist_post->ID) ?? '';
                 $links = trim($links);
 
                 $split_links = explode("\n", $links);
@@ -39,8 +39,8 @@
 
 
             <div class="artist_details">
-                <p class="artist_name"><?= $post->post_title ?></p>
-                <p class="artist_bio"><?= get_the_content($post->ID) ?></p>
+                <p class="artist_name"><?= $artist_post->post_title ?></p>
+                <p class="artist_bio"><?= get_the_content($artist_post->ID) ?></p>
             </div>
         </div>
     <?php endforeach; ?>
