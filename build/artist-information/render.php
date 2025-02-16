@@ -39,13 +39,13 @@ if (empty($fields)) {
 				if (count($split_link) !== 2) {
 					$label = trim(str_replace('https://', '', str_replace('http://', '', $link)));
 					$link = trim($link);
-					echo "<a class='link' href='{$link}'>{$label}</a>";
+					echo "<a class='link' href='{$link}' target='_blank'>{$label}</a>";
 					continue;
 				}
 
 				$link_url = trim($split_link[1]);
 				$link_label = trim($split_link[0]);
-				echo "<a class='link' href='{$link_url}'>{$link_label}</a>";
+				echo "<a class='link' href='{$link_url}' target='_blank'>{$link_label}</a>";
 			}
 			echo "</div>";
 		}
