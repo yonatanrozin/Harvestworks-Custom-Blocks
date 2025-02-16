@@ -40,7 +40,7 @@
 
             <div class="artist_details">
                 <p class="artist_name"><?= $artist_post->post_title ?></p>
-                <p class="artist_bio"><?= get_the_content($artist_post->ID) ?></p>
+                <p class="artist_bio"><?= apply_filters('the_content', $artist_post->post_content) ?></p>
             </div>
         </div>
     <?php endforeach; ?>
