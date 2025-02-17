@@ -31,7 +31,14 @@ function daysInMonth(dateStr) {
 function getURLDateStr() {
     const url = new URL(window.location.href);
     const param = url.searchParams.get("date");
-    if (!param) return dateToStr(new Date());
+    if (!param || param.length != 8) return dateToStr(new Date());
+
+    try { // Check if the date is valid integer
+        parseInt(param);
+    } catch (e) {
+        return dateToStr(new Date());
+    }
+
     return param;
 }
 
