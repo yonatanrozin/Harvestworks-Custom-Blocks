@@ -56,12 +56,20 @@ function get_events(WP_REST_Request $request)
     $query_args = array(
         "post_type" => "event",
         "posts_per_page" => 10,
+        "paged" => 0,
+        "no_found_rows" => 'true',
         'meta_key' => 'date',
         'meta_type' => 'DATE',
         'orderby' => 'meta_value',
         'order' => 'ASC',
         "meta_query" => array(
             'relation' => 'OR',
+            array(
+                'key' => 'end_date',
+                'value' => $request_date,
+                'compare' => '>=',
+                'type' => 'DATE'
+            ),
             array(
                 'relation' => 'AND',
                 array(
@@ -76,15 +84,21 @@ function get_events(WP_REST_Request $request)
                     'compare' => '>=',
                     'type' => 'DATE'
                 )
-            ),
-            array(
-                'key' => 'end_date',
-                'value' => $request_date,
-                'compare' => '>=',
-                'type' => 'DATE'
             )
         )
     );
+
+    // $query_args2 = array(
+    //     "post_type" => "event",
+    //     "posts_per_page" => 5,
+    //     "paged" => 0,
+    //     "no_found_rows" => 'true',
+    //     'meta_key' => 'date',
+    //     'meta_type' => 'DATE',
+    //     'orderby' => 'meta_value',
+    //     'order' => 'ASC',
+    //     "meta_query" => 
+    // );
 
     // $query_args = array(
     //     "post_type" => "event",

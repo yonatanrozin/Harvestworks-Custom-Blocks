@@ -5,7 +5,7 @@
  * Description:       A series of blocks created for the Harvestworks website.
  * Requires at least: 6.6
  * Requires PHP:      7.2
- * Version:           0.1.9
+ * Version:           0.2.0
  * Author:            Yonatan Rozin, Alexander Yang
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -40,7 +40,6 @@ function harvestworks_harvestworks_block_init()
 	register_block_type(__DIR__ . '/build/event-artists-list');
 	register_block_type(__DIR__ . '/build/associated-events-list');
 	register_block_type(__DIR__ . '/build/upcoming-events-list');
-
 }
 add_action('init', 'harvestworks_harvestworks_block_init');
 
