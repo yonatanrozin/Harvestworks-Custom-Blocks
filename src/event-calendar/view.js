@@ -5,7 +5,8 @@ const offsets = new Array(6).fill(undefined).map(() => {
     cell.classList.add("calendar_offset");
     cell.style.height = "100%";
     return cell;
-})
+});
+
 const cells = document.querySelectorAll(".calendar_day");
 const url = new URL(window.location.href);
 
@@ -41,25 +42,26 @@ function dateFromACFField(date) {
 }
 
 async function calendarSetup() {
-
     const dayParam = url.searchParams.get("date");
+
+    console.log('Setting up calendar for', dateView);
+
     fetch("/wp-json/wp/v2/month/?date=" + dayParam).then(res => res.json()).then(events => {
+        console.log('Got events:', events);
         for (const cell of cells) {
-
             //cell represented date = viewed year/month on calendar + cell id as day
-            const cellDate = new Date(year, month, cell.id).toISOString().split("T")[0].split("-").join("");
-
-            for (const i in events) {
-                const event = events[i];
-
+            const cellDate = dayParam.substring(0, 6) + cell.id.padStart(2, "0");
+            for (const event of events) {
                 try {
                     const { date, end_date } = event.acf;
 
-                    const start = date.value;
-                    const end = end_date?.value;
+                    const start = date;
+                    const end = end_date;
 
                     const hasEvent = cellDate >= start && cellDate <= (end ?? start);
+                    console.log('Checking event', event, 'for cell', cellDate, 'start', start, 'end', end, 'result', hasEvent);
                     if (hasEvent) {
+                        console.log('Event found:', event);
                         cell.classList.add("has_event");
                         break;
                     } else cell.classList.remove("has_event");

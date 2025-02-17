@@ -165,6 +165,28 @@ function get_events(WP_REST_Request $request)
 
     $acf_posts = array_unique($acf_posts, SORT_REGULAR);
 
+
+    if (count($acf_posts) === 0) {
+        $query_args = array(
+            "post_type" => "event",
+            "posts_per_page" => 1,
+            'meta_key' => 'date',
+            "meta_query" => array(
+                'key' => 'date',
+                'value' => $last_day_of_month,
+                'compare' => '>',
+                'type' => 'NUMBER'
+            )
+        );
+
+        $posts = get_posts($query_args);
+
+        if (count($posts) === 0) {
+            $acf_posts = 'END';
+        }
+    }
+
+
     return $acf_posts;
 }
 

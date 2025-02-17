@@ -5,8 +5,8 @@
  * Replace them with your own styles or remove the file completely.
  */
 
- .wp-block-harvestworks-event-calendar {
-	
+.wp-block-harvestworks-event-calendar {
+
 	margin: 0px auto;
 
 	#calendar {
@@ -51,7 +51,6 @@
 			aspect-ratio: 1;
 			cursor: pointer;
 			border: none;
-			overflow: auto;
 			background: none;
 
 			display: flex;
@@ -76,19 +75,25 @@
 			align-items: center;
 			justify-content: center;
 			position: relative;
-			aspect-ratio: .9;
+			aspect-ratio: 1;
+			padding-bottom: 20%;
 		}
 
 		.calendar_day.has_event::after {
 			content: "";
 			position: absolute;
-			left: 42.5%;
-			bottom: 12.5%;
+			left: 42%;
+			bottom: 17%;
 			display: block;
 			background-color: var(--hw-event-calendar-has-event-color);
 			border-radius: 50%;
-			width: 15%;
+			width: 16%;
 			aspect-ratio: 1;
+		}
+
+		.calendar_day.queried.has_event::after {
+			background-color: white;
+			opacity: 0.75;
 		}
 
 		.calendar_day.queried {

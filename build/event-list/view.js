@@ -91,34 +91,47 @@ function eventCard(event) {
   }
 }
 let page = 0;
+let lastPage = false;
 let events = [];
 async function getEvents() {
   page = 0;
+  lastPage = false;
   let dateparam = new URL(window.location.href).searchParams.get("date");
   const queryURL = `/wp-json/wp/v2/events${dateparam ? `?date=${dateparam}` : ""}`;
   events = await (await fetch(queryURL)).json();
+  if (!Array.isArray(events)) {
+    events = Object.keys(events).map(key => events[key]);
+  }
   block_div.innerHTML = events.map(e => eventCard(e)).join("");
   if (events.length < 10) {
     getNextPage();
   }
 }
 async function getNextPage() {
+  if (lastPage) return;
   page++;
   let dateparam = new URL(window.location.href).searchParams.get("date");
   if (!dateparam) {
     dateparam = new Date().getFullYear() + '' + (new Date().getMonth() + 1) + '' + new Date().getDate();
   }
-  let newMonth = parseInt(dateparam.substring(4, 6)) + page;
+  let newMonth = parseInt(dateparam.substring(4, 6)) + page - 1;
   const newYear = parseInt(dateparam.substring(0, 4)) + Math.floor(newMonth / 12);
-  newMonth = newMonth % 12;
-  dateparam = newYear + '' + newMonth + '01';
-  console.log(dateparam);
+  newMonth = newMonth % 12 + 1;
+  dateparam = newYear + '' + (newMonth < 10 ? '0' : '') + newMonth + '01';
   const queryURL = `/wp-json/wp/v2/events?date=${dateparam}`;
   newEvents = await (await fetch(queryURL)).json();
+  console.log(newEvents);
+  if (!Array.isArray(newEvents)) {
+    if (newEvents === 'END') {
+      lastPage = true;
+      return;
+    }
+    newEvents = Object.keys(newEvents).map(key => newEvents[key]);
+  }
   newEvents = newEvents.filter(function (item, pos, self) {
     return !events.includes(item);
   });
-  events = [...events, ...newEvents];
+  events = [events, newEvents].flat();
   block_div.innerHTML += newEvents.map(e => eventCard(e)).join("");
 }
 let fetching = false;
