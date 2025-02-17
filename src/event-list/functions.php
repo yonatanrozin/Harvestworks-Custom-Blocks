@@ -134,20 +134,18 @@ function get_events(WP_REST_Request $request)
     // );
 
 
-    $posts = array_merge(get_posts($query_args1), get_posts($query_args2));
+    $posts = array_merge([], get_posts($query_args1), get_posts($query_args2));
 
 
 
 
     function add_acf_fields($post)
     {
-
         $today = date("Ymd");
 
         $post->acf = get_fields($post->ID);
         $post->featured_image = wp_get_attachment_url(get_post_thumbnail_id($post->ID), 'thumbnail');
         $post->test = [$post->acf['date'], $today];
-        //event starts after today: upcoming event
 
         $post->status = generate_list_status($post->acf['date'], $post->acf['end_date'], $post->acf['event_type'], 7);
 
@@ -182,7 +180,7 @@ function get_events(WP_REST_Request $request)
         $posts = get_posts($query_args);
 
         if (count($posts) === 0) {
-            $acf_posts = 'END';
+            $acf_posts = ['END'];
         }
     }
 

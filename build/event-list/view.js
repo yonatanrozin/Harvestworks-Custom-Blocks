@@ -99,11 +99,10 @@ async function getEvents() {
   let dateparam = new URL(window.location.href).searchParams.get("date");
   const queryURL = `/wp-json/wp/v2/events${dateparam ? `?date=${dateparam}` : ""}`;
   events = await (await fetch(queryURL)).json();
-  if (!Array.isArray(events)) {
-    if (events === 'END') {
-      lastPage = true;
-      return;
-    }
+  if (events && events[0] === 'END') {
+    lastPage = true;
+    return;
+  } else if (!Array.isArray(events)) {
     events = Object.keys(events).map(key => events[key]);
   }
   block_div.innerHTML = events.map(e => eventCard(e)).join("");
@@ -126,11 +125,10 @@ async function getNextPage() {
   newEvents = await (await fetch(queryURL)).json();
   // console.log(newEvents);
 
-  if (!Array.isArray(newEvents)) {
-    if (newEvents === 'END') {
-      lastPage = true;
-      return;
-    }
+  if (newEvents && newEvents[0] === 'END') {
+    lastPage = true;
+    return;
+  } else if (!Array.isArray(newEvents)) {
     newEvents = Object.keys(newEvents).map(key => newEvents[key]);
   }
   newEvents = newEvents.filter(function (item, pos, self) {
