@@ -100,6 +100,10 @@ async function getEvents() {
   const queryURL = `/wp-json/wp/v2/events${dateparam ? `?date=${dateparam}` : ""}`;
   events = await (await fetch(queryURL)).json();
   if (!Array.isArray(events)) {
+    if (events === 'END') {
+      lastPage = true;
+      return;
+    }
     events = Object.keys(events).map(key => events[key]);
   }
   block_div.innerHTML = events.map(e => eventCard(e)).join("");
@@ -120,7 +124,8 @@ async function getNextPage() {
   dateparam = newYear + '' + (newMonth < 10 ? '0' : '') + newMonth + '01';
   const queryURL = `/wp-json/wp/v2/events?date=${dateparam}`;
   newEvents = await (await fetch(queryURL)).json();
-  console.log(newEvents);
+  // console.log(newEvents);
+
   if (!Array.isArray(newEvents)) {
     if (newEvents === 'END') {
       lastPage = true;

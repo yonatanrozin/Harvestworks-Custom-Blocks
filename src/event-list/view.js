@@ -89,6 +89,10 @@ async function getEvents() {
     events = await (await fetch(queryURL)).json();
 
     if (!Array.isArray(events)) {
+        if (events === 'END') {
+            lastPage = true;
+            return;
+        }
         events = Object.keys(events).map(key => events[key]);
     }
 
@@ -116,7 +120,7 @@ async function getNextPage() {
     const queryURL = `/wp-json/wp/v2/events?date=${dateparam}`;
 
     newEvents = await (await fetch(queryURL)).json();
-    console.log(newEvents);
+    // console.log(newEvents);
 
     if (!Array.isArray(newEvents)) {
         if (newEvents === 'END') {
