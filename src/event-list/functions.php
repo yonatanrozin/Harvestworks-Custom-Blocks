@@ -163,6 +163,8 @@ function get_events(WP_REST_Request $request)
         return $a->acf['date'] - $b->acf['date'];
     });
 
+    $acf_posts = array_unique($acf_posts, SORT_REGULAR);
+
     return $acf_posts;
 }
 

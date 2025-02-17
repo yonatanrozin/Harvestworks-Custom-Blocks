@@ -112,10 +112,14 @@ async function getNextPage() {
   const newYear = parseInt(dateparam.substring(0, 4)) + Math.floor(newMonth / 12);
   newMonth = newMonth % 12;
   dateparam = newYear + '' + newMonth + '01';
-  const queryURL = `/wp-json/wp/v2/events${dateparam ? `?date=${dateparam}` : ""}`;
-  events = [...events, ...(await (await fetch(queryURL)).json())];
-  events = [...new Set(events)];
-  block_div.innerHTML += events.map(e => eventCard(e)).join("");
+  console.log(dateparam);
+  const queryURL = `/wp-json/wp/v2/events?date=${dateparam}`;
+  newEvents = await (await fetch(queryURL)).json();
+  newEvents = newEvents.filter(function (item, pos, self) {
+    return !events.includes();
+  });
+  events = [...events, ...newEvents];
+  block_div.innerHTML += newEvents.map(e => eventCard(e)).join("");
 }
 let fetching = false;
 async function checkScroll() {
