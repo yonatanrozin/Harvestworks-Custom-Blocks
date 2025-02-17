@@ -51,100 +51,93 @@ function generate_list_status($start_date, $end_date, $event_type, $soon_cutoff)
 
 function get_events(WP_REST_Request $request)
 {
-    $request_date = $request->get_param('date') ?? date("Ymd");
 
-    $query_args = array(
+    $request_date = $request->get_param('date') ?? date("Ymd");
+    $last_day_of_month = substr($request_date, 0, 6) . '31';
+
+
+    $query_args1 = array(
         "post_type" => "event",
-        "posts_per_page" => 10,
-        "paged" => 0,
-        "no_found_rows" => 'true',
-        'meta_key' => 'date',
-        'meta_type' => 'DATE',
-        'orderby' => 'meta_value',
-        'order' => 'ASC',
+        "posts_per_page" => -1,
         "meta_query" => array(
-            'relation' => 'OR',
+            'relation' => 'AND',
             array(
                 'key' => 'end_date',
                 'value' => $request_date,
                 'compare' => '>=',
-                'type' => 'DATE'
+                'type' => 'NUMBER'
             ),
             array(
-                'relation' => 'AND',
-                array(
-                    'key' => 'end_date',
-                    'value' => "",
-                    'compare' => '==',
-                    'type' => 'STRING'
-                ),
-                array(
-                    'key' => 'date',
-                    'value' => $request_date,
-                    'compare' => '>=',
-                    'type' => 'DATE'
-                )
+                'key' => 'end_date',
+                'value' => $last_day_of_month,
+                'compare' => '<=',
+                'type' => 'NUMBER'
             )
         )
     );
 
-    // $query_args2 = array(
+    $query_args2 = array(
+        "post_type" => "event",
+        "posts_per_page" => -1,
+        "meta_query" => array(
+            'relation' => 'AND',
+            array(
+                'key' => 'date',
+                'value' => $request_date,
+                'compare' => '>=',
+                'type' => 'NUMBER'
+            ),
+            array(
+                'key' => 'date',
+                'value' => $last_day_of_month,
+                'compare' => '<=',
+                'type' => 'NUMBER'
+            )
+        )
+    );
+
+    // $request_date = $request->get_param('date') ?? date("Ymd");
+
+    // $query_args = array(
     //     "post_type" => "event",
-    //     "posts_per_page" => 5,
+    //     "posts_per_page" => 10,
     //     "paged" => 0,
     //     "no_found_rows" => 'true',
     //     'meta_key' => 'date',
     //     'meta_type' => 'DATE',
     //     'orderby' => 'meta_value',
     //     'order' => 'ASC',
-    //     "meta_query" => 
-    // );
-
-    // $query_args = array(
-    //     "post_type" => "event",
-    //     "posts_per_page" => -1,
-    //     'meta_key' => 'date',
-    //     'meta_type' => 'DATE',
-    //     'orderby' => 'meta_value',
-    //     'order' => 'ASC',
-    //     //get events happening on queried day, and all current/upcoming events (relative to current date)
     //     "meta_query" => array(
     //         'relation' => 'OR',
-    //         array(  //event has no end date? compare requested + start dates
+    //         array(
+    //             'key' => 'end_date',
+    //             'value' => $request_date,
+    //             'compare' => '>=',
+    //             'type' => 'DATE'
+    //         ),
+    //         array(
     //             'relation' => 'AND',
     //             array(
     //                 'key' => 'end_date',
     //                 'value' => "",
-    //                 'compare' => '==', 
-    //                 'type' => 'STRING' 
+    //                 'compare' => '==',
+    //                 'type' => 'STRING'
     //             ),
     //             array(
     //                 'key' => 'date',
     //                 'value' => $request_date,
-    //                 'compare' => '>=', // '==' to get only current events
-    //                 'type' => 'DATE'
-    //             )
-    //         ),
-    //         array(  //event does have end date? check whether event ends after requested date
-    //             // uncomment to only get current events
-    //             // 'relation' => 'AND',
-    //             // array(
-    //             //     'key' => 'date',
-    //             //     'value' => $request_date,
-    //             //     'compare' => '<=',
-    //             //     'type' => 'DATE'
-    //             // ),
-    //             array(
-    //                 'key' => 'end_date',
-    //                 'value' => $request_date,
     //                 'compare' => '>=',
     //                 'type' => 'DATE'
     //             )
-    //         ),
+    //         )
     //     )
     // );
 
-    $posts = get_posts($query_args);
+
+    $posts = array_merge(get_posts($query_args1), get_posts($query_args2));
+
+
+
 
     function add_acf_fields($post)
     {
@@ -164,6 +157,11 @@ function get_events(WP_REST_Request $request)
     }
 
     $acf_posts = array_map('add_acf_fields', $posts);
+
+    // Sort posts by start date
+    usort($acf_posts, function ($a, $b) {
+        return $a->acf['date'] - $b->acf['date'];
+    });
 
     return $acf_posts;
 }

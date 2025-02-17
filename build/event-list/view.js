@@ -27,6 +27,7 @@
 /* eslint-disable no-console */
 
 const block_div = document.querySelector(".wp-block-harvestworks-event-list");
+let page = 0;
 function dateFromACFField(date) {
   if (!date) return null;
   const year = date.substring(0, 4);
@@ -91,13 +92,40 @@ function eventCard(event) {
   }
 }
 async function getEvents() {
+  page = 0;
   let dateparam = new URL(window.location.href).searchParams.get("date");
   const queryURL = `/wp-json/wp/v2/events${dateparam ? `?date=${dateparam}` : ""}`;
   const events = await (await fetch(queryURL)).json();
   block_div.innerHTML = events.map(e => eventCard(e)).join("");
+  if (events.length < 10) {
+    getNextPage();
+  }
+}
+async function getNextPage() {
+  page++;
+  let dateparam = new URL(window.location.href).searchParams.get("date");
+  if (!dateparam) {
+    dateparam = new Date().getFullYear() + '' + (new Date().getMonth() + 1) + '' + new Date().getDate();
+  }
+  let newMonth = parseInt(dateparam.substring(4, 6)) + page;
+  const newYear = parseInt(dateparam.substring(0, 4)) + Math.floor(newMonth / 12);
+  newMonth = newMonth % 12;
+  dateparam = newYear + '' + newMonth + '01';
+  const queryURL = `/wp-json/wp/v2/events${dateparam ? `?date=${dateparam}` : ""}`;
+  const events = await (await fetch(queryURL)).json();
+  block_div.innerHTML += events.map(e => eventCard(e)).join("");
+}
+let fetching = false;
+async function checkScroll() {
+  if (!fetching && window.innerHeight + window.scrollY >= block_div.clientHeight * 0.8) {
+    fetching = true;
+    await getNextPage();
+    fetching = false;
+  }
 }
 document.addEventListener("DOMContentLoaded", getEvents);
 window.addEventListener("popstate", getEvents);
+window.addEventListener("scroll", checkScroll);
 
 /* eslint-enable no-console */
 /******/ })()
