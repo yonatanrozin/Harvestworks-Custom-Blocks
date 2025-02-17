@@ -45,6 +45,8 @@ async function calendarSetup() {
   const dayParam = url.searchParams.get("date");
   fetch("/wp-json/wp/v2/month/?date=" + dayParam).then(res => res.json()).then(events => {
     for (const cell of cells) {
+      //cell represented date = viewed year/month on calendar + cell id as day
+      const cellDate = new Date(year, month, cell.id).toISOString().split("T")[0].split("-").join("");
       for (const i in events) {
         const event = events[i];
         try {
@@ -60,7 +62,7 @@ async function calendarSetup() {
             break;
           } else cell.classList.remove("has_event");
         } catch (e) {
-          console.error(e.message, event.title.rendered, event);
+          console.error(e.message, event);
           continue;
         }
       }
