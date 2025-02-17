@@ -134,7 +134,7 @@ function get_events(WP_REST_Request $request)
     // );
 
 
-    $posts = array_merge([], get_posts($query_args1), get_posts($query_args2));
+    $posts = array_merge(get_posts($query_args1) ?? [], get_posts($query_args2) ?? []);
 
 
 
