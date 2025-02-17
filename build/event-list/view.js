@@ -138,6 +138,9 @@ async function getNextPage() {
   });
   events = [events, newEvents].flat();
   block_div.innerHTML += newEvents.map(e => eventCard(e)).join("");
+  if (events.length < 10) {
+    getNextPage();
+  }
 }
 let fetching = false;
 async function checkScroll() {

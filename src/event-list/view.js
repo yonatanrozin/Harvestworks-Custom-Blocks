@@ -138,6 +138,10 @@ async function getNextPage() {
 
 
     block_div.innerHTML += newEvents.map(e => eventCard(e)).join("");
+
+    if (events.length < 10) {
+        getNextPage();
+    }
 }
 
 let fetching = false
