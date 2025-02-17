@@ -112,7 +112,7 @@ async function getNextPage() {
     newEvents = await (await fetch(queryURL)).json();
 
     newEvents = newEvents.filter(function (item, pos, self) {
-        return !events.includes();
+        return !events.includes(item);
     });
 
     events = [...events, ...newEvents];

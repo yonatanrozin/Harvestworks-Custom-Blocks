@@ -116,7 +116,7 @@ async function getNextPage() {
   const queryURL = `/wp-json/wp/v2/events?date=${dateparam}`;
   newEvents = await (await fetch(queryURL)).json();
   newEvents = newEvents.filter(function (item, pos, self) {
-    return !events.includes();
+    return !events.includes(item);
   });
   events = [...events, ...newEvents];
   block_div.innerHTML += newEvents.map(e => eventCard(e)).join("");
