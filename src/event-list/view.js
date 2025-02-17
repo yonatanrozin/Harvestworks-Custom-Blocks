@@ -23,7 +23,6 @@
 /* eslint-disable no-console */
 
 const block_div = document.querySelector(".wp-block-harvestworks-event-list");
-let page = 0;
 
 function dateFromACFField(date) {
     if (!date) return null;
@@ -77,12 +76,15 @@ function eventCard(event) {
     }
 }
 
+let page = 0;
+let events = [];
+
 async function getEvents() {
     page = 0;
     let dateparam = new URL(window.location.href).searchParams.get("date");
     const queryURL = `/wp-json/wp/v2/events${dateparam ? `?date=${dateparam}` : ""}`;
 
-    const events = await (await fetch(queryURL)).json();
+    events = await (await fetch(queryURL)).json();
     block_div.innerHTML = events.map(e => eventCard(e)).join("");
 
     if (events.length < 10) {
@@ -106,7 +108,8 @@ async function getNextPage() {
 
     const queryURL = `/wp-json/wp/v2/events${dateparam ? `?date=${dateparam}` : ""}`;
 
-    const events = await (await fetch(queryURL)).json();
+    events = [...events, ...(await (await fetch(queryURL)).json())];
+    events = [...new Set(events)];
     block_div.innerHTML += events.map(e => eventCard(e)).join("");
 }
 
