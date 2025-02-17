@@ -41,8 +41,31 @@ function dateFromACFField(date) {
   if (jsdate == "Invalid Date") return null;
   return jsdate;
 }
-function calendarSetup(events = window.hw_events) {
-  window.hw_events = events;
+async function calendarSetup() {
+  const dayParam = url.searchParams.get("date");
+  fetch("/wp-json/wp/v2/month/?date=" + dayParam).then(res => res.json()).then(events => {
+    for (const cell of cells) {
+      for (const i in events) {
+        const event = events[i];
+        try {
+          const {
+            date,
+            end_date
+          } = event.acf;
+          const start = date.value;
+          const end = end_date?.value;
+          const hasEvent = cellDate >= start && cellDate <= (end !== null && end !== void 0 ? end : start);
+          if (hasEvent) {
+            cell.classList.add("has_event");
+            break;
+          } else cell.classList.remove("has_event");
+        } catch (e) {
+          console.error(e.message, event.title.rendered, event);
+          continue;
+        }
+      }
+    }
+  });
   const dateSearch = url.searchParams.get("date") || new Date().toISOString().split('T')[0].split("-").join("");
   const month = dateView.getMonth();
   const year = dateView.getFullYear();
@@ -73,26 +96,7 @@ function calendarSetup(events = window.hw_events) {
       history.pushState({}, "", url);
       window.dispatchEvent(new PopStateEvent("popstate"));
     }
-    for (const i in events) {
-      const event = events[i];
-      try {
-        const {
-          date,
-          end_date
-        } = event.acf;
-        const start = date.value;
-        const end = end_date?.value;
-        const hasEvent = cellDate >= start && cellDate <= (end !== null && end !== void 0 ? end : start);
-        cell.onclick = setURLDateQuery;
-        if (hasEvent) {
-          cell.classList.add("has_event");
-          break;
-        } else cell.classList.remove("has_event");
-      } catch (e) {
-        console.error(e.message, event.title.rendered, event);
-        continue;
-      }
-    }
+    cell.onclick = setURLDateQuery;
   }
   const firstOfMonth = new Date(year, month, 1).getDay();
   document.querySelector(".calendar_day").style.gridColumnStart = firstOfMonth + 1;
