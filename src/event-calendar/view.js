@@ -26,8 +26,8 @@ const firstOfMonth = new Date(year, month, 1).getDay();
 
 document.querySelector(".calendar_day").style.gridColumnStart = firstOfMonth + 1;
 document.querySelector("#calendar_date h3").innerHTML =
-dateView.toLocaleString("default", { month: "short" }) + " " +
-dateView.toLocaleString("default", { year: "numeric" });
+    dateView.toLocaleString("default", { month: "short" }) + " " +
+    dateView.toLocaleString("default", { year: "numeric" });
 
 function dateFromACFField(date) {
     const len = date?.length;
@@ -86,18 +86,18 @@ function calendarSetup(events = window.hw_events) {
             const event = events[i];
 
             try {
-                const {date, end_date} = event.acf;
-                
+                const { date, end_date } = event.acf;
+
                 const start = date.value;
                 const end = end_date?.value;
-                
+
                 const hasEvent = cellDate >= start && cellDate <= (end ?? start);
                 cell.onclick = setURLDateQuery;
                 if (hasEvent) {
                     cell.classList.add("has_event");
                     break;
                 } else cell.classList.remove("has_event");
-            } 
+            }
             catch (e) {
                 console.error(e.message, event.title.rendered, event);
                 continue;
@@ -126,6 +126,6 @@ document.getElementById("nextMonthButton").addEventListener("click", nextMonth)
 document.getElementById("prevMonthButton").addEventListener("click", prevMonth)
 
 window.addEventListener("popstate", () => calendarSetup());
-fetch("/wp-json/wp/v2/event").then(res => res.json()).then(calendarSetup);
+fetch("/wp-json/wp/v2/month").then(res => res.json()).then(calendarSetup);
 
 /* eslint-enable no-console */

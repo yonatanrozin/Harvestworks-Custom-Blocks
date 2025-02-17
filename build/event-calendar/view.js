@@ -113,7 +113,7 @@ function prevMonth() {
 document.getElementById("nextMonthButton").addEventListener("click", nextMonth);
 document.getElementById("prevMonthButton").addEventListener("click", prevMonth);
 window.addEventListener("popstate", () => calendarSetup());
-fetch("/wp-json/wp/v2/event").then(res => res.json()).then(calendarSetup);
+fetch("/wp-json/wp/v2/month").then(res => res.json()).then(calendarSetup);
 
 /* eslint-enable no-console */
 /******/ })()
