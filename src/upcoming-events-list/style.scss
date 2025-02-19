@@ -10,7 +10,8 @@
 
 .wp-block-harvestworks-upcoming-events-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 400px));
+    justify-content: center;
     gap: 2.4rem;
     flex-wrap: wrap;
 
