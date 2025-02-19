@@ -27,7 +27,9 @@
 			<div class="featured_item_text">
 				<div class="featured_item_info">
 					<h5 class="featured_item_title"><b><?php echo $post->post_title; ?></b></h5>
-					<p class="featured_item_subtitle"><?= $fields['subtitle'] ?></p>
+					<?php if (isset($fields['subtitle'])): ?>
+						<p class="featured_item_subtitle"><?= $fields['subtitle'] ?></p>
+					<?php endif; ?>
 				</div>
 				<div class="featured_item_details">
 					<h5 class="featured_item_artists"><?= $artists ?></h5>
@@ -49,26 +51,4 @@
 			</div>
 		</a>
 	<?php endforeach; ?>
-
-	<script>
-		const carousel = document.querySelector(".wp-block-harvestworks-events-carousel");
-
-		function isScrolledToRight(element) {
-			return element.scrollLeft + element.clientWidth >= element.scrollWidth;
-		}
-
-		let scrollInterval;
-		function startScrollInterval() {
-			scrollInterval = setInterval(() => {
-				if (isScrolledToRight(carousel)) carousel.scrollLeft = 0;
-				else carousel.scrollBy(1, 0);
-			}, 10000)
-		}
-		function stopScrollInterval() {clearInterval(scrollInterval)}
-
-		carousel.addEventListener("mouseenter", stopScrollInterval);
-		carousel.addEventListener("mouseleave", startScrollInterval);
-
-		startScrollInterval();
-	</script>
 </div>

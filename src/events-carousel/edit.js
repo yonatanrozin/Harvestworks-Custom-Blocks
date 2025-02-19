@@ -31,24 +31,9 @@ import {useSelect} from "@wordpress/data";
  *
  * @return {Element} Element to render.
  */
-export default function Edit({setAttributes}) {
+export default function Edit() {
 
-	const projects_cat = useSelect(select => {
-		const cats = select('core').getEntityRecords('taxonomy', "category");
-		return cats?.find(cat => cat.name === "Project").id;
-	});
-
-	const projects = useSelect(select => select("core").getEntityRecords("postType", "post", {categories: [projects_cat]}));
-
-	if (typeof projects_cat == "number") setAttributes({category_id: projects_cat});
-
-	return (
-		<ul { ...useBlockProps() }>
-			{projects?.map(post => 
-				<li>
-					{post.title.raw}
-				</li>
-			)}
-		</ul>
-	);
+	return <div {...useBlockProps()} style={{display: "flex", alignItems: "center", justifyContent: "center", border: "5px solid black"}}>
+		<h1 style={{textAlign: "center"}}>[Featured items carousel]</h1>
+	</div>;
 }

@@ -8,14 +8,6 @@
   "icon": "images-alt",
   "description": "A scrolling carousel auto-populated with images and information about current/upcoming events.",
   "example": {},
-  "supports": {
-    "html": false
-  },
-  "attributes": {
-    "category_id": {
-      "type": "integer"
-    }
-  },
   "textdomain": "featured-events-carousel",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",

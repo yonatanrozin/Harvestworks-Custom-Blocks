@@ -54,24 +54,21 @@ __webpack_require__.r(__webpack_exports__);
  * @return {Element} Element to render.
  */
 
-function Edit({
-  setAttributes
-}) {
-  const projects_cat = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useSelect)(select => {
-    const cats = select('core').getEntityRecords('taxonomy', "category");
-    return cats?.find(cat => cat.name === "Project").id;
-  });
-  const projects = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useSelect)(select => select("core").getEntityRecords("postType", "post", {
-    categories: [projects_cat]
-  }));
-  if (typeof projects_cat == "number") setAttributes({
-    category_id: projects_cat
-  });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("ul", {
+function Edit() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)(),
-    children: projects?.map(post => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
-      children: post.title.raw
-    }))
+    style: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      border: "5px solid black"
+    },
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
+      style: {
+        textAlign: "center"
+      },
+      children: "[Featured items carousel]"
+    })
   });
 }
 
@@ -205,7 +202,7 @@ module.exports = window["wp"]["i18n"];
   \****************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"harvestworks/events-carousel","version":"0.1.0","title":"Events Carousel","category":"widgets","icon":"images-alt","description":"A scrolling carousel auto-populated with images and information about current/upcoming events.","example":{},"supports":{"html":false},"attributes":{"category_id":{"type":"integer"}},"textdomain":"featured-events-carousel","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"harvestworks/events-carousel","version":"0.1.0","title":"Events Carousel","category":"widgets","icon":"images-alt","description":"A scrolling carousel auto-populated with images and information about current/upcoming events.","example":{},"textdomain":"featured-events-carousel","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ })
 

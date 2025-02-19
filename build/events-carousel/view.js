@@ -25,7 +25,24 @@
  */
 
 /* eslint-disable no-console */
-console.log('Hello World! (from create-block-current_projects_carousel block)');
+
+const carousel = document.querySelector(".wp-block-harvestworks-events-carousel");
+function isScrolledToRight(element) {
+  return element.scrollLeft + element.clientWidth >= element.scrollWidth;
+}
+let scrollInterval;
+function startScrollInterval() {
+  scrollInterval = setInterval(() => {
+    if (isScrolledToRight(carousel)) carousel.scrollLeft = 0;else carousel.scrollBy(1, 0);
+  }, 10000);
+}
+function stopScrollInterval() {
+  clearInterval(scrollInterval);
+}
+carousel.addEventListener("mouseenter", stopScrollInterval);
+carousel.addEventListener("mouseleave", startScrollInterval);
+startScrollInterval();
+
 /* eslint-enable no-console */
 /******/ })()
 ;
