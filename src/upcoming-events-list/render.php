@@ -19,28 +19,10 @@
                     'compare' => '=='
                 ), 
                 array(
-                    'relation' => 'OR',
-                    array(
-                        'relation' => 'AND',
-                        array(
-                            'key' => 'end_date',
-                            'value' => "",
-                            'compare' => '==',
-                            'type' => 'STRING'
-                        ),
-                        array(
-                            'key' => 'date',
-                            'value' => $today,
-                            'compare' => '>=',
-                            'type' => 'DATE'
-                        )
-                    ),
-                    array(
-                        'key' => 'end_date',
-                        'value' => $today,
-                        'compare' => '>=',
-                        'type' => 'DATE'
-                    )
+                    'key' => 'date',
+                    'value' => $today,
+                    'compare' => '>=',
+                    'type' => 'DATE'
                 )
             )
         );
