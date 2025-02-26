@@ -21,13 +21,13 @@
         max-width: 70vw;
         box-sizing: border-box;
         margin: 0px auto;
-        padding: 1.20rem;
+        padding: 1.2rem;
 
         display: flex;
         flex-direction: column;
         gap: 1rem;
 
-        background-color: var(--wp--preset--color--custom-material-3);
+        background-color: var(--wp--preset--color--custom-material-1);
         transition: background-color 0.3s;
 
         &:hover {

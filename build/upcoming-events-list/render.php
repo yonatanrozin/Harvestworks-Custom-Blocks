@@ -84,15 +84,13 @@
                 $type_string = preg_replace('/,([^,]*)$/', ' and$1', $type_string);
                 ?>
 
-                <div>
-                    <p class="event_title">
-                        <?= $post->post_title ?>
-                        <!-- <?php if ($artists): ?><span class="event_artists">by <?= $artists ?></span><?php endif; ?> -->
-                    </p>
-                    <?php if ($date_str !== ''): ?>
-                        <p class='event_date'><?= $date_str ?></p>
-                    <?php endif; ?>
-                </div>
+                <p class="event_title">
+                    <?= $post->post_title ?>
+                    <!-- <?php if ($artists): ?><span class="event_artists">by <?= $artists ?></span><?php endif; ?> -->
+                </p>
+                <?php if ($date_str !== ''): ?>
+                    <p class='event_date'><?= $date_str ?></p>
+                <?php endif; ?>
 
                 <?php if ($tagline != ''): ?>
                     <p class="event_tagline"><?= $tagline ?></p>
