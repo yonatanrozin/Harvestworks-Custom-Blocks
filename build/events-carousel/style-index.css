@@ -20,7 +20,7 @@
 }
 
 .wp-block-harvestworks-events-carousel {
-  height: 24rem;
+  height: 36rem;
   max-height: 100vh;
   overflow: auto;
   display: flex;
@@ -34,7 +34,7 @@
   min-width: 100%;
   min-height: 100%;
   float: left;
-  background-size: auto 100%;
+  background-size: cover;
   background-position: center;
   background-color: black;
   background-repeat: no-repeat;
