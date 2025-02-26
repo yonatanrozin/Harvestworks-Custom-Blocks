@@ -44,6 +44,11 @@ $posts = array_filter($posts, function ($post) use ($today) {
 					<?php if (isset($fields['subtitle'])): ?>
 						<p class="featured_item_subtitle"><?= $fields['subtitle'] ?></p>
 					<?php endif; ?>
+					<?php if (isset($fields['tagline'])): ?>
+						<p class="featured_item_subtitle"><?= $fields['tagline'] ?></p>
+					<?php elseif (isset($fields['subtitle'])): ?>
+						<p class="featured_item_subtitle"><?= $fields['subtitle'] ?></p>
+					<?php endif; ?>
 				</div>
 				<div class="featured_item_details">
 					<p class="featured_item_artists"><?= $artists ?></p>

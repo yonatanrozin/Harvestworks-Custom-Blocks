@@ -6,7 +6,7 @@
 
     $query_args = array(
         "post_type" => "event",
-        "posts_per_page" => 3,
+        "posts_per_page" => 12,
         'meta_key' => 'date',
         'meta_type' => 'DATE',
         'orderby' => 'meta_value',
@@ -42,8 +42,8 @@
 
                 $start_date = get_field("date", $post->ID) ?? '';
                 $start_time = get_field("time", $post->ID) ?? '';
-                $end_date = get_field("end_date", $post->ID) ?? '';
-                $end_time = get_field("end_time", $post->ID) ?? '';
+                $end_date = str_replace(':00', '', get_field("end_date", $post->ID) ?? '');
+                $end_time = str_replace(':00', '', get_field("end_time", $post->ID) ?? '');
 
                 if ($start_date  !== '') {
                     $today = date("Ymd");
@@ -85,14 +85,13 @@
                 ?>
 
                 <div>
-
+                    <p class="event_title">
+                        <?= $post->post_title ?>
+                        <!-- <?php if ($artists): ?><span class="event_artists">by <?= $artists ?></span><?php endif; ?> -->
+                    </p>
                     <?php if ($date_str !== ''): ?>
                         <p class='event_date'><?= $date_str ?></p>
                     <?php endif; ?>
-                    <h4 class="event_title">
-                        <?= $post->post_title ?>
-                        <?php if ($artists): ?><span class="event_artists">by <?= $artists ?></span><?php endif; ?>
-                    </h4>
                 </div>
 
                 <?php if ($tagline != ''): ?>
