@@ -90,7 +90,6 @@
                 </p>
 
                 <p class='event_tagline'>
-
                     <?php if ($date_str !== ''): ?>
                         <span class="event_date">
                             <?= $date_str ?>
