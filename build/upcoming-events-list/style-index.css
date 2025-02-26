@@ -11,6 +11,7 @@
   width: 100vw !important;
   max-width: none !important;
   margin: 0px calc(var(--hw-padding) * -1) !important;
+  padding: 1.2rem;
 }
 .wp-block-harvestworks-upcoming-events-list .upcoming-events {
   display: flex;
