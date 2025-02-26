@@ -100,8 +100,6 @@
                     <?php endif; ?>
                 </p>
 
-
-
             </div>
         </a>
     <?php endforeach; ?>
