@@ -13,6 +13,12 @@
   margin: 0px calc(var(--hw-padding) * -1) !important;
 }
 
+.mission-statement {
+  max-width: var(--gb-container-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .wp-block-harvestworks-events-carousel {
   width: 100vw !important;
   max-width: none !important;
