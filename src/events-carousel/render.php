@@ -39,7 +39,7 @@ $posts = get_posts(array(
 			style="background-image: url('<?php echo $featured_img_url; ?>');">
 			<div class="featured_item_text">
 				<div class="featured_item_info">
-					<p class="featured_item_title"><b><?php echo $post->post_title; ?></b></p>
+					<p class="featured_item_title"><?php echo $post->post_title; ?></p>
 					<?php if (isset($fields['subtitle'])): ?>
 						<p class="featured_item_subtitle"><?= $fields['subtitle'] ?></p>
 					<?php endif; ?>
