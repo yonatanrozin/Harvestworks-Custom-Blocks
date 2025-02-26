@@ -89,14 +89,15 @@
                     <!-- <?php if ($artists): ?><span class="event_artists">by <?= $artists ?></span><?php endif; ?> -->
                 </p>
                 <?php if ($date_str !== ''): ?>
-                    <p class='event_date'><?= $date_str ?></p>
+                    <p class='event_tagline'><?= $date_str ?></p>
+                    <?php if ($tagline != ''): ?>
+                        - <?= $tagline ?>
+                    <?php elseif ($type_string != ''): ?>
+                        - <?= $type_string ?>
+                    <?php endif; ?>
                 <?php endif; ?>
 
-                <?php if ($tagline != ''): ?>
-                    <p class="event_tagline"><?= $tagline ?></p>
-                <?php elseif ($type_string != ''): ?>
-                    <p class="event_tagline"><?= $type_string ?></p>
-                <?php endif; ?>
+
             </div>
         </a>
     <?php endforeach; ?>
