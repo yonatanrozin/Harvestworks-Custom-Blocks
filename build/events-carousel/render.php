@@ -16,20 +16,6 @@ $posts = get_posts(array(
 	<?php foreach ($posts as $post): ?>
 		<?php
 		$fields = get_fields($post);
-
-		$post_type = get_post_type($post->ID);
-
-		$post_type_message = '';
-		if ($post_type == 'event') {
-			$post_type_message = 'Upcoming Event';
-		} elseif ($post_type == 'project') {
-			$post_type_message = $post->post_title;
-		} elseif ($post_type == 'post') {
-			$post_type_message = $post->post_title;
-		} elseif ($post_type == 'page') {
-			$post_type_message = $post->post_title;
-		}
-
 		$post_url = get_post_permalink($post->ID);
 		$featured_img_url = get_the_post_thumbnail_url($post->ID);
 		$post_meta = get_post_meta($post->ID);

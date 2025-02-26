@@ -50,7 +50,7 @@
   display: flex;
   justify-content: space-between;
   font-size: 12px;
-  line-height: 1.2;
+  line-height: 1.4;
 }
 .wp-block-harvestworks-events-carousel a .featured_item_text > .featured_item_info {
   max-width: 500px;
