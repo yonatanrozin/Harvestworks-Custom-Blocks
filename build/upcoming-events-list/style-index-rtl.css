@@ -57,7 +57,7 @@
   font-weight: 400;
 }
 .wp-block-harvestworks-upcoming-events-list .event_card .event_details .event_tagline .event_date {
-  font-weight: 500;
+  font-weight: 600;
 }
 .wp-block-harvestworks-upcoming-events-list .event_card:has(img) .event_details .event_date {
   margin-top: 0rem;
