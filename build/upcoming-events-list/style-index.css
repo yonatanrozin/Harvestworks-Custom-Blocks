@@ -9,17 +9,18 @@
  */
 .wp-block-harvestworks-upcoming-events-list {
   display: flex;
-  justify-content: center;
+  justify-content: left;
+  margin-right: auto;
+  margin-left: auto;
   overflow-x: auto;
   overflow-y: hidden;
   gap: 2.4rem;
   flex-wrap: nowrap;
-  max-width: 1600px;
 }
 .wp-block-harvestworks-upcoming-events-list .event_card {
-  max-width: 70vw;
+  width: 24rem;
   box-sizing: border-box;
-  margin: 0px auto;
+  margin: 0px;
   padding: 1.2rem;
   display: flex;
   flex-direction: column;
