@@ -11,7 +11,6 @@
   width: 100vw !important;
   max-width: none !important;
   margin: 0px calc(var(--hw-padding) * -1) !important;
-  padding: 1.2rem;
 }
 .wp-block-harvestworks-upcoming-events-list .upcoming-events {
   display: flex;
@@ -22,6 +21,7 @@
   overflow-y: hidden;
   gap: 2.4rem;
   flex-wrap: nowrap;
+  padding: 2.4rem;
 }
 .wp-block-harvestworks-upcoming-events-list .upcoming-events .event_card {
   width: 24rem;
