@@ -20,16 +20,13 @@
 }
 
 .wp-block-harvestworks-events-carousel {
-  width: 100vw !important;
-  max-width: none !important;
-  height: 500px;
+  height: 24rem;
   max-height: 100vh;
   overflow: auto;
   display: flex;
   scrollbar-width: none;
   scroll-snap-type: both mandatory;
   scroll-behavior: smooth;
-  margin: 0px calc(var(--hw-padding) * -1) !important;
   box-sizing: border-box;
 }
 .wp-block-harvestworks-events-carousel a {
