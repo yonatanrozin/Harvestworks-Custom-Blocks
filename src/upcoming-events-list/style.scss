@@ -9,11 +9,15 @@
 // $mobile-breakpoint: 767px;
 
 .wp-block-harvestworks-upcoming-events-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 400px));
+    // display: grid;
+    // grid-template-columns: repeat(auto-fit, minmax(15rem, 400px));
+    // justify-content: center;
+    display: flex;
     justify-content: center;
+    overflow-x: auto;
+    overflow-y: hidden;
     gap: 2.4rem;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 
     max-width: 1600px;
 
