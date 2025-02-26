@@ -36,6 +36,9 @@
      object-fit: cover;
   width: 100%;
 }
+.wp-block-harvestworks-upcoming-events-list .event_card p {
+  margin: 0;
+}
 .wp-block-harvestworks-upcoming-events-list .event_card .event_details {
   display: flex;
   flex-direction: column;
