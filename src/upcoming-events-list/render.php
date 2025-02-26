@@ -90,13 +90,16 @@
                 </p>
 
                 <p class='event_tagline'>
+
                     <?php if ($date_str !== ''): ?>
-                        <?= $date_str ?>
+                        <span class="event_date">
+                            <?= $date_str ?>
+                        </span> -
                     <?php endif; ?>
                     <?php if ($tagline != ''): ?>
-                        - <?= $tagline ?>
+                        <?= $tagline ?>
                     <?php elseif ($type_string != ''): ?>
-                        - <?= $type_string ?>
+                        <?= $type_string ?>
                     <?php endif; ?>
                 </p>
 

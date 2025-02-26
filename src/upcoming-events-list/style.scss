@@ -64,6 +64,11 @@
             .event_tagline {
                 opacity: 0.7;
                 line-clamp: 2;
+                font-weight: 400;
+
+                .event_date {
+                    font-weight: 500;
+                }
             }
         }
 

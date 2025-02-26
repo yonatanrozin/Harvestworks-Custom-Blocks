@@ -54,6 +54,10 @@
 .wp-block-harvestworks-upcoming-events-list .event_card .event_details .event_tagline {
   opacity: 0.7;
   line-clamp: 2;
+  font-weight: 400;
+}
+.wp-block-harvestworks-upcoming-events-list .event_card .event_details .event_tagline .event_date {
+  font-weight: 500;
 }
 .wp-block-harvestworks-upcoming-events-list .event_card:has(img) .event_details .event_date {
   margin-top: 0rem;
