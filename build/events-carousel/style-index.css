@@ -15,8 +15,8 @@
 
 .mission-statement {
   max-width: var(--gb-container-width);
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 .wp-block-harvestworks-events-carousel {
