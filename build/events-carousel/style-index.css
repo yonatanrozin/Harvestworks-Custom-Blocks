@@ -55,12 +55,12 @@
 }
 .wp-block-harvestworks-events-carousel a .featured_item_text > .featured_item_info {
   max-width: 500px;
-  filter: drop-shadow(black 0 2px 0px) drop-shadow(black 0 2px 16px) drop-shadow(black 0 2px 32px);
+  filter: drop-shadow(grey 0 2px 1px) drop-shadow(grey 0 2px 24px) drop-shadow(grey 0 2px 16px);
 }
 .wp-block-harvestworks-events-carousel a .featured_item_text > .featured_item_details {
   text-align: right;
   text-wrap: nowrap;
-  filter: drop-shadow(black 0 2px 0px) drop-shadow(black 0 2px 16px) drop-shadow(black 0 2px 32px);
+  filter: drop-shadow(grey 0 2px 1px) drop-shadow(grey 0 2px 24px) drop-shadow(grey 0 2px 16px);
 }
 .wp-block-harvestworks-events-carousel a .featured_item_text > div {
   flex: 1;
