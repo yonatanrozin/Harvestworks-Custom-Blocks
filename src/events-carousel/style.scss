@@ -5,6 +5,12 @@
  * Replace them with your own styles or remove the file completely.
  */
 
+.full-width {
+	width: 100vw !important;
+	max-width: none !important;
+	margin: 0px calc(var(--hw-padding) * -1) !important;
+}
+
 .wp-block-harvestworks-events-carousel {
 
 	width: 100vw !important;
@@ -17,7 +23,7 @@
 
 	scroll-snap-type: both mandatory;
 	scroll-behavior: smooth;
-	
+
 	margin: 0px calc(var(--hw-padding) * -1) !important;
 
 	box-sizing: border-box;
@@ -48,18 +54,18 @@
 			font-size: 12px;
 			line-height: 1.2;
 
-			background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,.7), black);
+			background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .7), black);
 
-			> .featured_item_info {
+			>.featured_item_info {
 				max-width: 500px;
 			}
 
-			> .featured_item_details {
+			>.featured_item_details {
 				text-align: right;
 				text-wrap: nowrap;
 			}
 
-			> div {
+			>div {
 				flex: 1;
 
 				display: flex;
@@ -67,7 +73,7 @@
 				justify-content: flex-end;
 				gap: .25rem;
 
-				> * {
+				>* {
 					color: white;
 					margin: 0;
 					text-shadow: black 0px 1px 5px;

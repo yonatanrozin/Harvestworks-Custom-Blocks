@@ -7,6 +7,12 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
+.full-width {
+  width: 100vw !important;
+  max-width: none !important;
+  margin: 0px calc(var(--hw-padding) * -1) !important;
+}
+
 .wp-block-harvestworks-events-carousel {
   width: 100vw !important;
   max-width: none !important;
