@@ -9,6 +9,21 @@ $posts = get_posts(array(
 		)
 	)
 ));
+
+$today = date('Ymd');
+$posts = array_filter($posts, function ($post) use ($today) {
+	$fields = get_fields($post);
+	if ($post->post_type == 'event') {
+		$start_date = isset($fields['date']) ? $fields['date'] : '';
+		$end_date = isset($fields['end_date']) ? $fields['end_date'] : $start_date;
+		if ($end_date < $today) {
+			return false;
+		}
+	}
+	return true;
+});
+
+
 ?>
 
 <div <?php echo get_block_wrapper_attributes(); ?>>
