@@ -1,0 +1,95 @@
+/*!*******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/events-carousel/style.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.full-width {
+  width: 100vw !important;
+  max-width: none !important;
+  margin-right: calc(var(--hw-padding) * -1);
+  margin-left: calc(var(--hw-padding) * -1);
+}
+
+.mission-statement {
+  max-width: var(--gb-container-width);
+  margin-right: auto !important;
+  margin-left: auto !important;
+  text-wrap: balance;
+  padding-top: var(--hw-block-padding) !important;
+  padding-bottom: var(--hw-block-padding) !important;
+  margin-top: calc(var(--hw-block-padding) * -1) !important;
+}
+
+.wp-block-harvestworks-events-carousel {
+  height: 42rem;
+  max-height: 50vw;
+  overflow: auto;
+  display: flex;
+  scrollbar-width: none;
+  scroll-snap-type: both mandatory;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+.wp-block-harvestworks-events-carousel a {
+  scroll-snap-align: start;
+  min-width: 100%;
+  min-height: 100%;
+  float: right;
+  background-size: cover;
+  background-position: center;
+  background-color: black;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.wp-block-harvestworks-events-carousel a .featured_item_text {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 2.4rem;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.4;
+}
+.wp-block-harvestworks-events-carousel a .featured_item_text > .featured_item_info {
+  max-width: 50%;
+  position: absolute;
+  bottom: 2.4rem;
+  right: 2.4rem;
+  background-color: var(--wp--preset--color--custom-dark-material-1);
+}
+.wp-block-harvestworks-events-carousel a .featured_item_text > .featured_item_details {
+  max-width: 50%;
+  text-align: left;
+  text-wrap: nowrap;
+  position: absolute;
+  bottom: 2.4rem;
+  left: 2.4rem;
+  background-color: var(--wp--preset--color--custom-dark-material-1);
+}
+.wp-block-harvestworks-events-carousel a .featured_item_text > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.25rem;
+  padding: 0.9rem 1.1rem;
+}
+.wp-block-harvestworks-events-carousel a .featured_item_text > div:empty {
+  display: none;
+}
+.wp-block-harvestworks-events-carousel a .featured_item_text > div p {
+  color: white;
+  margin: 0;
+  display: inline-block;
+  font-size: var(--wp--preset--font-size--normal);
+  font-weight: 600;
+  letter-spacing: 2.5%;
+}
+.wp-block-harvestworks-events-carousel a .featured_item_text > div p:empty {
+  display: none;
+}

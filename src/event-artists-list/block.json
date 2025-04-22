@@ -1,0 +1,20 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "harvestworks/event-artists-list",
+	"version": "0.1.0",
+	"title": "Event Artist(s) List",
+	"category": "widgets",
+	"icon": "images-alt",
+	"description": "Displays information from artist posts associated with the viewed event page.",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "event-artists-list",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}
