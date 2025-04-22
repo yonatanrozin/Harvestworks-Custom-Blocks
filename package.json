@@ -1,7 +1,11 @@
 {
 	"name": "harvestworks",
 	"version": "0.1.0",
+<<<<<<< HEAD
 	"description": "Custom-made components for the Harvestworks website.",
+=======
+	"description": "Example block scaffolded with Create Block tool.",
+>>>>>>> aaf2ff3dafbc50307dd602edbf28ae23dc2fceae
 	"author": "The WordPress Contributors",
 	"license": "GPL-2.0-or-later",
 	"main": "build/index.js",
@@ -21,4 +25,8 @@
 		"howler": "^2.2.4",
 		"pixelarticons": "^1.8.0"
 	}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> aaf2ff3dafbc50307dd602edbf28ae23dc2fceae

@@ -34,6 +34,7 @@
   scroll-behavior: smooth;
   box-sizing: border-box;
 }
+
 .wp-block-harvestworks-events-carousel a {
   scroll-snap-align: start;
   min-width: 100%;
@@ -45,6 +46,7 @@
   background-repeat: no-repeat;
   position: relative;
 }
+
 .wp-block-harvestworks-events-carousel a .featured_item_text {
   width: 100%;
   box-sizing: border-box;
@@ -55,14 +57,16 @@
   font-size: 12px;
   line-height: 1.4;
 }
-.wp-block-harvestworks-events-carousel a .featured_item_text > .featured_item_info {
+
+.wp-block-harvestworks-events-carousel a .featured_item_text>.featured_item_info {
   max-width: 50%;
   position: absolute;
   bottom: 2.4rem;
   right: 2.4rem;
   background-color: var(--wp--preset--color--custom-dark-material-1);
 }
-.wp-block-harvestworks-events-carousel a .featured_item_text > .featured_item_details {
+
+.wp-block-harvestworks-events-carousel a .featured_item_text>.featured_item_details {
   max-width: 50%;
   text-align: left;
   text-wrap: nowrap;
@@ -71,7 +75,8 @@
   left: 2.4rem;
   background-color: var(--wp--preset--color--custom-dark-material-1);
 }
-.wp-block-harvestworks-events-carousel a .featured_item_text > div {
+
+.wp-block-harvestworks-events-carousel a .featured_item_text>div {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -79,10 +84,12 @@
   gap: 0.25rem;
   padding: 0.9rem 1.1rem;
 }
-.wp-block-harvestworks-events-carousel a .featured_item_text > div:empty {
+
+.wp-block-harvestworks-events-carousel a .featured_item_text>div:empty {
   display: none;
 }
-.wp-block-harvestworks-events-carousel a .featured_item_text > div p {
+
+.wp-block-harvestworks-events-carousel a .featured_item_text>div p {
   color: white;
   margin: 0;
   display: inline-block;
@@ -90,6 +97,7 @@
   font-weight: 600;
   letter-spacing: 2.5%;
 }
-.wp-block-harvestworks-events-carousel a .featured_item_text > div p:empty {
+
+.wp-block-harvestworks-events-carousel a .featured_item_text>div p:empty {
   display: none;
 }
