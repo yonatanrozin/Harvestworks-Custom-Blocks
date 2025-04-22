@@ -39,19 +39,17 @@ $posts = array_filter($posts, function ($post) use ($today) { // FIX THIS
 		<a href="<?php echo $post_url; ?>" target="_blank"
 			style="background-image: url('<?php echo $featured_img_url; ?>');">
 			<div class="featured_item_text">
-				<?php if (isset($fields['subtitle'])): ?>
-					<div class="featured_item_info">
-						<p class="featured_item_title"><?php echo $post->post_title; ?></p>
-						<?php if (isset($fields['subtitle'])): ?>
-							<p class="featured_item_subtitle"><?= $fields['subtitle'] ?></p>
-						<?php endif; ?>
-						<?php if (isset($fields['tagline'])): ?>
-							<p class="featured_item_subtitle"><?= $fields['tagline'] ?></p>
-						<?php elseif (isset($fields['subtitle'])): ?>
-							<p class="featured_item_subtitle"><?= $fields['subtitle'] ?></p>
-						<?php endif; ?>
-					</div>
-				<?php endif; ?>
+				<div class="featured_item_info">
+					<p class="featured_item_title"><?php echo $post->post_title; ?></p>
+					<?php if (isset($fields['subtitle'])): ?>
+						<p class="featured_item_subtitle"><?= $fields['subtitle'] ?></p>
+					<?php endif; ?>
+					<?php if (isset($fields['tagline'])): ?>
+						<p class="featured_item_subtitle"><?= $fields['tagline'] ?></p>
+					<?php elseif (isset($fields['subtitle'])): ?>
+						<p class="featured_item_subtitle"><?= $fields['subtitle'] ?></p>
+					<?php endif; ?>
+				</div>
 				<?php if ($fields['date'] || $artists): ?>
 					<div class="featured_item_details"><?php if ($artists): ?>
 							<p class="featured_item_artists"><?= $artists ?></p>
