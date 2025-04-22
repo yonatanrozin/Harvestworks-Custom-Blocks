@@ -8,8 +8,8 @@
 .full-width {
 	width: 100vw !important;
 	max-width: none !important;
-	margin-left: calc(var(--hw-padding) * -1);
-	margin-right: calc(var(--hw-padding) * -1);
+	margin-left: calc(var(--hw-padding) * -1) !important;
+	margin-right: calc(var(--hw-padding) * -1) !important;
 }
 
 .mission-statement {
