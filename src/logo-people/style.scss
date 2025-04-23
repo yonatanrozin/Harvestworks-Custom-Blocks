@@ -27,6 +27,13 @@ $hover-transition-timing: ease-in-out;
 
 $filter-saturate: saturate(2);
 
+.normal-width {
+	max-width: $desktop-max-width;
+	width: $responsive-width;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 
 .wp-block-create-block-logo-people {
 	max-width: $desktop-max-width;
