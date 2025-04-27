@@ -58,17 +58,20 @@
 .wp-block-harvestworks-events-carousel a .featured_item_text > .featured_item_info {
   max-width: 50%;
   position: absolute;
-  bottom: 2.4rem;
-  left: 2.4rem;
+  bottom: 1.2rem;
+  left: 1.8rem;
   background-color: var(--wp--preset--color--custom-dark-material-1);
+}
+.wp-block-harvestworks-events-carousel a .featured_item_text .featured_item_subtitle {
+  font-weight: 400;
 }
 .wp-block-harvestworks-events-carousel a .featured_item_text > .featured_item_details {
   max-width: 50%;
   text-align: right;
   text-wrap: nowrap;
   position: absolute;
-  bottom: 2.4rem;
-  right: 2.4rem;
+  bottom: 1.2rem;
+  right: 1.8rem;
   background-color: var(--wp--preset--color--custom-dark-material-1);
 }
 .wp-block-harvestworks-events-carousel a .featured_item_text > div {
