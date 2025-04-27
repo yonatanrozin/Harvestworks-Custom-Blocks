@@ -59,7 +59,7 @@
   max-width: 50%;
   position: absolute;
   bottom: 1.2rem;
-  right: 1.8rem;
+  right: 1.6rem;
   background-color: var(--wp--preset--color--custom-dark-material-1);
 }
 .wp-block-harvestworks-events-carousel a .featured_item_text .featured_item_subtitle {
@@ -71,7 +71,7 @@
   text-wrap: nowrap;
   position: absolute;
   bottom: 1.2rem;
-  left: 1.8rem;
+  left: 1.6rem;
   background-color: var(--wp--preset--color--custom-dark-material-1);
 }
 .wp-block-harvestworks-events-carousel a .featured_item_text > div {
