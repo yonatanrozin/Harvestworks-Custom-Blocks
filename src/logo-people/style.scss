@@ -1,5 +1,6 @@
 $tablet-breakpoint: 1024px;
-$mobile-breakpoint: 767px;
+$mobile-breakpoint: 900px;
+$small-breakpoint: 620px;
 
 $desktop-max-width: 1200px;
 $responsive-width: 100%;
@@ -92,12 +93,7 @@ $filter-saturate: saturate(2);
 		}
 
 
-		@media (max-width: $tablet-breakpoint) {
-			max-width: 100%;
 
-			margin-left: $tablet-padding;
-			margin-right: $tablet-padding;
-		}
 
 		@media (max-width: $mobile-breakpoint) {
 			display: none;
@@ -165,11 +161,21 @@ $filter-saturate: saturate(2);
 			justify-content: center;
 		}
 
+		@media (max-width: $small-breakpoint) {
+			gap: 3rem !important;
+			padding-left: 4rem;
+			padding-right: 4rem;
+		}
+
 		.peopleOverlay {
 			gap: $mobile-gap;
 
 			@media (max-width: $mobile-breakpoint) {
 				display: flex;
+			}
+
+			@media (max-width: $small-breakpoint) {
+				gap: 3rem !important;
 			}
 		}
 	}

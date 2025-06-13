@@ -52,14 +52,7 @@
   transform: none;
   filter: drop-shadow(15px 15px 0 rgba(167, 173, 139, 0.1));
 }
-@media (max-width: 1024px) {
-  .wp-block-create-block-logo-people .people {
-    max-width: 100%;
-    margin-left: 2rem;
-    margin-right: 2rem;
-  }
-}
-@media (max-width: 767px) {
+@media (max-width: 900px) {
   .wp-block-create-block-logo-people .people {
     display: none;
   }
@@ -99,7 +92,7 @@
     max-width: 100%;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 900px) {
   .wp-block-create-block-logo-people .peopleOverlay {
     display: none;
   }
@@ -108,18 +101,30 @@
   display: none;
   gap: 4rem;
 }
-@media (max-width: 767px) {
+@media (max-width: 900px) {
   .wp-block-create-block-logo-people .mobilePeople {
     display: flex;
     justify-content: center;
   }
 }
+@media (max-width: 620px) {
+  .wp-block-create-block-logo-people .mobilePeople {
+    gap: 3rem !important;
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
 .wp-block-create-block-logo-people .mobilePeople .peopleOverlay {
   gap: 4rem;
 }
-@media (max-width: 767px) {
+@media (max-width: 900px) {
   .wp-block-create-block-logo-people .mobilePeople .peopleOverlay {
     display: flex;
+  }
+}
+@media (max-width: 620px) {
+  .wp-block-create-block-logo-people .mobilePeople .peopleOverlay {
+    gap: 3rem !important;
   }
 }
 .wp-block-create-block-logo-people .spacer {

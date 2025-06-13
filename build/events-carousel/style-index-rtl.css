@@ -25,7 +25,7 @@
 }
 
 .wp-block-harvestworks-events-carousel {
-  height: 42rem;
+  height: 36rem;
   max-height: 50vw;
   overflow: auto;
   display: flex;
@@ -59,8 +59,8 @@
   max-width: 50%;
   position: absolute;
   bottom: 1.2rem;
-  right: 1.6rem;
-  background-color: var(--wp--preset--color--custom-dark-material-1);
+  right: 1.2rem;
+  filter: drop-shadow(black 0 2px 1px) drop-shadow(black 0 2px 12px);
 }
 .wp-block-harvestworks-events-carousel a .featured_item_text .featured_item_subtitle {
   font-weight: 400;
@@ -71,8 +71,8 @@
   text-wrap: nowrap;
   position: absolute;
   bottom: 1.2rem;
-  left: 1.6rem;
-  background-color: var(--wp--preset--color--custom-dark-material-1);
+  left: 1.2rem;
+  filter: drop-shadow(black 0 2px 1px) drop-shadow(black 0 2px 12px);
 }
 .wp-block-harvestworks-events-carousel a .featured_item_text > div {
   flex: 1;
@@ -80,7 +80,7 @@
   flex-direction: column;
   justify-content: flex-end;
   gap: 0.25rem;
-  padding: 0.9rem 1.1rem;
+  padding: 0.6rem 0.8rem;
 }
 .wp-block-harvestworks-events-carousel a .featured_item_text > div:empty {
   display: none;
@@ -95,4 +95,9 @@
 }
 .wp-block-harvestworks-events-carousel a .featured_item_text > div p:empty {
   display: none;
+}
+@media (max-width: 1024px) {
+  .wp-block-harvestworks-events-carousel a .featured_item_text > div p {
+    font-size: var(--wp--preset--font-size--small);
+  }
 }

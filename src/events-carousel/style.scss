@@ -4,6 +4,8 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
+$tablet-breakpoint: 1024px;
+$mobile-breakpoint: 767px;
 
 .full-width {
 	width: 100vw !important;
@@ -24,7 +26,7 @@
 
 .wp-block-harvestworks-events-carousel {
 
-	height: 42rem;
+	height: 36rem;
 	max-height: 50vw;
 	overflow: auto;
 	display: flex;
@@ -62,9 +64,10 @@
 				max-width: 50%;
 				position: absolute;
 				bottom: 1.2rem;
-				left: 1.6rem;
-				background-color: var(--wp--preset--color--custom-dark-material-1);
+				left: 1.2rem;
+				// background-color: var(--wp--preset--color--custom-dark-material-1);
 				// filter: drop-shadow(grey 0 2px 1px) drop-shadow(grey 0 2px 24px) drop-shadow(grey 0 2px 16px);
+				filter: drop-shadow(black 0 2px 1px) drop-shadow(black 0 2px 12px);
 			}
 
 			.featured_item_subtitle {
@@ -77,9 +80,10 @@
 				text-wrap: nowrap;
 				position: absolute;
 				bottom: 1.2rem;
-				right: 1.6rem;
-				background-color: var(--wp--preset--color--custom-dark-material-1);
+				right: 1.2rem;
+				// background-color: var(--wp--preset--color--custom-dark-material-1);
 				// filter: drop-shadow(grey 0 2px 1px) drop-shadow(grey 0 2px 24px) drop-shadow(grey 0 2px 16px);
+				filter: drop-shadow(black 0 2px 1px) drop-shadow(black 0 2px 12px);
 			}
 
 			>div {
@@ -89,7 +93,7 @@
 				flex-direction: column;
 				justify-content: flex-end;
 				gap: .25rem;
-				padding: 0.9rem 1.1rem;
+				padding: 0.6rem 0.8rem;
 
 				&:empty {
 					display: none;
@@ -107,6 +111,13 @@
 						display: none;
 					}
 				}
+
+				@media (max-width: $tablet-breakpoint) {
+					p {
+						font-size: var(--wp--preset--font-size--small);
+					}
+				}
+
 			}
 		}
 	}
