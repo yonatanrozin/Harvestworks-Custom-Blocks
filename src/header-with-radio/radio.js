@@ -45,6 +45,7 @@ export class Radio {
             titleEl: document.querySelector('.title.radioPart'),
             titleWrapperEl: document.querySelector('.titleWrapper'),
             timeEl: document.querySelector('.time.radioPart'),
+            tooltipEl: document.querySelector('.radioTooltip'),
 
             // Control hooks
             buttonEl: document.querySelector('.radioButton'),
@@ -148,7 +149,10 @@ export class Radio {
     // Setup
 
     parseAudioUrls() {
-        const urls = this.elements.urlEl.textContent;
+        let urls = this.elements.urlEl.textContent;
+
+        urls = atob(urls);
+
         this.trackList = urls.split('\n')
             .filter((url) => // Filter whitespace
                 url.trim() !== ''
@@ -156,7 +160,13 @@ export class Radio {
                 url.replaceAll("[audio src=\"", "")
                     .replaceAll("\" /]", "")
                     .trim()
-            );
+            ).map((url) => { // Switch to current host
+                if (url.startsWith('http')) {
+                    return this.window.location.origin + '/' + url.split('/').slice(3).join('/');
+                }
+            });
+
+
         this.unplayedSongs = this.trackList.flat();
 
         if (!this.trackList.length > 0) {
@@ -256,7 +266,7 @@ export class Radio {
         });
 
         this.sound.on('playerror', () => {
-            this.displayErrorMessage('Playback error. Please enable autoplay.');
+            this.displayErrorMessage('Click play to resume. Enable autoplay for automatic playback.');
             this.log('Playback error ' + this.sound._src + ' at ' + this.sound.seek());
             this.isDisplayingPaused = true;
         });
@@ -381,9 +391,12 @@ export class Radio {
         this.updateDurationDisplay();
         this.mediaTags.read(src, {
             onSuccess: function (tag) {
+                // Update main title display
                 if (self.debug)
                     console.log('[RADIO] Found metadata: ', tag);
-                var album = tag.tags.album;
+                var album = '';
+                if (tag.tags.album)
+                    album = tag.tags.album;
                 if (tag.tags.year)
                     album += '&nbsp;&nbsp;&nbsp;(' + tag.tags.year + ')';
 
@@ -395,10 +408,42 @@ export class Radio {
                 albumEl.innerHTML = album;
                 albumEl.classList.add('radioPart', 'album');
                 self.elements.titleEl.appendChild(albumEl);
+
+                // Update tooltip display
+                if (self.elements.tooltipEl) {
+                    self.elements.tooltipEl.innerHTML = '';
+
+
+                    const titleTooltip = self.document.createElement('p');
+                    titleTooltip.innerHTML = tag.tags.title + (tag.tags.artist ? ' by ' + tag.tags.artist : '');
+                    titleTooltip.style.fontSize = '18px';
+                    titleTooltip.style.fontWeight = 'bold';
+                    self.elements.tooltipEl.appendChild(titleTooltip);
+
+                    Object.keys(tag.tags).forEach((key) => {
+                        if (key === 'picture')
+                            return; // Skip picture tag
+                        if (!tag.tags[key].description || !tag.tags[key].data)
+                            return; // Skip empty tags
+
+
+                        const p = self.document.createElement('p');
+                        p.innerHTML = '<span style="opacity:0.6"> ' + tag.tags[key].description + '</span> ' + tag.tags[key].data.replaceAll(' ', '&nbsp;');
+                        self.elements.tooltipEl.appendChild(p);
+                    });
+                    const disclaimerEl = self.document.createElement('p');
+                    disclaimerEl.style.lineHeight = '13px';
+                    disclaimerEl.style.paddingTop = '6px';
+                    disclaimerEl.style.paddingBottom = '4px';
+                    disclaimerEl.innerHTML = '<span style="opacity:1; font-size:12.5px;">This radio explores archived recordings from the Harvestworks studio. We’ve made efforts to obtain express permission where possible. For questions, contact carol.parkinson@harvestworks.org</span>';
+                    self.elements.tooltipEl.appendChild(disclaimerEl);
+
+                }
+
             },
             onError: function (error) {
                 this.displayErrorMessage('No information found for this track.');
-                this.log(':(', error.type, error.info);
+                console.log('[RADIO] No information found for this track.', error.type, error.info);
             }
         });
     }

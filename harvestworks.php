@@ -33,7 +33,7 @@ function harvestworks_harvestworks_block_init()
 	register_block_type(__DIR__ . '/build/event-information');
 	register_block_type(__DIR__ . '/build/project-information');
 	register_block_type(__DIR__ . '/build/artist-information');
-	register_block_type(__DIR__ . '/build/logo-people');
+	register_block_type(__DIR__ . '/build/header-with-radio');
 	register_block_type(__DIR__ . '/build/navigation-sidebar');
 	register_block_type(__DIR__ . '/build/navigation-overlay');
 	register_block_type(__DIR__ . '/build/artist-events-list');

@@ -6,7 +6,7 @@
 	"title": "Logo People",
 	"category": "widgets",
 	"icon": "groups",
-	"description": "The dynamic pixel people of the Harvestworks logo.",
+	"description": "The dynamic pixel people of the Harvestworks logo. Plus, our radio!",
 	"example": {},
 	"supports": {
 		"html": false,

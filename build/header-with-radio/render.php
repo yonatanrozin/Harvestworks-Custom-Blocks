@@ -47,7 +47,7 @@ $mobile_images = [
 $active_classname = 'monochrome shadow';
 $inactive_classname = 'color no_shadow';
 
-$radioUrls = $attributes['audioFiles'];
+$radioUrls = base64_encode($attributes['audioFiles']);
 
 ?>
 
@@ -134,6 +134,11 @@ $radioUrls = $attributes['audioFiles'];
 					<span class="radioPart album">
 					</span>
 				</p>
+			</div>
+			<div class="radioTooltipWrapper">
+				<div class="radioTooltip">
+
+				</div>
 			</div>
 		</div>
 
