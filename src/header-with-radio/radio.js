@@ -46,6 +46,7 @@ export class Radio {
             titleWrapperEl: document.querySelector('.titleWrapper'),
             timeEl: document.querySelector('.time.radioPart'),
             tooltipEl: document.querySelector('.radioTooltip'),
+            controlSectionEl: document.querySelector('.radioPart.controls'),
 
             // Control hooks
             buttonEl: document.querySelector('.radioButton'),
@@ -123,7 +124,7 @@ export class Radio {
 
     log(message) {
         if (this.debug)
-            console.log('[RADIO] ' + message);
+            console.log('[RADIO] ' + message.replace(/https?:\/\/[^\s\/]+(?:\/[^\s\/]+)*\/([^\/\s]+)/, '$1'));
     }
 
     displayErrorMessage(message) {
@@ -175,6 +176,15 @@ export class Radio {
     }
 
     // Controls
+
+    temporarilyDisableControls() {
+        this.elements.controlSectionEl.style.opacity = '0.6';
+        this.elements.controlSectionEl.style.pointerEvents = 'none';
+        setTimeout(() => {
+            this.elements.controlSectionEl.style.opacity = '1';
+            this.elements.controlSectionEl.style.pointerEvents = 'all';
+        }, 333);
+    }
 
     hasRecoveredSong() {
         return this.recoveredSong && this.recoveredTimestamp && this.recoveredSong.trim() != '' && this.recoveredTimestamp.trim() != '';
@@ -340,30 +350,34 @@ export class Radio {
     }
 
     pauseSong() {
+        this.temporarilyDisableControls();
         if (!this.sound)
             return this.playNextSong(false);
         if (!this.sound.playing())
-            return this.log('Couldn\'t pause, already stopped');
+            return this.resumeSong();
         this.sound.pause();
     }
 
     resumeSong() {
+        this.temporarilyDisableControls();
         if (!this.sound && this.hasRecoveredSong())
             return this.resumeRecoveredSong();
         if (!this.sound)
             return this.playNextSong(true);
         if (this.sound && this.sound.playing())
-            return this.log('Couldn\'t resume, already playing');
+            return this.pauseSong();
         this.sound.play();
     }
 
     nextSong() {
+        this.temporarilyDisableControls();
         if (!this.sound)
             return this.playNextSong(true);
         this.sound.seek(this.sound._duration - 0.1);
     }
 
     prevSong() {
+        this.temporarilyDisableControls();
         const history = this.songHistory;
         if ((this.sound && this.sound.seek() > this.RESTART_VS_PREV_TIMEOUT)) {
             this.log('Seeking to start of song.');
