@@ -5,7 +5,7 @@
  * Description:       A series of blocks created for the Harvestworks website.
  * Requires at least: 6.6
  * Requires PHP:      7.2
- * Version:           0.2.0
+ * Version:           1.0.0
  * Author:            Yonatan Rozin, Alexander Yang
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -18,32 +18,103 @@ if (! defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
 
-/**
- * Registers the block using the metadata loaded from the `block.json` file.
- * Behind the scenes, it registers also all assets so they can be enqueued
- * through the block editor in the corresponding context.
- *
- * @see https://developer.wordpress.org/reference/functions/register_block_type/
- */
-function harvestworks_harvestworks_block_init()
+function hw_blocks_init()
 {
-	register_block_type(__DIR__ . '/build/event-calendar');
-	register_block_type(__DIR__ . '/build/event-list');
-	register_block_type(__DIR__ . '/build/events-carousel');
-	register_block_type(__DIR__ . '/build/event-information');
-	register_block_type(__DIR__ . '/build/project-information');
-	register_block_type(__DIR__ . '/build/artist-information');
-	register_block_type(__DIR__ . '/build/logo-people');
-	register_block_type(__DIR__ . '/build/navigation-sidebar');
 	register_block_type(__DIR__ . '/build/navigation-overlay');
-	register_block_type(__DIR__ . '/build/artist-events-list');
-	register_block_type(__DIR__ . '/build/event-artists-list');
-	register_block_type(__DIR__ . '/build/associated-events-list');
-	register_block_type(__DIR__ . '/build/upcoming-events-list');
-}
-add_action('init', 'harvestworks_harvestworks_block_init');
+	register_block_type(__DIR__ . '/build/program-category-artists-list');
+	register_block_type(__DIR__ . '/build/program-category-artist');
+	register_block_type(__DIR__ . '/build/program-category-artist-message');
 
-// Include the functions.php file
-require_once plugin_dir_path(__FILE__) . '/src/navigation-sidebar/functions.php';
-require_once plugin_dir_path(__FILE__) . '/src/event-list/functions.php';
-require_once plugin_dir_path(__FILE__) . '/src/event-calendar/functions.php';
+}
+
+function hw_acf_blocks_init() {
+	register_block_type(__DIR__. '/blocks/logo-people-banner');
+	register_block_type(__DIR__. '/blocks/upcoming-events');
+	register_block_type(__DIR__. '/blocks/event-information');
+	register_block_type(__DIR__. '/blocks/event-status');
+
+}
+add_action('init', 'hw_blocks_init');
+add_action('acf/init', 'hw_acf_blocks_init');
+
+
+//======HW BLOCK FIELDS=========
+
+
+add_action( 'acf/include_fields', function() {
+	if ( ! function_exists( 'acf_add_local_field_group' ) ) {
+		return;
+	}
+
+	acf_add_local_field_group( array(
+		'key' => 'group_694c51a613348',
+		'title' => 'People Logo Banner',
+		'fields' => array(
+			array(
+				'key' => 'field_694c51a6d6560',
+				'label' => 'Audio Files',
+				'name' => 'audio_files',
+				'aria-label' => '',
+				'type' => 'repeater',
+				'instructions' => 'Choose one or more audio files from the media library to include in the radio, separated by new lines. (Loudness Normalize to -3dBFS and ensure ends are trimmed to <1sec)',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'layout' => 'table',
+				'pagination' => 0,
+				'min' => 0,
+				'max' => 0,
+				'collapsed' => '',
+				'button_label' => 'Add Row',
+				'rows_per_page' => 20,
+				'sub_fields' => array(
+					array(
+						'key' => 'field_694c5351fb38b',
+						'label' => 'File',
+						'name' => 'file',
+						'aria-label' => '',
+						'type' => 'file',
+						'instructions' => '',
+						'required' => 1,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'return_format' => 'url',
+						'library' => 'all',
+						'min_size' => '',
+						'max_size' => '',
+						'mime_types' => '.mp3, .wav',
+						'allow_in_bindings' => 0,
+						'parent_repeater' => 'field_694c51a6d6560',
+					),
+				),
+			),
+		),
+		'location' => array(
+			array(
+				array(
+					'param' => 'block',
+					'operator' => '==',
+					'value' => 'hw/logo-people-banner',
+				),
+			),
+		),
+		'menu_order' => 0,
+		'position' => 'normal',
+		'style' => 'default',
+		'label_placement' => 'top',
+		'instruction_placement' => 'label',
+		'hide_on_screen' => '',
+		'active' => true,
+		'description' => '',
+		'show_in_rest' => 0,
+		'display_title' => '',
+	) );
+} );

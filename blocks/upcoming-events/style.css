@@ -1,0 +1,8 @@
+.wp-block-hw-upcoming-events  {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+
+    .wp-block-template-part {
+        margin: 0;
+    }
+}

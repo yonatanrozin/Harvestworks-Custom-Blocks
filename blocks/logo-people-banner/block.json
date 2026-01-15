@@ -1,0 +1,19 @@
+{
+	"apiVersion": 3,
+	"name": "hw/logo-people-banner",
+	"title": "Logo People Banner",
+	"icon": "groups",
+	"description": "The dynamic pixel people of the Harvestworks logo.",
+	"supports": {
+		"html": false,
+		"spacing": {
+			"margin": true
+		}
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	},
+	"style": "file:./style.css",
+	"viewScript": "file:./view.js"
+}

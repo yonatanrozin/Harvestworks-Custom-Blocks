@@ -1,0 +1,17 @@
+{
+	"apiVersion": 2,
+	"name": "hw/upcoming-events",
+	"title": "Upcoming Events",
+	"description": "Displays information about upcoming events, if any.",
+	"style": "file:./style.css",
+	"supports": {
+		"html": false,
+		"spacing": {
+			"margin": true,
+			"blockGap": true
+		}
+	},
+	"acf": {
+		"renderTemplate": "render.php"
+	}
+}

@@ -14,6 +14,19 @@ import { __ } from '@wordpress/i18n';
  */
 import { useBlockProps } from '@wordpress/block-editor';
 
+import { InspectorControls } from '@wordpress/block-editor';
+import { PanelBody, TextareaControl } from '@wordpress/components';
+
+/**
+ * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
+ * Those files can contain any CSS code that gets applied to the editor.
+ *
+ * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
+ */
+import './editor.scss';
+
+import { useEffect, useState } from 'react';
+
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
@@ -26,11 +39,14 @@ export default function Edit({ attributes, setAttributes }) {
 
 	return (
 		<>
+			<InspectorControls>
+
+			</InspectorControls>
 			<div {...useBlockProps()}>
-				<div class='nav-overlay-button'>
-					<div class='nav-overlay-button-circle' ></div>
-					<div class='nav-overlay-button-circle' ></div>
-					<div class='nav-overlay-button-circle' ></div>
+				<div class='event-information'>
+					<p class='status'>Event info will appear below</p>
+					<p class='date'>--</p>
+					<p class='location-name'>--</p>
 				</div>
 			</div >
 		</>

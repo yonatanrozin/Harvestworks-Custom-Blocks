@@ -1,0 +1,393 @@
+.wp-block-hw-logo-people-banner {
+
+	--tablet-breakpoint: 1024px;
+	--mobile-breakpoint: 767px;
+	
+	--desktop-max-width: 1600px;
+	--responsive-width: 100%;
+	--max-height: 6rem;
+	
+	--desktop-padding: 6rem;
+	--tablet-padding: 2rem;
+	
+	--gap: 2rem;
+	--mobile-gap: 1rem;
+	
+	--monochrome-person-color: #a7ad8bFF;
+	--separator-color: #a7ad8b;
+	--text-color: #ffffff;
+	
+	--person-opacity-low: 0.25;
+	--person-opacity-high: 1;
+	
+	--drop-shadow-weak: rgba(167, 173, 139, 0.05);
+	--drop-shadow-strong: rgba(167, 173, 139, 0.10);
+	--drop-shadow-hover: rgba(167, 173, 139, 0.05);
+	
+	--hover-transition-duration: 0.5s;
+	--hover-transition-timing: ease-in-out;
+	
+	--filter-saturate: saturate(2);
+
+	max-width: var(--desktop-max-width);
+	width: var(--responsive-width);
+	/* margin-left: auto;
+	margin-right: auto; */
+
+	.people {
+		position: relative;
+		width: 100%;
+
+		height: 100%;
+
+		min-height: 50px;
+
+		max-width: 72rem;
+
+		margin-left: auto;
+		margin-right: auto;
+
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: flex-end;
+		gap: var(--gap);
+
+		overflow: hidden;
+
+		img {
+			height: 100%;
+			max-height: var(--max-height);
+			min-width: 0;
+
+			background-color: transparent;
+		}
+
+		img.no_shadow.monochrome {
+			transform: translateY(-1000px);
+			filter: drop-shadow(0px 1000px 0 var(--monochrome-person-color)) drop-shadow(15px 15px 0 var(--drop-shadow-weak));
+		}
+
+		img.no_shadow.color {
+			transform: none;
+			filter: drop-shadow(15px 15px 0 var(--drop-shadow-weak));
+		}
+
+		img.shadow.monochrome {
+			transform: translateY(-1000px);
+			filter: drop-shadow(0px 1000px 0 var(--monochrome-person-color)) drop-shadow(15px 15px 0 var(--drop-shadow-strong));
+		}
+
+		img.shadow.color {
+			transform: none;
+			filter: drop-shadow(15px 15px 0 var(--drop-shadow-strong));
+		}
+
+
+		@media (max-width: 1024px) {
+			max-width: 100%;
+
+			/* margin-left: var(--tablet-padding);
+			margin-right: var(--tablet-padding); */
+		}
+
+		@media (max-width: 767px) {
+			display: none;
+		}
+
+		&:hover {
+			.peopleOverlay {
+				filter: none;
+				mix-blend-mode: normal;
+				opacity: var(--person-opacity-high);
+			}
+
+			img {
+				filter: drop-shadow(15px 15px 0 var(--drop-shadow-hover)) !important;
+			}
+		}
+
+	}
+
+	.peopleOverlay {
+		position: absolute;
+
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+
+		margin-left: 0;
+		margin-right: 0;
+
+		z-index: 1;
+
+		background-color: transparent;
+		mix-blend-mode: luminosity;
+		opacity: var(--person-opacity-low);
+		transition: opacity var(--hover-transition-duration) var(--hover-transition-timing);
+		filter: var(--filter-saturate);
+
+		img {
+			filter: none !important;
+			transform: none !important;
+		}
+
+		img.color {
+			opacity: 0;
+		}
+
+		@media (max-width: 1024px) {
+			max-width: 100%;
+		}
+
+		@media (max-width: 767px) {
+			display: none;
+		}
+	}
+
+
+
+	.mobilePeople {
+		display: none;
+		gap: var(--mobile-gap);
+
+		@media (max-width: 767px) {
+			display: flex;
+			justify-content: center;
+		}
+
+		.peopleOverlay {
+			gap: var(--mobile-gap);
+
+			@media (max-width: 767px) {
+				display: flex;
+			}
+		}
+	}
+
+	.spacer {
+		height: 24px;
+		background-color: var(--separator-color);
+
+		padding-left: 2px;
+		padding-right: 6px;
+
+		display: flex;
+		justify-content: right;
+		align-items: center;
+		gap: 12px;
+
+
+		font-family: "Pixelify Sans", sans-serif;
+		font-size: 18px;
+		font-weight: 500;
+
+		font-optical-sizing: auto;
+		font-style: normal;
+		color: var(--text-color);
+
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+
+		.section {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			gap: 26px;
+		}
+
+		svg {
+			height: 14px;
+			width: 16px;
+			transform: scale(1.6);
+
+			path,
+			polygon,
+			rect {
+				fill: var(--text-color);
+			}
+
+			&.play.radioPart {
+				cursor: pointer;
+				display: none;
+				margin-left: 6px;
+				margin-right: 6px;
+				transform: scaleX(2.2) scaleY(1.5);
+			}
+
+			&.pause.radioPart {
+				cursor: pointer;
+				margin-left: 6px;
+				margin-right: 6px;
+				transform: scaleX(1.6) scaleY(1.5);
+			}
+
+			&.skip.radioPart {
+				cursor: pointer;
+				transform: scaleX(1.6) scaleY(1.5);
+			}
+
+			&.prev.radioPart {
+				cursor: pointer;
+				transform: scaleX(1.6) scaleY(1.5);
+			}
+
+			&.icon {
+				transform: scaleX(1.6) scaleY(1.6);
+				margin-left: 4px;
+			}
+
+			&.headphones {
+				transform: scale(1.6);
+				z-index: 2;
+			}
+
+		}
+
+		.radioPart {
+			display: none;
+		}
+
+		.radioButton {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			position: relative;
+			cursor: pointer;
+
+			width: 16px;
+			height: 30px;
+		}
+
+		&.active {
+			justify-content: space-between;
+
+			.radioPart {
+				display: inline;
+			}
+
+			.section {
+				display: flex;
+				align-items: center;
+				min-width: 0;
+			}
+
+
+
+			.radioButton {
+				path {
+					fill: var(--separator-color);
+				}
+
+				.headphonesBg {
+					position: absolute;
+					top: 0;
+					left: 0;
+					right: 0;
+					bottom: 0;
+
+					transform: scale(1.4, 0.62);
+
+					background-color: var(--text-color);
+				}
+			}
+		}
+
+
+
+		.infoSection {
+			flex-shrink: 1;
+			overflow: hidden;
+			justify-content: left;
+
+			.icon {
+				flex-shrink: 0;
+			}
+
+			.titleWrapper {
+				margin-left: -16px;
+				position: relative;
+
+				white-space: nowrap;
+				overflow: hidden;
+
+				min-width: 0;
+			}
+
+			.title {
+				display: inline-block;
+				position: relative;
+				padding-inline-end: 6px;
+			}
+
+			.album {
+				margin-left: 16px;
+				opacity: 0.6;
+			}
+
+			.scrolling {
+				animation: move 12s infinite alternate ease-in-out;
+			}
+
+			@keyframes move {
+
+				0%,
+				20% {
+					transform: translateX(0%);
+					left: 0%;
+				}
+
+				80%,
+				100% {
+					transform: translateX(-100%);
+					left: 100%;
+				}
+			}
+		}
+
+		.controlSection {
+			flex-shrink: 0;
+			justify-content: center;
+
+			.time {
+				font-family: "tiny5", sans-serif;
+				font-weight: 400;
+				font-size: 18px;
+				justify-self: right;
+				margin-right: 8px;
+			}
+
+			.controls {
+				gap: 6px;
+			}
+
+
+		}
+
+
+
+		&.pause {
+			.pause {
+				display: none;
+			}
+
+			.play {
+				display: inline !important;
+			}
+		}
+	}
+
+	a {
+		position: absolute;
+
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+
+		z-index: 2;
+	}
+}

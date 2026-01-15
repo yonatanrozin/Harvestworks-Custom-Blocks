@@ -1,11 +1,11 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "create-block/navigation-overlay",
+	"name": "hw/navigation-overlay",
 	"version": "0.1.1",
 	"title": "Navigation Overlay",
 	"category": "widgets",
-	"icon": "list",
+	"icon": "menu",
 	"description": "A button-activated overlay with the primary site navigation.",
 	"example": {},
 	"supports": {
@@ -18,7 +18,6 @@
 	},
 	"textdomain": "navigation-overlay",
 	"editorScript": "file:./index.js",
-	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
 	"render": "file:./render.php",
 	"viewScript": "file:./view.js"
